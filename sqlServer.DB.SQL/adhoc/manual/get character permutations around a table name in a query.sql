@@ -1,12 +1,13 @@
 /*
-Nothing is entered. This just returns the permutations of characters that can occur on the left and right of a table name within a query. 
-
-These characters help to search queries for tables. Combine these with the table name to help you focus on searching for only that table. 
+purpose: Provides the permutations of characters that can occur on the left and right of a table, view, and UDF (returns table) name within a query. 
+         These characters help to search queries for tables, views, and UDFs. 
+parameter: none 
+return: Table with permutations of characters that can occur on the left and right of a table, view, and UDF (returns table) name within a query.
 */
 
 -- clean up
-IF OBJECT_ID('tempdb..#permutation') IS NOT NULL
-    DROP TABLE #permutation
+IF OBJECT_ID('tempdb..##CharBorderOnTablePermutation') IS NOT NULL
+    DROP TABLE ##CharBorderOnTablePermutation
 
 -- note the possible characters that can be on either side
 select	
@@ -43,7 +44,7 @@ Select
 	l.[char] as leftChar,
 	r.[char] as rightChar
 into
-	#permutation
+	##CharBorderOnTablePermutation
 From
 	#left l
 	Cross Join #right r
@@ -61,4 +62,4 @@ IF OBJECT_ID('tempdb..#right') IS NOT NULL
 Select
 	*
 From
-	#permutation
+	##CharBorderOnTablePermutation

@@ -11,7 +11,7 @@ Select
 	*,
 	Dense_Rank() Over (Partition By Job_Id Order By alias desc) As aliasPerJob
 Into
-	#jobRunAlias -- job can have more than one alias becaues each step of a job can run as a different alias
+	#jobRunAlias -- job can have more than one alias because each step of a job can run as a different alias
 From
 	(
 		Select Distinct 
