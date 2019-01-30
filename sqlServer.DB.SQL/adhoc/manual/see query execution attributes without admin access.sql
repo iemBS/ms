@@ -43,7 +43,7 @@ Select
 Into
 	#who3
 FROM 
-	(Select * From @whotbl Where [Login] = @loginName)  W
+	(Select Distinct * From @whotbl Where [Login] = @loginName)  W
 	Left Outer Join sys.dm_exec_requests der On 
 		der.session_id = w.SPID
 	Outer Apply SYS.dm_exec_sql_text (der.sql_handle) Sql
@@ -55,7 +55,7 @@ Select * From #who3 Where CommandText Not Like '% @whotbl %'
 
 -- Show general tempdb size and usage 
 SELECT 
-	instance_name AS 'Database',
+	instance_name AS 'db',
 	[Data File(s) Size (KB)]/1024 AS [data file size (MB)],
 	[Log File(s) Size (KB)]/1024 AS [log file size (MB)],
 	[Log File(s) Used Size (KB)]/1024 AS [Log file space used by all users (MB)],
@@ -63,7 +63,11 @@ SELECT
 FROM 
 	(
 		SELECT 
-			*
+			object_name,
+			counter_name,
+			instance_name,
+			cntr_value,
+			cntr_type
 		FROM 
 			sys.dm_os_performance_counters
 		WHERE 
@@ -75,7 +79,7 @@ FROM
 				'Used memory (KB)'
 			)
 			AND 
-			instance_name = 'tempdb'
+			object_name = 'SQLServer:Databases'
 	) AS A
 PIVOT
 (
@@ -98,7 +102,8 @@ Begin
 End
 
 SELECT 
-	TBL.name,
+	db_name() as db,
+	TBL.name As TableName,
 	STAT.used_page_count * 8 AS UsedSizeKB,
 	STAT.reserved_page_count * 8 AS RevervedSizeKB 
 Into
@@ -109,13 +114,15 @@ From
 		PART.partition_id = STAT.partition_id 
 		AND 
 		PART.partition_number = STAT.partition_number 
-		INNER JOIN tempdb.sys.tables AS TBL ON 
+	INNER JOIN tempdb.sys.tables AS TBL ON 
 		STAT.object_id = TBL.object_id 
+
+	/* add in usage of data file size for others DBs on server */
 
 -- amount of usage of data file for tempdb 
 Select	
-	Sum(UsedSizeKB) / 1024 As [data file size used by all users (MB)],
-	Sum(RevervedSizeKB) / 1024 As [data file size reserved for all users (MB)]
+	Sum(UsedSizeKB) / 1024 As [tempDB data file size used by all users (MB)],
+	Sum(RevervedSizeKB) / 1024 As [tempDB data file size reserved for all users (MB)]
 From
 	#tempDBdataFileTableSize
 
