@@ -1,0 +1,1 @@
+select state_desc from sys.databases Where state_desc = 'ONLINE' and [name] = 'tempdb'

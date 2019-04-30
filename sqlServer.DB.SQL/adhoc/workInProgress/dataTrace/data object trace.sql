@@ -12,6 +12,14 @@ declare @searchFor varchar(50)
 -- config
 @searchFor = ''
 
+-- setup
+create table #parentChild
+(
+	relationType varchar(40),
+	parent varchar(40),
+	child varchar(40)
+)
+
 -- Get SSIS definitions
 Select Distinct 
 	t.[project],
@@ -61,6 +69,51 @@ Order By
 	em.package_path
 
 -- Get SQL Job definitions
+Select
+	t.*,
+	stp.command
+Into
+	#jobDef
+From
+	(
+		Select 
+			sjh.Run_Date As lastRunDate -- in YYYYMMDD format
+			,sjh.Run_Time As lastRunTime -- in HHMMSS format
+			,sj.[Name] As job
+			,sj.[job_id]
+			,Dense_Rank() Over (Partition By sj.[Name] Order By sjh.Run_Date desc,sjh.Run_Time desc) As rnk
+		From
+			msdb.dbo.SysJobs sj
+			Inner Join msdb.dbo.SysJobHistory sjh on
+				sj.Job_Id = sjh.Job_Id
+				And
+				sj.[enabled] = 1
+				And
+				sjh.run_status = 1 -- Succeeded
+				And
+				sjh.Step_Name != '(Job outcome)'
+	) t
+	Inner Join [msdb].[dbo].[sysjobsteps] AS stp ON 
+		t.[job_id] = stp.[job_id]
+Where
+	t.rnk = 1
+	and
+	stp.last_run_date != 0
+	and
+	stp.subsystem In ('SSIS','TSQL','CmdExec')
+
+	select 
+
+-- Get sproc definitions (run all all 4 relational DBs)
+select 
+	DB_NAME() + '.' + r.routine_schema + '.' + p.[name] as objectName,
+	m.[definition]
+from
+	sys.procedures p
+	inner join sys.sql_modules m on p.object_id = m.object_id
+	inner join information_schema.routines r on p.[name] = r.routine_name
+
+	select  * From sys.procedures
 
 -- Search table definitions
 
@@ -84,7 +137,4 @@ Where
 
 -- Search SQL jobs
 
-
-
-Select * From ccgWarehouse.information_schema.columns where column_name = 'OriginalSubsidiaryID'
 
