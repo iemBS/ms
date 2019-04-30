@@ -1,0 +1,12 @@
+EVALUATE
+		SUMMARIZE(
+		  'First WIN10 EDU Seen',
+			[OEM Key Product Family],
+			[SourceType],
+			"OEM Key Product Family FIXED", 
+			if(
+			  ISBLANK(SUBSTITUTE(TRIM('First WIN10 EDU Seen'[OEM Key Product Family]),UNICHAR(10),"")), 
+			  "EMPTY_STRING",
+			  'First WIN10 EDU Seen'[OEM Key Product Family]
+			)
+		)
