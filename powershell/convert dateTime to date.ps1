@@ -1,0 +1,1 @@
+$myVar.ToShortDateString() #becomes string type

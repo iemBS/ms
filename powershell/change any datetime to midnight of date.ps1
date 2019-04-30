@@ -1,0 +1,1 @@
+Get-Date($myVar.Month.ToString() + "/" + $myVar.Day.ToString() + "/" + $myVar.Year.ToString() + " 00:00:00")

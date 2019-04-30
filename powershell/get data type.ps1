@@ -1,0 +1,1 @@
+$myVar.GetType() | select name
