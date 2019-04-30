@@ -14,4 +14,10 @@ $adp = New-Object System.Data.SqlClient.SqlDataAdapter $sqlcmd
 $data = New-Object System.Data.DataSet
 $adp.Fill($data) | Out-Null
 
-$data.Tables[0].state_desc
+$dbState = $data.Tables[0].state_desc
+
+if($dbState -eq "ONLINE"){
+  Write-Host "DB is available!"
+}else{
+  Write-Error "DB is not available!"  -EA Stop
+}
