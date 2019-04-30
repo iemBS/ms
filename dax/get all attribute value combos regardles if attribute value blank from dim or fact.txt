@@ -1,0 +1,23 @@
+EVALUATE 
+  SUMMARIZECOLUMNS(
+    'OEM'[OEM ID],		
+    'OEM'[IsFirstParty], 		
+    'Geography_Target'[Geo ID],		
+    'Geography_Target'[Big Area], 		
+    'Geography_Target'[Area], 		
+    'Geography_Target'[Region], 		
+    'Geography_Target'[SubRegion], 		
+    'Geography'[R6_Region_FY18CDS], 		
+    'Geography'[R6_SubRegion_FY18CDS], 		
+    'Geography'[Subsidiary], 		
+    'First WIN10 EDU Seen'[OEM Key Product Family], 		
+    'First WIN10 EDU Seen'[SourceType], 		
+    'Time'[Date ID], /* join to "Time" dim */ 		
+    'Time'[Fiscal Year], 		
+    'Time'[Fiscal Year Month], 		
+    'Time'[Fiscal Month Date] 		
+    ,FILTER(VALUES('Time'[Fiscal Year]),'Time'[Fiscal Year] = "FY19") 		
+    ,FILTER(VALUES('OEM'[IsFirstParty]),'OEM'[IsFirstParty] = "No" || 'OEM'[IsFirstParty] = "" || 'OEM'[IsFirstParty] = "N/A") 	
+    ,FILTER(VALUES('First Win10 EDU Seen'[OEM Key Product Family]),'First Win10 EDU Seen'[OEM Key Product Family] = "WIN 10 10 RTM" || 'First Win10 EDU Seen'[OEM Key Product Family] = "Windows 10" || 'First Win10 EDU Seen'[OEM Key Product Family] = "") 	
+    ,"# of EDU Devices Deployed", [# of EDU Devices Deployed] 
+  )
