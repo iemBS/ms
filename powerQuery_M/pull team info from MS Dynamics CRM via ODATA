@@ -1,0 +1,57 @@
+= () => 
+let
+   team1 = OData.Feed("https://MyGrp.api.crm.dynamics.com/api/data/v8.2/teams?$select=name,teamid,teammembership_association&$filter=name eq 'Reporting T2'"),
+   team2 = Table.SelectColumns(team1,{"name","teamid","teammembership_association"}),//have since $select query option is not working
+   team3 = Table.ExpandTableColumn(
+     team2, 
+     "teammembership_association", 
+     {"systemuserid","fullname","domainname"}
+   ),//have since $expand query option is not working
+
+/*
+   // Put all users in table
+   user1 = List.Generate(()=>[index = Table.RowCount(team3)-1], each [index] >= 0,each [index = [index] - 1],each [index]),
+   user2 = Table.FromList(user1,Splitter.SplitByNothing(),{"index"},null,ExtraValues.Error),
+   user3 = Table.AddColumn(user2, "systemuserid",each team3{[index]}[systemuserid]),
+   user4 = Table.AddColumn(
+    user3,
+    "ODataURL",
+    each Text.Combine(
+      {
+        "https://MyGrp.api.crm.dynamics.com/api/data/v8.2/systemusers(",
+        [systemuserid],
+        ")?$select=fullname,domainname"
+      },
+      ""
+    )//End of Text.Combine
+  ),//End of Table.AddColumn
+  user5 = Table.AddColumn(user4,"UserTable",each Table.FromRecords({OData.Feed([ODataURL])})),
+  user5_2 = Table.ExpandTableColumn(user5,"UserTable",{"fullname","domainname"}),
+  user6 = Table.AddColumn(user5_2,"Internal Team ID",each team3{0}[teamid]),
+  user7 = Table.AddColumn(user6,"Team Name",each team3{0}[name]),
+*/
+
+  // Transform domainname values
+   transDomainColumn = Table.FromRecords(
+     Table.TransformRows(
+       team3,
+       (r) => Record.TransformFields(r,
+         {
+           {"domainname", each if r[domainname] = null then "" else Text.Split(r[domainname],"@"){0}}
+         }
+       ) // Record.TransformFields
+     ) // End of Table.TransformRows
+   ),// End of Table.FromRecords
+
+  // Clean Up
+  final = Table.RenameColumns(
+    transDomainColumn,
+    {
+      {"fullname", "User Name"},
+      {"systemuserid", "Internal User ID"},
+      {"domainname","alias"},
+      {"teamid","Internal Team ID"},
+      {"name","Team Name"}
+    })
+in
+  final
