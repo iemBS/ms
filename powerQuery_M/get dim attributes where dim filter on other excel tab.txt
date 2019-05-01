@@ -1,0 +1,23 @@
+= () =>
+let
+   srcServerTbl = Excel.CurrentWorkbook(){[Name="Server"]}[Content],
+   srcServerVal = List.First(srcServerTbl[Server]),
+   srcDBTbl = Excel.CurrentWorkbook(){[Name="DB"]}[Content],
+   srcDBVal = List.First(srcDBTbl[DB]),
+   srcCubeTbl = Excel.CurrentWorkbook(){[Name="Cube"]}[Content],
+   srcCubeVal = List.First(srcCubeTbl[Cube]),
+   FilteredSource = Excel.CurrentWorkbook(){[Name="dim_2_measureGroup_func_invoked"]}[Content],
+   FilteredSource2 = Table.SelectRows(FilteredSource,each [dataRow] > -1),
+   FilteredList = Table.ToList(Table.SelectColumns(FilteredSource2,{"dim"})),
+   query = Text.Combine({
+     "SELECT [CATALOG_NAME] as [db],#(lf)CUBE_NAME AS [cube],[DIMENSION_UNIQUE_NAME] AS [dim],#(lf)HIERARCHY_DISPLAY_FOLDER AS [folder],'[' + [HIERARCHY_NAME] + ']' as [hierarchy],HIERARCHY_CAPTION AS [attribute],#(lf)HIERARCHY_IS_VISIBLE AS [attributeIsVisible], [DEFAULT_MEMBER] As [attributeDefaultMember]#(lf) FROM $system.MDSchema_hierarchies#(lf)WHERE CUBE_NAME  ='",
+     srcCubeVal,
+     "'#(lf)AND HIERARCHY_ORIGIN=2#(lf)ORDER BY [DIMENSION_UNIQUE_NAME]"},
+     ""
+  ),
+Source = AnalysisServices.Database(srcServerVal,srcDBVal, [Query=query]),
+	//Source = Excel.CurrentWorkbook(){[Name="dim_2_attribute"]}[Content],
+	AllRows = Table.SelectColumns(Source,{"dim","folder","hierarchy","attribute","attributeIsVisible","attributeDefaultMember"}),
+        #"Filter Dim" = Table.SelectRows(AllRows,each List.Contains(FilteredList, [dim]))
+in
+	#"Filter Dim"
