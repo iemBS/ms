@@ -1,0 +1,102 @@
+E:\ScottFiles\work\161102\MS_Showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161102\MS_Showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161102\MS_Showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161102\MS_Showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161102\MS_Showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161102\MS_Showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161102\MS_Showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161103\personal\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161103\personal\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161103\personal\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161103\personal\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161103\personal\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161103\personal\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161103\personal\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161104\MS_showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161104\MS_showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161104\MS_showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161104\MS_showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161104\MS_showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161104\MS_showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161104\MS_showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161107\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161107\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161107\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161107\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161107\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161107\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161107\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161108\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161108\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161108\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161108\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161108\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161108\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161108\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161109\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161109\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161109\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161109\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161109\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161109\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161109\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161109\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.csprojResolveAssemblyReference.cache
+E:\ScottFiles\work\161111\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161111\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161111\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161111\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161111\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161111\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161111\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161114\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161114\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161114\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161114\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161114\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161114\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161114\showcase\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161114\showcase\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.csprojResolveAssemblyReference.cache
+E:\ScottFiles\work\161114\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161114\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161114\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161114\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161114\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161114\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161114\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161116\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161116\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161116\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161116\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161116\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161116\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161116\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161117\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161117\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161117\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161117\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161117\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161117\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161117\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161118\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161118\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161118\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161118\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161118\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161118\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161118\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161120\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\ScottFiles\work\161120\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161120\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161120\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\ScottFiles\work\161120\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\ScottFiles\work\161120\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\ScottFiles\work\161120\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\ScottFiles\work\161120\showcase\using array for nameTypeMap instead\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.csprojResolveAssemblyReference.cache
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe.config
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.exe
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.pdb
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.exe
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOList2SQL\SPOList2SQL\bin\Debug\SPOList2SQL.pdb
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.dll
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOList2SQL\SPOList2SQL\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOList2SQL\SPOList2SQL\obj\Debug\SPOList2SQL.csprojResolveAssemblyReference.cache
