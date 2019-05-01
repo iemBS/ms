@@ -1,0 +1,21 @@
+= () =>
+let
+   srcServerTbl = Excel.CurrentWorkbook(){[Name="Server"]}[Content],
+   srcServerVal = List.First(srcServerTbl[Server]),
+   srcDBTbl = Excel.CurrentWorkbook(){[Name="DB"]}[Content],
+   srcDBVal = List.First(srcDBTbl[DB]),
+   srcCubeTbl = Excel.CurrentWorkbook(){[Name="Cube"]}[Content],
+   srcCubeVal = List.First(srcCubeTbl[Cube]),
+   FilteredSource = Excel.CurrentWorkbook(){[Name="dim_2_measureGroup_func_invoked"]}[Content],
+   FilteredSource2 = Table.SelectRows(FilteredSource,each [dataRow] > -1),
+   FilteredList = Table.ToList(Table.SelectColumns(FilteredSource2,{"measureGroup"})),
+   query = Text.Combine({
+     "SELECT [MEASUREGROUP_NAME] AS [measureGroup],[MEASURE_CAPTION] AS [measure],#(lf)    [MEASURE_IS_VISIBLE] as [measureIsVisible]#(lf)FROM $SYSTEM.MDSCHEMA_MEASURES#(lf) WHERE CUBE_NAME  ='",
+   srcCubeVal,
+   "'"},
+   ""),
+Source = AnalysisServices.Database(srcServerVal,srcDBVal, [Query=query]),
+	AllRows = Table.SelectColumns(Source,{"measureGroup","measure","measureIsVisible"}),
+        #"Filter measureGroup" = Table.SelectRows(AllRows,each List.Contains(FilteredList, [measureGroup]))
+in
+	#"Filter measureGroup"
