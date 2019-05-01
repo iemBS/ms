@@ -1,0 +1,12 @@
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\bin\Release\SPOExcelFile2SQL.exe.config
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\bin\Release\SPOExcelFile2SQL.exe
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\bin\Release\SPOExcelFile2SQL.XmlSerializers.dll
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\bin\Release\SPOExcelFile2SQL.pdb
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\bin\Release\DocumentFormat.OpenXml.dll
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\bin\Release\Microsoft.SharePoint.Client.dll
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\bin\Release\Microsoft.SharePoint.Client.Runtime.dll
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\bin\Release\DocumentFormat.OpenXml.xml
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\obj\Release\SPOExcelFile2SQL.exe
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\obj\Release\SPOExcelFile2SQL.pdb
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\obj\Release\SPOExcelFile2SQL.XmlSerializers.dll
+E:\TFS\110Consulting15\ITShowcase\consoleApp\SPOExcelFile2SQL\SPOExcelFile2SQL\obj\Release\SPOExcelFile2SQL.csprojResolveAssemblyReference.cache
