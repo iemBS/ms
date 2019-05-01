@@ -1,0 +1,2 @@
+-- open cmd window as server admin before trying to run this command on the server
+runas /noprofile /netonly /user:redmond\ccgsysac "C:\Program Files (x86)\Microsoft SQL 
