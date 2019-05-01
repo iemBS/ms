@@ -1,0 +1,4 @@
+C:\ScottFiles\reference\codeReuse\technologySpecific\cSharp\basicConsoleApp\BasicConsoleApp\BasicConsoleApp\bin\Debug\BasicConsoleApp.exe
+C:\ScottFiles\reference\codeReuse\technologySpecific\cSharp\basicConsoleApp\BasicConsoleApp\BasicConsoleApp\bin\Debug\BasicConsoleApp.pdb
+C:\ScottFiles\reference\codeReuse\technologySpecific\cSharp\basicConsoleApp\BasicConsoleApp\BasicConsoleApp\obj\x86\Debug\BasicConsoleApp.exe
+C:\ScottFiles\reference\codeReuse\technologySpecific\cSharp\basicConsoleApp\BasicConsoleApp\BasicConsoleApp\obj\x86\Debug\BasicConsoleApp.pdb
