@@ -1,0 +1,1 @@
+installutil [name or path and name of windows service executable]
