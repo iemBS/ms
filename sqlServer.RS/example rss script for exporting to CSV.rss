@@ -1,0 +1,81 @@
+' File: RunReport.rss 
+
+Public Sub Main()
+   Dim rs As New ReportExecutionService()
+
+    
+    Dim showHide as string = Nothing
+Dim reportHistoryParameters() As ParameterValue = Nothing
+   
+  
+     ' Set Properties for ReportExecutionService object
+     rs.Credentials = System.Net.CredentialCache.DefaultCredentials
+     rs.URL = "http://localhost:2000/reportserver/ReportExecution2005.asmx"
+     Dim execHeader As New ExecutionHeader()
+     rs.ExecutionHeaderValue = execHeader
+
+     ' Execute LoadReport Method
+     Dim reportPath as String = "/scottTest/scottTest"
+     Dim historyID as string = Nothing
+     Dim execInfo As New ExecutionInfo
+     execInfo = rs.LoadReport(reportPath, historyID)
+
+    ' Execute SetExecutionParemeters Method
+'    Dim parameters(3) As ParameterValue
+'    parameters(0) = New ParameterValue()
+'    parameters(0).Name = "SalesType"
+'    parameters(0).Value = "Auto"
+'    parameters(1) = New ParameterValue()
+'    parameters(1).Name = "Country"
+'    parameters(1).Value = "Japan"
+'    parameters(2) = New ParameterValue()
+'    parameters(2).Name = "Year"
+'    parameters(2).Value = "2004"
+'    parameters(3) = New ParameterValue()
+'    parameters(3).Name = "Month"
+'    parameters(3).Value = MonthParameter
+'    rs.SetExecutionParameters(parameters, "en-us")
+
+     ' Execute Render Method
+
+		'Format
+		'The format in which to render the report. This argument maps to a rendering extension. Supported extensions include XML, NULL, CSV, IMAGE, PDF, HTML4.0, HTML3.2, MHTML, EXCEL, and HTMLOWC. A list of supported extensions may be obtained by calling the ListRenderingExtensions method.
+		'
+		'DeviceInfo
+		'An XML string that contains the device-specific content that is required by the rendering extension specified in the Format parameter. DeviceInfo settings must be passed as internal elements of a DeviceInfo XML element. For more information about device information settings for specific output formats, see Reporting Services Device Information Settings.
+		'
+		'Extension
+		'[out] The file extension corresponding to the output stream
+		'
+		'MimeType
+		'[out] The MIME type of the rendered report.
+		'
+		'Encoding
+		'[out] The encoding used when report server renders the contents of the report.
+		'
+		'Warnings
+		'[out] An array of Warning objects that describes any warnings that occurred during report processing.
+		'
+		'StreamIds
+		'[out] The stream identifiers. These IDs are passed to the RenderStream method. You can use them to render the external resources (images, etc.) that are associated with a given report.
+
+    Dim format as string = "CSV"
+    Dim deviceInfo as string = Nothing
+    Dim extension as string = ".csv"
+    Dim mimeType as string = "text\csv"
+    Dim encoding as string
+    Dim warnings() AS Warning = Nothing
+    Dim streamIDs() as string = Nothing
+    Dim results() as Byte
+    results = rs.Render(format,deviceInfo,extension,mimeType,encoding,warnings,streamIDs)
+
+    ' Open a file stream and write out the report 
+    Dim fileName as String = "C:\Documents and Settings\v-scottb\Desktop\scottTemp\scottTest.csv"
+    Dim stream As FileStream = File.OpenWrite(fileName)
+    stream.Write(results, 0, results.Length)
+    stream.Close()
+
+End Sub
+
+'End of script 
+
