@@ -1,1 +1,6 @@
 shutdown /r /m \\110Consulting3 /d 0:0
+
+r – indicates restart
+m – allows you to specify the server name to restart
+d – allow you to specify a reason category. The two zeros indicates the “Other” category for the reason
+
