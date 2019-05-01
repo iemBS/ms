@@ -1,0 +1,52 @@
+= () => 
+let
+   team1 = Table.SelectColumns(Excel.CurrentWorkbook(){[Name="teamFunction_invoked"]}[Content],{"Internal User ID","User Name","Internal Team ID","Team Name"}),
+   team1_5 = Table.RenameColumns(Table.Distinct(Table.SelectColumns(team1,{"Internal Team ID","Team Name"})),{{"Internal Team ID","Internal User ID"},{"Team Name","User Name"}}),
+   team2 = Table.Combine({
+     Table.SelectColumns(team1,{"Internal User ID","User Name"}),
+     team1_5
+   }),
+   team3 = Table.AddIndexColumn(team2,"Index"),
+   url = "https://xxx.api.crm.dynamics.com/api/data/v8.2/incidents?$select=incidentid,ticketnumber,_ownerid_value,MyGrp_closeddate,MyGrp_reopendate,modifiedon,title,statuscode,MyGrp_slatype&$filter=_ownerid_value eq ",
+   
+   // Get OData URLs to pull tickets associated to team members or the team
+   team4 = Table.AddColumn(
+    team3,
+    "ODataURL",
+    each Text.Combine(
+      {
+        url,
+        [#"Internal User ID"]
+      },
+      ""
+    )//End of Text.Combine
+  ),//End of Table.AddColumn 
+
+  // Add ticket data as a table type column
+   team5 = Table.AddColumn(
+    team4,
+    "TicketTable",
+    each Table.SelectColumns(OData.Feed([ODataURL]),{"incidentid","ticketnumber","_ownerid_value","MyGrp_closeddate","MyGrp_reopendate","modifiedon","title","statuscode","MyGrp_slatype"})
+  ),//End of Table.AddColumn 
+
+  // Expand TicketTable column in the team4 table
+  ticket1 = Table.ExpandTableColumn(team5, "TicketTable", {"incidentid","ticketnumber","_ownerid_value","MyGrp_closeddate","MyGrp_reopendate","modifiedon","title","statuscode","MyGrp_slatype"}),
+
+  // Times pulled in as text into Power Query and now converting them back to time
+  changeDataType = Table.TransformColumnTypes(ticket1,{{"MyGrp_closeddate", type datetimezone},{"MyGrp_reopendate", type datetimezone},{"modifiedon", type datetimezone}}),
+
+  // Add New Ticket column
+  teamName = team1{0}[#"Team Name"],
+  time3hrsAgoUTC = DateTimeZone.UtcNow() + #duration(0, -3, 0, 0),
+   newTicketColumn = Table.AddColumn(
+    changeDataType,
+    "New Ticket",
+    each if [modifiedon] = null then "No" else (if [modifiedon] > time3hrsAgoUTC and [#"User Name"] = teamName then "Yes" else "No")
+   ),//End of Table.AddColumn 
+
+  // Clean up table
+  removeColumn = Table.RemoveColumns(newTicketColumn,{"_ownerid_value","Internal User ID","ODataURL"}), 
+  sortColumn = Table.Sort(removeColumn,{{"modifiedon", Order.Descending}}),
+  renameColumn = Table.RenameColumns(sortColumn,{{"incidentid","Internal Ticket ID"},{"MyGrp_closeddate", "Closed Time (UTC,custom)"},{"MyGrp_reopendate", "Reopened Time (UTC,custom)"},{"modifiedon", "Last Modified Time (UTC)"},{"ticketnumber", "Ticket #"},{"User Name","Currently Assigned To"},{"title","Title"}})
+in
+  renameColumn
