@@ -1,1 +1,0 @@
-rs -i "C:\Documents and Settings\v-scottb\Desktop\scottTemp\RunReport.rss" -s http://localhost:2000/reportserver -e Exec2005
