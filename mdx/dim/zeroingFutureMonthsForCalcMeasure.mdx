@@ -1,0 +1,41 @@
+// The method desribed below will not work for a non-calc measure. 
+
+With
+// logic for zeroing future months
+Member [Measures].[curMthCY] As Format(Now(),'MMMM, yyyy')
+Member [Measures].[curFMKey] As StrToValue(StrToMember("[Fiscal Date Hierarchy].[" + [curMthCY] + "]").Properties('Key'))
+Member [Measures].[zeroFutureMth] As IIF(StrToValue([Date].[Fiscal Month].CurrentMember.Properties('Key')) <= [curFMKey],1,0)
+// Applied to measurs that Jason wants to see zeros in future months for. When implemented, the [zeroFutureMth] measure will be mutiplied by the existing measure logic instead of creating a new measure. 
+Member [Measures].[NewVersion1] AS [Surface Consumer GM Actual] * [zeroFutureMth]
+Member [Measures].[NewVersion2] AS [TST Target] * [zeroFutureMth]
+Member [Measures].[NewVersion3] AS [TST Target_XLP] * [zeroFutureMth]
+Member [Measures].[NewVersion4] AS [TST Target - EDU] * [zeroFutureMth]
+Member [Measures].[NewVersion5] AS [Xbox Live Paid Ending Subscribers Actual] * [zeroFutureMth]
+Member [Measures].[NewVersion8] AS [Xbox Live Paid Ending Subscribers PY] * [zeroFutureMth]
+Member [Measures].[NewVersion9] AS [Xbox Live Paid Ending Subscribers YoY%] * [zeroFutureMth]
+
+SELECT
+{
+//[tst]
+[Surface Consumer GM Actual],
+[TST Target],
+[TST Target_XLP],
+[TST Target - EDU],
+[Xbox Live Paid Ending Subscribers Actual],
+[Xbox Live Paid Ending Subscribers PY],
+[Xbox Live Paid Ending Subscribers YoY%],
+  [NewVersion1],
+  [NewVersion2],
+  [NewVersion3],
+  [NewVersion4],
+  [NewVersion5],
+  [NewVersion8],
+  [NewVersion9],
+  [zeroFutureMth]
+} ON 0,
+{
+    [Fiscal Year].[FY19] *
+	[Fiscal Month].Children 
+} ON 1
+FROM 
+   [OneCube]
