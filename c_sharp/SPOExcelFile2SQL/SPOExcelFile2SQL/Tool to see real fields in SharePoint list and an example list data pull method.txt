@@ -1,0 +1,1 @@
+Use the tool at "https://github.com/bandrben/SPCAMLQueryHelperOnline" to get the real (not displayed on the UI) column names during development. Source code for this tool at "https://github.com/bandrben/SPCAMLQueryHelperOnline" is what the data pull method for this ETL was based on. 
