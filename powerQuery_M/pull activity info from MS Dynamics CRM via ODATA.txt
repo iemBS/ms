@@ -1,0 +1,153 @@
+= () =>
+ 
+let
+   FilteredSource = Excel.CurrentWorkbook(){[Name="ticketFunction_invoked"]}[Content],
+   FilteredSource2 = Table.SelectRows(FilteredSource,each [dataRow] > -1),
+
+   //Get activity columns from the ticket table and put into a new table
+   num = FilteredSource2{0}[#"Internal Ticket ID"],
+   url = Text.Combine(
+     {
+       "https://MyGrp.api.crm.dynamics.com/api/data/v8.2/incidents(",
+       num,
+       ")?$select=ticketnumber,Incident_ActivityPointers,Incident_Emails"
+     },
+     ""
+   ),//End of Text.Combine
+
+   activity1 = Table.FromRecords(
+     Table.ToRecords(
+       Table.SelectColumns(
+         Table.FromRecords({OData.Feed(url)}),//Single row from OData.Feed returns record type instead of table type
+         {"ticketnumber","Incident_ActivityPointers","Incident_Emails"}
+       )//used since $select query option not working on URL
+     )//End of Table.ToRecords
+   ),//End Table.FromRecords
+
+   activity2 = Table.ExpandTableColumn(
+     activity1,
+     "Incident_ActivityPointers", 
+     {
+           "subject",
+           "activitytypecode",
+           "description",
+           "createdon",
+           "deliverylastattemptedon",
+           "senton",
+           "modifiedon",
+           "_createdby_value",
+           "activityid"
+      }
+   ),
+
+   email1 = Table.ExpandTableColumn(
+     activity1, 
+     "Incident_Emails", 
+    {
+      "attachmentcount", 
+      "directioncode", /* 1 = Outgoing, 0, = Incoming */
+      "messageid", /* Used only for received emails */
+      "sender", 
+      "torecipients",
+      "activityid"
+    },
+    {
+      "attachmentcount", 
+      "directioncode", 
+      "messageid", 
+      "sender", 
+      "torecipients",
+      "incident.activityid"
+    }
+   ),
+
+   email2 = Table.SelectColumns(
+     email1,
+     {
+     "attachmentcount", 
+     "directioncode", 
+     "messageid", 
+     "sender", 
+     "torecipients",
+     "incident.activityid"
+     }
+   ),
+
+   // Transform from and To message fields and make msg direction easier to understand
+   changeDataType0 = Table.TransformColumnTypes(
+     email2,
+     {{"directioncode",type text}}
+   ),
+   email3 = Table.FromRecords(
+     Table.TransformRows(
+       changeDataType0,
+       (r) => Record.TransformFields(r,
+         {
+           {"sender", each if r[sender] = null then "" else Text.Replace(r[sender],"@microsoft.com","")},
+           {"torecipients", each if r[torecipients] = null then "" else Text.Replace(r[torecipients],"@microsoft.com","")},
+           {"directioncode", each if r[directioncode] = "true" then "Outgoing" else if r[directioncode] = "false" then "Incoming" else "Unknown"}
+         }
+       ) // Record.TransformFields
+     ) // End of Table.TransformRows
+   ),// End of Table.FromRecords
+
+   //Get the list of team members we already have in the "team" tab and associate to activities. 
+   user1 = Table.SelectColumns(Excel.CurrentWorkbook(){[Name="otherTeamFunction_invoked"]}[Content],{"Internal User ID","User Name"}),
+   joinTable = Table.Join(user1,"Internal User ID",activity2,"_createdby_value",JoinKind.RightOuter),
+
+   // Add "Index" column to table
+   sortColumn = Table.Sort(joinTable,{{"createdon",Order.Descending}}),
+   AddIndexCol = Table.AddIndexColumn(sortColumn, "index", 0, 1),
+
+   // Genericize submitter name
+   transUserNameColumn = Table.FromRecords(
+     Table.TransformRows(
+       AddIndexCol,
+       (r) => Record.TransformFields(r,
+         {
+           {"User Name", each if r[#"User Name"] = null and r[activitytypecode] = "adx_portalcomment" then "Ticket Submitter" else r[#"User Name"]}
+         }
+       ) // Record.TransformFields
+     ) // End of Table.TransformRows
+   ),// End of Table.FromRecords
+
+   // Join Message fields to Activities
+   joinTable2 = Table.Join(email3,"incident.activityid",transUserNameColumn,"activityid",JoinKind.RightOuter),
+
+   //Clean up table
+   removeColumn = Table.RemoveColumns(joinTable2,{"_createdby_value","Internal User ID","Incident_Emails","incident.activityid"}),
+
+   // Add "Is Reopen" column to table 
+   maxIndex = Table.RowCount(removeColumn) - 1,
+   addIsReopenCol = Table.AddColumn(
+     removeColumn,
+     "Is Reopen",
+     each if [index] + 2 <= maxIndex and removeColumn{[index] + 2}[activitytypecode] = "incidentresolution" then "Yes" else "No"
+   ),
+
+   // Format table
+   changeDataType = Table.TransformColumnTypes(addIsReopenCol,{
+     {"createdon", type datetimezone},
+     {"deliverylastattemptedon", type datetimezone},
+     {"senton", type datetimezone},
+     {"modifiedon", type datetimezone}
+   }),
+   columnRename = Table.RenameColumns(changeDataType,{
+     {"description","Activity Message Body"},
+     {"ticketnumber","Ticket #"},
+     {"subject","Subject"},
+     {"activitytypecode","Activity Type"},
+     {"createdon","Created Time (UTC)"},
+     {"deliverylastattemptedon","Last Delivery Attempt Time (UTC)"},
+     {"senton","Sent Time (UTC)"},
+     {"modifiedon","Last Modified Time (UTC)"},
+     {"User Name","Created By"},
+     {"activityid","Internal Activity ID"},
+     {"attachmentcount","Attached File Count"},
+     {"sender","Msg From"},
+     {"torecipients","Msg To"},
+     {"directioncode","Msg Direction"},
+     {"messageid","Internal Msg ID"}
+   })
+in
+  columnRename
