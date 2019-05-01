@@ -1,0 +1,22 @@
+= () =>
+let
+   srcServerTbl = Excel.CurrentWorkbook(){[Name="Server"]}[Content],
+   srcServerVal = List.First(srcServerTbl[Server]),
+   srcDBTbl = Excel.CurrentWorkbook(){[Name="DB"]}[Content],
+   srcDBVal = List.First(srcDBTbl[DB]),
+   srcCubeTbl = Excel.CurrentWorkbook(){[Name="Cube"]}[Content],
+   srcCubeVal = List.First(srcCubeTbl[Cube]),
+   query = Text.Combine({
+    "SELECT  [MEASUREGROUP_NAME] AS [measureGroup],[MEASUREGROUP_CARDINALITY] AS [measureGroupCardinality],[DIMENSION_UNIQUE_NAME] AS [dim],[DIMENSION_GRANULARITY] AS [dimKey],[DIMENSION_CARDINALITY]as [dimCardinality],[DIMENSION_IS_VISIBLE] AS [dimIsVisible],[DIMENSION_IS_FACT_DIMENSION] AS [dimIsFact] FROM $system.MDSCHEMA_MEASUREGROUP_DIMENSIONS WHERE [CUBE_NAME] ='",
+    srcCubeVal,
+    "' AND [CATALOG_NAME] = '",
+    srcDBVal,
+    "'"},
+    ""),
+   src = AnalysisServices.Database(
+     srcServerVal,
+     srcDBVal, 
+     [Query=query]),
+   final = src
+in
+	final
