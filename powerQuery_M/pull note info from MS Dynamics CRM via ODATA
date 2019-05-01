@@ -1,0 +1,88 @@
+= () =>
+ 
+let
+   FilteredSource = Excel.CurrentWorkbook(){[Name="ticketFunction_invoked"]}[Content],
+   FilteredSource2 = Table.SelectRows(FilteredSource,each [dataRow] > -1),
+ 
+   //Add note columns from the ticket table and put into a new table
+   num = FilteredSource2{0}[#"Internal Ticket ID"],
+   url = Text.Combine(
+     {
+       "https://1gdc.api.crm.dynamics.com/api/data/v8.2/incidents(",
+       num,
+       ")?$select=ticketnumber,Incident_Annotation"
+     },
+     ""
+   ),//End of Text.Combine
+
+   note1 = Table.FromRecords(
+     Table.ToRecords(
+       Table.SelectColumns(
+         Table.ExpandTableColumn(
+           Table.SelectColumns(
+             Table.FromRecords({OData.Feed(url)}),//Single row from OData.Feed returns record type instead of table type
+             {"ticketnumber","Incident_Annotation"}
+           ),//used since $select query option not working on URL
+           "Incident_Annotation", 
+   {"subject","createdon","filename","filesize","isdocument","notetext","_createdby_value","annotationid"}
+         ),//End of Table.ExpandTableColumn, had to add because $expand query option in URL is not working
+         {
+           "ticketnumber","subject","createdon","filename","filesize","isdocument","notetext","_createdby_value","annotationid"
+         }
+       )//End 2nd Table.SelectColumns
+     )//End of Table.ToRecords
+   ),//End Table.FromRecords
+
+   //Get the list of team members we already have in the "other team" tab and associate to notes.
+   user1 = Table.SelectColumns(Excel.CurrentWorkbook(){[Name="otherTeamFunction_invoked"]}[Content],{"Internal User ID","User Name"}),
+   joinTable = Table.Join(user1,"Internal User ID",note1,"_createdby_value",JoinKind.RightOuter),
+
+   // Add "Index" column to table
+   sortColumn = Table.Sort(joinTable,{{"createdon",Order.Descending}}),
+   AddIndexCol = Table.AddIndexColumn(sortColumn, "index", 0, 1),
+
+   // Transform files size from bytes to kilobytes
+   transfilesizeColumn = Table.FromRecords(
+     Table.TransformRows(
+       AddIndexCol,
+       (r) => Record.TransformFields(r,
+         {
+           {"filesize", each if r[filesize] <> null then Number.Round(r[filesize] / 1024,0) else 0}
+         }
+       ) // Record.TransformFields
+     ) // End of Table.TransformRows
+   ),// End of Table.FromRecords
+
+   // Transform Created by field to genericize submitter name
+   transUserNameColumn = Table.FromRecords(
+     Table.TransformRows(
+       transfilesizeColumn,
+       (r) => Record.TransformFields(r,
+         {
+           {"User Name", each if r[#"User Name"] = null and Text.Contains(r[subject],"[contact:") then "Ticket Submitter" else r[#"User Name"]}
+         }
+       ) // Record.TransformFields
+     ) // End of Table.TransformRows
+   ),// End of Table.FromRecords
+
+   //Clean up table
+   removeColumn = Table.RemoveColumns(transUserNameColumn,{"_createdby_value","Internal User ID"}),
+
+   // Format table
+   changeDataType = Table.TransformColumnTypes(removeColumn,{
+     {"createdon", type datetimezone},
+     {"filesize", Int64.Type}
+   }),
+
+   columnRename = Table.RenameColumns(changeDataType,{
+     {"ticketnumber","Ticket #"},
+     {"notetext","Note Body"},
+     {"subject","Title"},
+     {"createdon","Created Time (UTC)"},
+     {"User Name","Created By"},
+     {"annotationid","Internal Note ID"},
+     {"filename","Attached File"},
+     {"filesize","File Size (KB)"},
+     {"isdocument","Has File Attached"}})
+in
+  columnRename
