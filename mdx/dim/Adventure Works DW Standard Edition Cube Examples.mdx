@@ -1,0 +1,186 @@
+
+-- The value of the Revenue KPI does not break down when viewing by country but
+-- the query does not break. 
+select
+	KPIValue("Revenue") on columns
+	,[Geography].[Geography].[Country] on rows
+from
+	[Adventure Works]
+	
+-- The Sales Territory brakes the KPI down by country.
+select
+	KPIValue("Revenue") on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+-- This just gives the world wide value of the KPI.
+select
+	KPIValue("Revenue") on columns
+	,[Sales Territory].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+-- Both the value and the gola are displayed on the columns access for the 
+-- Revenue KPI. 
+select
+	{KPIValue("Revenue"), KPIGoal("Revenue")} on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+-- Does not work because a member of the measures dimension cannot be in both the 
+-- select and where parts of the query at one time.
+select
+	KPIValue("Revenue") on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+where
+	KPIValue("Internet Revenue")
+	
+	
+-- The value for Germany is below 5000 so the filter is not working.
+select
+	FILTER(KPIValue("Revenue"), KPIValue("Revenue") > 5000) on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+-- Row names show but none of the column names show and no values show. 
+select
+	FILTER(KPIValue("Revenue"), KPIValue("Revenue") < 5000) on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+-- The value for Germany is below 5000 so the filer is not working.
+select
+	FILTER(KPIValue("Revenue"), KPIValue("Revenue").Value > 5000) on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+-- This query breaks because the Member property does not make sense on a KPI>
+select
+	FILTER(KPIValue("Revenue"), KPIValue("Revenue").Member > 5000) on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]	
+	
+	
+-- The order count values are returned for each country.
+select
+	[Measures].[Order Count] on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+	
+-- Filter does not work because the values below three are still seen.
+select
+	FILTER([Measures].[Order Count],[Measures].[Order Count] > 3) on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+
+-- Filter does not work but the query does not break.
+select
+	FILTER([Measures].[Order Count],[Measures].[Order Count].MemberValue > 3) on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+-- The use of the Members keyword is not liked here.
+select
+	FILTER([Measures].[Order Count].Members,[Measures].[Order Count].MemberValue > 3) on columns
+	,[Sales Territory].[Sales Territory Country].[Sales Territory Country] on rows
+from
+	[Adventure Works]
+	
+-- This works but it shows an all up number for the territories instead of per territory. 
+select
+	[Measures].[Order Count] on columns
+	,{
+		Filter
+		(
+			[Sales Territory].[Sales Territory Country]
+			,(
+				[Measures].[Order Count]
+				,[Sales Territory].[Sales Territory Country]
+			  ) > 3
+		) 
+	} on rows
+from
+	[Adventure Works]
+	
+-- The filter function is not working because counts of less than 3 are being returned.
+select
+	[Measures].[Order Count] on columns
+	,non empty{
+		filter
+		(
+			[Sales Territory].[Sales Territory Country].[Sales Territory Country]
+			,[Measures].[Order Count] > 3
+		) 
+	} on rows
+from
+	[Adventure Works]
+
+-- The filter is ignored again. 
+select
+	non empty crossjoin
+	(
+		filter
+		(
+			[Sales Territory].[Sales Territory Country].[Sales Territory Country]
+			,[Measures].[Order Count] > 3
+		)
+		,[Measures].[Order Count] 
+	) on columns
+from
+	[Adventure Works]
+	
+-- The filter is ignored again. 
+select
+	non empty crossjoin
+	(
+		filter
+		(
+			[Sales Territory].[Sales Territory Country].[Sales Territory Country]
+			,[Measures].[Order Count] > 3
+		)
+		,[Measures].[Order Count] 
+	) on columns
+from
+	[Adventure Works]
+	
+-- The order cocunt is not the default measure but becomes the measure to use when specified 
+-- in the where clause. The use of the order count is also a single dimensional tupe. The 
+-- use of parenthesis around the order count measure optional. 
+select
+	 non empty([Sales Territory].[Sales Territory Country].[Sales Territory Country]) on columns
+from
+	[Adventure Works]
+where
+	[Measures].[Order Count]
+	
+-- does not appear to help filtering
+with member [measures].[myCalc] as
+	iif([Measures].[Order Count] > 3,[Measures].[Order Count],0)
+select
+	 non empty([Sales Territory].[Sales Territory Country].[Sales Territory Country]) on columns
+from
+	[Adventure Works]
+where
+	[measures].[myCalc]
+	
+-- does not appear to help filtering
+with member [measures].[myCalc] as
+	iif([Measures].[Order Count] > 3,[Measures].[Order Count],0)
+select
+	 non empty([Sales Territory].[Sales Territory Country].[Sales Territory Country]) on columns
+from
+	[Adventure Works]
+where
+	[measures].[myCalc]
