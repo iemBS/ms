@@ -1,0 +1,2 @@
+-- if a cell has data above an empty cell that has this, then this cell will have the same value as the one above it
+=CELL("contents",INDIRECT(ADDRESS(ROW() - 1,COLUMN())))
