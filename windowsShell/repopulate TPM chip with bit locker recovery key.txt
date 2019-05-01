@@ -1,0 +1,6 @@
+repopulate TPM chip with bit locker recovery key
+(run as the administrator)
+-------------------------------------------------
+Manage-bde -protectors -delete C: -type TPM
+
+Manage-bde -protectors -add C: -tpm
