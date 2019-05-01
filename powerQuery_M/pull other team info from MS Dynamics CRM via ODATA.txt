@@ -1,0 +1,34 @@
+= () => 
+let
+   team1 = OData.Feed("https://MyGrp.api.crm.dynamics.com/api/data/v8.2/teams?$select=name,teamid,teammembership_association&$filter=name eq 'MyGrp'"),
+   team2 = Table.SelectColumns(team1,{"name","teamid","teammembership_association"}),//have since $select query option is not working
+   team3 = Table.ExpandTableColumn(
+     team2, 
+     "teammembership_association", 
+     {"systemuserid","fullname","domainname"}
+   ),//have since $expand query option is not working
+
+  // Transform domainname values
+   transDomainColumn = Table.FromRecords(
+     Table.TransformRows(
+       team3,
+       (r) => Record.TransformFields(r,
+         {
+           {"domainname", each if r[domainname] = null then "" else Text.Split(r[domainname],"@"){0}}
+         }
+       ) // Record.TransformFields
+     ) // End of Table.TransformRows
+   ),// End of Table.FromRecords
+
+  // Clean Up
+  final = Table.RenameColumns(
+    transDomainColumn,
+    {
+      {"fullname", "User Name"},
+      {"systemuserid", "Internal User ID"},
+      {"domainname","alias"},
+      {"teamid","Internal Team ID"},
+      {"name","Team Name"}
+    })
+in
+  final
