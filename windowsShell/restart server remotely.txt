@@ -1,0 +1,1 @@
+shutdown /r /m \\110Consulting3 /d 0:0
