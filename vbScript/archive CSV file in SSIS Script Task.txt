@@ -1,0 +1,69 @@
+' Microsoft SQL Server Integration Services Script Task
+' Write scripts using Microsoft Visual Basic
+' The ScriptMain class is the entry point of the Script Task.
+
+Imports System
+Imports System.IO
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Runtime
+
+
+<System.AddIn.AddIn("ScriptMain", Version:="1.0", Publisher:="", Description:="")> _
+<System.CLSCompliantAttribute(False)> _
+Partial Public Class ScriptMain
+	Inherits Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+
+	Enum ScriptResults
+		Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success
+		Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+	End Enum
+
+    ' The execution engine calls this method when the task executes.
+    ' To access the object model, use the Dts object. Connections, variables, events,
+    ' and logging features are available as static members of the Dts class.
+    ' Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+    ' 
+    ' To open Code and Text Editor Help, press F1.
+    ' To open Object Browser, press Ctrl+Alt+J.
+
+    Public Sub Main()
+        '
+        ' Getting CSV filename from variables
+        Dim sourceFileName As String = _
+            DirectCast(Dts.Variables("SourceFile").Value, String)
+
+        ' Getting Archive folder name from variables.
+        ' If the folder doesn't exist, this task will create it.
+        Dim archiveFolderName As String = _
+            DirectCast(Dts.Variables("ArchiveFolder").Value, String)
+        Dim archiveFolder As DirectoryInfo = _
+            New DirectoryInfo(archiveFolderName)
+
+        If Not archiveFolder.Exists() Then
+            archiveFolder.Create()
+        End If
+
+        ' Get file information and compile new file name
+        Dim sourceFile As FileInfo = New FileInfo(sourceFileName)
+        Dim currentDate As Date = Date.Now
+        'Format(Date.Now, "yymmddhhmmss")
+        Dim newName As String = String.Format( _
+            "{0}_{1:00}_{2:00}_{3:0000} {4}_{5:00}_{6:00}{7:00}", _
+            sourceFile.Name.Replace(sourceFile.Extension, ""), _
+            currentDate.Month, _
+            currentDate.Day, _
+            currentDate.Year, _
+            currentDate.Hour, _
+            currentDate.Minute, _
+            currentDate.Second, _
+            sourceFile.Extension)
+        Dim newFullName As String = Path.Combine(archiveFolder.FullName, newName)
+
+        ' Rename (move) source file to the new location.
+        File.Move(sourceFileName, newFullName)
+
+        Dts.TaskResult = ScriptResults.Success
+    End Sub
+
+End Class
