@@ -1,0 +1,7 @@
+-- Test Run
+ROBOCOPY E:\ScottFiles E:\ScottFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD dirs c:\Files\temp /XO /ts /fp /L /LOG+:c:\CopyLog.txt
+
+-- Real Run
+ROBOCOPY E:\ScottFiles E:\ScottFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD dirs c:\Files\temp /XO /ts /fp /LOG+:c:\CopyLog.txt
+
+--add 1 day to MAXLAD if today
