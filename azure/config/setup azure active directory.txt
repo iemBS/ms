@@ -1,0 +1,25 @@
+Azure AD
+-----------------------------
+- https://azure.microsoft.com/en-us/services/active-directory/
+- 3 editions
+	- Free
+		- How to get
+			- Comes with Azure subscription.
+		- What you get
+			- Can manage user accounts, synchronize with on-premises directories, and get single sign-on across Azure, Office 365, and thousands of popular SaaS applications
+	- Basic*
+		- How to get
+			- Available through MS Enterprise Agreement, Open Volume License Program, & Cloud Solution Providers program.
+		- How better than Free version
+			- Group-based access management
+			- self-service password reset for cloud apps
+			- customizable environment for launching enterprise and consumer cloud apps
+			- enterprise-level SLA of 99.9% uptime
+			- Can activate an Azure AD Premium trial
+	- Premium
+		- How to get
+			- Available through MS Enterprise Agreement, Open Volume License Program, & Cloud Solution Providers program.
+			- Azure & Office 365 subscribers can also buy online @ $6/user (annual commitment)
+		- How better than Basic version
+			- They say additional feature-rich enterprise-level identity management capabilities and do not elaborate. 
+- Can get discounts in Azure services with pre-paid 12 month subscription
