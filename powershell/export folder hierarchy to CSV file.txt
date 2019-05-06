@@ -1,0 +1,10 @@
+Export folder hierarchy to CSV file
+Main Success Scenario:
+  1. Navigate to folder that you want to run this in.
+  2. Run
+       Get-ChildItem -Recurse -Directory -Depth 3 |
+       Select-Object FullName |
+       Export-Csv Test.csv -NoTypeInformation
+Alternatives:
+  2a. Use a different depth
+Guarantee: Test.csv file will be created in the same folder 
