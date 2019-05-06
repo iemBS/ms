@@ -1,0 +1,5 @@
+C:\SourceDepotClient\Annuity\FY11\01.Development\01.6.Email\Code Path\Application\AnnuityEmail\AnnuityEmail\bin\Debug\AnnuityEmail.exe
+C:\SourceDepotClient\Annuity\FY11\01.Development\01.6.Email\Code Path\Application\AnnuityEmail\AnnuityEmail\bin\Debug\AnnuityEmail.pdb
+C:\SourceDepotClient\Annuity\FY11\01.Development\01.6.Email\Code Path\Application\AnnuityEmail\AnnuityEmail\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\SourceDepotClient\Annuity\FY11\01.Development\01.6.Email\Code Path\Application\AnnuityEmail\AnnuityEmail\obj\x86\Debug\AnnuityEmail.exe
+C:\SourceDepotClient\Annuity\FY11\01.Development\01.6.Email\Code Path\Application\AnnuityEmail\AnnuityEmail\obj\x86\Debug\AnnuityEmail.pdb
