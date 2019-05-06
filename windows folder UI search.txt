@@ -1,0 +1,28 @@
+
+
+-- Find all programs
+kind:=program
+
+-- Find all email files
+kind:=email 
+
+-- Find all communication files
+kind:=communication 
+
+-- Find all folders
+kind:=folder 
+
+-- Find all videos
+kind:=video 
+
+-- Find all image files
+kind:=picture 
+kind:pics
+
+-- Find all files in a specific folder name
+
+  -- in a folder named "personal"
+  in:personal 
+
+-- Find all image and program files, "OR" must be in caps
+kind:pics OR kind:programs
