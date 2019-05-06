@@ -61,3 +61,13 @@ datemodified:this month
 datemodified:last month 
 datemodified:this year 
 datemodified:5/2/2019 
+
+-- find all files with specific text inside
+
+  --find files that have "cheese" inside
+  content:cheese
+  
+  -- find files that have "cheese" or "soda" inside, but does not need to be next to eacher
+  content:"cheese soda"
+  
+  
