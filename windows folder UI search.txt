@@ -26,3 +26,10 @@ kind:pics
 
 -- Find all image and program files, "OR" must be in caps
 kind:pics OR kind:programs
+
+-- Find all files last saved by a specific first name
+lastsavedby:clark
+
+-- Find all files last saved by a specific full name
+lastsavedby:"clark kent"
+
