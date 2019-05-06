@@ -1,0 +1,8 @@
+See folder hierarchy
+Main Success Scenario:
+  1. Navigate to folder that you want to run this in.
+  2. Run
+       Get-ChildItem -Recurse -Directory -Depth 3 |
+       Select-Object FullName 
+Alternatives:
+  2a. Use a different depth
