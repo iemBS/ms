@@ -1,0 +1,6 @@
+List AppData folder contents for all Users
+Main Success Scenario:
+  1.	Run PowerShell as administrator
+  2.	Run 
+        $users = Get-ChildItem C:\Users
+        foreach ($user in $users){$folder = "C:\users\" + $user + "\AppData "; ls $folder –recurse;}
