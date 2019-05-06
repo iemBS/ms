@@ -1,0 +1,33 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Ext_Send_Email]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+
+create procedure [dbo].[sp_Ext_Send_Email]
+    @subject1 varchar(200), @Source varchar(200), @Status varchar(200)
+    as
+    begin
+
+    declare @NewSubject varchar(200) 
+    declare @receipient varchar(200)
+    declare @NewBody varchar(200)
+		select @NewBody = ''The '' + @Subject1 + @Status
+		select @NewSubject = @source + '' Extract '' + @@servername + @Subject1
+		select @receipient = ext_emailreceiver from ext_email_config where ext_source = @Source 
+    
+    	exec msdb..sp_send_dbmail @body = @NewBody,
+			@subject = @newsubject ,
+			@recipients = @receipient,
+			@body_format  = ''HTML''
+    
+    
+    
+    
+    end
+
+' 
+END
+GO
