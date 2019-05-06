@@ -1,0 +1,1 @@
+SCHTASKS.EXE /S [remote computer on this network]
