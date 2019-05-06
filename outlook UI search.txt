@@ -1,0 +1,45 @@
+-- all emails from a specific person
+from:"ckent@hotmail.com"
+
+-- all emails w attachments
+hasattachments:yes
+
+-- all emails w attachments and from Clark Kent
+hasattachments:yes from:"Clark Kent"
+
+-- all emails with a specific attachment name
+attachment:presentation.ppt
+
+-- all emails received yesterday
+received:yesterday
+
+-- all emails received today
+received:today
+
+-- all emails sent yesterday
+sent:yesterday
+
+-- all emails sent today
+sent:today
+
+-- all emails with a specific email address CCed
+ccaddress:ckent@outlook.com
+cc:ckent@outlook.com
+
+-- all emails with a specific email alias CCed
+ccaddress:ckent
+cc:ckent
+
+-- all calendar items or communications containing links to calendar items
+kind:calendar
+
+-- all recoccuring calendar items
+kind:calendar is:recurring
+
+-- all calendar itmes organized by a specific alias
+kind:calendar organizer:ckent
+
+-- all calendar itmes organized by a specific name
+kind:calendar organizer:"Clark Kent"
+
+
