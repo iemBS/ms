@@ -1,0 +1,110 @@
+// Set default value for an attribute
+  // definition
+  ALTER Cube CurrentCube
+    UPDATE Dimension [dim name],
+        Default_member='[dim name].[attribute name].[attribute value]';  
+        
+  // example
+  ALTER Cube CurrentCube
+    UPDATE Dimension Scenario,
+        Default_member='[Scenario].[Scenario].[Actual]';  
+        
+// Create new measure in cube
+
+  // definition
+	CREATE MEMBER CURRENTCUBE.[Measures].[measure name]
+	AS
+	'
+    reference another created or base measure, filters on attribute values, and possibly use other MDX functions
+	',
+	VISIBLE = [indicate if measure is visible or not] ,
+	DISPLAY_FOLDER = '[what folder will measure be visible within an Excel pivot]',
+	FORMAT_STRING = "[format the value]"; 
+  
+  // example
+	CREATE MEMBER CURRENTCUBE.[Measures].[MTD]
+	AS
+	'
+		 IIF([Account].[Accounts].CurrentMember.LEVEL IS [Account].[Accounts].[Account Name],
+			  IIF([Account].[Accounts].CurrentMember.Properties("Rounded"),
+					ROUND([Measures].[Value], 
+									[Account].[Accounts].CurrentMember.Properties("Rounded To")),
+					[Measures].[Value]
+			  ),
+			  [Measures].[Value]
+		 )
+	',
+	VISIBLE = 1 ,
+	DISPLAY_FOLDER = 'Month',
+	FORMAT_STRING = "#,##0.000000;-#,##0.000000"; 
+  
+// create a dynamic set
+  // example
+  CREATE DYNAMIC SET CURRENTCUBE.[CurrentReportingMonth]
+   AS {[Time].[YHQM].[Month].[Sep 2011]},
+  DISPLAY_FOLDER = 'Datasets'; 
+  
+// limit logic for a specific attribute value
+  // example
+	SCOPE ([Geography].[AnO Geography].[AO Big Area].&[Emerging Markets Rollup (L2)]);      
+	THIS = 
+	(
+		IIF(ISEMPTY(([Geography].[AnO Geography].[AO Big Area].&[Emerging Markets Rollup (L2)])),
+			  ([Geography].[AnO Geography].[AO Big Area].&[Emerging (L2)]),
+			  ([Geography].[AnO Geography].[AO Big Area].&[Emerging Markets Rollup (L2)]))
+	);      
+	END SCOPE; 
+  
+  // example
+	SCOPE ([Account].[Accounts].&[Pipeline + Booked], [Scenario].[Scenario].[Actual]);      
+	THIS = 
+	(
+		 [Account].[Accounts].&[CRM Pipeline] +
+		 [Account].[Accounts].&[CRM Multi-National Pipeline] 
+
+	);      
+	END SCOPE;
+  
+// use case statement
+  // example
+	SCOPE ([Account].[Account Name].[SLA Resolution], [PricingLevel].[Detail Pricing Level].[Traffic Quality], [Scenario].[Scenario].[Actual]);      
+	THIS = 
+	CASE
+		 WHEN (IsEmpty([Account].[Account Name].[SLA Denominator])) OR ([Account].[Account Name].[SLA Denominator] < 50)
+		THEN null
+		ELSE
+			[Account].[Account Name].[SLA Numerator] / 
+					([Account].[Account Name].[SLA Denominator])
+	END;  
+
+// use isEmpty
+  // example
+	SCOPE ([Account].[Account Name].[SLA Resolution], [PricingLevel].[Detail Pricing Level].[NQS], [Scenario].[Scenario].[Actual]);      
+	THIS = 
+	CASE
+		 WHEN (IsEmpty([Account].[Account Name].[SLA Denominator])) OR ([Account].[Account Name].[SLA Denominator] < 50)
+		THEN null
+		ELSE
+			ROUND([Account].[Account Name].[SLA Numerator] / 
+					([Account].[Account Name].[SLA Denominator]), 2)
+	END;       
+	END SCOPE; 
+  
+// Use ParallelPeriod and CurrentMember
+  // example
+	SCOPE ([Scenario].[Scenario].[PriorYear]);      
+	THIS = 
+	IIF([Time].[YHQM].CurrentMember.LEVEL IS [Time].[YHQM].[(All)],
+		 null,
+		 (
+			  ParallelPeriod([Time].[YHQM].[Month], 12, [Time].[YHQM].CurrentMember),
+			 [Scenario].[Scenario].[Actual]
+		 )
+	);      
+	END SCOPE;  
+
+
+
+
+
+ 
