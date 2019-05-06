@@ -1,0 +1,11 @@
+Clean all Recycle Bins
+Precondition: 
+  1. OS = Win 7, Win 8, Win Server 2k8
+  2. Computer has hard drives C and D. 
+Note: Need to run for each drive that is on the machine because each drive has a recycle bin.
+Main Success Scenario:
+  1.	Run PowerShell as administrator
+  2.	Run PS C:\> ls ‘$recycle.bin’ -Force | Remove-Item –Force –recurse
+  3.	Run PS D:\> ls ‘$recycle.bin’ -Force | Remove-Item –Force -recurse
+Alternatives:
+  None
