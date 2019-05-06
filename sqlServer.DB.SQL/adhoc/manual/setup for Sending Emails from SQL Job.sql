@@ -3,8 +3,8 @@ Go
 Declare @AccountName VarChar(255), @ProfileName VarChar(255)
 
 Select
-	@AccountName = 'John Doe',  -- set an  account name
-	@ProfileName = 'John Doe profile' -- set a profile name
+	@AccountName = 'Clark Kent',  -- set an  account name
+	@ProfileName = 'Clark Kent profile' -- set a profile name
 
 If Exists (Select 1 From sysmail_profileaccount pa Join sysmail_profile p On p.Profile_Id = pa.Profile_Id And p.Name = @ProfileName Join sysmail_account a On a.Account_Id = pa.Account_Id And a.Name = @AccountName)
 	Exec sysmail_delete_profileaccount_sp
@@ -21,10 +21,10 @@ If Exists (Select 1 From sysmail_account Where Name = @AccountName)
 
 Exec sysmail_add_account_sp
 	@account_name = @AccountName,
-	@email_address = 'johnd@hotmail.com', -- Set an email address that will represent the email sender
-	@display_name = 'John Doe sender!', -- Set the display name of the email sender 
+	@email_address = 'ckent@hotmail.com', -- Set an email address that will represent the email sender
+	@display_name = 'Clark Kent sender!', -- Set the display name of the email sender 
 	@mailserver_name = 'smtphost.hotmail.com', -- Set the SMTP mail host server
-	@username = 'johnd@hotmail.com', -- Set the username for the alias that represents the email sender
+	@username = 'ckent@hotmail.com', -- Set the username for the alias that represents the email sender
 	@password = '' -- Set the password for the alias that represents the email sender
 
 Exec sysmail_add_profile_sp
