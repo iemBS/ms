@@ -1,0 +1,7 @@
+Export File List to .CSV
+Precondition:
+  1. logged in as "ckent"
+Main Success Scenario:
+  1.	Run PS C:\Users\ckent> ls | Export-CSV C:\temp\GetDocList.csv
+Alternatives:
+  None
