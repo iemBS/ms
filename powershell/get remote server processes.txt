@@ -1,0 +1,6 @@
+Get Remote Computer Processes
+Main Success Scenario:
+  1.	Start Remote PS Session
+  2.	Request to see processes
+        [MyRemoteServer]: PS C:\Users\bbob\Documents> Get-Process
+  3.	Display all processes on server
