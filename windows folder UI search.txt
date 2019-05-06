@@ -19,6 +19,12 @@ kind:=video
 kind:=picture 
 kind:pics
 
+-- find all files with TXT extension
+ext:.txt
+
+-- find all files with R extension
+ext:".r"
+
 -- Find all files in a specific folder name
 
   -- in a folder named "personal"
@@ -38,3 +44,20 @@ datelastprinted:last week
 
 -- find all videos with an MP4 extension
 kind:video ext:mp4
+
+-- find all files less than a 50 KB size
+size:<50 KB
+
+-- find all files greater than a 2 GB size
+size:>2 GB
+
+-- find all files authored by a specific person
+author:"Clark Kent"
+
+-- all files modified in a date window or a specific date
+modified:last week
+datemodified:yesterday 
+datemodified:this month 
+datemodified:last month 
+datemodified:this year 
+datemodified:5/2/2019 
