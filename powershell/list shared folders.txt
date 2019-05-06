@@ -1,0 +1,8 @@
+List Shared Folders
+Precondition: 
+  1. Use on Windows 2008
+  2. logged on as "ckent"
+Main Success Scenario:
+  1.	Run PS C:\Users\ckent> net share
+Alternatives:
+  None
