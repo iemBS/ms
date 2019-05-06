@@ -33,3 +33,5 @@ lastsavedby:clark
 -- Find all files last saved by a specific full name
 lastsavedby:"clark kent"
 
+-- Find all files last printed last week
+datelastprinted:last week
