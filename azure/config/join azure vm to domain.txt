@@ -1,0 +1,41 @@
+Join Azure VM to a domain
+-----------------------------
+https://azure.microsoft.com/en-us/documentation/articles/active-directory-new-forest-virtual-machine/
+
+- Create a new virtual network in Azure
+	- Make sure it is in the correct region.
+	- Name it "110 Azure Network"
+	- Note
+		- If you have a VM in Azure but not in a virtual network you cannot just move it. It needs to be deleted and recreated in the virtual network.
+	
+- Create an Azure Hosted Domain Controller (DC)
+	- Create a VM
+		- Create an A2 (2 cores & 3 GB ram) VM
+		- Add VM to Virtual Network
+	- Install Active Directory and make the VM a DNS Server
+		- Steps to config
+			> Log into VM 
+			> Server Manager 
+			> Dashboard 
+			> Manage menu 
+			> "Add Roles and Features" on Manage menu
+			> "Server Roles" on "Add Roles and Features Wizard" window
+			> check "Active Directory"
+			> "Add Features" button
+			> check "DNS Server"
+			> click "Continue" button and you can configure a static ip for a dns server in your virtual network later
+			> click triangle at the top of the dashboard
+			> choose "Promote the server to a domain controller" on the menu that appears
+			> On the Active Directory Domain Services Configuration Wizard window
+				> choose "Add new forest"
+				> set "Root domain name" to "dev.110Consulting.com"
+				> "Next" button
+				> [other configs]
+				> Will see DNS Options error window since we already installed the DNS server on the VM. Can skip that error message.
+			> you eventually be asked to sign out
+		- You will not be able to log into the VM after it reboots. 
+		- Any local accounts on that VM will have been converted to domain accounts and be listed in AD Users and Computers
+		- downgrade the VM to the A0 level (shared core, 0.9 GB RAM) to save money
+			- VM can be upgraded again if more config is needed
+- Create a VM and associate it to the domain
+   [need to fill in]
