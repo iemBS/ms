@@ -4,3 +4,4 @@ Pre-Conditions:
 Main Success Scenario:
   1.	Run to get URLs of site collections
           Get-SPOSite | Select Url,Owner
+  2. [need to finish this use case]
