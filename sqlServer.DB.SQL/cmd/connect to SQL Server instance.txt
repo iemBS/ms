@@ -1,0 +1,5 @@
+-- use below if connecting to a non-default instance
+sqlcmd -S[computer name/instance name]
+
+-- use below if connecting to the default instance
+sqlcmd -S[computer name]
