@@ -1,0 +1,14 @@
+Setup Secure O365 Email
+Prerequisites: See FAQ for Office 365 Dedicated
+Main Success Scenario:
+  1.	Go to Exchange Admin Center in O365
+  2.	Click “mail flow” link on the left
+  3.	Click down arrow next to plus sign at the top
+  4.	“Apply rights protection to messages…” option on drop down
+  5.	Specify “Name” and a “*Apply this rule if…” to only apply this to subjects starting with “SUBJECT:”
+  6.	Choose “Modify the message security…” and then “Apply rights protection” for the “*Do the following…” field.
+  7.	Choose the “[name of template I added]” RMS template from the drop down and click the “ok” button
+Alternatives:
+  7a. RMS template does not exist
+	  7a1. Activate Rights Management in O365. 
+		7a2. Export RMS template from O365.
