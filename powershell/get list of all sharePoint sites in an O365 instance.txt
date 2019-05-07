@@ -1,0 +1,6 @@
+Get list of all SharePoint sites in an O365 instance
+Pre-Conditions:
+  - “Setup ability to manage SharePoint O365 via PowerShell” if not already done so.
+Main Success Scenario:
+  1.	Run to get URLs of site collections
+          Get-SPOSite | Select Url,Owner
