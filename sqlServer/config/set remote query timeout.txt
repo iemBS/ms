@@ -1,0 +1,9 @@
+Set Remote Query Timeout
+Preconditions: 
+  - SQL Server 2008
+Main Success Scenario:
+  1. In Management Studio, click right click server node
+  2. On “Server Properties” window, select “Connections”
+  3. Set “Remote query timeout”
+Alternatives:
+  None
