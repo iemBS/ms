@@ -1,0 +1,4 @@
+Get PowerShell version installed
+Main Success Scenario:
+  1. Open PowerShell window
+  2. Run “Get-Host | Select-Object Version” command.
