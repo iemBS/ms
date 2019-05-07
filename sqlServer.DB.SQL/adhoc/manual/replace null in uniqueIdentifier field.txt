@@ -1,0 +1,11 @@
+Replace Null in UniqueIdentifier field 
+Preconditions: 
+  - None
+Main Success Scenario:
+  1. Create GUID placeholder
+       Declare @NullAccountId UniqueIdentifier
+       Set @NullAccountId = NEWID()
+  2. Use placeholder only where field is null
+       IsNull(ow.AccountId,@NullAccountId) As AccountId
+Alternatives:
+  None
