@@ -1,0 +1,7 @@
+# Why Backup Analysis Services and not just the relational database
+#  •	Security, KPI, or other settings are stored in Analytics
+#  •	Easy way to move the cube structure from one server to another
+#  •	If the cube processing takes a while due to calculations and aggregations, then it would be faster to restore from a backup
+#  •	If MOLAP storage is used then data is duplicated in the cube and is worth being backed up. If ROLAP or HOLAP store is used no data is duplicated in the cube. 
+
+
