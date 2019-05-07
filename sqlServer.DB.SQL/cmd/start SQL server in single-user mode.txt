@@ -1,1 +1,5 @@
+-- use the below if starting the non-default instance
 sqlserver.exe -s[instance name] -m -c
+
+-- use the below if starting the default instance
+sqlserver.exe -m -c
