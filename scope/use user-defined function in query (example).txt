@@ -1,0 +1,16 @@
+#Select query uses user-defined StringOccurs function
+R1 = SELECT A+C AS ac, B.Trim() AS B1      
+FROM R WHERE StringOccurs(C, “xyz”) > 2
+
+#User-defined function created with C#
+public static 
+int StringOccurs(string str, string ptrn)
+{    
+  int cnt=0; int pos=-1;    
+  while (pos+1 < str.Length) {     
+    pos = str.IndexOf(ptrn, pos+1) ;     
+    if (pos < 0) break;      
+    cnt++;    
+  }    
+  return cnt;  
+} #ENDC
