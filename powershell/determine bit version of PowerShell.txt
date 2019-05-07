@@ -1,0 +1,4 @@
+Determine bit Version of PowerShell
+Main Success Scenario:
+  1.	32 bit is at “C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe”
+  2.	64 bit is at “C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe”
