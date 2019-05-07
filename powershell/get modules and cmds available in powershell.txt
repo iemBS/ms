@@ -1,0 +1,4 @@
+Get Modules and Commands Available in PowerShell
+Main Success Scenario:
+  1. Open PowerShell window
+  2. Run “Get-Command” command.
