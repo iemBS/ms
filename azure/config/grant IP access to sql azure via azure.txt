@@ -9,5 +9,6 @@ Main Success Scenario:
   3. Specify SQL Login 
        [alias]@[instance name]
   4. Specify password
+  5. [add more steps here]
 Alternatives:
 	None
