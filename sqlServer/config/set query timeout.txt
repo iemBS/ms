@@ -1,0 +1,11 @@
+Set Query Timeout
+Preconditions: 
+  - SQL Server 2008
+Main Success Scenario:
+  1. In Management Studio, click "Tools" menu
+  2. Choose "Options..."
+  3. In "Options" window, select Query Execution > SQL Server > General
+  4. Set "Execution time-out"
+  5. Click "OK" button
+Alternatives:
+  None
