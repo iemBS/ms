@@ -1,0 +1,13 @@
+Grant IP access to SQL Azure from Azure
+Preconditions: 
+  - See https://docs.microsoft.com/en-us/previous-versions/azure/jj553530(v=azure.100)
+  - See https://support.office.com/en-us/article/connect-to-a-microsoft-azure-sql-database-power-query-9f621fd9-5f22-4c57-b247-eb0be8b7bac4?ui=en-US&rs=en-US&ad=US
+Main Success Scenario:
+  1.	Open a private browser if connected to the MS network.
+  2.	Put URL into browser
+       https://[instance name].database.windows.net/ 
+  3. Specify SQL Login 
+       [alias]@[instance name]
+  4. Specify password
+Alternatives:
+	None
