@@ -1,0 +1,3 @@
+# A mail box called "Conf Number 1" is being created. 
+PS C:\Users\v-scburn> New-Mailbox -Name "Conf Number 1" –Equipment
+PS C:\Users\v-scburn> Set-CalendarProcessing "Conf Number 1" -AutomateProcessing AutoAccept
