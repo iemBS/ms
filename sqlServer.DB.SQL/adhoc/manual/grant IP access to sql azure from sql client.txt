@@ -1,0 +1,10 @@
+Grant IP access to SQL Azure from SQL Client 
+Preconditions: 
+  - None
+Main Success Scenario:
+  1.	Connect to SQL Azure server from SQL client
+  2.	Open a query window for the Master database
+  3.	Run the query to allow a range of IPs
+          EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
+Alternatives:
+  None
