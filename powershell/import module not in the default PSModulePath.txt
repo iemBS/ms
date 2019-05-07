@@ -1,0 +1,4 @@
+Import a Module not in the default PSModulePath location
+Main Success Scenario:
+  1. Open PowerShell window
+  2. Run “Import-Module C:\ps-test\TestCmdlets” command to load the TestCmdlets module. (example path used)
