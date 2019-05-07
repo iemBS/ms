@@ -1,0 +1,1 @@
+REDUCE [<input> [PRESORT column [ASC|DESC] [, ...]]]ON grouping_column [, ...]USING <Reducer>  [ (args) ] [PRODUCE column [, ...]] [WHERE <predicate> ][HAVING <predicate> ] 
