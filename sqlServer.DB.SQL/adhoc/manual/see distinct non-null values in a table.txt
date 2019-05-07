@@ -1,0 +1,34 @@
+See Distinct Non-Null Values in a Table
+Preconditions: 
+  - Set <table name> to a table name
+Main Success Scenario:
+  1. Run
+		Declare @LoopCounter Int
+		Declare @LoopMaxCount Int
+		Declare @Query Varchar(1000)
+
+		Select
+			@LoopMaxCount = COUNT(1)
+		From
+			INFORMATION_SCHEMA.COLUMNS
+		Where
+			TABLE_NAME = 'Ext_HSGCRM_FilteredLead'
+
+		Set @LoopCounter = 1
+		While(@LoopCounter <= @LoopMaxCount)
+		Begin
+			Select
+				@Query = 'Select Distinct ''' + TABLE_NAME + ''' As TableName,[' + COLUMN_NAME + '] From [' + TABLE_NAME + '] Where [' + COLUMN_NAME + '] Is Not Null Order By [' + COLUMN_NAME + ']'
+			From
+				INFORMATION_SCHEMA.COLUMNS
+			Where
+				TABLE_NAME = 'Ext_HSGCRM_FilteredLead'
+				And
+				ORDINAL_POSITION = @LoopCounter
+
+			Execute (@Query)
+
+			Set @LoopCounter = @LoopCounter + 1
+		End
+Alternatives:
+		None
