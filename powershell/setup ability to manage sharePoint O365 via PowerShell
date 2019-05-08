@@ -1,0 +1,13 @@
+Setup ability to manage SharePoint O365 via PowerShell
+Main Success Scenario:
+  1. Install Windows PowerShell from Windows Management Framework. 
+  2. Install the SharePoint Online Management Shell from the Microsoft Download Center.
+  3. On your computer, click Start>All Programs>SharePoint Online Management Shell.
+  4. Get the Url of the SharePoint Online Administration Center.
+       "https://110Consulting12-admin.sharepoint.com" is an example
+  5. Get the email address for which you want to grant access to the SharePoint Online Administration Center site. 
+       "ckent@microsoft.com" is an example
+  6. Run Connect-SPOService. 
+       Connect-SPOService -Url https://110Consulting12-admin.sharepoint.com -credential ckent@microsoft.com
+  7. Run to test connection.
+       Get-SPOSite
