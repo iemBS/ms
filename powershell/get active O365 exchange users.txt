@@ -1,0 +1,12 @@
+Get Active O365 Exchange Users
+Main Success Scenario:
+  1.	Manually Connect to O365 via PowerShell
+  2.	Export user list to .CSV file
+        Get-MailBox | Export-CSV C:\temp\120228\GetMailBox.csv
+  3.	Manually Disconnect from O365
+  4.	Filter on [need to specify] column in .CSV file to get active users
+  5.	Manually Disconnect from O365
+Alternatives:
+  3a. Cannot find correct command to run.
+	  3a1. PS C:\Users\ckent> Get-Help Get-Mailbox
+		3b2. go to Step 3. 
