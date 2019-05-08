@@ -1,0 +1,9 @@
+Manually Remove Distribution Group
+Preconditions:
+  - Assume distribution group is called "RogersGrp". 
+Main Success Scenario:
+  1. Manually Connect to O365 via PowerShell
+  2. Remove distribution group
+     PS C:\Users\v-scburn> Remove-DistributionGroup -Identity RogersGrp -confirm:$false
+  3. Run Get-DistributionGroup to confirm removal
+  4. Manually Disconnect from O365
