@@ -1,0 +1,10 @@
+Manually Disconnect from O365
+Preconditions: Note: each session can last for XXX, $Session variable was used to create the session.
+Main Success Scenario:
+  1.	Close the session
+        Remove-PSSession $Session
+  2.	Click Enter button
+  3.	No message response
+Alternatives:
+  2a. $Session does not exist
+	  2a1. Go to Step 3.
