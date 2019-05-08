@@ -70,4 +70,7 @@ datemodified:5/2/2019
   -- find files that have "cheese" or "soda" inside, but does not need to be next to eacher
   content:"cheese soda"
   
+-- find all files with text in the file name
+  -- files with names of "cheese 2" and "cheese burger" and "blue cheese" would be returned by the below command.
+  filename:*cheese 
   
