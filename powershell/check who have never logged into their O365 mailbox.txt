@@ -1,3 +1,5 @@
 Check who have never logged into their O365 mailbox
+Preconditions: 
+  - Must be connected to O365 instance via PowerShell.
 Main Success Scenario:
   1. Get-mailbox | Get-MailboxStatistics |Where {($_.lastlogontime -ne $null) -and ($_.objectclass -eq "Mailbox") -and ($_.lastlogontime -le (get-date).adddays(-90))} | Fl displayname,lastlogontime
