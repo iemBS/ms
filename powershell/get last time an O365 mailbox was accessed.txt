@@ -1,0 +1,6 @@
+Get last time an O365 mailbox was accessed
+Preconditions:
+  - Must be connected to O365 instance via PowerShell.
+  - Assume here the email alias is "ckent". 
+Main Success Scenario:
+  1. PS C:\Users\ckent> Get-LogonStatistics "ckent"
