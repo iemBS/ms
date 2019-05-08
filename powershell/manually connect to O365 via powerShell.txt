@@ -1,0 +1,26 @@
+Manually Connect to O365 via PowerShell
+Main Success Scenario:
+  1.	Open PowerShell window
+  2.	Specify credentials
+        PS C:\Users\ckent> $cred = Get-Credential
+  3.	Click Enter button
+  4.	Enter your Office 365 credentials in the “Windows PowerShell Credential Request” window.
+      •	User name: ckent@hotmail.com
+      •	Password: [Office 365 password]
+  5.	Create a Remote PowerShell object. 
+        PS C:\Users\ckent> $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.outlook.com/powershell/ -Credential $cred -Authentication Basic –AllowRedirection
+  6.	Click enter.
+  7.	See redirection message
+        WARNING: Your connection has been redirected to the following URI:"https://pod51010psh.outlook.com/PowerShell-LiveID?PSVersion=2.0 "
+        WARNING: Your connection has been redirected to the following URI:"https://by2prd0510psh.outlook.com/PowerShell-LiveID?PSVersion=2.0 "
+  8.	Download all available cmdlets from the server. 
+        PS C:\Users\v-scburn> Import-PSSession $Session
+  9.	Click enter.
+  10.	See message.
+Alternatives
+  8a. Execution of scripts is disabled on this machine
+    8a1. Run PowerShell as Administrator
+    8a2. Change execution policy
+				   PS C:\Users\ckent> set-executionpolicy remotesigned
+	  8a3. Choose “Y”
+    8a4. Continue with Step 8 above.
