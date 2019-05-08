@@ -1,0 +1,9 @@
+Get Inactive O365 Users  
+Main Success Scenario:
+  1.	Prompt for credentials
+        $cred = Get-Credential
+  2.	Import MSOnline module
+  3.	Connect to module
+        Connect-MsolService -Credential $cred
+  4.	Export user list to .CSV file
+        Get-MsolUser | where-object {$_.BlockCredential -eq $true} | select DisplayName | Export-CSV ./Get_InActive_O365_Users.csv
