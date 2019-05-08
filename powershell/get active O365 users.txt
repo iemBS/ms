@@ -1,0 +1,12 @@
+Get Active O365 Users  
+Main Success Scenario:
+  1.	Open PowerShell window
+  2.	Prompt for credentials
+        $cred = Get-Credential
+  3.	Import MSOnline module
+  4.	Connect to module
+        Connect-MsolService -Credential $cred
+  5.	Export user list to .CSV file
+        Get-MsolUser | where-object {$_.BlockCredential -eq $false -and $_.IsLicensed -eq $true} | select DisplayName | Export-CSV ./Get_Active_O365_Users.csv
+  6.	Manually Disconnect
+        Remove-Module MsOnline
