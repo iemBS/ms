@@ -1,0 +1,9 @@
+Get All Messages from Azure Queue
+Main Success Scenario
+  1.	Call ApproximateMessageCount property for CloudQueue instance.
+  2.	Call GetMessages(count) method for CloudQueue instance.	
+Alternatives
+  2a.	Count exceeds the number of messages in the queue.
+    2a1.	Throw Exception
+    2a2.	Get the correct number of messages in queue
+    2a3.	Go to Step 2. 
