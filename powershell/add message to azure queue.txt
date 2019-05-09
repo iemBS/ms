@@ -1,0 +1,5 @@
+Add Message to Azure Queue
+Preconditions: 
+  - Messages must be 8 KB or less.
+Main Success Scenario
+  1.	Call AddMessage(msg) method for CloudQueue instance.
