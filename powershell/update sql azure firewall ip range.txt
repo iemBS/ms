@@ -1,0 +1,19 @@
+Update SQL Azure Firewall IP Range
+Preconditions: 
+  - login to Azure with ckent@hotmail.com account
+  - Get IP address of your client machine to determine the IP range
+Main Success Scenario:
+  1.	Go to Windows Azure Management Portal
+  2.	Specify ckent@hotmail.com as the login.
+  3.	Specify the password.
+  4.	Click Sign In button.
+  5.	Go to “SQL Databases”
+  6.	Choose a SQL database
+  7.	Go to “Dashboard”
+  8.	Choose “Manage allowed IP addresses”
+  9.	Add IP ranges
+  10.	Click “Save”
+Alternatives:
+  5a. Do not have access
+      5a1. Request access to the portal from an admin. 
+      5a2. Go to step 1. 
