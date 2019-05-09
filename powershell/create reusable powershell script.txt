@@ -1,0 +1,7 @@
+Create Reusable PowerShell Script
+Main Success Scenario:
+  1.	Create text file
+  2.	Save text file with .ps1 extension
+  3.	Put PowerShell code in file
+  4.	Right click on file
+  5.	Choose “Run with PowerShell” from context menu.
