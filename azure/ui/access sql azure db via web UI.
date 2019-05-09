@@ -1,0 +1,6 @@
+Access SQL Azure DB via Web UI
+Preconditions:
+  - SQL Azure instance is at https://xyz.database.windows.net
+  - Relational DB name is "myDB"
+Maine Success Scenario:
+  1. https://xyz.database.windows.net/#$database=myDB
