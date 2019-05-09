@@ -1,0 +1,20 @@
+Connect to SQL Azure via SSMS
+Preconditions: 
+  - someone has access to Windows Azure Management portal
+  - "xyz.database.windows.net" is path to SQL server in azure.
+  -"ckent" is a SQL login for the SQL server. 
+Main Success Scenario:
+  1.	Specify xyz.database.windows.net for Server name
+  2.	Specify ckent for Login
+  3.	Specify Password
+  4.	Click Connect button
+  5.	Connection successful.
+Alternatives:
+  5a.	Connection not successful.
+    5a1. Connection error displayed
+    5a2. Update SQL Azure Firewall IP Range
+    5a3. Go to Step 1.
+  5b. Connection not successful due to incorrect server name
+    5b1. Connection error displayed
+    5b2. Correct server name spelling
+    5b3. Go to Step 1.
