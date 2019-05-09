@@ -1,4 +1,4 @@
-Manually Remove Ownerless Distribution Group 
+Manually Remove Ownerless O365 Distribution Group 
 Preconditions: 
   - distribution group alias is "ckentGrp"
   - Must have admin access to O365 instance
