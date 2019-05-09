@@ -1,0 +1,29 @@
+View Conference Room O365 Calendar
+Preconditions: 
+  - Conference room named "Conf Room 1"
+  - Using Pacific time zone
+Main Success Scenario:
+  1.	Manually Connect to O365 via PowerShell
+  2.	Grant access to view calendar for conference room.
+        PS C:\Users\ckent> Add-MailboxPermission -Identity "Conf Room 1" -User "Clark Kent" -AccessRights FullAccess
+  3.	Log into https://portal.microsoftonline.com.
+  4.	Click on “Outlook” at the top if not already in OWA.
+  5.	Click on drop down at top right of OWA
+  6.	Choose “Open Other Mailbox” from drop down.
+  7.	Type “Conf Room 1” in text box.
+  8.	Hit “Enter” key
+  9.	Click “Open”.
+  10.	Set Time Zone to Pacific Time. (only occurs for opening the first time)
+  11.	Click “OK” button. (only occurs for opening the first time)
+  12.	Conf Room 1 Mailbox opens
+  13.	Click “Calendar” button on bottom left
+  14.	Click “Share” drop down
+  15.	Click “Share This Calendar…”
+  16.	Specify those that need to see the calendar on the To… line
+  17.	Choose “All information” for the Share level
+  18.	Click “Send”. Even if it does not allow you to send the Share mail it will grant the sharing right.
+  19.	See “Conf Room 1” calendar in Calendar section of Outlook client
+  20.	Manually Disconnect from O365 via PowerShell.
+Alternatives:
+  12a. Mailbox does not open
+	  12a1. Contact Office 365 administrator
