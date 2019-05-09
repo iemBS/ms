@@ -1,0 +1,5 @@
+Setup Azure Queue Storage
+Main Success Scenario
+  1.	Get CloudQueueClient instance calling CreateCloudQueueClient() method
+  2.	Get CloudQueue instance calling GetQueueReference(queueName) method.
+  3.	Call CreateIfNotExist() method for CloudQueue instance.
