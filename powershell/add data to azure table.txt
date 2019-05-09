@@ -1,0 +1,9 @@
+Add Data to Azure Table
+Main Success Scenario
+  1.	Create model that derives from TableServiceEntity class.
+  2.	Call AddObject(entitySetName, entity) method of DataServiceContext class.
+  3.	Call SaveChanges() method of DataServiceContext class.
+Alternatives
+  1a.	Table Storage not setup
+    1a1.	Setup Table Storage
+    1a2.	Go to Step 1. 
