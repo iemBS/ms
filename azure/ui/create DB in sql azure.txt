@@ -1,0 +1,6 @@
+create DB in SQL Azure
+Preconditions: 
+  - New DBs must be created at server level
+Main Success Scenario:
+  1. Go to https://manage.windowsazure.com/ 
+  2. [need to complete]
