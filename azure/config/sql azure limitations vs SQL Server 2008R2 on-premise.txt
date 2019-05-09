@@ -1,0 +1,55 @@
+sql azure limitations vs SQL Server 2008R2 on-premise
+----------------------------------------------------------
+
+Limit 1:  Must specify columns in table you are inserting into. If you do not the error message received is not clear on the actual error. 
+
+In SQL 2008 R2
+Have the choice to specify the columns or not. 
+
+Limit 2:  Do not need to specify “Go” at the end of a stored procedure SQL script.
+
+In SQL 2008 R2
+Need to specify “Go”
+
+Limit 3:  Connecting to database using OLE DB is not supported
+
+In SQL 2008 R2
+Supported
+
+Limit 4:  Only TCP/IP connections are allowed
+
+Limit 5:  Only connect via port 1433
+
+Limit 6:  Cannot use “RESTORE” SQL statement.
+
+Limit 7:  Cannot attach a database.
+
+Limit 8:  Does not support SQL Server Agent or jobs.
+
+Limit 9:  Collation cannot be set at the server level. Default collation is SQL_LATIN1_GENERAL_CP1_CI_AS
+
+In SQL 2008 R2
+Collation can be set at server, database, column, and expression levels.
+
+Limit 10:  A table must have a clustered index. If a table is created without a clustered index. The clustered index must be created before a record is inserted.
+
+Limit 11:  Windows authentication is not supported.
+
+Limit 12:  Excessive resource usage may lead to a connection being closed. 
+
+Limit 13:  You must be connected to the “master” database when executing the following SQL statements:
+  - Create/Alter/Drop Login
+  - Create/Alter/Drop Database
+
+Limit 14:  Firewall specific to SQL Azure (more info here)
+
+In SQL 2008 R2
+Firewall is specific to operating system that SQL server is running on.
+
+Limit 15:  SQL Azure Database Management REST API
+  - Does not support asynchronous REST API calls.
+
+Limit 16:  Can manage only using the following:
+  - SQL Server R2 2008 client
+  - Windows Azure Platform Management Portal
+  - Application using the REST API (can have all features as Management Portal).
