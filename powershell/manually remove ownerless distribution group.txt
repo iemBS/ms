@@ -1,0 +1,14 @@
+Manually Remove Ownerless Distribution Group 
+Preconditions: 
+  - distribution group is called "ckentGrp"
+  - Must have admin access to O365 instance
+  - ckent@hotmail.com email address must be part of O365 instance
+  - ckent@hotmail.com email address must be that of the person running this script
+Main Success Scenario:
+  1.	Manually Connect to O365 via PowerShell
+  2.	Specify DG owner
+        PS C:\Users\ckent> Set-DistributionGroup -Identity ckentGrp -ByPassSecurityGroupManagerCheck -ManagedBy ckent@hotmail.com
+  3.	Remove distribution group
+        PS C:\Users\v-scburn> Remove-DistributionGroup -Identity ckentGrp -confirm:$false
+  4. Run Get-DistributionGroup to confirm removal
+  5. Manually Disconnect from O365
