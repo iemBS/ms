@@ -1,0 +1,9 @@
+Get Message from Azure Queue
+Preconditions: 
+  - Messages must be 8 KB or less.
+Main Success Scenario
+  1.	Call PeekMessage() method for CloudQueue instance.
+  2.	Call GetMessage() method for CloudQueue instance.
+Alternatives
+  1a.	PeekMessage() returns null
+    1a1.	Exit use case
