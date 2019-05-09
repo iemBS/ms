@@ -1,0 +1,16 @@
+Add Conference Room to O365 Address Book
+Preconditions: 
+  - "Kent Office" is the name of the that company location
+  - "ConfRoom1@hotmail.com" is the email address representing the conference room
+  - "Conf Room 1" is the conference room name
+Main Success Scenario:
+  1.	Go to O365 Admin page
+  2.	Click “Manage” link below Exchange
+  3.	Exchange Control Panel (ECP) will open
+  4.	Go to Manage My Organization > Users & Groups > Mailboxes
+  5.	Click “New” button and choose Room Mailbox
+  6.	Set Room name to "Conf Room 1"
+  7.	Set E-email address to ConfRoom1@hotmail.com
+  8.	Set Location to "Kent Office"
+  9.	Set Booking requests to first option
+  10.	Click Save button
