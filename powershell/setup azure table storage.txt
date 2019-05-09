@@ -1,0 +1,4 @@
+Setup Azure Table Storage
+Main Success Scenario:
+  1.	Get CloudTableClient instance calling CreateCloudTableClient() method.
+  2.	Call CreateTableIfNotExist(tableName) method for CloudTableClient instance
