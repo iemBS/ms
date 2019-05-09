@@ -1,0 +1,8 @@
+Export Distribution Group Members to .CSV file
+Preconditions: 
+  - "ckent Grp" is the name of the distribution group and not the alias
+Main Success Scenario:
+  1.	Manually Connect to O365 via PowerShell
+  2.	Get distribution group members
+        PS C:\Users\v-scburn> Get-DistributionGroupMember "ckent Grp" | Export-CSV C:\temp\ckent_Grp_members.csv
+  3.	Manually Disconnect from O365
