@@ -1,4 +1,4 @@
-Export Distribution Group Members to .CSV file
+Export O365 Distribution Group Members to .CSV file
 Preconditions: 
   - "ckent Grp" is the name of the distribution group and not the alias
 Main Success Scenario:
