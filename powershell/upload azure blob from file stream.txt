@@ -1,0 +1,17 @@
+Upload Azure Blob from File Stream
+Preconditions: container name must be lowercase.
+Main Success Scenario
+  1.	Get CloudBlobClient instance calling CreateCloudBlobClient() method.
+  2.	Get CloudBlobContainer instance calling GetContainerReference(containerName) method.
+  3.	Call GetBlobReference(fileName) method for CloudBlobContainer instance.
+  4.	Call UploadFromStream(stream) method for CloudBlob instance.
+  5.	Call Uri.ToString() method for CloudBlob instance.
+Alternatives
+  2a.	Container does not exist
+    2a1.	Setup Blob Storage.
+    2a2.	Go to Step 2.
+ 2b. Container name is not lowercase
+  2b1.	“One of the request inputs is out of range” StorageClientException
+  2b2.	“The remote server returned an error: (400) Bad Request” WebException
+  2b3.	Change the container name to be lowercase.
+  2b4.	Go to Step 2.
