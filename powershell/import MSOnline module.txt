@@ -1,0 +1,11 @@
+Import MSOnline Module
+Main Success Scenario:
+  1.	Import module
+        Import-Module MSOnline
+Alternatives:
+  1a. “Import-Module : The specified module 'MSOnline' was not loaded because no valid module file was found in any module directory.”
+	  1a1. Install MSOnline Services Sign-In Assistant from here.
+		1a2. “MS Online Services” changed to “MS Azure Active Directory” module.
+	  1a3. Install Windows Azure AD Module.
+	  1a4. See if MSOnline module is available. 
+	  1a5. Go to step 1. 
