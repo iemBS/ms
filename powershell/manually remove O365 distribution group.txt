@@ -1,4 +1,4 @@
-Manually Remove Distribution Group
+Manually Remove O365 Distribution Group
 Preconditions:
   - Assume distribution group is called "RogersGrp". 
 Main Success Scenario:
