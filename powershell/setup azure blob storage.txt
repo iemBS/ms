@@ -1,0 +1,5 @@
+Setup Azure Blob Storage
+Main Success Scenario
+  1.	Get CloudBlobClient instance calling CreateCloudBlobClient() method.
+  2.	Get CloudBlobContainer instance calling GetContainerReference() method.
+  3.	Call CreateIfNotExist() method for CloudBlobContainer instance.
