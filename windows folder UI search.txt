@@ -61,6 +61,8 @@ datemodified:this month
 datemodified:last month 
 datemodified:this year 
 datemodified:5/2/2019 
+datemodified:<5/2/2019 
+datemodified:>5/2/2019 
 
 -- find all files with specific text inside
 
