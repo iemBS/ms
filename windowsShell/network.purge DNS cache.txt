@@ -1,0 +1,7 @@
+Purge DNS Cache
+Main Success Scenario:
+  1. run "ipconfig /flushDNS" in command prompt
+  2. result returned
+       Windows IP Configuration
+       Successfully flushed the DNS Resolver Cache.
+  
