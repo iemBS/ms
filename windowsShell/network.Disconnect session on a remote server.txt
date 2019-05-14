@@ -1,11 +1,14 @@
-rwinsta /server:S110Consulting13 12
+
 
 Remotely kill sessions on a computer
-Precondition: Have admin access to the remote computer
+Precondition: 
+  - Have admin access to the remote computer
+  - Case not matter
 Note: Kills
 Main Success Scenario:
   1.	Run qwinsta /SERVER:[server name] to get list of Session IDs
   2.	Run rwinsta [session id] /SERVER:[server name] to remove a session
+        rwinsta /server:S110Consulting13 12
 Alternatives:
   None
 
