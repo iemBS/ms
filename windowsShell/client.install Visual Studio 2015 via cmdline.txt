@@ -1,0 +1,6 @@
+Install Visual Studio 2015 via cmd line
+Preconditions:
+  - Use this if you want to install VS 2015 to a specific folder. 
+Main Success Scenario:
+  1. Run below in command prompt
+       vs_enterprise.exe /CustomInstallPath [folder path to install to]
