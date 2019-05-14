@@ -1,0 +1,8 @@
+See Who is logged into computer
+Preconditions:
+  - Login running command has admin access to computer
+  - Need server name or IP
+      using "Serpentor" here
+Main Success Scenario:
+  1. Run "qwinsta /server:Serpentor" in command prompt
+  2. In result, UserName shows alia, State shows if active, & SessionName shows how connected. 
