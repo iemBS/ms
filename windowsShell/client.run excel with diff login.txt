@@ -1,0 +1,12 @@
+Run Excel w diff login
+Preconditions: 
+  - login exists on network
+      using "redmond\myAcct" here
+  - Path to exe is correct
+  - Know password of other login
+Main Success Scenario
+  1. Run the below in a command prompt
+      runas /noprofile /netonly /user:redmond\myAcct  "C:\Program Files (x86)\Microsoft Office\root\Office16\EXCEL.EXE"
+  2. Prompted for password of other login. 
+  3. Enter password (no characters show in console)
+  4. Hit enter button. 
