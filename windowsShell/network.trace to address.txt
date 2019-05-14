@@ -1,0 +1,26 @@
+Trace to Address
+Preconditions: 
+  - Choose URL or IP to trace to
+      choosing "google.com" here
+  - Hop 1 is client gateway
+  - Hop 2 is ISP gateway
+  - 3 packets are sent round trip for each hop
+  - Times/latencies (in ms) for the 3 trips are called RTT1, RTT2, & RTT3
+Main Success Scenario:
+  1. Run "tracert -d google.com"
+  2. Wait for trace to complete
+  3. Result has time and IP for each hop. 
+  4. Compare RTTs to see hop RTT time/latency consistency. 
+Alternatives:
+  3a. lines with "Request timed out" and * 
+    3a1. Packet is lost or device configured to not respond. 
+    3a2. Try same from other computers on the network. 
+    
+    
+    
+    
+ Notes
+  - If packet loss occurs, it is typically with hop 2. 
+    - This indicates there may be an issue with 
+        - the ISP gateway
+        - link(s) between the Client gateway and ISP gateway
