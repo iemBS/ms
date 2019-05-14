@@ -1,1 +1,0 @@
-reset session rdp-tcp#6 /server:oiEtlVmWu2Dev1 /v  

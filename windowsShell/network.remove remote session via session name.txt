@@ -1,0 +1,8 @@
+Remove Remote Session via Session Name
+Preconditions:
+  - Need session name
+      using "rdp-tcp#6" here
+  - Need server name or IP 
+      using "Destro" here
+Main Success Scenario
+  1. Run "reset session rdp-tcp#6 /server:Destro /v" in command prompt
