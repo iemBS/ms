@@ -1,0 +1,13 @@
+    Since the question does not specify an operating system, this is how to get that same information with PowerShell’s curl (actually an alias of Invoke-WebRequest):
+
+        (curl ipinfo.io).Content
+
+    Which produces a JSON string. To get the object that the JSON represents, use ConvertFrom-Json:
+
+        curl ipinfo.io | ConvertFrom-Json
+
+    Since that is a PowerShell object, you can easily get specific fields from it. For example, this command gets just the external IP address as a string:
+
+        (curl ipinfo.io | ConvertFrom-Json).ip
+
+    Note that the geographical information from this service is not super accurate, but it did locate me within 20 miles or so of my actual location and the ISP information seems to be reliable.
