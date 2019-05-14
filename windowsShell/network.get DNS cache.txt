@@ -1,0 +1,6 @@
+# A DNS cache (sometimes called a DNS resolver cache) is a temporary database, maintained by a computer's operating system, that contains records of all the recent visits and attempted visits to websites and other internet domains
+
+Get DNS Cache
+Main Success Scenario:
+  1. Paste "ipconfig /displayDNS" in command prompt
+  2. See URLs and IP addresses in results
