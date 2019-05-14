@@ -6,7 +6,9 @@ Main Success Scenario:
   1. Open command prompt
   2. type in "ipconfig"
   3. Press enter
-  4. Look for "Default Gateway" in results. 
-  5. See IP address to the right of "Default Gateway" and the dots.  
+  4. In results, look for adapter that is connected to internet.
+        like "Wireless LAN adapter Wi-Fi"
+  5. Look for "Default Gateway" under the adapter. 
+  6. See IP address to the right of "Default Gateway" and the dots.  
   
   
