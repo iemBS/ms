@@ -7,4 +7,6 @@ Main Success Scenario:
   2. type in "ipconfig"
   3. Press enter
   4. Look for "Default Gateway" in results. 
-  5. See IP address to the right of "Default Gateway" and the dots. 
+  5. See IP address to the right of "Default Gateway" and the dots.  
+  
+  
