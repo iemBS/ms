@@ -1,0 +1,25 @@
+Get Packet Loss
+Preconditions: 
+  - Choose an IP or URL to ping
+      using google.com here
+  - Choose # of times to ping 
+  - Choose packet size (in bytes) to ping with 
+      default is 32 and max is 65,527
+  - Only tests packet loss for ICMP protocol or all traffic.
+  - "tracert" cmd traces route to google.com and presents each hop as an IP address.
+Main Success Scenario:
+  1. Run "ping -n 20 google.com" in command prompt
+  2. line is shown for each ping
+  3. Results show packets sent, received, lost, and % lost
+       example result: 
+         Ping statistics for 216.58.193.78:
+             Packets: Sent = 20, Received = 20, Lost = 0 (0% loss),
+         Approximate round trip times in milli-seconds:
+             Minimum = 8ms, Maximum = 15ms, Average = 9ms
+  4. Try again with a greater number of pings    
+Alternatives:
+  3a: Packet loss occurred
+    3a1 See where the packet loss begins to occur. 
+    3a2. Run "tracert -d google.com" in command prompt
+    3a3. More info at https://documentation.meraki.com/zGeneral_Administration/Tools_and_Troubleshooting/Troubleshooting_Packet_Loss_Between_Devices
+    
