@@ -1,0 +1,17 @@
+Get Geo Location of IP address
+Preconditions:
+  - Choose an IP address to find geo location of
+      Using "216.58.193.78" here
+Main Success Scenario: 
+  1. Run "curl ipinfo.io/216.58.193.78" in command prompt
+  2. Result
+      {
+      "ip": "216.58.193.78",
+      "hostname": "sea15s07-in-f14.1e100.net",
+      "city": "Draper",
+      "region": "Utah",
+      "country": "US",
+      "loc": "40.5084,-111.8840",
+      "postal": "84020",
+      "org": "AS15169 Google LLC"
+    }
