@@ -1,0 +1,24 @@
+Enable Linux Cmds on Windows 10 OS
+Preconditions:
+  - Windows OS must be 64 bit
+  - Assuming Ubuntu distribution is chosen. 
+Note: 
+  - Guidance provided by howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/
+  - Commands are derived from Ubuntu Linux Bash Shell
+Main Success Scenario: 
+  1. In Windows OS, go to "Control Panel" > "Programs and Features" > "Turn Windows Features On Or Off" on top left
+  2. Check/enable "Windows Subsystem for Linux"
+  3. Click “OK” button and watch install.
+  4. Click "Restart now" button
+  5. After restart, open Microsoft Store from start menu.
+  6. Search for "Linux".
+  7. Under "Linux on Windows?" banner, click "Get the apps". 
+  8. For "Ubuntu", click "Get" or "Install" button.  
+  9. After install, open "Ubuntu" from start menu
+  10. Setup credentials on first open (do not have to match windows creds)
+Note: Starting with the Fall Creators Update, you can no longer install Ubuntu by running the “bash” command. Instead, you have to install Ubuntu or another Linux distribution from the Store app.
+Alternatives: 
+  4a. Click "Don't restart" button
+    4a1. Restart computer later. 
+Guarantee: 
+  - Use "wsl" or "ubuntu" cmd on windows shell to start the bash shell
