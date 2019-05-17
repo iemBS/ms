@@ -1,0 +1,15 @@
+
+Process SSAS Dimensional Database
+Preconditions: 
+  - Assume DB is named "Cheese"
+  - Process level is full. So, processes dimensions and cubes (measure groups in cubes)
+Main Success Scenario:
+  1. Run below XMLA query to do full process of DB
+    <Process xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">  
+      <Object>  
+        <DatabaseID>Cheese</DatabaseID>  
+      </Object>  
+      <Type>ProcessFull</Type>  
+      <WriteBackTableCreation>UseExisting</WriteBackTableCreation>  
+    </Process>  
+    
