@@ -1,0 +1,16 @@
+Backup Dimensional SSAS Database
+Preconditions: 
+  - Assume database is named "Cheese"
+  - Choosing to overwrite backup file of same name at destination if there
+  - Choosing to compress the backup file
+  - Not choosing to secure the file with a password. 
+Main Success Scenario: 
+  1. Run the following XMLA
+      <Backup xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+       <Object>
+       <DatabaseID>Cheese</DatabaseID>
+       </Object>
+       <File>Cheese.abf</File>
+       <AllowOverwrite>true</AllowOverwrite>
+       <ApplyCompression>false</ApplyCompression>
+      </Backup>
