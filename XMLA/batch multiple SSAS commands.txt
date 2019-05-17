@@ -4,6 +4,9 @@ Preconditions:
   - "ProcessAffectedObjects=false" means other objects impacted by this command will not be processed
   - Out-Of-Line Bindings defined at https://docs.microsoft.com/en-us/sql/analysis-services/multidimensional-models/data-sources-and-bindings-ssas-multidimensional?view=sql-server-2017#out-of-line-bindings
   - Batch commands are always executed sequentially
+  - Parallel command within a Batch allows you to specify multiple Process commands that are executed in parallel.
+  - Parallel is a special command in that it can only appear inside a Batch
+  - Parallel cannot contain any command other than Process. 
 Main Success Scenario:
   1. Run batch SSAS command
       <Batch Transaction="true" ProcessAffectedObjects="false">
@@ -16,3 +19,15 @@ Main Success Scenario:
          <Command3>cmd_3</Command3>
          ...
       </Batch>
+Alternatives
+  1a1. Run parallel commands inside batch 
+    <Parallel MaxParallel="0">
+       <Process>cmd_1</Process>
+       <Process>cmd_2</Process>
+       <Process>cmd_3</Process>
+       ...
+    </Parallel>
+
+
+
+More info can be found at https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2005/administrator/ms345142(v=sql.90)
