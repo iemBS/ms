@@ -1,0 +1,12 @@
+Clear Cache for SSAS Dim Cube
+Preconditions: 
+  - Assume database is named "Cheese"
+  - Assume cube is named "Swiss"
+Main Success Scenario:
+  1. Run XMLA script to clear cube cache
+      <ClearCache xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+      <Object>
+      <DatabaseID>CheeseAdventure Works DW 2008</DatabaseID>
+      <CubeID>Swiss</CubeID>
+      </Object>
+      </ClearCache>
