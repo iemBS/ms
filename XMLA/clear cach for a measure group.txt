@@ -1,0 +1,14 @@
+Clear Cache for a specific Measure Group
+Preconditions: 
+  - Assume DB named "Cheese"
+  - Assume Cube named "Swiss"
+  - Assume measure group named "Actuals"
+Main Success Scenario: 
+  1. Run XMLA to clear cach for the "Actuals" measure group
+        <ClearCache xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object>
+        <DatabaseID>Cheese</DatabaseID>
+        <CubeID>Swiss</CubeID>
+        <MeasureGroupID>Actuals</MeasureGroupID>
+        </Object>
+        </ClearCache>
