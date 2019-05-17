@@ -13,9 +13,9 @@ Main Success Scenario:
   5. After restart, open Microsoft Store from start menu.
   6. Search for "Linux".
   7. Under "Linux on Windows?" banner, click "Get the apps". 
-  8. For "Ubuntu", click "Get" or "Install" button.  
-  9. After install, open "Ubuntu" from start menu
-  10. Setup credentials on first open (do not have to match windows creds)
+  8. Click "Ubuntu", then "Get" button. (choose "No,thanks" when asked to use across all devices)  
+  9. After download & install, open "Ubuntu" from start menu
+  10. Finish installing and Setup credentials on first open (do not have to match windows creds)
 Note: Starting with the Fall Creators Update, you can no longer install Ubuntu by running the “bash” command. Instead, you have to install Ubuntu or another Linux distribution from the Store app.
 Alternatives: 
   4a. Click "Don't restart" button
