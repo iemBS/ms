@@ -1,0 +1,17 @@
+Process SSAS Partition
+Preconditions:
+  - Database named "Adventure Works DW"
+  - Measure Group named "Fact Internet Sales"
+  - Partition in Measure Group named "Internet_Sales_2004"
+  - Process level is full
+Main Success Scenario: 
+  1. Process a single partition
+      <Process xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object>
+          <DatabaseID>Adventure Works DW</DatabaseID>
+          <CubeID>Adventure Works DW</CubeID>
+          <MeasureGroupID>Fact Internet Sales</MeasureGroupID>
+          <PartitionID>Internet_Sales_2004</PartitionID>
+        </Object>
+        <Type>ProcessFull</Type>
+      </Process>
