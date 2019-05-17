@@ -1,0 +1,8 @@
+Clear Cache for SSAS Dim Database
+Main Success Scenario:
+  1. Clear cache of SSAS DB. 
+      <ClearCache xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+      <Object>
+      <DatabaseID>Cheese</DatabaseID>
+      </Object>
+      </ClearCache>
