@@ -1,4 +1,4 @@
-Clear Cache for a specific Measure Group
+Clear Cache for a Dim Cube Measure Group
 Preconditions: 
   - Assume DB named "Cheese"
   - Assume Cube named "Swiss"
