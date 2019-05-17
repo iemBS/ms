@@ -1,0 +1,18 @@
+Batch Run Multiple SSAS Commands
+Preconditions:
+  - "Transaction=true" means all commands in the batch are executed in a single transaction
+  - "ProcessAffectedObjects=false" means other objects impacted by this command will not be processed
+  - Out-Of-Line Bindings defined at https://docs.microsoft.com/en-us/sql/analysis-services/multidimensional-models/data-sources-and-bindings-ssas-multidimensional?view=sql-server-2017#out-of-line-bindings
+  - Batch commands are always executed sequentially
+Main Success Scenario:
+  1. Run batch SSAS command
+      <Batch Transaction="true" ProcessAffectedObjects="false">
+         <Bindings>ool_bindings</Bindings>
+         <DataSource>ool_ds</DataSource>
+         <DataSourceView>ool_dsv</DataSourceView>
+         <ErrorConfiguration>error_config</ErrorConfiguration>
+         <Command1>cmd_1</Command1>
+         <Command2>cmd_2</Command2>
+         <Command3>cmd_3</Command3>
+         ...
+      </Batch>
