@@ -1,0 +1,38 @@
+Remove large amount of data in table
+Note: 
+  - Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-2017
+Preconditions: 
+  - TableX and TableY are tables
+  - TableX is original table
+  - Takes to long to run delete statement 
+  - Records in TableX are not updated
+  - Do not have admin access to db level (means cannot change db recovery model to "simple")
+  - Existing processes that insert records to TableX cannot be redirected to a new table
+  - Not urgent to delete data
+  - Cannot add indices to TableX
+  - DB not using a Columnar data format
+Main Success Scenario: 
+ 1. Create TableY with same schema as TableX
+ 2. Copy over data to keep to TableY. 
+ 3. Truncate TableX
+ 4. Insert data from TableY to TableX
+ 5. Drop TableY
+Alternatives:
+ 1a. Auto incrementing Unique ID has changed
+   1a1. Turn off auto incrementing & include column in insert for both tables
+   1a2. Turn auto incrementing on for TableX table
+ 1b. TableX is busy, has a lower use window, these queries can run fast enough
+   1b1. Determine lower use window and if time to run queries is fast enough 
+ 1c. TableX is busy, has lower use window, and queries do not run fast enough. 
+ 1d, TableX is busy, does not have lower use window
+   1d1. Identify indices that can be filtered on
+   1d2. Understand if new rows are forcing updates to indices
+   1d3. Focus on ranges to indices that are least likely to change
+   1d4. Identify partitions used by table
+   1d5. Identify if rows in a particular partitions can be deleted. 
+   1d6. Identify the largest indices first
+   1d7. See how the data can be deleted in blocks over time
+ 
+ 
+[need to fill in more use cases to describer other scenarios]
+ 
