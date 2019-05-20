@@ -1,0 +1,27 @@
+Remove all data in a table
+Note: 
+  - Guidance from https://blog.sqlauthority.com/2011/07/06/sql-server-interview-questions-and-answers-frequently-asked-questions-day-6-of-31/
+  - Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server?view=sql-server-2017
+Preconditions: 
+  - TableX is a table
+  - Delete creates an entry in the log for each row deleted
+  - TRUNCATE removes the data by deallocating the data pages used to store the table’s data, and only the page deallocations are recorded in the transaction log.
+  - TRUNCATE removes all the rows from a table, but the table structure, its columns, constraints, indexes and so on remains. The counter used by an identity for new rows is reset to the seed for the column.
+  - You cannot use TRUNCATE TABLE on a table referenced by a FOREIGN KEY constraint.
+  - TRUNCATE cannot be rolled back unless it is done in a transaction. 
+  - DELETE can be used with or without a WHERE clause
+Main Success Scenario:
+  1. Run "Delete TableX"
+  2. All data in table is deleted
+Alternatives:
+  1a. Log files are filling up due to deletions and you are not a db admin
+    1a. Use "Truncate TableX" instead
+  1b. Deletion is taking too long
+    1b1. Design a schedule to delete rows in blocks
+  1c. TableX has a foreign key constraint with another table
+    1c1. Can still use "Delete TableX"
+  1d. Log files are filling up due to deletions and you are a db admin
+    1d1. Change "Recovery Model" to simple to reduce logging for deletions
+  2a. Need to rollback deletion
+    2a1. A rollback is possible
+  
