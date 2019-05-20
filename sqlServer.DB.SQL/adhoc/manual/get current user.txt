@@ -1,0 +1,15 @@
+Get Current User/Login
+Preconditions: 
+  - SQL logins/users based on active directory will be domain\alias
+  - SQL logins will just be alias
+Main Success Scenario:
+  1. Use one of the following
+      Select SYSTEM_USER
+      Select CURRENT_USER
+      Select user_name()
+      Select suser_sname()
+      Select suser_name()
+      Select session_user
+      Select original_login()
+      
+ 
