@@ -1,10 +1,13 @@
 Choose Table Index
 Note:
   - Guidance from https://www.sqlshack.com/designing-effective-sql-server-clustered-indexes/
+  - Guidance from https://www.sqlshack.com/top-10-questions-answers-sql-server-indexes/
 Preconditions: 
   - TableX has column A
   - Can put only one clustered index on a table
   - Clustered indices store and sort data in the physical order
+  - Filtered indexes are are indexes built with a WHERE clause to limit what gets included in the index
+  - Included columns in a non-clustered index carry a subset of non-key columns as part of the index. 
 Main Success Scenario: 
   1. Has unique values for single column A
   2. Create a clustered index using column A
@@ -20,6 +23,10 @@ Alternatives:
     2b1. Replace clustered index on column A with a non-clustered unique index
   2c. Use of clustered index causes size limit to be reached
     2c1. Replace clustered index on column A with a non-clustered index
+  2d. Need index on XML type column
+    2d1. Create XML index
+  2e. Need index on Geometry type column
+    2e1. Create Spatial index
   3a. Returning more columns from the table than what are in the Clustered Index
     3a1. Make sure you are still getting a performance gain from the clustered index 
     3a2. Update clustered index to have additional columns, remove clustered index, or replace with non-clustered index
@@ -35,5 +42,10 @@ Alternatives:
     4e1. Remove column from index
   4f. Column is a string type, but I have an integer type I can use
     4f1. See if an index on the integer type column is faster 
+  4g. Need few columns from a large table, none of the columns have unique values
+    4g1. Create non-clustered index with "included" columns
+  4h. Will only pull from a specific range of the data
+    4h1. Look at using a filtered index
+ 
 
 
