@@ -4,7 +4,7 @@ Note:
 Main Success Scenario
   1. [Need to fill in]
   
-  
+--------------------------------------------
 -- Before applying vertical partitioning
 ----------------------------------------------
 CREATE TABLE EmployeeReports
@@ -39,6 +39,7 @@ END
 COMMIT TRAN
 GO
 
+-- check cpu time and run time
 SET STATISTICS IO ON
 SET STATISTICS TIME ON
 SELECT er.ReportID, er.ReportName, er.ReportNumber
@@ -47,6 +48,7 @@ WHERE er.ReportNumber LIKE '%33%'
 SET STATISTICS IO OFF
 SET STATISTICS TIME OFF
 
+----------------------------------------------
 -- After applying vertical partitioning
 --------------------------------------------
 CREATE TABLE ReportsDesc 
@@ -74,7 +76,7 @@ er.ReportName,
 er.ReportNumber 
 FROM dbo.EmployeeReports er
 
-
+-- check cpu time and run time
 SET STATISTICS IO ON
 SET STATISTICS TIME ON
 SELECT er.ReportID, er.ReportName, er.ReportNumber
