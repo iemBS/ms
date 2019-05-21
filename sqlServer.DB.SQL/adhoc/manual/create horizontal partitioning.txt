@@ -1,5 +1,113 @@
 Create Horizontal Partitioning
 Note:
   - Guidance from https://www.sqlshack.com/database-table-partitioning-sql-server/
+Preconditions:
+  - Horizontal Partitioning feature only available in the Enterprise Edition of SQL Server
+  - 15000 partitions capable in SQL Server 2012
+  - data placement in partitions is handled automatically by SQL Server
+  - Assume database we keep our data in is named "PartitioningDB"
+  - Assume added file groups are named after months
+  - .mdf files are primary data file in SQL Server
+  - .ndf files are secondary data files in SQL Server
+  - file groups can contain a .mdf file and one or more .ndf files
+  - partition function is a function that maps the rows of a partitioned table into partitions based on the values of a partitioning column.
 Main Success Scenario
-  1. [Need to fill in]
+  1. Add more file groups to DB
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP January
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP February
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP March
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP April
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP May
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP June
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP July
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP Avgust
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP September
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP October
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP November
+        GO
+        ALTER DATABASE PartitioningDB
+        ADD FILEGROUP December
+        GO
+        
+      2. Check if new file groups have been added
+           SELECT name AS AvailableFilegroups FROM sys.filegroups WHERE type = 'FG'
+      3. Associate an .ndf flie to each file group
+          ALTER DATABASE [PartitioningDB]
+              ADD FILE 
+              (
+              NAME = [PartJan],
+              FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL11.LENOVO\MSSQL\DATA\PartitioningDB.ndf',
+                  SIZE = 3072 KB, 
+                  MAXSIZE = UNLIMITED, 
+                  FILEGROWTH = 1024 KB
+              ) TO FILEGROUP [January]
+      4. Check file association to file group
+                       SELECT 
+            name as [FileName],
+            physical_name as [FilePath] 
+            FROM sys.database_files
+            where type_desc = 'ROWS'
+            GO
+      5. Create partition function
+           CREATE PARTITION FUNCTION [PartitioningByMonth] (datetime)
+AS RANGE RIGHT FOR VALUES ('20140201', '20140301', '20140401',
+               '20140501', '20140601', '20140701', '20140801', 
+               '20140901', '20141001', '20141101', '20141201');
+      6. Create partition schema
+            CREATE PARTITION SCHEME PartitionBymonth
+            AS PARTITION PartitioningBymonth
+            TO (January, February, March, 
+                April, May, June, July, 
+                Avgust, September, October, 
+                November, December);
+      7. Fill table
+            CREATE TABLE Reports
+            (ReportDate datetime PRIMARY KEY,
+            MonthlyReport varchar(max))
+            ON PartitionBymonth (ReportDate);
+            GO
+
+            INSERT INTO Reports (ReportDate,MonthlyReport)
+            SELECT '20140105', 'ReportJanuary' UNION ALL
+            SELECT '20140205', 'ReportFebryary' UNION ALL
+            SELECT '20140308', 'ReportMarch' UNION ALL
+            SELECT '20140409', 'ReportApril' UNION ALL
+            SELECT '20140509', 'ReportMay' UNION ALL
+            SELECT '20140609', 'ReportJune' UNION ALL
+            SELECT '20140709', 'ReportJuly' UNION ALL
+            SELECT '20140809', 'ReportAugust' UNION ALL
+            SELECT '20140909', 'ReportSeptember' UNION ALL
+            SELECT '20141009', 'ReportOctober' UNION ALL
+            SELECT '20141109', 'ReportNovember' UNION ALL
+            SELECT '20141209', 'ReportDecember'
+            
+        8. See if rows are in different partitions
+              SELECT 
+              p.partition_number AS PartitionNumber,
+              f.name AS PartitionFilegroup, 
+              p.rows AS NumberOfRows 
+              FROM sys.partitions p
+              JOIN sys.destination_data_spaces dds ON p.partition_number = dds.destination_id
+              JOIN sys.filegroups f ON dds.data_space_id = f.data_space_id
+              WHERE OBJECT_NAME(OBJECT_ID) = 'Reports'
