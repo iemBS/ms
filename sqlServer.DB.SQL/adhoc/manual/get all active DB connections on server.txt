@@ -1,0 +1,33 @@
+Get all Active DB Connections on Server
+Note
+  - Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysprocesses-transact-sql?view=sql-server-2017
+Preconditions: 
+  - "spid" column can be used to uniquly identify connections with other DB users 
+  - "blocked" column indicates Session (spid) blocking your session, null (not blocked), see doc for other values (-2,-3,-4)
+Main Success Scenario: 
+  1. Run below query
+        SELECT 
+            DB_NAME(dbid) as DBName, 
+            COUNT(dbid) as NumberOfConnections,
+            loginame as LoginName
+        FROM
+            sys.sysprocesses
+        WHERE 
+            dbid > 0
+        GROUP BY 
+            dbid, loginame
+  2. See connection counts for all DBs on server and logins used
+Alternatives:
+  1a. Only care about DB_X
+    1a.Add this file to where clause
+         DB_NAME(dbid) = 'DB_X'
+  1b. See the status of each connection
+    1b1. Add "status" column to select statement. 
+  1c. See name of machine hosting SQL server
+    1c1. Add "hostname" column to select statement
+  1d. See command currently being executed in connection
+    1d1. Add "cmd" column to select statement
+  1e. See Session ID of each threads
+    1e1. Add "spid" column to select statement
+  1f. See Session (spid) that is blocking your Session. 
+    1f1. Add "blocked" column to select statement
