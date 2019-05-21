@@ -1,0 +1,5 @@
+Create Horizontal Partitioning
+Note:
+  - Guidance from https://www.sqlshack.com/database-table-partitioning-sql-server/
+Main Success Scenario
+  1. [Need to fill in]
