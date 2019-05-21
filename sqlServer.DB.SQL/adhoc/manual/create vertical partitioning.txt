@@ -3,3 +3,65 @@ Note:
   - Guidance from https://www.sqlshack.com/database-table-partitioning-sql-server/
 Main Success Scenario
   1. [Need to fill in]
+  
+  
+-- Before applying vertical partitioning
+----------------------------------------------
+CREATE TABLE EmployeeReports
+(
+ReportID int IDENTITY (1,1) NOT NULL,
+ReportName varchar (100),
+ReportNumber varchar (20),
+ReportDescription varchar (max)
+CONSTRAINT EReport_PK PRIMARY KEY CLUSTERED (ReportID)
+)
+ 
+DECLARE @i int
+SET @i = 1
+ 
+BEGIN TRAN
+WHILE @i&lt;100000 
+BEGIN
+INSERT INTO EmployeeReports
+(
+ReportName,
+ReportNumber,
+ReportDescription
+)
+VALUES
+(
+'ReportName',
+CONVERT (varchar (20), @i),
+REPLICATE ('Report', 1000)
+)
+SET @i=@i+1
+END
+COMMIT TRAN
+GO
+
+-- After applying vertical partitioning
+--------------------------------------------
+CREATE TABLE ReportsDesc 
+( ReportID int FOREIGN KEY REFERENCES EmployeeReports (ReportID),
+  ReportDescription varchar(max)
+  CONSTRAINT PK_ReportDesc PRIMARY KEY CLUSTERED (ReportID)
+ )
+ 
+CREATE TABLE ReportsData
+(
+ReportID int NOT NULL,
+ReportName varchar (100),
+ReportNumber varchar (20),
+ 
+CONSTRAINT DReport_PK PRIMARY KEY CLUSTERED (ReportID)
+)
+INSERT INTO dbo.ReportsData
+(
+    ReportID,
+    ReportName,
+    ReportNumber
+)
+SELECT er.ReportID, 
+er.ReportName, 
+er.ReportNumber 
+FROM dbo.EmployeeReports er
