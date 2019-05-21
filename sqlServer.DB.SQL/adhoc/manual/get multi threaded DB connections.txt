@@ -1,0 +1,37 @@
+	Select
+	  spid
+  Into
+    #multiThreadedSession
+  From
+    (
+        SELECT 
+            ecid,
+            spid
+        FROM
+            sys.sysprocesses
+        WHERE 
+            dbid > 0
+        GROUP BY 
+            ecid,
+            spid
+   ) t
+Group By
+  SPID
+Having
+  Count(ECID) > 1
+  
+
+SELECT 
+    spid, 
+    case ecid when 0 then 1 else 0 end as primaryTheadForSession
+    DB_NAME(dbid) as DBName, 
+    COUNT(dbid) as NumberOfConnections,
+    loginame as LoginName
+FROM
+    #multiThreadedSession ms
+    Inner Join sys.sysprocesses s On 
+      ms.spid = s.spid
+WHERE 
+    dbid > 0
+GROUP BY 
+    dbid, loginame, ecid, spid
