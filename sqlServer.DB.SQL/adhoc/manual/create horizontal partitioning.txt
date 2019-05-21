@@ -1,6 +1,7 @@
 Create Horizontal Partitioning
 Note:
   - Guidance from https://www.sqlshack.com/database-table-partitioning-sql-server/
+  - Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017
 Preconditions:
   - Horizontal Partitioning feature only available in the Enterprise Edition of SQL Server
   - 15000 partitions capable in SQL Server 2012
