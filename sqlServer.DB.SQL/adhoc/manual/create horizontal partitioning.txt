@@ -11,6 +11,7 @@ Preconditions:
   - .ndf files are secondary data files in SQL Server
   - file groups can contain a .mdf file and one or more .ndf files
   - partition function is a function that maps the rows of a partitioned table into partitions based on the values of a partitioning column.
+  - Partition schema maps the partitions of a partitioned table to filegroups and determines the number and domain of the partitions of a partitioned table
 Main Success Scenario
   1. Add more file groups to DB
         ALTER DATABASE PartitioningDB
