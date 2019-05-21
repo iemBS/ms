@@ -39,6 +39,14 @@ END
 COMMIT TRAN
 GO
 
+SET STATISTICS IO ON
+SET STATISTICS TIME ON
+SELECT er.ReportID, er.ReportName, er.ReportNumber
+FROM dbo.EmployeeReports er
+WHERE er.ReportNumber LIKE '%33%'
+SET STATISTICS IO OFF
+SET STATISTICS TIME OFF
+
 -- After applying vertical partitioning
 --------------------------------------------
 CREATE TABLE ReportsDesc 
@@ -65,3 +73,12 @@ SELECT er.ReportID,
 er.ReportName, 
 er.ReportNumber 
 FROM dbo.EmployeeReports er
+
+
+SET STATISTICS IO ON
+SET STATISTICS TIME ON
+SELECT er.ReportID, er.ReportName, er.ReportNumber
+FROM ReportsData er
+WHERE er.ReportNumber LIKE '%33%'
+SET STATISTICS IO OFF
+SET STATISTICS TIME OFF
