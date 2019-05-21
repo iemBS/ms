@@ -1,0 +1,12 @@
+Normalize Database
+Note
+  - Guidance from https://www.sqlshack.com/what-is-database-normalization-in-sql-server/
+Preconditions:
+  - Normalization is a process to reduce data redundancy and improve data integrity. 
+  - Denormalization is a process used on a normalized database to increase read performance at the enxpense of write performance.
+Main Success Scenario: 
+  1. Apply 1st normal form
+  2. Apply 2nd normal form
+  3. Apply 3rd normal form
+  4. Achieved a normalized database. 
+  
