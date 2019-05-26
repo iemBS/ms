@@ -1,0 +1,6 @@
+
+
+tree /a > tree.txt
+
+a - shows ascii characters
+tree.txt - holds the printed out hierarchy
