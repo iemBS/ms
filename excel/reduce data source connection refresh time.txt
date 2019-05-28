@@ -1,0 +1,12 @@
+Reduce Data Source Connection Refresh Time
+Note: 
+  - Guidance from https://docs.microsoft.com/en-us/office/vba/excel/concepts/excel-performance/excel-tips-for-optimizing-performance-obstructions
+P
+   -Guidance from https://support.office.com/en-ie/article/refresh-an-external-data-connection-in-excel-1524175f-777a-48fc-8fc7-c8514b984440
+reconditions:
+  - Different connections in the same file need to have different names
+  - Each connection's data is unique
+Main Success Scenario:
+  1. Use more than one connection in the Excel file
+  2. Only refresh a connection when an update is needed
+  3. If data can be prepped with transformations, have data source do that before pulling the data
