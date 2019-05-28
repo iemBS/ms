@@ -1,0 +1,101 @@
+Microsoft Management Console (MMC) commands
+
+
+CERTMGR.MSC
+Certificates snap-in
+
+CERTSRV.MSC
+Certification Services
+
+CMD.EXE
+Command Prompt
+
+COMPMGMT.MSC
+Computer Management
+
+DCPOL.MSC
+Domain Controller Security Policy
+
+DEVMGMT.MSC
+Device Manager
+
+DFRG.MSC
+Disk Defragmenter
+
+DFSGUI.MSC
+Distributed File System
+
+DHCPMGMT.MSC
+DHCP Manager
+
+DISKMGMT.MSC
+Disk Management
+
+DNSMGMT.MSC
+DNS Manager
+
+DOMAIN.MSC
+Active Directory Domains & Trust
+
+DOMPOL.MSC
+Domain Security Policy
+
+DSA.MSC
+Active Directory Users & Computers
+
+DSA.MSC /DOMAIN=domainname
+[need to get name of]
+
+DSA.MSC /SERVER=servername
+[need to get name of]
+	 
+DSSITE.MSC
+Active Directory Sites & Services
+
+EVENTVWR.MSC
+Event Viewer
+
+FSMGMT.MSC
+Shared Folders
+
+GPEDIT.MSC
+local Group Policy Editor
+
+IAS.MSC
+Internet Authentication Service
+
+INETMGR
+Internet Information Service (\Windows\system32\inetsrv)
+
+LUSRMGR.MSC
+Local Users and Groups
+
+MMC.EXE
+Microsoft Management Console
+
+MSINFO32.EXE
+Hardware and software configuration information
+
+PERFMON.MSC
+Performance Monitor
+
+REGEDIT.EXE
+Run Registry Editor
+
+RRASMGMT.MSC
+Routing and Remote Access
+
+RSOP.MSC
+Resultant Set of Policy
+
+SECPOL.MSC
+Local Security Policy
+
+SERVICES.MSC
+Service Configuration
+
+TSCC.MSC
+Terminal Services
+
+MSTSC
+Remote Desktop
