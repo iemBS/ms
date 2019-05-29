@@ -1,0 +1,6 @@
+Resolve Name on Specific DNS server
+Preconditions:
+  - 8.8.8.8 is a Google owned DNS
+  - Assume "google.com" is the domain name you want to look up. 
+Main Success Scenario:
+  1. nslookup google.com 8.8.8.8
