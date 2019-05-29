@@ -4,4 +4,4 @@ Main Success Scenario:
   2.	Open PowerShell window
   3.	Add Cmdlets to PowerShell session
         PS C:\Users\ckent> Add-PSSnapin WAPPSCmdlets
-  4.	[need to complete]
+  4.	[xxx: need to complete]
