@@ -247,10 +247,10 @@ Order By
 	,b.Table_Name
 	
 -- Find possible values of selected columns with same name, type
-	-- need to fill in
+	-- xxx:need to fill in
 
 -- Find possible values of selected columns with same name
-	-- need to fill in
+	-- xxx:need to fill in
 
 
 -- Select Columns that have the same possible values but diff name
