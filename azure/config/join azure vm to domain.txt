@@ -38,4 +38,4 @@ https://azure.microsoft.com/en-us/documentation/articles/active-directory-new-fo
 		- downgrade the VM to the A0 level (shared core, 0.9 GB RAM) to save money
 			- VM can be upgraded again if more config is needed
 - Create a VM and associate it to the domain
-   [need to fill in]
+   [xxx: need to fill in]
