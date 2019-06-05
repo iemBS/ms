@@ -1,0 +1,28 @@
+Choose Olap Storage Mode
+Note:
+  - Guidance from https://social.technet.microsoft.com/wiki/contents/articles/19898.differences-between-olap-rolap-molap-and-holap.aspx
+  - MOLAP is Multidimensional Online Analytical Processing
+  - ROLAP is Relational Online Analytical Processing
+  - HOLAP is Hybrid Online Analytical Processing
+  - For ROLAP, aggregations of partitions stored in indexed views in the relational DB (partition's data source) and not SSAS
+  - For MOLAP, copy of source data stored in multi dim structure in SSAS
+  - For ROLAP & HOLAP, detail/atomic data stored in indexed views in the relational DB (partition's data source) and not SSAS
+  - For MOLAP & HOLAP, aggregations for partition are stored in SSAS and not indexed views in relational DB (partition's data source)
+Preconditions:
+  - detail/atomic level data will not be accessed often
+Main Success Scenario:
+  1. Queries for aggregations need to be fast (use MOLAP or HOLAP)
+  2. Queries for detail/atomic level data in cube do NOT need to be fast (use HOLAP to meat step 1 & 2 conditions)
+  3. Few queries are run against the cube
+  4. Cube is large (use ROLAP or HOLAP)
+  5. Cube has simple start schema
+Alternatives
+  1a. latest data in aggregations is more important than fast queries for aggregations
+    1a1. Use ROLAP 
+  2a. queries for detail/atomic level data in cube do need to be fast
+    2a1. Use MOLAP
+  4a. Cube is small
+    4a1. Use MOLAP
+Extensions:
+  3a. ROLAP may make sense since common queries will try to make use of query cache before pulling data from relational DB
+  
