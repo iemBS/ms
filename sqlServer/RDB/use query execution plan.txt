@@ -6,22 +6,38 @@ Main Success Scenario:
   
 Enable Estimated Execution Plan Display
 Note: 
-  - "Include Actual Execution Plan" button is the same as the "SET STATISTICS XML" query option
   - SHOWPLAN_TEXT - Displays a basic text based estimated execution plan, without executing the query
   - SHOWPLAN_ALL - Displays a text based estimated execution plan with cost estimations, without executing the query
   - SHOWPLAN_XML - Displays an XML based estimated execution plan with cost estimations, without executing the query
   - "Display Estimated Execution Plan" button is the same as the "SHOWPLAN_XML" query option
+  - guidance from https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan?view=sql-server-2017
 Preconditions: 
   - Using SSMS
 Main Success Scenario:
   1. Query you want the estimated execution plan for is in a query window
-  2. Click "Display Estimated Execution Plan" icon on control bar in SSMS
+  2. While query window is open, click "Display Estimated Execution Plan" icon on control bar in SSMS
+  3. Estimated Query Execution plan displays
 Alternatives:
   1a. Enable estimated execution plan display using a SQL query
-    1a1. Run this query in its own batch before running the query you want the estimated execution plan for
+    1a1. Run this query in its own batch before running the query you want the est execution plan for
       SET SHOWPLAN_TEXT ON
       SET SHOWPLAN_ALL ON
       SET SHOWPLAN_XML ON
+  2a. Can't run query directly and can't capture a profiler trace
+    2a1. "Get Plan from query plan cache" use case
+  3a. Query contains encrypted procedure
+    3a1. Cannot get est execution plan of an encrypted procedure
+ 
+ 
+Get Plan from query plan cache
+Preconditions: 
+  - Data Management Views (DMVs) are used to query the query plan cache
+Main Success Scenario:
+  1. Query the query plan cache using DMVs (example query below)
+        SELECT UseCounts, Cacheobjtype, Objtype, TEXT, query_plan
+        FROM sys.dm_exec_cached_plans 
+        CROSS APPLY sys.dm_exec_sql_text(plan_handle)
+        CROSS APPLY sys.dm_exec_query_plan(plan_handle)
       
       
 Enable Actual Execution Plan Display
@@ -35,6 +51,7 @@ Preconditions:
 Main Success Scenario:
   1. Click "Include Actual Execution Plan" icon on control bar in SSMS
   2. Run the query you want the execution plan for
+  3. Actual Query Execution plan displays
 Alternatives:
   1a. Enable actual execution plan display using a SQL query
     1a1. Run this query in its own batch before running the query you want the actual execution plan for
@@ -44,10 +61,26 @@ Alternatives:
     2a1. "Use Query Profiler" use case
   2b. Query runs to fast
     2b1. "Use Query Profiler" use case
+  3a. Query contains encrypted procedure
+    3a1. Cannot get actual execution plan of an encrypted procedure
     
     
 Use Query Profiler
+Note: 
+  - Plan you get from this equal to clicking the "Include Actual Execution Plan" button
+Preconditions:
+  - Need an actual query plan
 Main Success Scenario:
-  1. [xxx: need to fill out]
+  1. In SSMS, open SQL Server Profiler tool and create a new trace
+  2. On "Events Selection" tab, check "Show all events"
+  3. On "Events Selection" tab, check "Performance" > "Showplan XML"
+  4. Start Trace
+  5. Run query
+  6. Wait for query to complete
+  7. Stop trace
+  8. Save trace (extract event data) to an XML file
+Alternatives:
+  8a. Query contains encrypted procedure
+    8a1. Cannot get actual execution plan of an encrypted procedure
     
     
