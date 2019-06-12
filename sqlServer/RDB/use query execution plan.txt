@@ -70,6 +70,7 @@ Alternatives:
 Use Query Profiler
 Note: 
   - Plan you get from this equal to clicking the "Include Actual Execution Plan" button
+  - Guidance from https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-2017
 Preconditions:
   - Need an actual query plan
 Main Success Scenario:
