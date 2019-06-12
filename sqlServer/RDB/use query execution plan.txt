@@ -30,6 +30,8 @@ Alternatives:
  
  
 Get Plan from query plan cache
+Note:
+  - This could be handy for prod environment
 Preconditions: 
   - Data Management Views (DMVs) are used to query the query plan cache
 Main Success Scenario:
