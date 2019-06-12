@@ -1,0 +1,53 @@
+Use Query Execution Plan
+Main Success Scenario: 
+  1. "Enable Estimated Execution Plan Display" use case
+  2. "Enable Actual Execution Plan Display" use case
+  
+  
+Enable Estimated Execution Plan Display
+Note: 
+  - "Include Actual Execution Plan" button is the same as the "SET STATISTICS XML" query option
+  - SHOWPLAN_TEXT - Displays a basic text based estimated execution plan, without executing the query
+  - SHOWPLAN_ALL - Displays a text based estimated execution plan with cost estimations, without executing the query
+  - SHOWPLAN_XML - Displays an XML based estimated execution plan with cost estimations, without executing the query
+  - "Display Estimated Execution Plan" button is the same as the "SHOWPLAN_XML" query option
+Preconditions: 
+  - Using SSMS
+Main Success Scenario:
+  1. Query you want the estimated execution plan for is in a query window
+  2. Click "Display Estimated Execution Plan" icon on control bar in SSMS
+Alternatives:
+  1a. Enable estimated execution plan display using a SQL query
+    1a1. Run this query in its own batch before running the query you want the estimated execution plan for
+      SET SHOWPLAN_TEXT ON
+      SET SHOWPLAN_ALL ON
+      SET SHOWPLAN_XML ON
+      
+      
+Enable Actual Execution Plan Display
+Note: 
+  - "Include Actual Execution Plan" button is the same as the "SET STATISTICS XML" query option
+  - "Display Estimated Execution Plan" button is the same as the "SHOWPLAN_XML" query option
+  - STATISTICS PROFILE - Executes the query and displays a text based actual execution plan
+  - STATISTICS XML - Executes the query and displays an XML based actual execution plan.
+Preconditions: 
+  - Using SSMS
+Main Success Scenario:
+  1. Click "Include Actual Execution Plan" icon on control bar in SSMS
+  2. Run the query you want the execution plan for
+Alternatives:
+  1a. Enable actual execution plan display using a SQL query
+    1a1. Run this query in its own batch before running the query you want the actual execution plan for
+      SET STATISTICS PROFILE ON
+      SET STATISTICS XML ON
+  2a. Cannot run query directly
+    2a1. "Use Query Profiler" use case
+  2b. Query runs to fast
+    2b1. "Use Query Profiler" use case
+    
+    
+Use Query Profiler
+Main Success Scenario:
+  1. [xxx: need to fill out]
+    
+    
