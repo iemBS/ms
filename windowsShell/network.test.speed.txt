@@ -3,16 +3,23 @@ Preconditions:
   - Choose a website you use frequently
   - Assume google.com is a website you use frequently
 Main Success Scenario:
-  1. "Test Network Speed to your router" use caes
-  2."Test Network Speed to a favorite website" use case
+  1."Test Network Speed to your router" use caes
+  2."Test Network Speed to a favorite site" use case
+  3. Do "Test Network Speed to a favorite site" use case from coffee shops and work
+  4. Compare the results of the two use cases to see what makes sense. 
   
   
 Test Network Speed to your Router
+Preconditions: 
+  - Know the network adapter you are connected to the network with. We are currently assuming "Wireless LAN adapter Wi-Fi"
 Main Success Scenario:
-  1. 
+  1. Open windows shell
+  2. Execute "ipconfig" cmd
+  3. Get IP from "Wireless LAN adapter Wi-Fi" > "Default Gateway"
+  4. Do tests like found in "Test Network Speed to a favorite site" use case
   
 
-Test Network Speed to a favorite website
+Test Network Speed to a favorite site
 Preconditions: 
   - Choose a website you use frequently
   - Assume google.com is a website you use frequently
