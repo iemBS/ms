@@ -1,12 +1,15 @@
 Test Network Speed
 Preconditions: 
   - Choose a website you use frequently
-  - Assume google.com is a website you use frequently
+  - Assume google.com is a site you use frequently
 Main Success Scenario:
   1."Test Network Speed to your router" use caes
   2."Test Network Speed to a favorite site" use case
   3. Do "Test Network Speed to a favorite site" use case from coffee shops and work
-  4. Compare the results of the two use cases to see what makes sense. 
+  4. Compare the results of the two use cases to see what makes sense
+       - different positions from and around your router can give different results
+       - [xxx: need to fill in]
+  5. Use "tracert" command, from each place you use internet, to see the slow spots on the way to your frequented site. 
   
   
 Test Network Speed to your Router
