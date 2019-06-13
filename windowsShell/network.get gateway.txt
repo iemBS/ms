@@ -2,6 +2,7 @@ Get Network Gateway
 Preconditions: 
   - No need to open command prompt as an admin. 
   - Need to be connected to network you want the gateway for
+  - If you are using WIFI, this is on your router
 Main Success Scenario:
   1. Open command prompt
   2. type in "ipconfig"
