@@ -1,0 +1,39 @@
+Test Network Speed
+Preconditions: 
+  - Choose a website you use frequently
+  - Assume google.com is a website you use frequently
+Main Success Scenario:
+  1. "Test Network Speed to your router" use caes
+  2."Test Network Speed to a favorite website" use case
+  
+  
+Test Network Speed to your Router
+Main Success Scenario:
+  1. 
+  
+
+Test Network Speed to a favorite website
+Preconditions: 
+  - Choose a website you use frequently
+  - Assume google.com is a website you use frequently
+Main Success Scenario:
+  1. Open windows shell.
+  2. Execute "ping google.com" cmd
+  3. See cmd results
+        Pinging google.com [172.217.14.238] with 32 bytes of data:
+        Reply from 172.217.14.238: bytes=32 time=13ms TTL=56
+        Reply from 172.217.14.238: bytes=32 time=156ms TTL=56
+        Reply from 172.217.14.238: bytes=32 time=14ms TTL=56
+        Reply from 172.217.14.238: bytes=32 time=15ms TTL=56
+
+        Ping statistics for 172.217.14.238:
+            Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+        Approximate round trip times in milli-seconds:
+            Minimum = 13ms, Maximum = 156ms, Average = 49ms
+  4. Understand results
+       - 0% packet (size = 32 bytes) loss
+       - avg round trip time of packets is 49 ms
+  5. Execute "ping -l 64 google.com" cmd to check w larger packet sizes
+  6. See cmd results
+  7. Execute "ping -n 8 google.com" cmd to check w larger number of requests
+  8. Continue increasing packet size and request count 
