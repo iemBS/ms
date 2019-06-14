@@ -30,6 +30,7 @@ Note:
     - Windows is 4 seconds
   - A busy server may have a larger ping response time. A ping response is lower priority for the server.
   - If a person in the US pings (with 32 byte packet size) a server in the US, any time greater than 50 ms is a slow response. 
+  - The TTL shown in the results is 255 - # of hops. So, if you see 45 in the results that means that the ping did 210 hops. 
 Preconditions: 
   - Choose a website you use frequently
   - Assume google.com is a website you use frequently
@@ -54,3 +55,4 @@ Main Success Scenario:
   6. See cmd results
   7. Execute "ping -n 8 google.com" cmd to check w larger number of requests
   8. Continue increasing packet size and request count 
+  9. "TTL" in the ping results indicates the number of hops the ping took
