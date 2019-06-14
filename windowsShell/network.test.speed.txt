@@ -25,6 +25,9 @@ Main Success Scenario:
 Test Network Speed to a favorite site
 Note: 
   - Max packet size is 65,535 bytes
+  - ping cmd spec does not note a max number of pings (https://tools.ietf.org/html/rfc1122#page-42)
+  - Systems do have thresholds where they assume a no reply. 
+    - Windows is 4 seconds
 Preconditions: 
   - Choose a website you use frequently
   - Assume google.com is a website you use frequently
