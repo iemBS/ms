@@ -23,6 +23,8 @@ Main Success Scenario:
   
 
 Test Network Speed to a favorite site
+Note: 
+  - Max packet size is 65,535 bytes
 Preconditions: 
   - Choose a website you use frequently
   - Assume google.com is a website you use frequently
