@@ -28,6 +28,7 @@ Note:
   - ping cmd spec does not note a max number of pings (https://tools.ietf.org/html/rfc1122#page-42)
   - Systems do have thresholds where they assume a no reply. 
     - Windows is 4 seconds
+  - A busy server may have a larger ping response time. A ping response is lower priority for the server.
 Preconditions: 
   - Choose a website you use frequently
   - Assume google.com is a website you use frequently
