@@ -1,0 +1,11 @@
+SELECT 
+	SCHEMA_NAME(schema_id) AS table_schema,
+	name AS table_name   
+FROM 
+	sys.tables with (nolock)
+WHERE 
+	OBJECTPROPERTY(object_id,'TableHasPrimaryKey') = 0  
+ORDER BY 
+	table_schema, 
+	table_name 
+GO  
