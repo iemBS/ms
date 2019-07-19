@@ -1,0 +1,8 @@
+-- heap index exists for tables that do not have a clustered index
+
+select
+	distinct type_desc 
+From
+	sys.indexes with (nolock)
+Where
+	name is null -- a heap type index does not have an index name
