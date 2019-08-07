@@ -1,0 +1,6 @@
+-- inserting hard coded values is faster than inserting each row or inserting unioned rows
+-- minimize the rows to insert
+-- minimize the columns to insert
+-- minimize the size of each column
+-- insert when the max server resources are available
+-- xxx: need to finish this
