@@ -3,7 +3,7 @@ Get tables with rows
 
 */
 
-Select
+Select Distinct 
 	t.[name] As [table],
 	s.[name] As [schema]
 Into
