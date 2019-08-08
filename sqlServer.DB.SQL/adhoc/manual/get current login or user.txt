@@ -1,0 +1,25 @@
+Get Current SQL Server Login
+Note: 
+  -Logins provided access to server & users provided access to DB
+  -user associated to login may have same or diff names
+  -Login is derived from SQL Server or Windows authentication
+Main Success Scenario:
+  1. Use one of the following
+      Select SYSTEM_USER --Login name that was used to login to the instance
+      Select suser_sname() -- Returns the login name associated with a security identification number (SID). Defaults to current if SID not specified
+      Select suser_name() --SUSER_NAME returns a login name only for a login that has an entry in the syslogins system table. Defaults to current if server_user_id not specified.
+      Select original_login() --Function ORIGINAL_LOGIN() returns the name of the original or very first login that connected to the instance of SQL Server and it is used to identify the original login in sessions
+      
+Get Current SQL Server user
+Note: 
+  -Logins provided access to server & users provided access to DB
+  -user associated to login may have same or diff names
+Main Success Scenario:
+  1. Use one of the following
+      Select CURRENT_USER
+      Select user_name()
+      Select User
+      Select session_user
+
+      
+ 
