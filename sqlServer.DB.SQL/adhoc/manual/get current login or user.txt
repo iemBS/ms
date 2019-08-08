@@ -1,4 +1,4 @@
-Get Current SQL Server Login
+Get Current SQL Server Login name
 Note: 
   -Logins provided access to server & users provided access to DB
   -user associated to login may have same or diff names
@@ -10,7 +10,7 @@ Main Success Scenario:
       Select suser_name() --SUSER_NAME returns a login name only for a login that has an entry in the syslogins system table. Defaults to current if server_user_id not specified.
       Select original_login() --Function ORIGINAL_LOGIN() returns the name of the original or very first login that connected to the instance of SQL Server and it is used to identify the original login in sessions
       
-Get Current SQL Server user
+Get Current SQL Server user name
 Note: 
   -Logins provided access to server & users provided access to DB
   -user associated to login may have same or diff names
@@ -20,6 +20,9 @@ Main Success Scenario:
       Select user_name()
       Select User
       Select session_user
+Exceptions:
+  1. Query run on DB where associated login of current user is granted access via the server level "public" role
+    1a. CURRENT_USER returns "guest" instead of SQL Server user name
 
       
  
