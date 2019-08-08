@@ -1,0 +1,5 @@
+
+Questions to develop standard
+------------------------------------
+How to get current user/alias/login/account for a session?
+xxx: [need to fill in]
