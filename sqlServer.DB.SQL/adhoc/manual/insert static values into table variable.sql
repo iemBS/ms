@@ -1,4 +1,3 @@
-
 Declare @xyz table(
 abc varchar(10),
 pqr varchar(10)
@@ -10,5 +9,7 @@ from (VALUES
     ('a1', 'p1'),
     ('a2', 'p2'),
     ('a3', 'p3')
-)res(abc, pqr)
+)t(abc, pqr)
+
+select * from @xyz
 
