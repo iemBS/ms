@@ -1,0 +1,16 @@
+Guidance from here
+https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-with-scripting-variables?view=sql-server-2017
+
+Use of ":Connect" like below, will casue the SQLCMDUSER, SQLCMDPASSWORD and SQLCMDSERVER scripting variables to be set.
+
+:setvar SQLCMDLOGINTIMEOUT 60
+:setvar server "testserver"
+:connect $(server) -l $(SQLCMDLOGINTIMEOUT)
+
+USE AdventureWorks2012;
+
+SELECT FirstName, LastName
+FROM Person.Person;
+
+
+xxx: need to explain scripting variables
