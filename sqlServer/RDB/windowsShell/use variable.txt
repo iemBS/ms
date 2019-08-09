@@ -1,0 +1,4 @@
+Use Variable
+Main Success Scenario:
+  1.:setvar MyServer "Trees"
+  2.:Connect $(MyServer)
