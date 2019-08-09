@@ -1,0 +1,7 @@
+
+Get Properties of SQL objects
+Note:
+  -xxx: need to fill in more
+  -Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/sys-fn-listextendedproperty-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. Use sys.fn_listextendedproperty
