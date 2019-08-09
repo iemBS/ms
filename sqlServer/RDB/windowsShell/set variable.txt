@@ -1,0 +1,7 @@
+Set Variable
+Note:
+  -Guidance from https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-with-scripting-variables?view=sql-server-2017
+Preconditions:
+  -In this case the variable name is "FOOD" and the value we are going to set it to is "pizza"
+Main Success Scenario:
+  1.:setvar FOOD "pizza"  
