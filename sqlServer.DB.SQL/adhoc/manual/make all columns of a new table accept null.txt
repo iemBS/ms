@@ -1,0 +1,6 @@
+Make all columns of a new table accept null
+Main Success Scenario:
+  1. Specify no constraints requiring column values
+  2. Do not specify "NULL" or "NOT NULL" after columns in table create statement
+  3. Run table create statement
+  4. Table allows nulls for all columns 
