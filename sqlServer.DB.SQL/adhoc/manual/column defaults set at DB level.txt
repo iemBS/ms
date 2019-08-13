@@ -1,3 +1,7 @@
--collation
-
-xxx: need to fill in 
+Set Column default at DB level
+Note:
+  -Guidance from https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017
+Main Success Scenario:
+  1. collation
+  2. default of NULL or NOT NULL for a column done with "ANSI_NULL_DEFAULT" 
+  3. xxx: need to fill in 
