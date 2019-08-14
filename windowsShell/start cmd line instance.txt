@@ -1,0 +1,5 @@
+Start Command Line Instance
+Notes:
+  -Guidance from https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd
+Main Success Scenario:
+  1. Run cmd.exe
