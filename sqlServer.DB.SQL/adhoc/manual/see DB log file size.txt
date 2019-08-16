@@ -1,0 +1,19 @@
+See Log File Size
+Note:
+  -Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql?view=sql-server-2017
+Preconditions:
+  -Point qeury session to the DB you want to check for
+Main Success Scenario:
+  1. Run the following query
+    SELECT 
+      DB_Name() As databaseFor,
+      file_id, 
+      name, 
+      type_desc,  
+      physical_name, 
+      ((size * 8) / 1024) / 1024 As sizeInGB, -- Outputs the size in 8 KB pages. So, multiply this number by 8 to get the size in KB. Divide by 1,024 to get size in MB. Divide by 1,024 again to get size in GB
+      ((max_size * 8) / 1024) / 1024 As max_sizeInGB
+    FROM 
+      sys.database_files
+    WHERE
+      type_desc = 'LOG'
