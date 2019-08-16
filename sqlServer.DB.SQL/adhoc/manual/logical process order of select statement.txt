@@ -1,0 +1,5 @@
+See Logical Process Order of select statement
+Notes:
+  -Guidance from https://docs.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. xxx: need to fill in
