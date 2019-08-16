@@ -1,0 +1,11 @@
+Set Query Performance Thresholds
+Notes:
+  -CPU usage, Disk IO amount, & query run time have thresholds set on them
+  -Disk IO measured regardless if rotating disk or solid state drive
+Preconditions:
+  -Exceptions to thresholds given to specific instances of these attributes: server query run from and account running query
+Main Success Scenario:
+  1. If Disk IO > xxx for xxx seconds, then kill query
+  2. If CPU usage > xxx for xxx seconds, then kill query
+  3. If query running longer than xxx seconds, then kill query
+  4. Notify query runner via email that query was killed 
