@@ -1,14 +1,21 @@
+See query run for a SPID
+Note:
+  -Guidance from https://www.sqlshack.com/sql-server-wait-types/
+  -Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. Run query below
+
 SELECT   s.session_id, 
             r.status, 
             r.blocking_session_id                                 'Blk by', 
-            r.wait_type, 
-            wait_resource, 
-            r.wait_time / (1000.0)                             'Wait Sec', 
+            r.wait_type, /* If the request is currently blocked, this column returns the type of wait.  */
+            wait_resource, /* If the request is currently blocked, this column returns the resource for which the request is currently waiting.  */
+            r.wait_time / (1000.0) As 'Wait Sec', /*If the request is currently blocked, this column returns the duration in seconds, of the current wait */
             r.cpu_time, 
             r.logical_reads, 
-            r.reads, 
-            r.writes, 
-            r.total_elapsed_time / (1000.0)                    'Elaps Sec', 
+            r.reads, /* Number of reads performed by this request. */
+            r.writes, /* Number of writes performed by this request.  */
+            r.total_elapsed_time / (1000.0) As 'Elaps Sec', /* Total time elapsed in milliseconds since the request arrived.  */
             Substring(st.TEXT,(r.statement_start_offset / 2) + 1, 
                     ((CASE r.statement_end_offset 
                         WHEN -1 
@@ -23,7 +30,8 @@ SELECT   s.session_id,
             s.program_name, 
             s.last_request_end_time, 
             s.login_time, 
-            r.open_transaction_count 
+            r.open_transaction_count,
+            r.row_count /* Number of rows that have been returned to the client by this request.  */
 FROM     sys.dm_exec_sessions AS s 
             JOIN sys.dm_exec_requests AS r 
             ON r.session_id = s.session_id 
