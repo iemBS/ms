@@ -1,0 +1,6 @@
+SELECT session_id ,status ,blocking_session_id  
+    ,wait_type ,wait_time ,wait_resource
+    ,transaction_id
+FROM sys.dm_exec_requests
+WHERE status = N'suspended';  
+GO  
