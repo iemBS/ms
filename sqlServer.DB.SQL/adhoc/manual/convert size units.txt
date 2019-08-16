@@ -1,0 +1,14 @@
+If size is in 8 KB pages
+  then total KB = size * 8
+  
+If size is in 8 KB pages
+  then total MB =  ((size * 8) / 1024)
+  
+If size is in 8 KB pages
+  then total GB = ((size * 8) / 1024) / 1024
+  
+If size is in 8 KB pages
+  then total TB = (((size * 8) / 1024) / 1024) / 1024
+  
+  
+xxx: need to fill in more
