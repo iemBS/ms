@@ -1,4 +1,4 @@
-See query run for a SPID
+See query run for all SPIDs
 Note:
   -Guidance from https://www.sqlshack.com/sql-server-wait-types/
   -Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql?view=sql-server-2017
@@ -40,3 +40,23 @@ WHERE    r.session_id != @@SPID
 ORDER BY r.cpu_time desc, r.status, 
             r.blocking_session_id, 
             s.session_id 
+            
+            
+See Query run for a specific transaction or session
+Note:
+  -Guidance from https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql?view=sql-server-2017
+Main Success Scenario
+  1. Run this query to get a sql_handle
+    SELECT 
+      sql_handle,
+      * 
+    FROM 
+      sys.dm_exec_requests
+    Where
+      transaction_id != 0 --remove system transactions
+      
+  2. Run this query with a sql_handle from the above query 
+    Select
+      *
+    from 
+      sys.dm_exec_sql_text(0x02000000A77DDD04EC205892EB4D41CDBC6C4E44B4722ADB0000000000000000000000000000000000000000)
