@@ -1,2 +1,3 @@
 -In SSMS > Tools > Options > Query Results > SQL Server > Results to Text > Maximum number of characters displayed in each column
 -may need to restart SSMS to get change to take
+-limit is 8192 characters
