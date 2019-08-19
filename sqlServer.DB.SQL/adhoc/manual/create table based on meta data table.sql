@@ -24,7 +24,7 @@ End
 Select
 	t.TABLE_SCHEMA,
 	t.TABLE_NAME,
-	Count(1) As tblColCnt --657 tables as of 190819
+	Count(1) As tblColCnt 
 Into
 	#tblColCnt
 From
@@ -95,7 +95,8 @@ Select
 	CASE 
 		WHEN lc.LAST_ORDINAL_POSITION IS NULL THEN ','
 		ELSE ''
-	END AS tableCreateLine
+	END AS tableCreateLine,
+	c.ORDINAL_POSITION
 INTO
 	#tblCreateLines
 From
@@ -107,11 +108,10 @@ From
 		AND
 		c.ORDINAL_POSITION = lc.LAST_ORDINAL_POSITION
 
-
-
 --copy & paste the results of this to create table drops
+	--Send results to TEXT instead of GRID to get GO to show on next line of each query
 SELECT 
-	'IF OBJECT_ID(''' + '[' + SS.TABLE_SCHEMA + '].[' + SS.TABLE_NAME + ']' + ''') IS NOT NULL BEGIN DROP TABLE ' + '[CALLCENTER].[' + SS.TABLE_NAME + ']' + ' END' + CHAR(13)+CHAR(10) + ' GO' AS dropTableScript
+	'IF OBJECT_ID(''' + '[xxx].[' + SS.TABLE_NAME + ']' + ''') IS NOT NULL BEGIN DROP TABLE ' + '[xxx].[' + SS.TABLE_NAME + ']' + ' END' + CHAR(13)+CHAR(10) + ' GO' AS dropTableScript
 FROM 
 	#lastColumn SS
 GROUP BY 
@@ -120,11 +120,9 @@ GROUP BY
 ORDER BY 1
 
 --copy & paste the results of this to create table create statements 
-        -- Get table create line without constraints
-	--if a table is created without settig columns to be nullable, then they will be null as long as the DB level level config is set to default to null
-
+	--Send results to TEXT instead of GRID to get GO to show on next line of each query
 SELECT 
-	'CREATE TABLE [' + SS.TABLE_SCHEMA + '].[' + SS.TABLE_NAME + '] (' + 
+	'CREATE TABLE [xxx].[' + SS.TABLE_NAME + '] (' + 
    (
 		SELECT 
 			'' + US.tableCreateLine -- use of preceding text removes XML tag named after column name
@@ -134,6 +132,8 @@ SELECT
 			US.TABLE_SCHEMA = SS.TABLE_SCHEMA
 			AND
 			US.TABLE_NAME = SS.TABLE_NAME
+		ORDER BY
+			ORDINAL_POSITION
 		FOR XML PATH('')
 	) + ')' + CHAR(13)+CHAR(10) + ' GO' AS createTableScript
 FROM 
@@ -142,3 +142,4 @@ GROUP BY
 	SS.TABLE_SCHEMA,
 	SS.TABLE_NAME
 ORDER BY 1
+
