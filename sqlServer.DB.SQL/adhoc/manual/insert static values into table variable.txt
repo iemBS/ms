@@ -1,5 +1,6 @@
 Note:
   -Guidance from https://docs.microsoft.com/en-us/sql/t-sql/queries/table-value-constructor-transact-sql?view=sql-server-2017
+  -xxx: explain method that can be used if there are more than 1k rows to insert via VALUES
 
 Declare @xyz table(
 abc varchar(10),
