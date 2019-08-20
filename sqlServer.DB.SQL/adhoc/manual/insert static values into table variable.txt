@@ -1,3 +1,6 @@
+Note:
+  -Guidance from https://docs.microsoft.com/en-us/sql/t-sql/queries/table-value-constructor-transact-sql?view=sql-server-2017
+
 Declare @xyz table(
 abc varchar(10),
 pqr varchar(10)
