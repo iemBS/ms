@@ -33,7 +33,7 @@ Select
 	c.tblColCnt,
 	t.tblRowCnt,  -- add > 0 filter if trying to get tables with data, because tblUsedMemory is not enough
 	t.tblReservedMemory,
-	t.tblUsedMemory,
+	t.tblUsedMemory, --includes indices
 	t.tblUnUsedMemory
 FROM 
     #tblColCnt c
