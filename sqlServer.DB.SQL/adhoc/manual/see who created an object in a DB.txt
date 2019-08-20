@@ -1,0 +1,24 @@
+See who created an object in a DB
+Notes:
+  -DB needs to have been created in current server or object created in DB after DB imported to current server
+  -xxx: need to add more details
+Main Success Scenario:
+  1. See query below
+  
+
+select 
+    so.name as sqlObjectName, 
+	su.name as userObjectName, 
+	so.crdate as sqlObjectCreateTime,
+	case
+		when islogin = 1 then 'login'
+		when issqluser = 1 then 'user'
+		when issqlrole = 1 then 'role'
+		when isapprole = 1 then 'app role'
+	end as userObjectType
+from 
+    sysobjects so 
+	inner join sysusers su on 
+		so.uid = su.uid  
+order by 
+    so.crdate desc
