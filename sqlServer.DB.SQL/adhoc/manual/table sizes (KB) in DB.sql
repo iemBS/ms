@@ -31,7 +31,7 @@ EXEC sp_msforeachtable @command1=@cmd1
 Select
 	t.tblName,
 	c.tblColCnt,
-	t.tblRowCnt,
+	t.tblRowCnt,  -- add > 0 filter if trying to get tables with data, because tblUsedMemory is not enough
 	t.tblReservedMemory,
 	t.tblUsedMemory,
 	t.tblUnUsedMemory
