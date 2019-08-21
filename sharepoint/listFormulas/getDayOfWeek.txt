@@ -1,0 +1,16 @@
+Get Day of Week Number
+Notes
+  -Guidance from https://support.office.com/en-us/article/weekday-function-f0aa7aa6-fad7-4e41-aab9-3e77a133f0be
+Main Success Scenario:
+  1. Use "WeekDay" function. 
+  
+Get Day of Week Name
+Notes:
+  -Guidance from https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/bb862071(v%3Doffice.14)
+Main Success Scenario:
+  1. Do something like this:
+      =TEXT(WEEKDAY([Column1]), "ddd")
+  
+ 
+  
+ 
