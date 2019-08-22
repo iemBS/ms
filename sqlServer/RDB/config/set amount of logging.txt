@@ -1,0 +1,11 @@
+Set Amount of DB Logging
+Note:
+  -"Simple" recovery model does the least amount of logging
+Main Success Scenario:
+  1. Open SSMS
+  2. Connect to a SQL server instance
+  3. Right click on a DB name in "Object Explorer"
+  4. Choose "Properties" from context menu
+  5. "Database Properties" window appears
+  6. Select "Options" page in the "Database Properties" window. 
+  7. "Recovery Model" drop down controls how much logging
