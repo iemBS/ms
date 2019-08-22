@@ -1,6 +1,7 @@
 Use Variables in SQL script run by SQLCmd
 Notes:
  - Guidance from https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-with-scripting-variables?view=sql-server-2017
+ - Just like SQL run in SSMS, variables are cleared after a "GO" is run. 
 Main Success Scenario:
   1. Run following on a command line
       sqlcmd
