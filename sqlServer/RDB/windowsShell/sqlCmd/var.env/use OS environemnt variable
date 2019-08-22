@@ -1,0 +1,16 @@
+Use OS Environment variable
+Notes:
+  -Guidance from https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-with-scripting-variables?view=sql-server-2017
+Main Success Scenario:
+  1. Define tablename, col1, col2, & title as environment variables in the OS
+  2. Run the following from the command line
+  
+    C:\>SET tablename=Person.Person
+    C:\>SET col1=FirstName
+    C:\>SET col2=LastName
+    C:\>SET title=Ms.
+    C:\>sqlcmd -d AdventureWorks2012
+    1> SELECT TOP 5 $(col1) + ' ' + $(col2) AS Name
+    2> FROM $(tablename)
+    3> WHERE Title ='$(title)'
+    4> GO
