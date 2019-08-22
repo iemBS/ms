@@ -1,0 +1,16 @@
+Run .SQL file with SqlCmd command
+Notes:
+  -Guidance from https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-run-transact-sql-script-files?view=sql-server-2017
+  -Path to "sqlcmd.exe" does not need to be noted as long as environment variables are set to find it on your system on-the-fly.
+Main Success Scenario:
+  1. Run the following command in a command window where
+       [server name] = server name
+       [file path] = Path to file. if myScript.sql is at C:\folder1\myScript.sql, this would be “C:\folder1”
+
+     sqlcmd –S[server name] –i [file path]\myScript.sql
+Alternatives:
+  1a. Need to note parameter that is used in the myScript.sql file
+    1a1. SET myVar = varValue
+         sqlcmd –S[server name] –i [file path]\myScript.sql
+  1b. Need to output results to a text file
+    1b1. sqlcmd –S[server name] –i [file path]\myScript.sql -o [file path]\myOutput.txt
