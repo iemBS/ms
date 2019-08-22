@@ -8,3 +8,7 @@ Main Success Scenario:
       :setvar  MYDATABASE AdventureWorks2012
       USE $(MYDATABASE);
       GO
+Alternatives:
+  1a. value has spaces 
+    1a1. Use double quotes on value
+      :setvar  MYDATABASE "AdventureWorks 2012"
