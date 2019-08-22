@@ -1,0 +1,9 @@
+Use Variables in SQL script run by SQLCmd
+Notes:
+ - Guidance from https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-with-scripting-variables?view=sql-server-2017
+Main Success Scenario:
+  1. Run following on a command line
+      sqlcmd
+      :setvar  MYDATABASE AdventureWorks2012
+      USE $(MYDATABASE);
+      GO
