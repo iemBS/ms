@@ -1,0 +1,15 @@
+Connect to SQL server inside .SQL file
+Note:
+  -Guidance from https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-the-utility?view=sql-server-2017
+  -Can connect to multiple SQL Server instances from the same file
+  -"GO" is needed before connecting to a different server. 
+Main Success Scenario:
+  1. Within a file you can have the following:
+  
+      :CONNECT <server>\,<instance1>
+      EXEC dbo.SomeProcedure
+      GO
+
+      :CONNECT <server>\,<instance2>
+      EXEC dbo.SomeProcedure
+      GO
