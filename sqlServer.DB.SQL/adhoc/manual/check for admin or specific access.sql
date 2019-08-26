@@ -55,6 +55,7 @@ Order By
 /*
 	those with database roles other than "db_datareader" 
 	Description of database roles found at: http://msdn.microsoft.com/en-us/library/ms189121.aspx
+	This will not return an error message if you do no thave the proper access. It will just not return data. 
 */
 SELECT
 	'those with database roles other than "db_datareader"' As CheckType 
