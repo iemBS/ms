@@ -1,0 +1,4 @@
+select
+  IDENTITY (int, 1,1) AS ID
+into
+  #myTable
