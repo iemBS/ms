@@ -1,0 +1,134 @@
+--all live locks on data
+	--guidance from https://www.sqlshack.com/locking-sql-server/
+	--guidance from https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms175519(v=sql.105)
+	--guidance from https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-2017
+	--guidance from https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql?view=sql-server-2017
+SELECT 
+	case 
+		when len(l.resource_subtype) > 0 then '[' + l.resource_type + '].[' + l.resource_subtype + ']'
+		else '[' + l.resource_type + ']'
+	end  As objTypeWithLock, 
+	case l.request_mode
+		when 'X' then 'exclusive lock'
+		when 'S' then 'shared lock'
+		when 'U' then 'update lock'
+		when 'Sch-S' then 'schema stability lock'
+		when 'Sch-M' then 'schema modification lock'
+		when 'IX' then 'intension to have an exclusive lock'
+		when 'IS' then 'intension to have a shared lock'
+		when 'IU' then 'intension to have an update lock'
+		when 'BU' then 'bulk update lock'
+		when 'SIX' then 'shared w intent exclusive'
+		when 'SIU' then 'shared w intent update'
+		when 'UIX' then 'update w intent exclusive'
+		else 'unknown'
+	end + ' (' + l.request_mode + ')' as lockType,
+	case l.request_mode
+		when 'X' then '"XLOCK" table level hint'
+		when 'S' then 'table read'
+		when 'U' then 'transaction'
+		when 'Sch-S' then 'schema dependent query is being compiled & executed and execution plan is generated'
+		when 'Sch-M' then 'DDL statement (create, alter, drop) is run'
+		when 'IX' then 'obj level below current one has exclusive locks'
+		when 'IS' then 'obj level below current one has shared locks'
+		when 'IU' then 'obj level below current one has update locks'
+		when 'BU' then '"table lock" option in bulk import, "TABLOCK" table level hint'
+		when 'SIX' then 'obj level below current one has IX on modified pages and X on modified rows'
+		when 'SIU' then '"PAGLOCK" table level hint, "ROWLOCK" table level hint'
+		when 'UIX' then 'unknown'
+		else 'unknown'
+	end as howLockSet,
+	case l.request_mode
+		when 'X' then 'data chg'
+		when 'S' then 'data chg'
+		when 'U' then 'data chg' -- changes from shared to exclusive lock when it is ready to perform action
+		when 'Sch-S' then 'table structure chg'
+		when 'Sch-M' then 'table structure + index structure + table data chg'
+		when 'IX' then 'unknown'
+		when 'IS' then 'unknown'
+		when 'IU' then 'unknown'
+		when 'BU' then 'table structure chg'
+		when 'SIX' then 'unknown'
+		when 'SIU' then 'page structure chg'
+		when 'UIX' then 'unknown'
+		else 'unknown'
+	end as chgLockIsPreventing,
+	case l.request_mode
+		when 'X' then 'no'
+		when 'S' then 'yes'
+		when 'U' then 'yes' -- is shared lock until it is ready to perform action
+		when 'Sch-S' then 'yes'
+		when 'Sch-M' then 'no'
+		when 'IX' then 'yes'
+		when 'IS' then 'yes'
+		when 'IU' then 'yes'
+		when 'BU' then 'unknown'
+		when 'SIX' then 'unknown'
+		when 'SIU' then 'yes'
+		when 'UIX' then 'unknown'
+		else 'unknown'
+	end As othersCanReadDuringLock, /* without use of "nolock" hint in select queries */
+	case l.request_mode
+		when 'X' then 'no'
+		when 'S' then 'yes'
+		when 'U' then 'yes'
+		when 'Sch-S' then 'unknown'
+		when 'Sch-M' then 'no'
+		when 'IX' then 'yes'
+		when 'IS' then 'yes'
+		when 'IU' then 'yes'
+		when 'BU' then 'unknown'
+		when 'SIX' then 'unknown'
+		when 'SIU' then 'yes'
+		when 'UIX' then 'unknown'
+		else 'unknown'
+	end As othersCanWriteDuringLock,
+	'unknown' As othersGetOlderRowVersionIfReadBlockedByLock,
+	case l.request_mode
+		when 'X' then 'NOLOCK hint, read uncommitted isolation level'
+		when 'S' then 'N/A'
+		when 'U' then 'N/A'
+		when 'Sch-S' then 'unknown'
+		when 'Sch-M' then 'unknown'
+		when 'IX' then 'N/A'
+		when 'IS' then 'N/A'
+		when 'IU' then 'N/A'
+		when 'BU' then 'unknown'
+		when 'SIX' then 'unknown'
+		when 'SIU' then 'N/A'
+		when 'UIX' then 'unknown'
+		else 'N/A'
+	end As othersCanReadDuringLockWith,
+	l.resource_description As objWithLock,
+	l.request_owner_type,
+	l.request_status,
+	l.request_owner_id,
+	case 
+		when l.resource_type = 'DATABASE' then 'database'
+		when l.resource_type = '' then ''
+		--resource_type – Displays a database resource where the locks are being acquired. The column can display one of the following values: ALLOCATION_UNIT, APPLICATION, DATABASE, EXTENT, FILE, HOBT, METADATA, OBJECT, PAGE, KEY, RID 
+		--when 'xxx' then 'table' --xxx: fill in
+		--when 'xxx' then 'page'  --xxx: fill in
+		--when 'xxx' then 'row'   --xxx: fill in
+		when l.request_mode = 'UIX' then 'table'
+		when l.request_mode = 'SIU' then 'page'
+		when l.request_mode = 'IU' then 'page'
+		else 'unknown'
+	end As objectLevelOfLock,
+	case s.transaction_isolation_level 
+		when 0 then 'Unspecified' 
+		when 1 then 'ReadUncommitted' 
+		when 2 then 'ReadCommitted' 
+		when 3 then 'Repeatable' 
+		when 4 then 'Serializable' 
+		when 5 then 'Snapshot'
+	end AS isolationLevel
+FROM 
+	sys.dm_tran_locks l
+	inner join sys.dm_exec_sessions s On 
+		l.request_session_id = s.session_id
+Order By
+	l.resource_type
+
+
+ 
