@@ -1,0 +1,6 @@
+Install or Update Module
+Notes:
+  -Assume "SqlServer" is the module you want to install or update
+  -Already existing modules are updated. Modules not existing, are installed. 
+Main Success Scenario:
+  1. Install-Module -Name SqlServer -AllowClobber
