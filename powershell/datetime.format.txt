@@ -1,0 +1,13 @@
+Formatting a DateTime object
+Notes: 
+  -Guidance @ https://devblogs.microsoft.com/scripting/formatting-date-strings-with-powershell/
+  -Guidance @ https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
+  -Guidance for getting culture for parseExact method @ https://devblogs.microsoft.com/scripting/use-culture-information-in-powershell-to-format-dates/
+  -Guidance @ https://docs.microsoft.com/en-us/dotnet/api/system.datetime.parseexact?view=netframework-4.8
+Main Success Scenario:
+  1. Do the below
+  
+$culture = [globalization.cultureinfo]::GetCultures(“allCultures”) | where-object {$_.name -match 'en-US'}
+[datetime]::parse("8/22/2019 1:31 PM",$culture)
+
+xxx: need to add formatting
