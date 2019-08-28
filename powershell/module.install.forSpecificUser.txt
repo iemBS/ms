@@ -1,0 +1,8 @@
+Install Module only for a specific user
+Preconditions: 
+  -Assume you are installing "SqlServer" powershell module
+  -Do not require admin access
+Notes:
+  -"CurrentUser" is a key word that gets the current authenticated user
+Main Success Scenario:
+  1. Install-Module -Name SqlServer -Scope CurrentUser
