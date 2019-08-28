@@ -1,0 +1,8 @@
+Get Current Time in Current Time Zone
+Preconditions:
+  -Assume the "0:h:mm:ss tt zzz" format is desired
+Main Success Scenario:
+  1. get-date
+Alternatives:
+  1a. Want to format
+    1a1. "{0:h:mm:ss tt zzz}" -f (get-date)
