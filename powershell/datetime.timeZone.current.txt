@@ -1,3 +1,5 @@
 Get Current Time Zone
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-6
 Main Success Scenario:
   1. Get-TimeZone
