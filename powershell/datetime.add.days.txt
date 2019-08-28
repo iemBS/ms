@@ -1,0 +1,6 @@
+Add / Subtract Days from a DateTime
+Notes:
+  -Guidance @ https://devblogs.microsoft.com/scripting/adding-and-subtracting-dates-with-powershell/
+  -Assume that we want to subtract 8 days from the date time
+Main Success Scenario:
+  1. (get-date).AddDays(-8)
