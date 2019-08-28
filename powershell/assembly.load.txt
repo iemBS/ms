@@ -2,5 +2,6 @@ Load Assembly
 Notes:
   -Assume "Microsoft.SqlServer.Smo" assembly
   -Having an invalid assembly name will not throw an error
+  -Removing "| out-null" will allow a response to show on the screen for assemblies that exist
 Main Success Scenario:
   1. [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null
