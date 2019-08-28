@@ -1,0 +1,6 @@
+Console Prompt for Input
+Notes:
+  -Assume "Script path and file name" is the desired text to prompt with
+  -Assume "$file" is the variable you collect the prompt response in
+Main Success Scenario:
+  1. $file = $(read-host "Script path and file name") 
