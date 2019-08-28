@@ -1,0 +1,6 @@
+See Specific Column of Table Output
+Preconditions:
+  -Assume "GetAssemblies" is generating the table
+  -Assume "Location" column exists in table
+Main Success Scenario:
+  1. [System.AppDomain]::CurrentDomain.GetAssemblies() | Format-Table -Property Location
