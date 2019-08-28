@@ -1,0 +1,5 @@
+Load Assembly
+Notes:
+  -Assume "Microsoft.SqlServer.Smo" assembly
+Main Success Scenario:
+  1. [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null
