@@ -1,0 +1,6 @@
+See Assembly Availability
+Notes:
+  -Returns if Assembly in GAC, version, and location on pc
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/developer/module/understanding-a-windows-powershell-module
+Main Success Scenario:
+  1. [System.AppDomain]::CurrentDomain.GetAssemblies()
