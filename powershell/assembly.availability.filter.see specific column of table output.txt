@@ -1,4 +1,6 @@
 See Specific Column of Table Output
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/scripting/samples/using-format-commands-to-change-output-view?view=powershell-6
 Preconditions:
   -Assume "GetAssemblies" is generating the table
   -Assume "Location" column exists in table
