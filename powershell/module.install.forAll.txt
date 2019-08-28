@@ -1,0 +1,6 @@
+Install Module
+Preconditions: 
+  -Assume you are installing "SqlServer" powershell module
+  -Must have admin access
+Main Success Scenario:
+  1. Install-Module -Name SqlServer
