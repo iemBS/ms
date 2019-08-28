@@ -1,0 +1,5 @@
+See Specific Module Availability
+Preconditions: 
+  -Assume you are checking for the "SqlServer" powershell module
+Main Success Scenario:
+  1. Get-Module SqlServer -ListAvailable
