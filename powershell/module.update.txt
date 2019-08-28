@@ -1,0 +1,5 @@
+Update Existing Module
+Notes:
+  -Assume "SqlServer" is the module you are updating
+Main Success Scenario:
+  1. Update-Module -Name SqlServer
