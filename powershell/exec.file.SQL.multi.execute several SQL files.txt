@@ -1,0 +1,21 @@
+Execute Several SQL Files
+Notes:
+  -This can handle the "GO" terminator in a SQL file
+Main Success Scenario:
+  1. See below
+
+    $dbServer = MyServer
+    $ScriptDirectory = 'C:\scripts'
+    Import-Module SQLPS
+    $srv = New-Object Microsoft.SqlServer.Management.Smo.Server $dbServer
+
+    try {
+     $file = dir $ScriptDirectory
+     foreach ($f in $file) {
+      $s = Get-Content $f -Raw
+      $srv.ConnectionContext.ExecuteNonQuery($s);
+     }
+    }
+    catch {
+     $error[0].Exception
+    }
