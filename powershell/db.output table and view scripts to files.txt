@@ -1,0 +1,63 @@
+
+
+
+# Guidance @ https://www.red-gate.com/simple-talk/sql/sql-tools/using-powershell-to-generate-table-creation-scripts/
+# Guidance @ https://docs.microsoft.com/en-us/powershell/scripting/samples/using-format-commands-to-change-output-view?view=powershell-6
+
+# set variables
+$server = "serverName"
+$instance = "default"
+$database = "dbName"
+$schema = "schemaName"
+$path = "sqlserver:\sql\$server\$instance\databases\$database\tables" 
+$newLine = "`r`n"
+
+[reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null 
+Write-Host "Create SQL server object"
+$srv = new-object Microsoft.SqlServer.Management.Smo.Server($server) # recreate object if chg in DB
+$db = $srv.databases[$database]
+$culture = [globalization.cultureinfo]::GetCultures(“allCultures”) | where-object {$_.name -match 'en-US'}
+
+# filter on "Schema" and "CreateDate" attributes. 
+Write-Host "Pull table info from SQL Server" 
+$tableset = $db.tables | Where-object {$_.schema -eq $schema -and $_.CreateDate -gt ((get-date).AddDays(-1))} 
+Write-Host "Pull view info from SQL Server" 
+$viewset = $db.views | Where-object {$_.schema -eq $schema -and $_.CreateDate -gt ((get-date).AddDays(-1))} 
+
+Write-Host "# of tables: " $tableset.Count 
+Write-Host "# of views: " $viewset.Count 
+
+# export create scripts to their own files
+$filePath = "C:\myPath\"
+$tableFolder = "folderA\"
+$viewFolder = "folderB\"
+$masterFileName = "00_master.sql"
+$headerComment = "/***********************************************************************************" + $newLine + 
+"08/29/2019 01.00 Chuck new DB object" + $newLine + 
+"***********************************************************************************/" + $newLine
+$loop = 1
+$max = $tableset.Count
+
+for($i = 0;$i -le $max; $i++)
+{ 
+  $tableFile = $filePath + $tableFolder + ($tableset[$i] | select -expand Name) + ".sql"
+  $viewFile = $filePath + $viewFolder + ($viewset[$i] | select -expand Name) + ".sql"
+
+  # single table file
+  $headerComment + $tableset[$i].script() | out-file $tableFile -append -ErrorAction stop 
+
+  # all table file
+  $masterFile = $filePath + $tableFolder + $masterFileName
+  $tableset[$i].script() + $newLine + "GO" | out-file $masterFile -append -ErrorAction stop 
+
+  # single view file
+  $headerComment + $viewset[$i].script() | out-file $viewFile -append -ErrorAction stop 
+
+  # all view file
+  $masterFile = $filePath + $viewFolder + $masterFileName
+  $viewset[$i].script() + $newLine + "GO" | out-file $masterFile -append -ErrorAction stop 
+
+  $loop = $i + 1
+  Write-Host "scripts done for " $loop " tables"
+} 
+
