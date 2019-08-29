@@ -1,0 +1,9 @@
+
+
+option 1:
+$culture = [globalization.cultureinfo]::GetCultures(“allCultures”) | where-object {$_.name -match 'en-US'}
+[datetime]::parse("8/22/2019 1:31 PM",$culture)
+
+option 2
+$dt = "8/22/2019 1:31 PM"
+[DateTime]$dt
