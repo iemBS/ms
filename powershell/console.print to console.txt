@@ -1,0 +1,9 @@
+Print to Console
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-output?view=powershell-6
+  -Assume $txt is a variable with text in it
+Main Success Scenario:
+  1. Write-Output "cheese"
+Alternatives:
+  1a. Output contents of variable with text
+    1a1. Write-Output $txt
