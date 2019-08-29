@@ -1,0 +1,6 @@
+Include New lines in text
+Main Success Scenario:
+  1. see below
+      $OFS = "`r`n"
+      $msg = "This is First Line" + $OFS + "This is Second Line" + $OFS
+      Write-Host $msg
