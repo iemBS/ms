@@ -1,0 +1,6 @@
+Get Propety Value
+Preconditions:
+  -Assume $myObj is an object with one or more properties. 
+  -Assume "Name" is the name of a property for the $myObj object
+Main Success Scenario:
+  1. $myObj | select -expand Name
