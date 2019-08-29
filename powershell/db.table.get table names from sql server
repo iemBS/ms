@@ -1,0 +1,20 @@
+# set variables
+$server = "serverName"
+$instance = "default"
+$database = "dbName"
+$schema = "schemaName"
+$path = "sqlserver:\sql\$server\$instance\databases\$database\tables" 
+
+[reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null 
+$srv = new-object Microsoft.SqlServer.Management.Smo.Server($server)
+$db = $srv.databases[$database]
+$culture = [globalization.cultureinfo]::GetCultures(“allCultures”) | where-object {$_.name -match 'en-US'}
+
+# pull table objects from SQL server
+$tableset = $db.tables | Where-object {$_.schema -eq $schema -and [DateTime]$_.CreateDate -gt ((get-date).AddDays(-9))} | Sort-Object -Property CreateDate | Format-Table -Property Name, CreateDate
+
+# print table name
+foreach ($table in $tableset) 
+{ 
+  $table
+} 
