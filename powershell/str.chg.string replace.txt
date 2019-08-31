@@ -1,0 +1,5 @@
+Replace String
+Notes:
+  -Guidance @ https://ss64.com/ps/replace.html
+Main Success Scenario:
+  1. "abcdef" -replace "dEf","xyz"
