@@ -1,0 +1,5 @@
+Append Text to File
+Notes:
+  -"-append" flag for "Out-File" command appends text to file
+Main Success Scenario:
+  1. $txt | out-file $fullFilePathAndName -append -ErrorAction stop 
