@@ -1,0 +1,6 @@
+Remove Empty Line in String
+Main Success Scenario:
+  1. $txt -replace "`t|`n|`r",""
+Alternatives:
+  1a. Remove empty line in string that is output to a file
+    1a1. Use "-nonewline" flag with the "Out-File" command
