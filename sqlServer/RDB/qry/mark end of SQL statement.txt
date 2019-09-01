@@ -1,0 +1,6 @@
+Mark End of SQL Statement
+Notes:
+  -Guidance @ https://www.w3schools.com/sql/sql_syntax.asp
+  -Use semicolon to mark the end of a SQL statement so that you can have more than one statement run in the same batch
+Main Success Scenario:
+  1. select * from myTable;
