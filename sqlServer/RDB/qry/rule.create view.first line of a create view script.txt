@@ -3,4 +3,7 @@ Notes:
   - Guidance @ https://social.msdn.microsoft.com/Forums/sqlserver/en-US/279fd386-c7bb-4279-8ea2-4b0a14166ad1/how-to-avoid-create-view-must-be-the-first-statement-in-a-query-batch-when-i-need-to-use-set?forum=transactsql
 Main Success Scenario:
   1. "create view" must be on first line
+Alternatives:
+  1a. Must run some code before the view is created and need to do it in the same SQL script
+    1a1. Have the view creation be done with the exec() or execute() method after the code that needs to precede it
   
