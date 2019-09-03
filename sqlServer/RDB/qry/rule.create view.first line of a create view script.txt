@@ -4,6 +4,8 @@ Notes:
 Main Success Scenario:
   1. "create view" must be on first line
 Alternatives:
-  1a. Must run some code before the view is created and need to do it in the same SQL script
+  1a. Must run some code before the view is created and need to do it in the same SQL script and a "GO" cannot be used
     1a1. Have the view creation be done with the exec() or execute() method after the code that needs to precede it
+  1b. Must run some code before the view is created and need to do it in the same SQL script and a "GO" can be used. 
+    1b1. Use a "GO" before the create view statement because it seperates the SQL in the file into seperate batches. 
   
