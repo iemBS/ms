@@ -1,0 +1,14 @@
+Enable sqlCmd mode
+Notes:
+  - Guidance @ https://www.sqlshack.com/use-sqlcmd-commands-ssms-query-editor/
+Preconditions:
+  -Ok with Intellisense and debugger being turned off. These are turned off if SQLCMD mode is enabled via the "Tools" menu
+Main Success Scenario:
+  1. Open "Query" menu
+  2. Choose "SQLCMD Mode" menu option
+Alteratives:
+  1a. Have new files opened in SSMS use SQLCMD mode by default
+    1a1. Open "Tools" menu
+    1a2. Choose "Options" menu option
+    1a3. On "Options" window, choose "Query Execution" > "SQL Server" > "General"
+    1a4. Check "By defalt, open new queries in SQLCMD mode"
