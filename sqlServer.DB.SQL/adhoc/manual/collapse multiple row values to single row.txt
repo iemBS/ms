@@ -1,0 +1,27 @@
+Collpase multiple row values to be in a single row
+Notes:
+  -In this specific case, the #tblCreateLines table has a create column statement for each column of each table. 
+Main Success Scenario:
+  1. See below SQL script
+ 
+      SELECT 
+      'CREATE TABLE [CALLCENTER].[' + SS.TABLE_NAME + '] (' + 
+       (
+        SELECT 
+          '' + US.tableCreateLine -- use of preceding text removes XML tag named after column name
+        FROM 
+          #tblCreateLines US
+        WHERE 
+          US.TABLE_SCHEMA = SS.TABLE_SCHEMA
+          AND
+          US.TABLE_NAME = SS.TABLE_NAME
+        ORDER BY
+          ORDINAL_POSITION
+        FOR XML PATH('')
+      ) + ')' + CHAR(13)+CHAR(10) + 'GO' AS createTableScript
+    FROM 
+      #lastColumn SS
+    GROUP BY 
+      SS.TABLE_SCHEMA,
+      SS.TABLE_NAME
+    ORDER BY 1
