@@ -1,0 +1,25 @@
+Parse Query
+Notes:
+  -Guidance @ https://stackoverflow.com/questions/834006/how-can-i-parse-dynamic-sql-before-execution-in-t-sql
+  -"showplan_xml" parses a query before creating a plan
+Main Success Scenario:
+  1. Run the following code
+  
+    -- The query you would like to parse
+    declare @sql nvarchar(max)
+    set @sql = 'select 1'
+
+    declare @testsql nvarchar(max)
+    declare @result int
+    set @testsql = N'set parseonly on; ' + @sql
+    exec @result = sp_executesql @testsql
+
+    -- If it worked, execute it
+    if @result = 0
+        begin
+        exec sp_executesql @sql
+        end
+        
+Alternatives:
+  1a. Using SQL Server 2012 or earlier
+    1a1. set showplan_xml on --deprecated in SQL server 2012
