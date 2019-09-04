@@ -1,9 +1,13 @@
-
-
-
-# Guidance @ https://www.red-gate.com/simple-talk/sql/sql-tools/using-powershell-to-generate-table-creation-scripts/
-# Guidance @ https://docs.microsoft.com/en-us/powershell/scripting/samples/using-format-commands-to-change-output-view?view=powershell-6
-
+Output Table & View scripts to SQL files
+Notes:
+  -Guidance @ https://www.red-gate.com/simple-talk/sql/sql-tools/using-powershell-to-generate-table-creation-scripts/
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/scripting/samples/using-format-commands-to-change-output-view?view=powershell-6
+  -Guidance @ https://docs.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.smo.scripter?view=sql-smo-140.17283.0
+  -Guidance @ https://www.sqlservercentral.com/forums/topic/generate-create-script-for-a-table-include-indexes-keys-statistics
+  -Scripter class within Microsoft.SqlServer.Management.Smo must be used to create scipts of indices on the tables.
+Main Success Scenario:
+  1. See code below
+  
 # set variables
 $server = "serverName"
 $instance = "default"
