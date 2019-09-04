@@ -14,7 +14,7 @@ Main Success Scenario:
   3. Returning only table columns that are in the clustered index. 
   4. Select statement runs fast.
 Alternatives: 
-  1a. column A no long has unique values
+  1a. column A no longer has unique values
     1a1. Error occurrs
     1a2. Re-think the index 
   2a. Table has few rows and does not benefit from an index
