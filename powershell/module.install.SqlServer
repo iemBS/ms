@@ -1,6 +1,7 @@
 Install "SqlServer" module
 Notes:
   -Guidance @ https://docs.microsoft.com/en-us/sql/powershell/download-sql-server-ps-module?view=sql-server-2017
+  -Cmdlets available in "SqlServer" module @ https://docs.microsoft.com/en-us/powershell/module/sqlserver/?view=sqlserver-ps
   -"SQLPS" is an older SQL server module that is installed with SQL Server
   -"CurrentUser" is a powershell keyword that gets the current user
 Main Success Scenario:
