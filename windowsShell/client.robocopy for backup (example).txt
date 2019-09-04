@@ -1,7 +1,13 @@
--- Test Run
-ROBOCOPY C:\myFiles E:\myFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD dirs c:\Files\temp /XO /ts /fp /L /LOG+:c:\CopyLog.txt
+Backup files with RoboCopy
+Preconditions:
+  -RoboCopy does not copy open files
+  -MAXLAD needs to be one day after today to get files updated today.
+Main Success Scenario:
+  1. See code below
 
--- Real Run
-ROBOCOPY C:\myFiles E:\myFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD dirs c:\Files\temp /XO /ts /fp /LOG+:c:\CopyLog.txt
+  -- Test Run
+  ROBOCOPY C:\myFiles E:\myFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD dirs c:\Files\temp /XO /ts /fp /L /LOG+:c:\CopyLog.txt
 
---add 1 day to MAXLAD if today
+  -- Real Run
+  ROBOCOPY C:\myFiles E:\myFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD dirs c:\Files\temp /XO /ts /fp /LOG+:c:\CopyLog.txt
+
