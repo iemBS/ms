@@ -1,0 +1,21 @@
+Output Table Index Script
+Notes:
+  -The filter on the $db.tables collection is just an example filter
+  -"Indexes" is a collection of indices for a table. The index at position 0 is the first index. 
+  -If primary key exists it is in position 0. 
+Main Success Scenario:
+  1. See code below
+
+$server = "myServer"
+$instance = "default"
+$database = "myDB"
+$schema = "mySchema"
+$path = "sqlserver:\sql\$server\$instance\databases\$database\tables" 
+$newLine = "`r`n"
+
+[reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null 
+Write-Host "Create SQL server object"
+$srv = new-object Microsoft.SqlServer.Management.Smo.Server($server) # recreate object if chg in DB
+$db = $srv.databases[$database]
+$tableset = $db.tables | Where-object {$_.schema -eq $schema -and $_.CreateDate -gt ((get-date).AddDays(-2))} 
+$tableset[0].Indexes[0].script()
