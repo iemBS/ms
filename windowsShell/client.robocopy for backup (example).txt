@@ -1,7 +1,16 @@
 Backup files with RoboCopy
-Preconditions:
+Notes:
   -RoboCopy does not copy open files
+  -The "LAD" in "MAXLAD" and "MINLAD" means Last Access Date.
   -MAXLAD needs to be one day after today to get files updated today.
+  -/s means copy Subdirectories, but not empty ones.
+  -/XD means eXclude Directories matching given names/paths
+  -/TS means include source file Time Stamps in the output.
+  -/FP means include Full Pathname of files in the output
+  -/L means List only - don't copy, timestamp or delete any files
+  -/LOG+:file means output status to LOG file (append to existing log)
+Preconditions:
+  -
 Main Success Scenario:
   1. See code below
 
