@@ -1,0 +1,9 @@
+Get all Event Names for an Object
+Notes:
+  -Get-Member guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-member?view=powershell-6
+  -Assume we are looking at the "Microsoft.SqlServer.Management.Smo.Server" class for this example
+Main Success Scenario:
+  1. see code below
+  
+$obj = new-object ("Microsoft.SqlServer.Management.Smo.Server") 
+$obj | Get-Member | where-object {$_.MemberType -match 'Event'}
