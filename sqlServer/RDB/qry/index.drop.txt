@@ -1,0 +1,13 @@
+Drop Index
+Main Success Scenario:
+  1. DROP INDEX [index name] ON [table schema].[table name];
+Alternatives:
+  1a. Need to check if index exists before dropping it
+    1a1. see code below
+    
+      IF EXISTS (SELECT * FROM sys.indexes WHERE name='index name' 
+      AND object_id = OBJECT_ID('[table schema].[table name]'))
+      BEGIN
+        DROP INDEX [index name] ON [table schema].[table name];
+      END
+  
