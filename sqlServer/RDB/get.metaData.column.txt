@@ -1,0 +1,10 @@
+Get Column Meta Data
+Main Success Scenario:
+  1. Select * From Information_Schema.Columns
+Alternatives:
+  1a. Cannot use a view
+    1a1. Select * from sys.columns
+  1b. Cannot use a view but need table schema and table name
+    1b1. Execute sp_helptext 'Information_Schema.Columns' see how the view is defined with tables
+  1c. xxx: fill in more
+    
