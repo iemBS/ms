@@ -1,0 +1,16 @@
+Increase Performance of Linked Server Connection
+Notes:
+  -When you use a Linked Server table a connection to the remote server is opened, a query is executed on the remote server, and then the remote server connection is closed. 
+  -If a linked server table has a where clause, the where clause will be applied on the remote server and not the local server. 
+  -Guidance @ https://www.mssqltips.com/sqlservertip/4428/performance-issues-when-updating-data-with-a-sql-server-linked-server/
+  -Using a linked server sproc to update a linked server table removes the use of a Remote Scan. 
+  -Execution Plan for a query will reveal if a Remote Scan is being used. 
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/openquery-transact-sql?view=sql-server-2017
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. Minimize amount of data pulled over from linked server table
+  2. Pull linked server table into a local table 
+  3. Avoid using a Remote Scan. 
+  4. Update a table with a sproc on the remot server instead of using an update statement 
+  5. Look at using OpenQuery or OpenRowset functions instead of a LinkedServer to see if they run better.
+  X. xxx: need to fill in
