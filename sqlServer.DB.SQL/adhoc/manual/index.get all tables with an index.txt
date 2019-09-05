@@ -38,11 +38,11 @@ INNER JOIN
 WHERE 
 	(
 		-- attributes that cause an index to exist
-		ind.is_primary_key = 0 -- primary key
+		ind.is_primary_key = 1 -- primary key
 		OR 
-		ind.is_unique = 0 -- unique
+		ind.is_unique = 1 -- unique
 		OR 
-		ind.is_unique_constraint = 0 -- unique constraint
+		ind.is_unique_constraint = 1 -- unique constraint
 	)
     AND 
 	t.is_ms_shipped = 0 -- not part of a system table
