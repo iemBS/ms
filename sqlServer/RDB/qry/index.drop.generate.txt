@@ -1,0 +1,31 @@
+Generate Index Drop Queries
+Main Success Scenario:
+  1. Run code below in SSMS with output to text (to keep the "GO" on a new line)
+
+    SELECT DISTINCT 
+      'DROP INDEX [' + ind.name + '] ON [' + s.name + '].[' + t.name + '];' + CHAR(13)+CHAR(10) + 'GO'
+    FROM 
+      sys.indexes ind 
+      INNER JOIN sys.index_columns ic ON  
+        ind.object_id = ic.object_id 
+        and 
+        ind.index_id = ic.index_id 
+      INNER JOIN sys.columns col ON 
+        ic.object_id = col.object_id 
+        and 
+        ic.column_id = col.column_id 
+      INNER JOIN sys.tables t ON 
+        ind.object_id = t.object_id 
+      INNER JOIN sys.schemas s ON 
+        t.schema_id = s.schema_id
+    WHERE 
+        (
+          -- attributes that cause an index to exist
+          ind.is_primary_key = 1 -- primary key
+          OR 
+          ind.is_unique = 1 -- unique
+          OR 
+          ind.is_unique_constraint = 1 -- unique constraint
+        )
+        AND 
+        t.is_ms_shipped = 0 -- not part of a system table
