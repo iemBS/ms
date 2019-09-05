@@ -1,0 +1,17 @@
+Stop Query Run
+Notes:
+  -Cancelling a query by closing the query window in SSMS can take a while
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/language-elements/kill-transact-sql?view=sql-server-2017
+  -Guidance @ https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017
+  -Restarting SSMS may not really stop the query. 
+Main Success Scenario:
+  1. Click "Cancel Executig Query" button on SSMS
+Alternatives:
+  1a. Cannot see "Cancel Executig Query" button on SSMS and do not have KILL permission 
+    1a1. Close query window in SSMS (will be asked if you want to cancel query)
+  1b. Have KILL permission
+    1b1. KILL [spid #]
+  1c. Restart SSMS instance
+    1c1. Use "Task Manager" in windows to restart SSMS
+  1d. Restart SQL Server relational DB instance
+    1d1. Restart the SQL server relationial DB service 
