@@ -33,8 +33,9 @@ Select
 	c.tblColCnt,
 	t.tblRowCnt,  -- add > 0 filter if trying to get tables with data, because tblUsedMemory is not enough
 	t.tblReservedMemory,
-	t.tblUsedMemory, --includes indices
-	t.tblUnUsedMemory
+	t.tblUsedMemory, --NOT include indices
+	t.tblUnUsedMemory,
+	t.tblIndexUsedMemory
 FROM 
     #tblColCnt c
 	Inner Join @TableInfo t On 
