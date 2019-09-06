@@ -1,4 +1,9 @@
-
+Get Table Size
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql?view=sql-server-2017
+  
+Main Success Scenario:
+  1. See code below
+  
 If OBJECT_ID('tempdb..#tblColCnt') Is Not Null
 Begin
 	Drop Table #tblColCnt
