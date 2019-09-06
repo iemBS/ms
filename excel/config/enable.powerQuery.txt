@@ -1,0 +1,10 @@
+Enable PowerQuery in Excel
+Notes:
+  -Guidance @ https://support.office.com/en-us/article/troubleshooting-power-query-2546eaa8-9893-4574-9ef9-afacb9b0b495
+Main Success Scenario:
+  1. "File" menu
+  2. "Options" menu choice
+  3. "Add-Ins" on left sidebar
+  4. Choose "COM Add-ins" on "Manage" drop down and press "Go..." button
+  5. Choose "Microsoft Power Query for Excel" in the "COM Add-ins" pop-up window and press "OK" button
+  6. May need to restart Excel.
