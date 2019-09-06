@@ -1,0 +1,16 @@
+Get Table Modify Time
+
+SELECT
+      s.[name] AS schemaNm,
+        t.[name] As tblNm,
+       t.create_date,
+       t.modify_date
+FROM
+        sys.tables t
+		INNER JOIN sys.schemas s ON 
+			t.schema_id = s.schema_id
+WHERE
+	t.is_ms_shipped = 0 --limit to only tables we created
+ORDER BY
+      s.[name],
+        t.[name]
