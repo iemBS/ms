@@ -1,0 +1,60 @@
+Get Column Data Size
+Notes:
+  -Guidance @ https://www.w3schools.com/sql/func_sqlserver_datalength.asp
+Main Success Scenario:
+  1. See code below
+
+IF OBJECT_ID('tempdb..#colDataSize') IS NOT NULL 
+BEGIN
+	DROP TABLE #colDataSize
+END 
+
+CREATE TABLE #colDataSize 
+(
+	tblSchema varchar(25),
+	tblNm varchar(50), 
+	colNm varchar(50), 
+	colSizeInKB float,
+	colSizeInBytes float
+)
+
+IF OBJECT_ID('tempdb..#col') IS NOT NULL 
+BEGIN
+	DROP TABLE #col
+END 
+
+SELECT 
+	IDENTITY (int, 1,1) AS ID,
+	TABLE_SCHEMA AS tblSchema,
+	TABLE_NAME AS tblNm,
+	COLUMN_NAME AS colNm
+INTO
+	#col
+FROM 
+	INFORMATION_SCHEMA.COLUMNS
+
+DECLARE @loop INT = 1
+DECLARE @qry varchar(1000)
+WHILE EXISTS(SELECT TOP 1 colNm FROM #col)
+BEGIN
+	SELECT 
+		@qry = 'INSERT #colDataSize SELECT ''' + tblSchema + ''',''' + tblNm + ''', ''' + colNm + ''', ISNULL(sum(datalength(' + colNm + ')) / 1024.0,0), ISNULL(sum(datalength(' + colNm + ')),0) FROM [' + tblSchema + '].[' + tblNm + ']'
+	FROM
+		#col
+	WHERE
+		ID = @loop
+
+    EXEC (@qry)
+
+	DELETE #col WHERE ID = @loop
+	SET @loop = @loop + 1
+END
+
+SELECT
+	*
+FROM
+	#colDataSize
+ORDER BY
+	tblSchema,
+	tblNm,
+	colNm
