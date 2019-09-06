@@ -1,0 +1,9 @@
+Remove Space Padding for Char data type
+Notes:
+  -xxx: Need to see if this occurs for nchar data type as well
+Preconditions:
+  -The Char data type adds space padding to the right of a value if the value does not take up the full space of the Char column. So, if you had a char(6) column and had a value of cat in it, then the value stored in it woudl be 'cat   '. 
+Main Success Scenario: 
+  1. select rtrim(charColumn) from myTable
+Alternatives:
+  1a. Change your column to be of type Varchar to avoid this. 
