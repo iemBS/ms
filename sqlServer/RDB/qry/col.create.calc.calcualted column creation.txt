@@ -1,0 +1,14 @@
+Create Calculated Column
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/tables/specify-computed-columns-in-a-table?view=sql-server-2017
+Main Success Sceario:
+  1. See code below
+  
+CREATE TABLE dbo.Products
+   (
+      ProductID int IDENTITY (1,1) NOT NULL
+      , QtyAvailable smallint
+      , UnitPrice money
+      , InventoryValue AS QtyAvailable * UnitPrice
+    )
+;
