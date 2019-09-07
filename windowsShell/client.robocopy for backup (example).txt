@@ -1,8 +1,10 @@
 Backup files with RoboCopy
 Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy
   -RoboCopy does not copy open files
   -The "LAD" in "MAXLAD" and "MINLAD" means Last Access Date.
-  -MAXLAD needs to be one day after today to get files updated today.
+  -Access date is different from modified date.
+  -MAXLAD < MINLAD
   -/s means copy Subdirectories, but not empty ones.
   -/XD means eXclude Directories matching given names/paths
   -/TS means include source file Time Stamps in the output.
@@ -16,6 +18,8 @@ Main Success Scenario:
 
   -- Test Run
   ROBOCOPY C:\myFiles E:\myFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD dirs c:\Files\temp /XO /ts /fp /L /LOG+:c:\CopyLog.txt
+  
+  2. see code below
 
   -- Real Run
   ROBOCOPY C:\myFiles E:\myFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD dirs c:\Files\temp /XO /ts /fp /LOG+:c:\CopyLog.txt
