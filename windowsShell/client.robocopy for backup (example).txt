@@ -5,6 +5,7 @@ Notes:
   -The "LAD" in "MAXLAD" and "MINLAD" means Last Access Date.
   -Access date is different from modified date.
   -MAXLAD < MINLAD
+  -MINLAD needs to be 1 day after today if I want to include access times for today
   -/s means copy Subdirectories, but not empty ones.
   -/XD means eXclude Directories matching given names/paths
   -/TS means include source file Time Stamps in the output.
