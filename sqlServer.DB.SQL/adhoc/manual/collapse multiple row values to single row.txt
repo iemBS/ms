@@ -5,7 +5,7 @@ Main Success Scenario:
   1. See below SQL script
  
       SELECT 
-      'CREATE TABLE [CALLCENTER].[' + SS.TABLE_NAME + '] (' + 
+      'CREATE TABLE [mySchema].[' + SS.TABLE_NAME + '] (' + 
        (
         SELECT 
           '' + US.tableCreateLine -- use of preceding text removes XML tag named after column name
