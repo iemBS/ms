@@ -1,0 +1,53 @@
+Generate view create scripts for sqlCmd
+Notes:
+  -View create scripts resulting from this must be executed with sqlCmd.
+Main Success Scenario:
+  1. See code below
+
+--get lines to create each view
+Select
+	TABLE_CATALOG,
+	TABLE_SCHEMA,
+	TABLE_NAME,
+	COLUMN_NAME,
+	COLUMN_NAME + ',' AS vwCreateLine
+INTO
+	#vwCreateLines
+From
+	INFORMATION_SCHEMA.COLUMNS
+
+--generate create view scripts that need to be executed with sqlCmd 
+--"GO" statements will not blank the "SRC_DB" and "DEST_DB" variables
+SELECT 
+	REPLACE(':setvar SRC_DB "my src db"' + CHAR(13)+CHAR(10) + ':setvar DEST_DB "my dest db"' + CHAR(13)+CHAR(10) + 'USE $(DEST_DB)' + CHAR(13)+CHAR(10) + 'GO' + CHAR(13)+CHAR(10) +  'CREATE VIEW [' + SS.TABLE_SCHEMA + '].[' + SS.TABLE_NAME + '_VW] AS SELECT ' + 
+   (
+		SELECT 
+			'' + vwCreateLine -- use of preceding text removes XML tag named after column name
+		FROM 
+			#vwCreateLines US
+		WHERE 
+			US.TABLE_SCHEMA = SS.TABLE_SCHEMA
+			AND
+			US.TABLE_NAME = SS.TABLE_NAME
+		FOR XML PATH('')
+	) + ' FROM $(SRC_DB).[' + SS.TABLE_SCHEMA + '].[' + SS.TABLE_NAME + '] WITH (NOLOCK);',', FROM ',' FROM ') + CHAR(13)+CHAR(10) + 'GO' AS createTableScript
+FROM 
+	(SELECT DISTINCT TABLE_CATALOG,TABLE_SCHEMA,TABLE_NAME FROM #vwCreateLines) SS
+GROUP BY 
+	SS.TABLE_CATALOG,
+	SS.TABLE_SCHEMA,
+	SS.TABLE_NAME
+ORDER BY 1
+
+--drop scripts for views above
+SELECT 
+	'IF OBJECT_ID(''' + '[' + SS.TABLE_SCHEMA + '].[' + SS.TABLE_NAME + ']' + ''') IS NOT NULL BEGIN DROP VIEW ' + '[' + SS.TABLE_SCHEMA + '].[' + SS.TABLE_NAME + ']' + ' END' + CHAR(13)+CHAR(10) + 'GO' AS dropVwScript
+FROM 
+	(SELECT DISTINCT TABLE_SCHEMA,TABLE_NAME FROM #vwCreateLines) SS
+GROUP BY 
+	SS.TABLE_SCHEMA, 
+	SS.TABLE_NAME
+ORDER BY 1
+
+
+
