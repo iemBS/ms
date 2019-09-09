@@ -1,0 +1,62 @@
+Get tables encapsulated in views and from another DB
+Notes:
+  -More than one view will be mapped to a table if the table exists in more than one view. 
+  -This can be edited to look for tables that are coming from another server via a linked server connection.
+Main Success Scenario:
+  1. See code below
+  
+select 
+	t.TABLE_SCHEMA AS SRC_TABLE_SCHEMA,
+	t.TABLE_NAME AS SRC_TABLE_NAME,
+	'[' + t.TABLE_CATALOG + '].[' + t.TABLE_SCHEMA + '].[' + t.TABLE_NAME + ']' AS SRC_TABLE_NAME_FULL,
+	v.TABLE_SCHEMA AS VIEW_SCHEMA,
+	v.TABLE_NAME AS VIEW_NAME,
+	'[' + v.TABLE_CATALOG + '].[' + v.TABLE_SCHEMA + '].[' + v.TABLE_NAME + ']' AS VIEW_NAME_FULL,
+	v2.modify_date AS view_modify_date
+from
+	[specify db 1].INFORMATION_SCHEMA.TABLES t
+	INNER JOIN [specify db 2].INFORMATION_SCHEMA.VIEWS v ON 
+		t.TABLE_SCHEMA = v.TABLE_SCHEMA
+		AND
+		v.TABLE_NAME like '%' + t.TABLE_NAME + '%' --smaller table name in bigger view name
+	INNER JOIN 
+	(
+		select
+			schema_id,
+			SCHEMA_NAME(schema_id) AS VIEW_SCHEMA,  
+			name AS VIEW_NAME,
+			modify_date
+		from	
+			sys.views
+		where
+			is_ms_shipped = 0
+	) v2 ON 
+		v.TABLE_SCHEMA = v2.VIEW_SCHEMA
+		AND
+		v.TABLE_NAME = v2.VIEW_NAME
+where
+		t.TABLE_TYPE = 'BASE TABLE'
+		AND
+		(
+			--all 8 combinations of the full table name searched for in views
+			v.VIEW_DEFINITION like '%' + ('[' + t.TABLE_CATALOG + '].[' + t.TABLE_SCHEMA + '].[' + t.TABLE_NAME + ']') + '%'
+			OR
+			v.VIEW_DEFINITION like '%' + (t.TABLE_CATALOG + '.[' + t.TABLE_SCHEMA + '].[' + t.TABLE_NAME + ']') + '%'
+			OR
+			v.VIEW_DEFINITION like '%' + ('[' + t.TABLE_CATALOG + '].[' + t.TABLE_SCHEMA + '].' + t.TABLE_NAME + '') + '%'
+			OR
+			v.VIEW_DEFINITION like '%' + ('[' + t.TABLE_CATALOG + '].' + t.TABLE_SCHEMA + '.[' + t.TABLE_NAME + ']') + '%'
+			OR
+			v.VIEW_DEFINITION like '%' + (t.TABLE_CATALOG + '.' + t.TABLE_SCHEMA + '.[' + t.TABLE_NAME + ']') + '%'
+			OR
+			v.VIEW_DEFINITION like '%' + ('[' + t.TABLE_CATALOG + '].' + t.TABLE_SCHEMA + '.' + t.TABLE_NAME + '') + '%'
+			OR
+			v.VIEW_DEFINITION like '%' + (t.TABLE_CATALOG + '.[' + t.TABLE_SCHEMA + '].' + t.TABLE_NAME + '') + '%'
+			OR
+			v.VIEW_DEFINITION like '%' + (t.TABLE_CATALOG + '.' + t.TABLE_SCHEMA + '.' + t.TABLE_NAME + '') + '%'
+		)
+ORDER BY
+	v2.modify_date desc,
+	t.TABLE_SCHEMA,
+	t.TABLE_NAME
+
