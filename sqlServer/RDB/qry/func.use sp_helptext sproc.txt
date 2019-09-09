@@ -1,0 +1,7 @@
+Use sp_helptext sproc
+Notes:
+  -Have to refer to view that current session is pointing to. So, cannot use a [db].[schema].[view/sproc/func] naming convention.
+  -This example takes a view as a parameter. sp_helptext can also be used on procedures and functions.  
+Main Success Scenario:
+  1.exec sp_helptext '[dbo].[vwMyView]'
+  
