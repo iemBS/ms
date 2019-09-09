@@ -1,0 +1,8 @@
+Get Object ID
+Notes:
+  - This specific case is getting an object ID for a table. This can also work on procedures, functions, and view objects.
+Main Success Scenario:
+  1.SELECT OBJECT_ID('[dbName].[schemaName].[tableName]')
+Alternatives:
+  1a. object does not exist or the full name is written incorrectly
+    1a1. OBJECT_ID returns null
