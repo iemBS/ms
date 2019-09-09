@@ -1,0 +1,67 @@
+
+# Guidance @ https://www.red-gate.com/simple-talk/sql/sql-tools/using-powershell-to-generate-table-creation-scripts/
+# Guidance @ https://docs.microsoft.com/en-us/powershell/scripting/samples/using-format-commands-to-change-output-view?view=powershell-6
+
+# set variables
+$server = "myServer"
+$instance = "default"
+$database = "myDB"
+$schema = "mySchema"
+$path = "sqlserver:\sql\$server\$instance\databases\$database\tables" 
+$newLine = "`r`n"
+$vwCnt = 14 # number of views that are supposed to be pulled from DB
+
+[reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null 
+Write-Host "Create SQL server object"
+$srv = new-object Microsoft.SqlServer.Management.Smo.Server($server) # recreate object if chg in DB
+$db = $srv.databases[$database]
+
+# filter on "Schema" and "CreateDate" attributes to find correct views
+Write-Host "Pull view info from SQL Server" 
+$viewset = $db.views | Where-object {$_.schema -eq $schema -and $_.CreateDate -gt ((get-date).AddDays(-10))} 
+
+# check that view count found matches the count you expect
+Write-Host "# of views: " $viewset.Count
+
+if ($vwCnt -ne $viewset.Count){
+  throw "Incorrect number of views were pulled. There should be " + $viewset.Count + " views."
+}
+
+# export create scripts to their own files
+$filePath = "C:\myFilePath\"
+$viewFolder = "myFolder\"
+$masterName = "00_master"
+$headerComment = "/***********************************************************************************" + $newLine + 
+"09/09/2019 01.00 Clark Kent new DB object" + $newLine + 
+"***********************************************************************************/" + $newLine
+$headerComment = " AS " + $newLine + $headerComment + $newLine + " SELECT"
+$loop = 1
+$max = $viewset.Count - 1
+
+for($i = 0;$i -le $max; $i++)
+{ 
+  $viewAlterMasterFile = $filePath + $viewFolder + $masterName + "Alter.sql"
+
+  # all view alter file
+    # remove lines generated when PowerShell scripts the view
+    $sqlScript = $viewset[$i].script() -replace "SET ANSI_NULLS ON",""
+    $sqlScript = $sqlScript  -replace "SET QUOTED_IDENTIFIER OFF","" 
+    $sqlScript = $sqlScript  -replace "SET QUOTED_IDENTIFIER ON",""
+    $sqlScript = $sqlScript  -replace "CREATE VIEW ","ALTER VIEW "
+
+    # change static DB names to variable DB names so they can be interpreted by sqlCmd for any source or destination
+    $sqlScript = $sqlScript  -replace "USE [myDestinationDB]","USE `$(DEST_DB)"
+    $sqlScript = $sqlScript  -replace " mySourceDB."," `$(SRC_DB)."
+
+    # add standard header comment to view 
+    $sqlScript = $sqlScript  -replace " AS SELECT",$headerComment
+
+    # output to file
+    $sqlScript + $newLine + "GO" | out-file $viewAlterMasterFile -append -ErrorAction stop 
+
+  $loop = $i + 1
+  Write-Host "scripts done for " $loop " views"
+} 
+
+
+
