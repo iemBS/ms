@@ -1,0 +1,8 @@
+Concat Strings
+Notes:
+  -Guidance @ https://ss64.com/ps/syntax-concat.html
+Main Success Scenario:
+  1. $demo = 'abc' + 'def'
+Alternatives:
+  1a. Use double quotes instead
+    1a1. $demo = "abc" + "def"
