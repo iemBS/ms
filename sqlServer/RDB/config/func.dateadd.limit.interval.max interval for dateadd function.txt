@@ -2,15 +2,17 @@
 
 --max interval is not due to the start time
 --max interval is specific to the interval unit
---max also achieved by reaching the "9999-12-31 23:59:59.997" result
+--limit also achieved by reaching the "9999-12-31 23:59:59.997" date result
+--limit also achieved by reaching the "1753-01-01 00:00:00.000" date result, occurs with negative interval values
 select 
 	dateadd(minute,2147483647,'1899-12-30 00:00:00.000') as usesMaxMinuteInterval,
 	dateadd(minute,2147483647,'1972-12-30 00:00:00.000') as usesMaxMinuteInterval,
 	dateadd(hour,71003183,'1899-12-30 00:00:00.000') as usesMaxHourInterval,
 	dateadd(day,2958465,'1899-12-30 00:00:00.000') as usesMaxDayInterval,
+	dateadd(day,-53688,'1899-12-30 00:00:00.000') as resutlsInMinDateTimeValue,
 	dateadd(millisecond,998,
 		dateadd(second,59,
 			dateadd(minute,59,
 				dateadd(hour,71003183,
 					'1899-12-30 00:00:00.000'
-	)))) as resutlsInMaxDateTimeValue --milliseconds of 997 or 998 give same result
+)))) as resutlsInMaxDateTimeValue --milliseconds of 997 or 998 give same result
