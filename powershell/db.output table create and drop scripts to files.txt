@@ -1,0 +1,78 @@
+Output Table Create and Drop Scripts to Files
+Main Success Scenario:
+  1. see code below
+  
+  
+# Guidance @ https://www.red-gate.com/simple-talk/sql/sql-tools/using-powershell-to-generate-table-creation-scripts/
+# Guidance @ https://docs.microsoft.com/en-us/powershell/scripting/samples/using-format-commands-to-change-output-view?view=powershell-6
+
+# set variables
+$server = "myServer"
+$instance = "default"
+$database = "myDB"
+$schema = "mySchema"
+$path = "sqlserver:\sql\$server\$instance\databases\$database\tables" 
+$newLine = "`r`n"
+$tblCnt = 45 # number of tables that are supposed to be pulled from DB
+
+[reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null 
+Write-Host "Create SQL server object"
+$srv = new-object Microsoft.SqlServer.Management.Smo.Server($server) # recreate object if chg in DB
+$db = $srv.databases[$database]
+
+# filter on "Schema" and "CreateDate" attributes. 
+Write-Host "Pull table info from SQL Server" 
+$tableset = $db.tables | Where-object {$_.schema -eq $schema -and $_.CreateDate -gt ((get-date).AddDays(-10))} 
+Write-Host "# of tables: " $tableset.Count 
+
+if ($tblCnt -ne $tableset.Count){
+  $msg = "Incorrect number of tables were pulled. There should be " + $tblCnt + " tables."
+  throw $msg 
+}
+
+# export create scripts to their own files
+$filePath = "C:\myPath\"
+$tableFolder = "myFolder\"
+$masterName = "00_master"
+$headerComment = "/***********************************************************************************" + $newLine + 
+"08/29/2019 01.00 Scott Burnell new DB object" + $newLine + 
+"***********************************************************************************/" + $newLine
+$loop = 1
+$max = $tableset.Count - 1
+
+for($i = 0;$i -le $max; $i++)
+{ 
+  $tableName = ($tableset[$i] | select -expand Name) 
+  $tableCreateFile = $filePath + $tableFolder + $tableName + ".sql"
+  $tableCreateMasterFile = $filePath + $tableFolder + $masterName + ".sql"
+  $tableDropFile = $filePath + $tableFolder + $tableName + "_backout.sql"
+  $tableDropMasterFile = $filePath + $tableFolder + $masterName + "_backout.sql"
+
+  # single table create file, add primary key (index 1) & unclustered (index 2) indices to query
+  $sqlScript = $headerComment + 
+  $tableset[$i].script() + 
+  $tableset[$i].Indexes[0].script() + 
+  $newLine + "GO" + $newLine + 
+  $tableset[$i].Indexes[1].script() 
+  #$sqlScript | out-file $tableCreateFile -append -ErrorAction stop 
+
+  # single table drop file
+  $sqlScript = "IF OBJECT_ID('[" + $schema + "].[" + $tableName + "]') IS NOT NULL BEGIN DROP TABLE [" + $schema + "].[" + $tableName + "] END"
+  #$sqlScript | out-file $tableDropFile -append -ErrorAction stop 
+
+  # all table create file, add primary key (index 1) & unclustered (index 2) indices to query
+  $tableset[$i].script() + 
+  $tableset[$i].Indexes[0].script() + 
+  $newLine + "GO" + $newLine + 
+  $tableset[$i].Indexes[1].script() + $newLine + "GO" | out-file $tableCreateMasterFile -append -ErrorAction stop 
+
+  # all view drop file
+  $sqlScript = "IF OBJECT_ID('[" + $schema + "].[" + $tableName + "]') IS NOT NULL BEGIN DROP TABLE [" + $schema + "].[" + $tableName + "] END"
+  $sqlScript + $newLine + "GO" | out-file $tableDropMasterFile -append -ErrorAction stop 
+
+  $loop = $i + 1
+  Write-Host "scripts done for " $loop " tables"
+} 
+
+
+
