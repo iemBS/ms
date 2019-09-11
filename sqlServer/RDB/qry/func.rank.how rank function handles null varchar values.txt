@@ -1,0 +1,35 @@
+How Rank Function Handles Null Varchar values
+Main Success scenario:
+  1. See code below
+  
+create table #tstTbl
+(
+	id int,
+	varcharColumn varchar(10)
+)
+
+Insert Into
+	#tstTbl
+values
+	(3,null),
+	(2,null),
+	(4,'cheese'),
+	(5,'burger'),
+	(1,null);
+
+select
+	*,
+	row_number() over (order by varcharColumn) as rowNumberFunc,
+	rank() over (order by varcharColumn) as rankFunc,
+	dense_rank() over (order by varcharColumn) as denseRankFunc
+from
+	#tstTbl
+  
+Resuts for this query are below:
+
+id	varcharColumn	rowNumberFunc	rankFunc	denseRankFunc
+3	NULL	1	1	1
+2	NULL	2	1	1
+1	NULL	3	1	1
+5	burger	4	4	2
+4	cheese	5	5	3
