@@ -76,3 +76,7 @@ datemodified:>5/2/2019
   -- files with names of "cheese 2" and "cheese burger" and "blue cheese" would be returned by the below command.
   filename:*cheese 
   
+-- find all files WITHOUT text in the file name
+  -- files with names of "cheese 2" and "cheese burger" and "blue cheese" would NOT be returned by the below command.
+  filename: NOT *cheese
+  
