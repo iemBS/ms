@@ -1,0 +1,5 @@
+Get file groups for a DB
+Notes:
+  -You need to use the "sp_msforeachdb" sproc to get the file groups for all DBs on an SQL server instance
+Main Success Scenario:
+  1. select * from sys.filegroups
