@@ -1,6 +1,7 @@
 Get Tabular Cube Size
 Notes:
   -This gets the estimated size of the tabular cube model after it is deployed to a server
+  -Guidance @ https://dba.stackexchange.com/questions/138268/how-to-find-the-size-name-and-other-details-of-analysis-server-database
 Main Success Scenario:
   1. See code below
   
