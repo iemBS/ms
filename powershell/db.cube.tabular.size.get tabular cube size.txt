@@ -1,0 +1,24 @@
+Get Tabular Cube Size
+Notes:
+  -This gets the estimated size of the tabular cube model after it is deployed to a server
+Main Success Scenario:
+  1. See code below
+  
+$serverNm = "myServerName"
+
+$loadInfo = [Reflection.Assembly]::LoadWithPartialName("Microsoft.AnalysisServices")
+$server = New-Object Microsoft.AnalysisServices.Server
+$server.connect($serverNm)
+
+$dbSet = $server.databases
+$loop = 1
+$max = $dbSet.Count
+
+for($i = 0;$i -le $max; $i++)
+{ 
+  $db = $dbSet[$i]
+  $dbNm = $db.Name
+  $dbSize = $db.EstimatedSize/1024/1024
+  $msg = "'" + $dbNm + "' database size is: {0}MB" -f $dbSize.ToString("#,##0")
+  Write-Output($msg)
+}
