@@ -1,0 +1,8 @@
+Get Data Size of Tabular Cube
+Main Success Scenario:
+  1. Right click on Analytical DB
+  2. Choose "Properties" from context menu.
+  3. Choose "Database" page of the "Database Properties" window
+  4. See "Estimated Size" under "Status" section.
+  
+  
