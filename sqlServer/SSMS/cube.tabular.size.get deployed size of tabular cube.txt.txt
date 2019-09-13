@@ -1,6 +1,8 @@
 Get Data Size of Tabular Cube
 Notes:
   -This is only the estimated size after deployed to a server
+  -Size is in MB
+  -In Azure you can use metrics by going under Monitoring Tab of your Azure Server listed in Portal, goto Monitoring->Metrics->From the available list of checkboxes, check Memory. 
 Main Success Scenario:
   1. Right click on Analytical DB
   2. Choose "Properties" from context menu.
