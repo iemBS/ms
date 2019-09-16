@@ -1,0 +1,5 @@
+Use Logical Operator in if condition
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logical_operators?view=powershell-6
+Main Success Scenario:
+  1. 
