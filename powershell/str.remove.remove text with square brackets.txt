@@ -1,0 +1,10 @@
+Remove Text with Square Brackets in a String
+Notes:
+  -Guidance @ https://ss64.com/ps/replace.html
+Main Success Scenario:
+  1. $tstStr = "xxX[cheese]Xxx"
+  2. $tstStr -replace "\[cheese\]",""
+  3. Result is "xxXXxx"
+  
+  
+  
