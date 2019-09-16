@@ -1,0 +1,5 @@
+Use Comparison Operator
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comparison_operators?view=powershell-6
+Main Success Scenario:
+  1. 
