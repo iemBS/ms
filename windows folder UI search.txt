@@ -1,4 +1,4 @@
-
+Guidance @ https://docs.microsoft.com/en-us/windows/win32/search/-search-3x-advancedquerysyntax?redirectedfrom=MSDN
 
 -- Find all programs
 kind:=program
@@ -79,4 +79,12 @@ datemodified:>5/2/2019
 -- find all files WITHOUT text in the file name
   -- files with names of "cheese 2" and "cheese burger" and "blue cheese" would NOT be returned by the below command.
   filename: NOT *cheese
+  
+-- Special characters to escape in a search
+[, ], (, ), &, ?
+
+-- Escape special characters 
+  --To find a left parenthesis (two options can be used)
+  ~="("
+  "*(*"
   
