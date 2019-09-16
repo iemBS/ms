@@ -1,0 +1,7 @@
+Get SQL Server table column attributes
+Main Success Scenario:
+Notes:
+  -Guidance @ https://dba.stackexchange.com/questions/6437/how-to-get-table-columns-with-datatypes-and-lengths-using-powershell
+  -$tbl has a table object, columns[1] is the second column in the table, Properties["Length"].Value looks at the value of the "Length" property of the column
+Main Success Scenario:
+  1. $tbl.columns[1].Properties["Length"].Value
