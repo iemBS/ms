@@ -1,0 +1,12 @@
+Remove Square Brackets in a String
+Notes:
+  - Guidance @ https://stackoverflow.com/questions/28705134/powershell-replace-square-brackets
+Main Success Scenario:
+  1. 
+    $tstStr = "[cheese]"
+    $tstStr -replace "[[\]]",""
+Alternatives:
+  1a. Do not excape the closed bracket
+    1a1. 
+      $tstStr = "[cheese]"
+      $tstStr -replace "[][]",""
