@@ -1,0 +1,5 @@
+How to Exit a Loop
+Notes:
+  1. https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_break?view=powershell-6  -Guidance @ 
+Main Success Scenario:
+  1. Use "break" keyword
