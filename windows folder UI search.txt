@@ -81,7 +81,7 @@ datemodified:>5/2/2019
   filename: NOT *cheese
   
 -- Special characters to escape in a search
-[, ], (, ), &, ?
+[, ], (, ), &, ?, *   (may need to add more special characters here)
 
 -- Escape special characters 
   --To find a left parenthesis (two options can be used)
