@@ -1,6 +1,8 @@
 Remove Square Brackets in a String
 Notes:
-  - Guidance @ https://stackoverflow.com/questions/28705134/powershell-replace-square-brackets
+  -Guidance @ https://stackoverflow.com/questions/28705134/powershell-replace-square-brackets
+  -If string put in variable instead of just used in replace function, square brackets still need to be escaped
+  -Square brackets only need to be escaped on the left side of the replace function. 
 Main Success Scenario:
   1. 
     $tstStr = "[cheese]"
