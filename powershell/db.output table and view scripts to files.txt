@@ -6,6 +6,7 @@ Notes:
   -Guidance @ https://www.sqlservercentral.com/forums/topic/generate-create-script-for-a-table-include-indexes-keys-statistics
   -Scripter class within Microsoft.SqlServer.Management.Smo must be used to create scipts of indices on the tables.
   -Using the script() method with views will leave "SET ANSI_NULLS ON", "SET QUOTED_IDENTIFIER OFF", and "SET QUOTED_IDENTIFIER ON" statements above a view creation script without following each of those statements with a "GO". That file cannot be run to create a vew because no lines can precede a create view statement in a batch. 
+  -Script() function adds a new line after the script
 Main Success Scenario:
   1. See code below
   
