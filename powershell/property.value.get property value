@@ -4,3 +4,6 @@ Preconditions:
   -Assume "Name" is the name of a property for the $myObj object
 Main Success Scenario:
   1. $myObj | select -expand Name
+Alternatives:
+  1a. Use shorter, more intuitive notation
+    1a1. $myObj.Name
