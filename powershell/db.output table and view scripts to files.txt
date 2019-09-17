@@ -9,6 +9,7 @@ Notes:
   -Script() function adds a new line after a table script
   -Script() function DOES NOT add a new line before a table script
   -Script() function DOES NOT add a new line after or before a table index script
+  -Script() function adds two spaces before "CREATE" before a table script. This does not occur with scripts for Views or Table indexes
 Main Success Scenario:
   1. See code below
   
