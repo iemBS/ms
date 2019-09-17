@@ -1,0 +1,6 @@
+Add Comment to Table
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql?view=sql-server-2017
+  -Guidance @ https://stackoverflow.com/questions/4586842/sql-comments-on-create-table-on-sql-server-2008
+Main Success Scenario:
+  1. [xxx: need to fill in]
