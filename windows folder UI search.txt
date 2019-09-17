@@ -1,4 +1,5 @@
 Guidance @ https://docs.microsoft.com/en-us/windows/win32/search/-search-3x-advancedquerysyntax?redirectedfrom=MSDN
+Guidance @ https://www.howtogeek.com/school/learning-windows-search/lesson4/
 
 -- Find all programs
 kind:=program
