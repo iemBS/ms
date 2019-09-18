@@ -4,5 +4,11 @@ Notes:
   -Using the REPLACE function removes the "i:0#.w|". You can also use it to remove the domain name and backslack like done here.
   -Lowest position that REPLACE function can start at is 1. 
   -Guidance @ https://support.office.com/en-us/article/replace-function-3e6288d2-faea-4764-95d4-39dd5e508321
+  -Guidance @ https://support.office.com/en-us/article/me-function-dfa1bc43-b3b6-4c17-928d-c323659f4ea0
+  -The Me function can be used only with default values; you cannot use the Me function in calculated column, list level validation formula, or column level validation formula.
 Main Success Scenario:
   1. =REPLACE(Me,1,18,"")
+Alternatives:
+  1a. Need to use Me function in list level validation
+    1a1. Fill a hidden field with a default value from the Me function
+    1a2. Use the hidden field in the list level validation
