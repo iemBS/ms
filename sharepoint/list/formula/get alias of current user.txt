@@ -5,4 +5,4 @@ Notes:
   -Lowest position that REPLACE function can start at is 1. 
   -Guidance @ https://support.office.com/en-us/article/replace-function-3e6288d2-faea-4764-95d4-39dd5e508321
 Main Success Scenario:
-  1. =REPLACE(LEFT(Me,30),1,18,"")
+  1. =REPLACE(Me,1,18,"")
