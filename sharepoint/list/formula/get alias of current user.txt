@@ -3,5 +3,6 @@ Notes:
   -"Me" returns the current user alias in the form of i:0#.w|domainName\alias
   -Using the REPLACE function removes the "i:0#.w|". You can also use it to remove the domain name and backslack like done here.
   -Lowest position that REPLACE function can start at is 1. 
+  -Guidance @ https://support.office.com/en-us/article/replace-function-3e6288d2-faea-4764-95d4-39dd5e508321
 Main Success Scenario:
   1. =REPLACE(LEFT(Me,30),1,18,"")
