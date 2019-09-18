@@ -1,0 +1,7 @@
+Get Members of a Security Group
+Main Success Scenario:
+  1. Rundll32 dsquery.dll OpenQueryWindow
+Alternatives:
+  1a. Want to use AD Explorer instead
+    1a1. Download AD Explorer @ https://docs.microsoft.com/en-us/sysinternals/downloads/adexplorer
+    
