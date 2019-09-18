@@ -1,0 +1,5 @@
+Use IsError function
+Notes:
+  -Guidance @ https://support.office.com/en-gb/article/IS-functions-586532cc-9888-4ca0-98b8-c874e4c8a087
+Main Success Scenario:
+  1. [xxx: need to fill in]
