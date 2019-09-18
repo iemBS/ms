@@ -1,5 +1,6 @@
 Allow time field to be between 3 and 5 days from now
 Notes:
   -Assume field is called "Start Time"
+  -Down to the minute
 Main Success Scenario:
   1. =AND(DATETIME(YEAR(NOW()),MONTH(NOW()),DAY(NOW())+IF(WEEKDAY(NOW())+3<=6,3,IF(WEEKDAY(NOW())=7,4,5)),HOUR(NOW()),MINUTE(NOW()),0)<=[Request Start Time],DATETIME(YEAR(NOW()),MONTH(NOW()),DAY(NOW())+IF(WEEKDAY(NOW())=1,5,IF(WEEKDAY(NOW())<=13,7,6)),HOUR(NOW()),MINUTE(NOW()),0)>=[Start Time])
