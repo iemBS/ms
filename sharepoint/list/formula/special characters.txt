@@ -1,1 +1,0 @@
-Guidance @ https://sharepoint.stackexchange.com/questions/219833/prevent-special-characters-in-list-item
