@@ -2,6 +2,7 @@ Backup files with RoboCopy
 Notes:
   -Guidance @ https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy
   -Guidance @ https://ss64.com/nt/robocopy.html
+  -Guidance @ https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx
   -Guidance @ https://social.technet.microsoft.com/Forums/ie/en-US/1094222a-ddfa-4357-9472-218816a2307c/robocopy-version-xp010-excluding-multiple-directories-using-xd?forum=winserverfiles
   -RoboCopy does not copy open files
   -The "LAD" in "MAXLAD" and "MINLAD" means Last Access Date.
