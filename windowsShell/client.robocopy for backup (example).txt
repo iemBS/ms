@@ -26,6 +26,7 @@ Notes:
   -Files excluded with /XF will not be mentioned in the log
   -/XF exclusion logic used noted at top of log file
   -/XO excludes older files
+  -xxx:how to include only certain file types?
 Preconditions:
   -
 Main Success Scenario:
