@@ -19,6 +19,7 @@ Notes:
   -/LOG+:file means output status to LOG file (append to existing log)
   -/XF is used to exclude certain file types
   -/XF can handle wild cards like /XF doc*.pdf would exclude all PDF files that start with "doc"
+  -/XO excludes older files
 Preconditions:
   -
 Main Success Scenario:
