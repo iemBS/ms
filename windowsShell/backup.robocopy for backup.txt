@@ -33,11 +33,11 @@ Preconditions:
 Main Success Scenario:
   1. See code below
 
-  -- Test Run
-  ROBOCOPY C:\myFiles E:\myFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD "dir 1" /XD "dir 2" c:\Files\temp /XO /ts /fp /L /LOG+:c:\CopyLog.txt
-  
-  2. see code below
+  test run
+  ----------
+  ROBOCOPY C:\myFiles\190918 Z:\myFiles_dailyDelta_190918 /MAXAGE:20190918 /MINAGE:20190919 /s /XD "C:\myFiles\190918\dir 1" /XD "C:\myFiles\190918\dir 2" /XD "C:\myFiles\190918\dir 3" /XO /ts /fp /L /LOG:C:\robocopy.log.txt
 
-  -- Real Run
-  ROBOCOPY C:\myFiles E:\myFiles_180416 /MAXLAD:20170526 /MINLAD:20180416 /s /XD "dir 1" /XD "dir 2" c:\Files\temp /XO /ts /fp /LOG+:c:\CopyLog.txt
+  real run
+  -----------
+  ROBOCOPY C:\myFiles\190918 Z:\myFiles_dailyDelta_190918 /MAXAGE:20190918 /MINAGE:20190919 /s /XD "C:\myFiles\190918\dir 1" /XD "C:\myFiles\190918\dir 2" /XD "C:\myFiles\190918\dir 3" /XO /ts /fp /LOG:C:\robocopy.log.txt
 
