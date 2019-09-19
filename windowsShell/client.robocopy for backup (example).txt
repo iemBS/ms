@@ -22,6 +22,7 @@ Notes:
   -/XF is used to exclude certain file types
   -/XF can handle wild cards like /XF doc*.pdf would exclude all PDF files that start with "doc"
   -/XF cannot handle paths when mentioning file names
+  -Files excluded with /XF will not be mentioned in the log
   -/XO excludes older files
 Preconditions:
   -
