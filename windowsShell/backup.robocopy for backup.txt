@@ -4,6 +4,7 @@ Notes:
   -Guidance @ https://ss64.com/nt/robocopy.html
   -Guidance @ https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx
   -Guidance @ https://social.technet.microsoft.com/Forums/ie/en-US/1094222a-ddfa-4357-9472-218816a2307c/robocopy-version-xp010-excluding-multiple-directories-using-xd?forum=winserverfiles
+  -Guidance @ https://stackoverflow.com/questions/19956249/using-robocopy-with-source-and-destination-as-variables
   -RoboCopy does not copy open files
   -The "LAD" in "MAXLAD" and "MINLAD" means Last Access Date.
   -Access date is different from modified date.
