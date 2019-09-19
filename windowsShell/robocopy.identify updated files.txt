@@ -1,0 +1,10 @@
+
+
+
+TEST RUN
+---------
+ROBOCOPY "src dir" "dest dir" /MAXAGE:20190829 /MINAGE:20190919 /s /XD "dir 1" /XD "dir 2" /XF *.sql /XO /ts /fp /L /LOG:"C:\someDir\robocopy.log.txt"
+
+REAL RUN
+--------
+ROBOCOPY "src dir" "dest dir" /MAXAGE:20190829 /MINAGE:20190919 /s /XD "dir 1" /XD "dir 2" /XF *.sql /XO /ts /fp /LOG:"C:\someDir\robocopy.log.txt"
