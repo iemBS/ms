@@ -17,6 +17,7 @@ Notes:
   -/FP means include Full Pathname of files in the output
   -/L means List only - don't copy, timestamp or delete any files
   -/LOG+:file means output status to LOG file (append to existing log)
+  -/LOG:file means output status to LOG file (overwrite existing log)
   -/XF is used to exclude certain file types
   -/XF can handle wild cards like /XF doc*.pdf would exclude all PDF files that start with "doc"
   -/XO excludes older files
