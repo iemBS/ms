@@ -11,7 +11,7 @@ Notes:
   -/s means copy Subdirectories, but not empty ones.
   -/XD means eXclude Directories matching given names/paths. 
   -There must be an /XD with every directory excluded
-  -DO NOT but a slack at the end of each of your excluded directories
+  -DO NOT but a slash at the end of each of your excluded directories
   -Put quotes around excluded directories that have spaces in them
   -/TS means include source file Time Stamps in the output.
   -/FP means include Full Pathname of files in the output
