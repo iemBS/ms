@@ -27,6 +27,7 @@ Notes:
   -/XF exclusion logic used noted at top of log file
   -/XO excludes older files
   -xxx:how to include only certain file types?
+  -xxx:change command to take variables for src dir, dest dir, excluded dir
 Preconditions:
   -
 Main Success Scenario:
