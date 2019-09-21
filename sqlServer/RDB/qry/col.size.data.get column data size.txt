@@ -4,6 +4,7 @@ Notes:
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/datalength-transact-sql?view=sql-server-2017
   -DataLength function does not work on computed table columns
   -Remove computered table columns using is_computed <> 1 in sys.columns table
+  -This can be used when you do not have access to run sp_msforeachtable
 Main Success Scenario:
   1. See code below
 
