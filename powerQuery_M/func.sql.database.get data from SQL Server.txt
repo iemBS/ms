@@ -1,0 +1,24 @@
+Get data from SQL Server
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/powerquery-m/sql-database
+Main Success Scenario:
+  1. 
+   srcServerTbl_A = Excel.CurrentWorkbook(){[Name="server_A"]}[Content],
+   srcServerVal_A = List.First(srcServerTbl_A[server_A]),
+   srcDBTbl_A = Excel.CurrentWorkbook(){[Name="DB_A"]}[Content],
+   srcDBVal_A = List.First(srcDBTbl_A[DB_A]),
+   query = Text.Combine({
+	"Select
+		'[' + s.[name] + '].[' + t.[name] + ']' As [table],
+                Upper('[' + s.[name] + '].[' + t.[name] + ']') As [tableFilter],
+		t.modify_date As lastModifiedTime
+	From
+		|DB_NAME|.sys.Tables t
+		Inner Join |DB_NAME|.sys.schemas s On 
+			t.[schema_id] = s.[schema_id]"},
+    ""),
+   qry_A = Text.Replace(query,"|DB_NAME|",srcDBVal_A),
+   src_A = Sql.Database(
+     srcServerVal_A,
+     srcDBVal_A, 
+     [Query=qry_A]),
