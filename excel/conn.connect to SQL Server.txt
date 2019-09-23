@@ -1,7 +1,8 @@
 Connect to SQL Server
 Notes:
-  - Guidance @ https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax
-  - Guidance @ https://support.office.com/en-us/article/connect-a-sql-server-database-to-your-workbook-power-query-22c39d8d-5b60-4d7e-9d4b-ce6680d43bad
-  - Guidance @ https://www.connectionstrings.com/sql-server/
+  -Guidance @ https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax
+  -Guidance @ https://support.office.com/en-us/article/connect-a-sql-server-database-to-your-workbook-power-query-22c39d8d-5b60-4d7e-9d4b-ce6680d43bad
+  -Guidance @ https://www.connectionstrings.com/sql-server/
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client?view=sql-server-2017
 Main Success Scenario:
   1. xxx: need to fill in
