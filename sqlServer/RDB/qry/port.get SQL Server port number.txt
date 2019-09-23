@@ -1,0 +1,12 @@
+Get SQL Server Port Number
+Notes:
+  -Common port number is 1433
+  -Guidance @ https://docs.microsoft.com/en-us/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access?view=sql-server-2017
+  -Guidance @ https://www.sqlshack.com/overview-of-sql-server-ports/
+Main Success Scenario:
+  1. 
+    SELECT local_tcp_port
+    FROM sys.dm_exec_connections
+    WHERE session_id = @@SPID;
+Alternatives:
+  1a. xxx: fill in another way
