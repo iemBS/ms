@@ -1,0 +1,5 @@
+Add Meeting to Outlook
+Notes:
+  -Guidance @ https://social.technet.microsoft.com/Forums/en-US/aa9ef119-b309-48bd-84fe-4847d0117c26/powershell-script-to-create-new-outlook-meeting?forum=winserverpowershell
+Main Success Scenario:
+  1. xxx: fill out 
