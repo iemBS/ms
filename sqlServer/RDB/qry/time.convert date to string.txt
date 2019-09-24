@@ -1,0 +1,6 @@
+Convert Date to String
+Preconditions:
+  -Assume current date is Sept 24 2019
+Main Success Scenario:
+  1. SELECT LEFT(CONVERT(VARCHAR, GetDate(), 120), 10)
+  2. Result is 2019-09-24
