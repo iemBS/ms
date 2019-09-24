@@ -1,4 +1,6 @@
 Convert Date to String
+Notes:
+  -Guidance @ https://www.w3schools.com/sql/func_sqlserver_convert.asp
 Preconditions:
   -Assume current date is Sept 24 2019
 Main Success Scenario:
