@@ -5,23 +5,36 @@ Main Success Scenario:
   1. 
 select 
 	s.[name] as schemaNm,
-	o.[name] as tblNm,
+	t.[name] as tblNm,
 	c.[name] as colNm,
 	i.[name] as idxNm,
 	i.is_disabled as idxDisabled,
 	i.is_primary_key as idxPrimaryKy,
 	i.is_unique as idxUnique,
-	i.[name] as idxNm,
 	i.type_desc as idxType,
 	ic.is_included_column as isIncludedCol, --non key part of index
-	ic.is_descending_key as colDescInKey
+	ic.is_descending_key as colDescInIdx,
+	ic.key_ordinal as colIdxPosition
 from
-	sys.index_columns ic 
-	Inner Join sys.columns c on 
+	sys.index_columns ic   -- unique object_id, column_id, index_id combos
+	Inner Join sys.columns c on  -- unique object_id & column_id combos
+		ic.object_id = c.object_id -- join on tbl
+		AND
 		ic.column_id = c.column_id
-	inner join sys.objects o on 
-		c.object_id = o.object_id
+	inner join sys.tables t on 
+		c.object_id = t.object_id -- join on tbl	
 	inner join sys.schemas s on 
-		o.schema_id = s.schema_id
-	inner join sys.indexes i on 
+		t.schema_id = s.schema_id
+	inner join sys.indexes i on  -- unique object_id & index_id combos
+		ic.object_id = i.object_id  -- join on tbl
+		AND
 		ic.index_id = i.index_id
+where
+	t.type_desc = 'USER_TABLE'
+	AND
+	t.is_ms_shipped = 0
+order by
+	s.[name],
+	t.[name],
+	c.[name],
+	i.[name]
