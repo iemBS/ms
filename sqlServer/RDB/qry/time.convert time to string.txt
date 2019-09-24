@@ -1,0 +1,5 @@
+Convert Time to String
+Notes:
+  -Guidance @ https://www.w3schools.com/sql/func_sqlserver_convert.asp
+Main Success Scenario:
+  1. SELECT CONVERT(VARCHAR, GetDate(), 120)
