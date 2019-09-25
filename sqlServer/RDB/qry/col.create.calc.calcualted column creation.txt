@@ -4,6 +4,7 @@ Notes:
   -If column "PERSISTED" it will be calculated and data stored inside table. 
   -If column is NOT "PERSISTED" it will be calculated when the table is queried. 
   -If data is stored in the table, then the computed column adds more data usage.
+  -A "Compute Scalar" step in a query plan will show when the calculation is done.
 Main Success Sceario:
   1. See code below
   
