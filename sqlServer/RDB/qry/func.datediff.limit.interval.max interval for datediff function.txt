@@ -1,0 +1,23 @@
+Get Max Interval for DateDiff Function
+Notes:
+  -For a return value out of range for int (-2,147,483,648 to +2,147,483,647), DATEDIFF returns an error. 
+  -The max interval in each unit is the same. Once that interval is converted to another unit it appears differently. 
+  -For millisecond, the maximum difference between startdate and enddate is 24 days, 20 hours, 31 minutes and 23.647 seconds.
+  -For second, the maximum difference is 68 years, 19 days, 3 hours, 14 minutes and 7 seconds.
+  -If startdate and enddate are both assigned only a time value, and the datepart is not a time datepart, DATEDIFF returns 0.
+  -DATEDIFF uses the time zone offset component of startdate or enddate to calculate the return value.
+  -Because smalldatetime is accurate only to the minute, seconds and milliseconds are always set to 0 in the return value when startdate or enddate have a smalldatetime value.
+  -If only a time value is assigned to a date data type variable, DATEDIFF sets the value of the missing date part to the default value: 1900-01-01.
+  -DATEDIFF implicitly casts string literals as a datetime2 type.
+  -DATEDIFF may overflow with a precision of minute or higher if the difference between enddate and startdate returns a value that is out of range for int.
+  -max interval, if assumed to be minutes, changed to other time intervals 
+	select 
+		2147483647 / 60 as hrs,
+		2147483647 / 60 / 24 as dys,
+		2147483647 / 60 / 24 / 7 as wks,
+		2147483647 / 60 / 24 / 365  as yrs,
+		2147483647 / 60 / 24 / 365 / 10  as decades,
+		2147483647 / 60 / 24 / 365 / 100  as centuries,
+		2147483647 / 60 / 24 / 365 / 1000  as milleniums
+Main Success Scenario:
+  1. select DateDiff(minute,'1899-12-30 00:00:00.000','9999-12-31 22:59:59.997')
