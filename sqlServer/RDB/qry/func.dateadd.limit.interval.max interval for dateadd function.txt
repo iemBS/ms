@@ -1,6 +1,6 @@
 Get Max Interval for DateAdd Function
 Notes:
-  -max interval is not due to the start time
+  -highest interval can be reached that is less than the max interval if a SQL Server high or low time limit is reached
   -max interval is specific to the interval unit
   -limit also achieved by reaching the "9999-12-31 23:59:59.997" date result
   -limit also achieved by reaching the "1753-01-01 00:00:00.000" date result, occurs with negative interval values
