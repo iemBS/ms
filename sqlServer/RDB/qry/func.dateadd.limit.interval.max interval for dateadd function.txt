@@ -6,9 +6,12 @@ Notes:
   -limit also achieved by reaching the "1753-01-01 00:00:00.000" date result, occurs with negative interval values
   -dividing max minute interval by 60 will NOT give me the max hour interval
   -dividing max hour interval by 24 will give me teh max day interval
+  -Nanosecond units cannot be used in DateAdd function with datetime value
 Main Success Scenario:
   1.
 select 
+	dateadd(MILLISECOND,2147483647,'1899-12-30 00:00:00.000') as usesMaxMilliSecondInterval,
+	dateadd(second,2147483647,'1899-12-30 00:00:00.000') as usesMaxSecondInterval,
 	dateadd(minute,2147483647,'1899-12-30 00:00:00.000') as usesMaxMinuteInterval,
 	dateadd(minute,2147483647,'1972-12-30 00:00:00.000') as usesMaxMinuteInterval,
 	dateadd(hour,71003183,'1899-12-30 00:00:00.000') as usesMaxHourInterval,
