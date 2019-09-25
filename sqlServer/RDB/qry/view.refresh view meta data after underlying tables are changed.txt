@@ -1,0 +1,5 @@
+Refresh View Meta Data after underlying tables are changed
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-refreshview-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. exec sys.sp_refreshview '[mySchema].[myTable]'
