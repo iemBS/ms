@@ -3,12 +3,16 @@ Notes:
   -Altering a computed column that is not PERSISTENT means the data will not lose data becasue of the alter
   -You cannot run "ALTER COLUMN" statement on a computed column. 
   -Guidance @ https://blog.sqlauthority.com/2014/04/05/sql-server-unable-to-alter-computed-column-in-sql-server-how-to-alter-computed-column/
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql?view=sql-server-2017
 Main Success Scenario:
   1. Drop computed column in first ALTER TABLE and add computed column in second ALTER TABLE
   
-    -- Drop Column
-    ALTER TABLE Table1
-    DROP COLUMN Col2;
-    -- Create Column
-    ALTER TABLE Table1
-    ADD Col2 AS Col1/10;
+-- Drop Column
+ALTER TABLE [mySchema].[table1] DROP COLUMN IF EXISTS [column1];
+ALTER TABLE [mySchema].[table1] DROP COLUMN IF EXISTS [column2];
+ALTER TABLE [mySchema].[table1] DROP COLUMN IF EXISTS [column3];
+
+-- Create Column
+ALTER TABLE [mySchema].[table1] ADD [column1] AS IIF([column1] > 2147483647,NULL, IIF([column1] < -2147483648,NULL,(dateadd(minute,[column1],'1899-12-30 00:00:00.000'))));
+ALTER TABLE [mySchema].[table1] ADD [column2] AS IIF([column2] > 2147483647,NULL, IIF([column2] < -2147483648,NULL,(dateadd(minute,[column2],'1899-12-30 00:00:00.000'))));
+ALTER TABLE [mySchema].[table1] ADD [column3] AS IIF([column3] > 2147483647,NULL, IIF([column3] < -2147483648,NULL,(dateadd(minute,[column3],'1899-12-30 00:00:00.000'))));
