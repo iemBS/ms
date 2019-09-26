@@ -42,7 +42,7 @@ DECLARE @qry varchar(1000)
 WHILE EXISTS(SELECT TOP 1 colNm FROM #col)
 BEGIN
 	SELECT 
-		@qry = 'INSERT #colDataSize SELECT ''' + tblSchema + ''',''' + tblNm + ''', ''' + colNm + ''', ISNULL(sum(datalength(' + colNm + ')) / 1024.0,0), ISNULL(sum(datalength(' + colNm + ')),0) FROM [' + tblSchema + '].[' + tblNm + ']'
+		@qry = 'INSERT #colDataSize SELECT ''' + tblSchema + ''',''' + tblNm + ''', ''' + colNm + ''', ISNULL(sum(datalength(' + colNm + ')) / 1024.0,0), ISNULL(sum(datalength(' + colNm + ')),0) FROM [' + tblSchema + '].[' + tblNm + '] WITH(NOLOCK)'
 	FROM
 		#col
 	WHERE
