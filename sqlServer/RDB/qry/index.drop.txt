@@ -1,4 +1,8 @@
 Drop Index
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/ms188783(v=sql.100)?redirectedfrom=MSDN
+  -More than one table/view can have an index with the same name. 
+  -sys.indexes table rows are uniquely on object_id (table assoc to) & index_id (index order/count on table)
 Main Success Scenario:
   1. DROP INDEX [index name] ON [table schema].[table name];
 Alternatives:
@@ -10,4 +14,8 @@ Alternatives:
       BEGIN
         DROP INDEX [index name] ON [table schema].[table name];
       END
+      
+      OR
+      
+      DROP INDEX IF EXISTS [index name] ON [table schema].[table name];
   
