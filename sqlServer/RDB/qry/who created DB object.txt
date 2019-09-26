@@ -1,12 +1,13 @@
-See who created an object in a DB
+Who Created DB object
 Notes:
   -DB needs to have been created in current server or object created in DB after DB imported to current server
-  -xxx: need to add more details
+  -xxx: add object type and associated schema
 Main Success Scenario:
   1. See query below
   
 
 select 
+	so.id as object_id,
     so.name as sqlObjectName, 
 	su.name as userObjectName, 
 	so.crdate as sqlObjectCreateTime,
