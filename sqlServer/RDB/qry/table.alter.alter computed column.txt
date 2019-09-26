@@ -1,0 +1,14 @@
+Alter Computed Column
+Notes:
+  -Altering a computed column that is not PERSISTENT means the data will not lose data becasue of the alter
+  -You cannot run "ALTER COLUMN" statement on a computed column. 
+  -Guidance @ https://blog.sqlauthority.com/2014/04/05/sql-server-unable-to-alter-computed-column-in-sql-server-how-to-alter-computed-column/
+Main Success Scenario:
+  1. Drop computed column in first ALTER TABLE and add computed column in second ALTER TABLE
+  
+    -- Drop Column
+    ALTER TABLE Table1
+    DROP COLUMN Col2;
+    -- Create Column
+    ALTER TABLE Table1
+    ADD Col2 AS Col1/10;
