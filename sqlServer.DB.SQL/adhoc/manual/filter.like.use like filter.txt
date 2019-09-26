@@ -1,0 +1,20 @@
+Use Like Filter
+Notes:
+  -Guidance from https://docs.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. See code below
+  
+      select 
+        *
+      from
+        chicken.dbo.anotherTable
+      where
+        (
+          attributevalue like '%mySchema.myTable%'
+          OR
+          attributevalue like '%[mySchema].[myTable]%' ESCAPE '['
+          OR
+          attributevalue like '%mySchema.[myTable]%'   ESCAPE '['
+          OR
+          attributevalue like '%[mySchema].myTable%' ESCAPE '['
+        )
