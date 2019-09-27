@@ -1,0 +1,29 @@
+Find SQL Server instances on network
+Notes:
+  -Guidance @ https://www.mssqltips.com/sqlservertip/2013/find-sql-server-instances-across-your-network-using-windows-powershell/
+  -Guidance @ https://dba.stackexchange.com/questions/44171/find-all-version-of-sql-server-on-a-network
+  -Guidance @ https://stackoverflow.com/questions/15797198/powershell-get-a-list-of-network-machines
+  -Guidance @ https://dba.stackexchange.com/questions/80264/what-is-the-most-effective-way-to-discover-all-running-instances-of-sql-server-u
+  -xxx: need to finish this to be something that can be used
+Main Success Scenario:
+  1. Get all computer names on the network you are on. 
+  
+    ([adsi]"WinNT://$((Get-WMIObject Win32_ComputerSystem).Domain)").Children
+    
+  2. Run the below code with list of servers 
+  
+    function Get-ServiceStatus ([string[]]$server)
+    {
+     foreach ($s in $server)
+     {
+       if(Test-Connection $s -Count 2 -Quiet)
+       {
+        Get-WmiObject win32_Service -Computer $s |
+         where {$_.DisplayName -match "SQL Server"} | 
+         select SystemName, DisplayName, Name, State, Status, StartMode, StartName
+       }
+     }
+    }
+
+    $servers = 'server1','server2','server3'
+    Get-ServiceStatus -server $servers
