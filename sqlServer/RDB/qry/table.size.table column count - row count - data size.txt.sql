@@ -1,6 +1,7 @@
 Get Table Size
   -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql?view=sql-server-2017
   -tblUnUsedMemory (8 KB) and tblIndexUsedMemory (32 KB) columns will show memory used even if the table does not have any indexes or primary keys
+  -"sp_spaceused" will work on indexed views, but not on non-indexed views. 
 Main Success Scenario:
   1. See code below
   
