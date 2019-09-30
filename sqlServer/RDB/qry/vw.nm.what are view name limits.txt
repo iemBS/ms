@@ -1,0 +1,4 @@
+What are view name limits
+Main Success Scenario:
+  1. "." allowed in name
+  2. xxx: fill in
