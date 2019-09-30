@@ -1,0 +1,28 @@
+Find Full Row Duplicates
+Main Success Scenario:
+  1. See code below
+
+IF EXISTS(
+	SELECT
+		COUNT(1)
+	FROM
+		(
+			SELECT 
+				*
+			FROM 
+				myTable 
+		) t
+	EXCEPT
+	SELECT 
+		COUNT(1)
+	FROM
+		(
+			SELECT DISTINCT 
+				*
+			FROM 
+				myTable 
+		) t
+)
+BEGIN
+	PRINT('Total Row Duplication Exists')
+END
