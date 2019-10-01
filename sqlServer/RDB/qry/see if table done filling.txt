@@ -1,0 +1,24 @@
+See if Table Done Fillin
+Main Success Scenario:
+  1. 
+
+DECLARE @tblRowCnt_new INT
+DECLARE @tblRowCnt_old INT
+SELECT 
+	@tblRowCnt_new = COUNT(1),
+	@tblRowCnt_old = 0 
+FROM 
+	myTable
+
+WHILE @tblRowCnt_new > @tblRowCnt_old
+BEGIN
+    SELECT @tblRowCnt_old,@tblRowCnt_new
+    SELECT @tblRowCnt_old = @tblRowCnt_new
+	WAITFOR DELAY '000:00:00.500' --wait 0.5s, then check again
+	SELECT 
+		@tblRowCnt_new = COUNT(1)
+	FROM 
+		myTable
+END
+
+SELECT @tblRowCnt_old,@tblRowCnt_new
