@@ -8,7 +8,7 @@ note: PatternID is an ID and also the order in which the patterns needs to be ap
 */
 
 declare @query varchar(8000)
-Set @query = '[CCGStage].[dbo].[TransformDMIFormFactor].|QUERY START| |LFCR|  |LFCR| |LFCR| |LFCR|--DROP VIEW [dbo].[TransformFormFactor] |LFCR|CREATE VIEW [dbo].[TransformDMIFormFactor] AS  |LFCR| |LFCR|WITH CTE1 AS |LFCR|( |LFCR|   SELECT DISTINCT [FormFactor] |LFCR|   FROM DMIOEM.[DMIFull] |LFCR|   UNION |LFCR|   SELECT DISTINCT FormFactor |LFCR|   FROM Fusion.FusionFull  |LFCR|)  |LFCR| |LFCR|  |LFCR|SELECT FormFactor = ROW_NUMBER() OVER(ORDER BY FormFactor),  |LFCR|       FF_Description = FormFactor |LFCR|FROM CTE1 |LFCR| |LFCR| |LFCR| |LFCR| |LFCR| |LFCR| |LFCR| |LFCR||QUERY END|'
+Set @query = '[myDB].[dbo].[TransformDMIFormFactor].|QUERY START| |LFCR|  |LFCR| |LFCR| |LFCR|--DROP VIEW [dbo].[TransformFormFactor] |LFCR|CREATE VIEW [dbo].[TransformDMIFormFactor] AS  |LFCR| |LFCR|WITH CTE1 AS |LFCR|( |LFCR|   SELECT DISTINCT [FormFactor] |LFCR|   FROM DMIOEM.[DMIFull] |LFCR|   UNION |LFCR|   SELECT DISTINCT FormFactor |LFCR|   FROM Fusion.FusionFull  |LFCR|)  |LFCR| |LFCR|  |LFCR|SELECT FormFactor = ROW_NUMBER() OVER(ORDER BY FormFactor),  |LFCR|       FF_Description = FormFactor |LFCR|FROM CTE1 |LFCR| |LFCR| |LFCR| |LFCR| |LFCR| |LFCR| |LFCR| |LFCR||QUERY END|'
 
 declare @patternType int
 set @patternType = 2
