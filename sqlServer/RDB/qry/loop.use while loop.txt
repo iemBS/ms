@@ -1,0 +1,19 @@
+Use While Loop
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/language-elements/while-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. 
+  
+    WHILE ( SELECT AVG(ListPrice) FROM dbo.DimProduct) < $300  
+    BEGIN  
+        UPDATE dbo.DimProduct  
+            SET ListPrice = ListPrice * 2;  
+        SELECT MAX ( ListPrice) FROM dbo.DimProduct  
+        IF ( SELECT MAX (ListPrice) FROM dbo.DimProduct) > $500  
+            BREAK;  
+    END  
+Alternatives:
+  1a. Use shorthand
+    1a1. remove BEGIN and END and just indent
+    
+        xxx: need to fill in
