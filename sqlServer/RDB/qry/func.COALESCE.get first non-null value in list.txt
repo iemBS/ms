@@ -1,0 +1,6 @@
+Get 1st Non-Null value in a list
+Notes:
+  -Guidance @ https://www.w3schools.com/sql/func_sqlserver_coalesce.asp
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/language-elements/coalesce-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. SELECT COALESCE(NULL, NULL, NULL, 'W3Schools.com', NULL, 'Example.com'); 
