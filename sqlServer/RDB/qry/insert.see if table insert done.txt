@@ -1,4 +1,4 @@
-See if Table Done Fillin
+See if Table Insert Done
 Main Success Scenario:
   1. 
 
