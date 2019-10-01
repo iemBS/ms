@@ -1,0 +1,3 @@
+Drop Table
+Main Success Scenario:
+  1. DROP TABLE IF EXISTS dbo.myTable
