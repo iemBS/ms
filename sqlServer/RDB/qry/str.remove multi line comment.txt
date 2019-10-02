@@ -1,0 +1,38 @@
+DECLARE @tst VARCHAR(200)
+select @tst= 'select 1 
+/*
+comment line 1
+comment line 2
+comment line 3
+*/
+select 2
+/*
+comment line 4
+comment line 5
+*/
+select 3'
+print @tst
+DECLARE @prevcommEndPos INT = 0
+WHILE 1=1
+BEGIN
+	IF (SELECT CHARINDEX('/*',@tst,@prevcommEndPos)) = 0
+		BREAK
+
+	SELECT
+		@tst = REPLACE(@tst,SUBSTRING(@tst,commStrtPos,commEndPos - commStrtPos),''),
+		@prevcommEndPos = commStrtPos
+	FROM
+		(
+			SELECT
+				commStrtPos,
+				CASE
+					WHEN CHARINDEX('*/',@tst,commStrtPos) > 0 THEN CHARINDEX('*/',@tst,commStrtPos) + 2
+					ELSE LEN(@tst) + 1 -- last line of query
+				END AS commEndPos
+			FROM
+				(
+					SELECT CHARINDEX('/*',@tst,@prevcommEndPos) AS commStrtPos
+				) t2
+		) t
+PRINT @tst
+END
