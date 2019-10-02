@@ -1,0 +1,31 @@
+DECLARE @tst VARCHAR(50)
+select @tst= 'select 1 --A
+select 2 --B
+select 3--C'
+print @tst
+
+DECLARE @prevNewLinePos INT = 0
+DECLARE @tst2 VARCHAR(50)
+WHILE 1=1
+BEGIN
+	IF (SELECT CHARINDEX('--',@tst,@prevNewLinePos)) = 0
+		BREAK
+
+	SELECT
+		@tst = REPLACE(@tst,SUBSTRING(@tst,commPos,newLinePos - commPos),''),
+		@prevNewLinePos = newLinePos
+	FROM
+		(
+			SELECT
+				commPos,
+				CASE
+					WHEN CHARINDEX(char(10),@tst,commPos) > 0 THEN CHARINDEX(char(10),@tst,commPos)
+					ELSE LEN(@tst) + 1 -- last line of query
+				END AS newLinePos
+			FROM
+				(
+					SELECT CHARINDEX('--',@tst,@prevNewLinePos) AS commPos
+				) t2
+		) t
+PRINT @tst
+END
