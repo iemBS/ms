@@ -1,0 +1,7 @@
+Use CTE
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. xxx: fill in
+  
+  
