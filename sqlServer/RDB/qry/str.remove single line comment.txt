@@ -12,7 +12,7 @@ BEGIN
 
 	SELECT
 		@tst = REPLACE(@tst,SUBSTRING(@tst,commPos,newLinePos - commPos),''),
-		@prevNewLinePos = newLinePos
+		@prevNewLinePos = commPos
 	FROM
 		(
 			SELECT
