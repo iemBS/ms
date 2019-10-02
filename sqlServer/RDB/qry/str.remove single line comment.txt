@@ -5,7 +5,6 @@ select 3--C'
 print @tst
 
 DECLARE @prevNewLinePos INT = 0
-DECLARE @tst2 VARCHAR(50)
 WHILE 1=1
 BEGIN
 	IF (SELECT CHARINDEX('--',@tst,@prevNewLinePos)) = 0
