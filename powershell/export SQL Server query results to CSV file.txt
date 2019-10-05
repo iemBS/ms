@@ -1,0 +1,16 @@
+Export SQL Server Query Results to CSV file
+Main Success Scenario:
+  1. xxx: work on the below query
+  
+$AttachmentPath = "CV File location"
+$QueryFmt= "Query"
+
+Invoke-Sqlcmd -ServerInstance Server -Database DBName -Query $QueryFmt | Export-CSV $AttachmentPath
+
+Alternatives:
+  1a. Put CSV file on shared folder on network
+    xxx: need to work on this
+  1b. Put CSV file in email and send
+    xxx: need to work on this
+  1c. Submit CSV file to a web service
+    xxx: need to work on this
