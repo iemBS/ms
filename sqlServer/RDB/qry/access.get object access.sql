@@ -1,3 +1,8 @@
+Get Object Access
+Notes:
+  -Need sufficient permissions to be able to see access for all accounts
+Main Success Scenario:
+  1. 
 SELECT 
 	CASE dperms.state_desc
 		WHEN 'GRANT_WITH_GRANT_OPTION' THEN 'GRANT'
@@ -52,4 +57,6 @@ WHERE
 	dperms.type <> 'CO' --ignore connect permission
 	AND 
 	dperms.major_id > 0 --ignore DB level permissions
+	--'[' + sch.[name] + '].[' + obj.[name] + ']' = '[OSS].[FASTPolicyBINs]'  --find specific table, view, sproc, or func access
+	--'[' + sch.[name] + ']' = '[OSS]' -- find specific schema access
 
