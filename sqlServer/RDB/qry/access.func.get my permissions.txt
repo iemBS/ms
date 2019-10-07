@@ -1,0 +1,7 @@
+Get My Permissions
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/sys-fn-my-permissions-transact-sql?view=sql-server-2017
+Main Success Scenario:
+  1. Get server level permissions
+    SELECT * FROM fn_my_permissions(NULL, 'SERVER');  
+  2. xxx: fill in
