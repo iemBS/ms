@@ -1,0 +1,35 @@
+Find latest view change with a column name
+Main Success Scenario:
+  1. see code below
+  
+DECLARE @currColumn VARCHAR(30) = '[column name]'
+
+select top 10 
+	s.[name] as vwSchema,
+	v.[name] as vw,
+	v.modify_date as modTm
+from
+	sys.views v with(nolock)
+	inner join sys.schemas s with (nolock) ON 
+		v.schema_id = s.schema_id
+	inner join 
+	(
+		select distinct 
+			t.TABLE_SCHEMA,
+			t.TABLE_NAME
+		from
+			INFORMATION_SCHEMA.tables t with (nolock)
+			inner join INFORMATION_SCHEMA.COLUMNS c ON 
+				t.table_schema = c.table_schema
+				and
+				t.table_name = c.table_name 
+		where
+			t.Table_Type = 'VIEW'
+			and
+			c.COLUMN_NAME = @currColumn
+	) t on 
+		s.name = t.TABLE_SCHEMA
+		and
+		v.name = t.TABLE_NAME
+Order by
+	modTm desc
