@@ -1,0 +1,7 @@
+Grant Access via Schema
+Notes:
+  -Replace "[schemaName]" with the name of an existing schema in the db
+Main Success Scenario:
+  1. GRANT SELECT, UPDATE, INSERT, DELETE, ALTER, EXECUTE ON SCHEMA :: SchemaName TO [schemaName]
+Alternatives:
+  1a. xxx: fill out
