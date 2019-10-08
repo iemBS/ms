@@ -1,0 +1,45 @@
+Get All Security Objects in SQL Server
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-helpsrvrole-transact-sql?view=sql-server-2017
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/server-level-roles?view=sql-server-2017
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-2017
+  -Guidance @ https://www.mssqltips.com/sqlservertip/1900/understanding-sql-server-fixed-database-roles/
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-helpdbfixedrole-transact-sql?view=sql-server-2017
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017
+Main Success Scenario:
+  1. 
+  
+--server lvl
+	--Fixed server role
+	SELECT 'Fixed server role'
+	EXEC sp_helpsrvrole -- display all fixed server roles
+
+		-- members of a fixed server role
+		SELECT 'members of fixed server role'
+		EXEC sp_helpsrvrolemember 'sysadmin'; 
+
+	--SQL server login
+	SELECT 'SQL server login'
+	SELECT loginName FROM syslogins 
+
+	--user-defined fixed server role
+	SELECT 'not sure how to pull only user-defined fixed server role'
+
+--db lvl
+	--fixed db role
+	SELECT 'fixed db role'
+	EXEC sp_helpdbfixedrole;
+
+	--db user
+	SELECT 'db user that is not inherrited from another security object'
+	select * from master.sys.server_principals where type in ('U')
+
+	--app role
+	SELECT 'not sure how to pull these'
+
+	--user-defined db role
+	SELECT 'not sure how to pull these'
+
+
+
+
