@@ -51,7 +51,7 @@ Main Success Scenario:
   4. Understand results
        - 0% packet (size = 32 bytes) loss
        - avg round trip time of packets is 49 ms
-       - a good avg round trip, with the standard package size, & in the US should be under 50 ms. 
+       - A good avg round trip, with the standard package size, & in the US should be under 50 ms. Great is < 20 ms.
   5. Execute "ping -l 64 google.com" cmd to check w larger packet sizes
   6. See cmd results
   7. Execute "ping -n 8 google.com" cmd to check w larger number of requests
