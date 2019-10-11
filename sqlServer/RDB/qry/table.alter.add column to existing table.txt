@@ -5,6 +5,7 @@ Notes:
   -Simple Table Alter will add new columns to the end of the table. 
   -This has the default value of NULL. It does not have to be NULL.
   -Altering the table instead of droping and creating the table, allows existing data to remain in the table
+  -Alter statement cannot be within an IF condition unless it is within dynamic SQL
 Main Success Scenario:
   1. ALTER TABLE dbo.doc_exa ADD column_b VARCHAR(20) NULL;
 Alternatives:
