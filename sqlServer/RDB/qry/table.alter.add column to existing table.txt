@@ -1,0 +1,17 @@
+Add Column to Existing Table
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/tables/add-columns-to-a-table-database-engine?view=sql-server-2017
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql?view=sql-server-2017
+  -Simple Table Alter will add new columns to the end of the table. 
+  -This has the default value of NULL. It does not have to be NULL.
+  -Altering the table instead of droping and creating the table, allows existing data to remain in the table
+Main Success Scenario:
+  1. ALTER TABLE dbo.doc_exa ADD column_b VARCHAR(20) NULL;
+Alternatives:
+  1a. Add more than one column to a table
+    1a1. ALTER TABLE dbo.doc_exa ADD column_b VARCHAR(20) NULL, column_c INT NULL;
+  1b. Add column to a specific ordinal position in the table
+    1b1. Duplicate the table
+    1b2. Save all the data in the new table
+    1b3. Create new table with new column in specific ordinal position
+    1b4. Copy data back to the new table
