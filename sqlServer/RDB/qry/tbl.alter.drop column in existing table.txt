@@ -1,0 +1,3 @@
+Drop Column in Existing Table
+Main Success Scenario:
+  1. ALTER TABLE dbo.Customers DROP COLUMN ContactName;
