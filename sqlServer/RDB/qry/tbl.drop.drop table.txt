@@ -1,3 +1,6 @@
 Drop Table
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-table-transact-sql?view=sql-server-2017
+  -Removes one or more table definitions and all data, indexes, triggers, constraints, and permission specifications for those tables.
 Main Success Scenario:
   1. DROP TABLE IF EXISTS dbo.myTable
