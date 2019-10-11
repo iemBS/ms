@@ -1,0 +1,30 @@
+Notes:
+  -Guide @ https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/connect-to-exchange-online-powershell?redirectedfrom=MSDN&view=exchange-ps
+  -Guide @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/new-pssessionoption?view=powershell-6
+  -Guide @ https://docs.microsoft.com/en-us/powershell/module/exchange/mailboxes/set-inboxrule?view=exchange-ps
+  -Guide @ https://docs.microsoft.com/en-us/powershell/module/exchange/mailboxes/new-inboxrule?view=exchange-ps
+  -Cannot use "-Authentication Basic" attribute for $Session variable if basic authentication is disabled
+  -xxx: fix issue with $Session variable creation
+
+Main Success Scenario:
+  1. See code below
+
+#new outlook email inbox rule vars
+$myRuleNm = "Delete email w subject 'Duplicates logged by [CRM].[Staging_ProducerAWD_SP]'"
+$myEmailSubject = "Duplicates logged by [CRM].[Staging_ProducerAWD_SP]"
+$myIsTst = 1  # 1=test, 0=real
+
+#setup
+$UserCredential = Get-Credential
+$UserEmailAddress = $UserCredential | %{$_.UserName}
+$ProxyOption = New-PSSessionOption -ProxyAccessType AutoDetect
+$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -AllowRedirection -SessionOption $ProxyOption
+Import-PSSession $Session -DisableNameChecking
+$MAlias = Get-Mailbox -Identity "$UserEmailAddress" | %{$_.Alias}
+if ($myIsTst -e 1) {
+  New-InboxRule -Mailbox $UserEmailAddress -Name $myRuleNm -SubjectContainsWords $myEmailSubject -CopyToFolder "$($UserEmailAddress):\Inbox\TestInboxRule"
+}
+else {
+    New-InboxRule -Mailbox $UserEmailAddress -Name $myRuleNm -SubjectContainsWords $myEmailSubject -DeleteMessage $true  
+}
+Remove-PSSession $Session
