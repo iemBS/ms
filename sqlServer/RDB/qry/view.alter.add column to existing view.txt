@@ -1,0 +1,17 @@
+Add Column to Existing View
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-view-transact-sql?view=sql-server-2017
+  -Altering a view does not affect dependent sprocs or triggers
+  -Altering a view does not change the permissions on the view
+  -If ALTER VIEW is not used, but instead the view is dropped and re-created, the previously used GRANT statement and any other statements that deal with permissions pertaining to this view must be re-entered.
+  -To execute ALTER VIEW, at a minimum, ALTER permission on OBJECT is required.
+Main Success Scenario:
+  1. See code below
+
+      ALTER VIEW HumanResources.EmployeeHireDate  
+      AS  
+      SELECT p.FirstName, p.LastName, e.HireDate  
+      FROM HumanResources.Employee AS e JOIN Person.Person AS p  
+      ON e.BusinessEntityID = p.BusinessEntityID  
+      WHERE HireDate < CONVERT(DATETIME,'20020101',101) ;  
+      GO  
