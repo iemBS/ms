@@ -1,3 +1,10 @@
 Drop Column in Existing Table
+Notes:
+ -See if column exists before trying to remove it
 Main Success Scenario:
-  1. ALTER TABLE dbo.Customers DROP COLUMN ContactName;
+  1. see code below
+
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'Customers' AND COLUMN_NAME = 'ContactName')
+BEGIN
+  ALTER TABLE dbo.Customers DROP COLUMN ContactName;
+END
