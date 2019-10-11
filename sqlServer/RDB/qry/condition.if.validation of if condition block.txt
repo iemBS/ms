@@ -1,0 +1,7 @@
+Validation of If condition block
+Main Success Scenario:
+  1. xxx: need to fill in
+  
+Alternatives:
+  1a. Execute SQL query that is within a variable
+    1a1. The query inside the variable will not be executed if it is not reached within the if block
