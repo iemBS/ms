@@ -1,5 +1,6 @@
 Drop Column in Existing Table
 Notes:
+ -Guidance @ https://www.w3schools.com/sql/sql_ref_drop_column.asp
  -See if column exists before trying to remove it
 Main Success Scenario:
   1. see code below
