@@ -10,8 +10,8 @@ Main Success Scenario:
   1. See code below
 
 #new outlook email inbox rule vars
-$myRuleNm = "Delete email w subject 'Duplicates logged by [CRM].[Staging_ProducerAWD_SP]'"
-$myEmailSubject = "Duplicates logged by [CRM].[Staging_ProducerAWD_SP]"
+$myRuleNm = "[name]"
+$myEmailSubject = "[email subject]"
 $myIsTst = 1  # 1=test, 0=real
 
 #setup
