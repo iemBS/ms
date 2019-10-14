@@ -11,3 +11,5 @@ Alternatives:
     1a1. del c:\test
   1b. Delete all files with ".txt" extension in the "test" folder
     1b1. del c:\test\*.txt
+  1c. Delete in relative directory
+    1c1. del \test\myFile.txt
