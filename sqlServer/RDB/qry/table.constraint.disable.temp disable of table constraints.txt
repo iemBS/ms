@@ -6,17 +6,21 @@ Main Success Scenario:
   1. see code below
   
 
--- Disable the constraints on a table called tableName:
-ALTER TABLE tableName NOCHECK CONSTRAINT ALL
+      -- Disable the constraints on a table called tableName:
+      ALTER TABLE tableName NOCHECK CONSTRAINT ALL
 
--- Re-enable the constraints on a table called tableName:
-ALTER TABLE tableName WITH CHECK CHECK CONSTRAINT ALL
----------------------------------------------------------
+      -- Re-enable the constraints on a table called tableName:
+      ALTER TABLE tableName WITH CHECK CHECK CONSTRAINT ALL
+      ---------------------------------------------------------
 
--- Disable constraints for all tables:
-EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
+      -- Disable constraints for all tables:
+      EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
 
--- Re-enable constraints for all tables:
-EXEC sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'
----------------------------------------------------------
+      -- Re-enable constraints for all tables:
+      EXEC sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'
+      ---------------------------------------------------------
+    
+Alternatives:
+  1a. Disable specific table constraint
+      1a1. ALTER TABLE tableName NOCHECK CONSTRAINT [specific constraint name]
 
