@@ -1,0 +1,22 @@
+Temp Disable of Table Constraints
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/tables/disable-foreign-key-constraints-with-insert-and-update-statements?view=sql-server-ver15
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/tables/disable-check-constraints-with-insert-and-update-statements?view=sql-server-ver15
+Main Success Scenario:
+  1. see code below
+  
+
+-- Disable the constraints on a table called tableName:
+ALTER TABLE tableName NOCHECK CONSTRAINT ALL
+
+-- Re-enable the constraints on a table called tableName:
+ALTER TABLE tableName WITH CHECK CHECK CONSTRAINT ALL
+---------------------------------------------------------
+
+-- Disable constraints for all tables:
+EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
+
+-- Re-enable constraints for all tables:
+EXEC sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'
+---------------------------------------------------------
+
