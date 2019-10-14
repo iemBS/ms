@@ -1,0 +1,13 @@
+Delete File
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/del
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/language-elements/sql-server-utilities-statements-backslash?redirectedfrom=MSDN&view=sql-server-ver15
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/blob/work-with-directories-and-paths-in-filetables?view=sql-server-ver15
+  -Use "/q" option to disable the confirmation to delete a file. Required if you are going to call the "del" command from a SQL query.
+Main Success Scenario:
+  1. del c:\test\myFile.txt
+Alternatives:
+  1a. Delete all files in the "test" folder
+    1a1. del c:\test
+  1b. Delete all files with ".txt" extension in the "test" folder
+    1b1. del c:\test\*.txt
