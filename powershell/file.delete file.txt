@@ -4,6 +4,8 @@ Notes:
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/language-elements/sql-server-utilities-statements-backslash?redirectedfrom=MSDN&view=sql-server-ver15
   -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/blob/work-with-directories-and-paths-in-filetables?view=sql-server-ver15
   -Use "/q" option to disable the confirmation to delete a file. Required if you are going to call the "del" command from a SQL query.
+  -Check file path format and the folders/files to be acted upon by running the "dir" command first.
+  -Guidance @ https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/dir
 Main Success Scenario:
   1. del c:\test\myFile.txt
 Alternatives:
