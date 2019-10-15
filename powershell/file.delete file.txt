@@ -6,6 +6,7 @@ Notes:
   -Use "/q" option to disable the confirmation to delete a file. Required if you are going to call the "del" command from a SQL query.
   -Check file path format and the folders/files to be acted upon by running the "dir" command first.
   -Guidance @ https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/dir
+  -"del" command will fail if the focus of the deletion does not exist. 
 Main Success Scenario:
   1. del c:\test\myFile.txt
 Alternatives:
@@ -15,5 +16,8 @@ Alternatives:
     1b1. del c:\test\*.txt
   1c. Delete in relative directory
     1c1. del .\test\myFile.txt
+  1d. Need to check if file exists before using "del" command
+    1d1. see code below
+      
 
 
