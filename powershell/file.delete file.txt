@@ -8,6 +8,7 @@ Notes:
   -Guidance @ https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/dir
   -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_if?view=powershell-6
   -"del" command will fail if the focus of the deletion does not exist. 
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_path_syntax?view=powershell-6
 Main Success Scenario:
   1. del c:\test\myFile.txt
 Alternatives:
