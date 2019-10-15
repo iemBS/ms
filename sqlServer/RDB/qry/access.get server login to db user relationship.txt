@@ -1,0 +1,13 @@
+Get Server Login to DB User relationship
+Main Success Scenario:
+  1. see code below
+  
+    SELECT 
+      d.[name] AS 'DB User', 
+      --d.sid AS 'DB SID',
+      s.[name] AS 'Login' 
+      --s.sid AS 'Server SID'
+    FROM 
+      sys.database_principals d
+      JOIN sys.server_principals s ON 
+        d.sid = s.sid
