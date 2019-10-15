@@ -1,0 +1,5 @@
+Format XML doc
+Main Success Scenario:
+  1. "Edit" menu 
+  2. "Advanced" on "Edit" menu
+  3. "Format Document"
