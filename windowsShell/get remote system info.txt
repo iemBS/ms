@@ -1,0 +1,8 @@
+Get Remote System Info
+Notes:
+  -Using computer name and not the full computer name may be sufficient if on a private network
+Main Success Scenario:
+  1. systeminfo /s [ip address]
+Alternatives:
+  1a. Use computer name instead of ip address
+    1a1. systeminfo /s [computer name]
