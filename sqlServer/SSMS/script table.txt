@@ -1,0 +1,8 @@
+Script Table
+Notes:
+  -Scripting the table will not include index creation scripts
+Main Success Scenario:
+  1. Right click
+  2. On context menu, choose "Script Table As"
+  3. On sub-menu, choose "CREATE To"
+  4. On 2nd sub-menu, choose "New Query Window"
