@@ -1,4 +1,7 @@
 Get Table Name Combinations
+Notes:
+  -Guidance @ https://www.mssqltips.com/sqlservertip/3331/how-to-use-a-linked-server-in-a-sql-server-database-project/
+  -Linked server references to tables need to have a name format of [linked server].[db].[schema].[table] 
 Main Success Scenario:
   1. see code below
   
