@@ -1,4 +1,6 @@
 Map DB User to DB Role
+Notes:
+  -Guidance @ https://www.mssqltips.com/sqlservertip/5999/sql-server-database-users-to-roles-mapping-report/
 Main Success Scenario:
   1. see code below
  
