@@ -1,0 +1,38 @@
+Find All Table Indexes for a specific table
+Main Success Scenario:
+  1. see code below
+
+select distinct 
+    s.[name] as tblSchema,
+    t.[name] as tblNm,
+    i.[name] as idxNm
+from
+    sys.indexes i
+    inner join sys.index_columns ic on 
+    i.object_id = ic.object_id
+    and
+    i.index_id = ic.index_id
+    inner join sys.columns c on 
+    ic.object_id = c.object_id
+    and
+    ic.column_id = c.column_id
+    inner join sys.tables t on 
+    c.object_id = t.object_id
+    inner join sys.schemas s on 
+    t.schema_id = s.schema_id
+    inner join sys.columns c2 on   
+    t.object_id = c2.object_id /* not joined to sys.indexes table */
+where
+    t.type_desc = 'USER_TABLE' -- only look at indices on tables
+    AND
+    i.type_desc = 'NONCLUSTERED' -- has a non-clustered key
+	and
+	s.[name] = 'DA' -- filter on table schema
+	and
+	t.[name] = 'FASTActivity' -- filter on table name
+    --and
+    --t.modify_date > '2019-01-01 14:31:07.133' -- table structure created/modified recently
+order by
+    tblSchema,
+    tblNm,
+	idxNm
