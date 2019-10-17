@@ -27,9 +27,9 @@ where
     AND
     i.type_desc = 'NONCLUSTERED' -- has a non-clustered key
 	and
-	s.[name] = 'DA' -- filter on table schema
+	s.[name] = 'mySchema' -- filter on table schema
 	and
-	t.[name] = 'FASTActivity' -- filter on table name
+	t.[name] = 'myTable' -- filter on table name
     --and
     --t.modify_date > '2019-01-01 14:31:07.133' -- table structure created/modified recently
 order by
