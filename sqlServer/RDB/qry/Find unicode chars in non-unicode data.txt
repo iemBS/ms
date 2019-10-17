@@ -1,0 +1,28 @@
+Find Unicode Chars in Non-Unicode data
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/windows-collation-name-transact-sql?view=sql-server-ver15
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15
+  -"BIN" part of name: Specifies the backward-compatible binary sort order to be used
+  -"Latin1_General" part of name: Collation uses the Latin1 General dictionary sorting rules and maps to code page 1252.
+  -xxx:need to update code to identify the specific invalid character, column & line invalid character is in, and to tell me what the invalid character is
+Main Success Scenario:
+  1. see code below
+
+declare @UnicodeData table (
+     data nvarchar(500)
+)
+insert into 
+    @UnicodeData
+values 
+    (N'Horse�')
+    ,(N'Dog')
+    ,(N'Cat')
+
+select
+    data
+from
+    @UnicodeData 
+where
+    --Use of "LATIN1_GENERAL_BIN" collation causes unicode characters to be representated differently than they would be in a varchar data type
+	--Since the "data" column is of nvarchar type, the "LATIN1_GENERAL_BIN" collation may not be needed
+    data collate LATIN1_GENERAL_BIN != cast(data as varchar(max))
