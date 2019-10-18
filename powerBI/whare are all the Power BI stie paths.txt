@@ -1,0 +1,36 @@
+Whare are all the Power BI site paths
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid
+  -Each gateway has its own unique GUID
+  -Each data source within a gateway has its own unique GUID
+  -Paths containing "/recentlyviewed", "/favorites", and "/sharedwithme" are not paths that can be used by other people. 
+  -Some Paths containing "/me/" cannot be accessed by other people. 
+  -xxx:fill in more paths
+Main Success Scenario:
+  1. Main 
+      https://app.powerbi.com
+  2. Gateways
+      https://app.powerbi.com/groups/me/gateways
+  3. A specific gateway
+      https://app.powerbi.com/groups/me/gateways/[GUID]
+  4. A specific data source within a specific gateway
+      https://app.powerbi.com/groups/me/gateways/[GUID]/[2nd GUID]
+  5. Shared with me
+      https://app.powerbi.com/sharedwithme
+  6. My Workspace
+      https://app.powerbi.com/groups/me/
+  7. Group weldome page witin my workspace
+      https://app.powerbi.com/groups/me/groupWelcome
+  8. Apps shared with me via my workspace
+      https://app.powerbi.com/groups/me/apps
+  9. Favorites
+      https://app.powerbi.com/favorites
+  10. Recently viewed
+        https://app.powerbi.com/recentlyviewed
+  11. A specific dashboard shared with me via my workspace
+        https://app.powerbi.com/groups/me/dashboards/[GUID]
+  12. A specific app shared with me via my workspace
+        https://app.powerbi.com/groups/me/apps/[GUID]/dashboards/[2nd GUID]
+  13. Settings via my workspace
+        https://app.powerbi.com/groups/me/settings/general
+      
