@@ -1,4 +1,4 @@
-Whare are all the Power BI site paths
+What are all the Power BI site paths
 Notes:
   -Guidance @ https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid
   -Each gateway has its own unique GUID
