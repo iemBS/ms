@@ -1,0 +1,5 @@
+Specify DNS Server to be used by device
+Notes:
+  - xxx:will specifying a DNS for a device override what is specified for the local network that the device is connected to?
+Main Success Scenario:
+  1. xxx:fill out
