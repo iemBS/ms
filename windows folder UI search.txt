@@ -1,6 +1,10 @@
-Guidance @ https://docs.microsoft.com/en-us/windows/win32/search/-search-3x-advancedquerysyntax?redirectedfrom=MSDN
-Guidance @ https://www.howtogeek.com/school/learning-windows-search/lesson4/
-
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/windows/win32/search/-search-3x-advancedquerysyntax?redirectedfrom=MSDN
+  -Guidance @ https://www.howtogeek.com/school/learning-windows-search/lesson4/
+  -Order of operations impacts filter speed.
+Main Success Scenario:
+  1. See filters below
+  
 -- Find all programs
 kind:=program
 
@@ -39,6 +43,9 @@ lastsavedby:clark
 
 -- Find all files last saved by a specific full name
 lastsavedby:"clark kent"
+
+-- Find owner of file (use network alias)
+owner:"myDomain\cKent"
 
 -- Find all files last printed last week
 datelastprinted:last week
@@ -89,3 +96,6 @@ datemodified:>5/2/2019
   ~="("
   "*(*"
   
+--Have more than one type of filter at once (filter order impacts filter speed)
+  -- folders owned by "myDomain\myAlias" anmd modified this month
+  kind:=folder datemodified:"this month" owner:"myDomain\myAlias" 
