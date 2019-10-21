@@ -2,6 +2,7 @@ Notes:
   -Guidance @ https://docs.microsoft.com/en-us/windows/win32/search/-search-3x-advancedquerysyntax?redirectedfrom=MSDN
   -Guidance @ https://www.howtogeek.com/school/learning-windows-search/lesson4/
   -Order of operations impacts filter speed.
+  -To learn other query filters, add attribute columns to window before applying the search filters. Attribute values will show for each file. 
 Main Success Scenario:
   1. See filters below
   
@@ -81,8 +82,8 @@ datemodified:>5/2/2019
   content:"cheese soda"
   
 -- find all files with text in the file name
-  -- files with names of "cheese 2" and "cheese burger" and "blue cheese" would be returned by the below command.
-  filename:*cheese 
+  -- files with names of "cheese 2" and "cheese burger" and "blue cheese" would be returned by the below command. Asterisk (*) is a wild card character here.
+  filename:cheese* 
   
 -- find all files WITHOUT text in the file name
   -- files with names of "cheese 2" and "cheese burger" and "blue cheese" would NOT be returned by the below command.
@@ -99,3 +100,6 @@ datemodified:>5/2/2019
 --Have more than one type of filter at once (filter order impacts filter speed)
   -- folders owned by "myDomain\myAlias" anmd modified this month
   kind:=folder datemodified:"this month" owner:"myDomain\myAlias" 
+  
+  -- files with a .SQL extension and has "cheese" in the name
+  ext:".sql"  filename:*cheese*
