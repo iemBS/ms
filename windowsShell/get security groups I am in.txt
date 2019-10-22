@@ -1,4 +1,4 @@
-Get List of Security Groups I am in
+Get Security Groups I am in
 Notes:
   -Guidance @ https://serverfault.com/questions/111650/how-can-i-find-out-what-ad-groups-im-a-member-of
 Preconditions:
