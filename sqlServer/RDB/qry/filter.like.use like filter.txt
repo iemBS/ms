@@ -1,9 +1,19 @@
 Use Like Filter
 Notes:
   -Guidance from https://docs.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql?view=sql-server-2017
+  -When searchig for square brackets as characters instead of using as wild card tools, you only need to escape the opening square bracket and not the closing bracket. 
+  -You can use the CharIndex function instead of like: SELECT * FROM Table1 WHERE CHARINDEX(@SearchParam , Col1) > 0
 Main Success Scenario:
   1. See code below
-  
+      select 
+        *
+      from
+        chicken.dbo.anotherTable
+      where
+        attributeValue like '%myText%'
+Alternative:
+  1a. Treat square brackets like a character and not a wild card tool
+    1a1. Find text containing square brackets
       select 
         *
       from
@@ -18,3 +28,11 @@ Main Success Scenario:
           OR
           attributevalue like '%[mySchema].myTable%' ESCAPE '['
         )
+  1b. Treat underscore like a character and not a wild card tool
+    1b1. Find text containing underscore
+      select
+        *
+      from
+        information_schema.tables
+      where
+        table_name like 'cheese/_%' ESCAPE '/'
