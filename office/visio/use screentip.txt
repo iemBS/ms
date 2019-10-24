@@ -1,0 +1,5 @@
+Use Screentip
+Notes:
+  -Cannot go to next line in screentip by using enter key
+Main Success Scenario:
+  1. Write notes in a text file and paste
