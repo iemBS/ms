@@ -3,4 +3,4 @@ Main Success Scenario:
   1. Add comment between view name and "AS"
 Alternatives:
   1a. Add comment above "CREATE VIEW" statement
-    1a1. Need to fill in
+    1a1. xxx:need to confirm if single line comments can stay above a create view statement when you extract the SQL after
