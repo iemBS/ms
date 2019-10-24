@@ -1,0 +1,7 @@
+Change Schema for a View
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-schema-transact-sql?view=sql-server-ver15
+  -In this example the view moves from the Person schema to the HumanResources schema
+Main Success Scenario:
+  1. ALTER SCHEMA HumanResources TRANSFER Person.Address;  
+ 
