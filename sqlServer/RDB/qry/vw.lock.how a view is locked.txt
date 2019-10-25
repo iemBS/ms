@@ -1,0 +1,6 @@
+How a View is locked
+Notes:
+  -Guidance @ https://dba.stackexchange.com/questions/16999/how-does-sql-server-know-to-lock-view-objects
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-ver15
+Main Success Scenario:
+  1. xxx:need to fill in
