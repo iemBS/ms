@@ -1,0 +1,7 @@
+Use NOLOCK table hint
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15
+  -NOLOCK table hint is equivalent to READUNCOMMITTED table hint
+  -No space is required between "WITH" and the open parenthesis
+Main Success Scenario:
+  1.select * from myTable WITH (NOLOCK)
