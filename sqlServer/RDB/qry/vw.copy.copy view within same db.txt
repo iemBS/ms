@@ -1,0 +1,22 @@
+Copy View within same DB
+Notes:
+  -Can use an existing view in the same DB as a template and change the logic on the fly using the REPLACE function before saving as another view in the same DB
+  -Can duplicate the view and save with a different schema
+Preconditions:
+  -Want to have a copy a view within the same DB and name it a different name
+Main Success Scenario:
+  1. see code below
+
+DECLARE @newVwCreateQry varchar(8000)
+
+SELECT 
+	@newVwCreateQry = REPLACE(definition,'[oldViewNm]','[newViewNm]')  
+FROM 
+	sys.sql_modules 
+WHERE 
+	object_id = OBJECT_ID('[mySchema].[oldViewNm]')
+ 
+
+--select @newVwCreateQry -- TEST
+
+Execute(@newVwCreateQry)
