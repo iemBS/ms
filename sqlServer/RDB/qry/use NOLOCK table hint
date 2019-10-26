@@ -1,6 +1,7 @@
 Use NOLOCK table hint
 Notes:
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15
+  -Guidance @ https://www.sqlshack.com/understanding-impact-clr-strict-security-configuration-setting-sql-server-2017/
   -NOLOCK table hint is equivalent to READUNCOMMITTED table hint
   -No space is required between "WITH" and the open parenthesis
 Main Success Scenario:
