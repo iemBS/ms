@@ -1,0 +1,5 @@
+Use Query Hint
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-query?view=sql-server-ver15
+Main Success Scenario:
+  1. xxx:fill in
