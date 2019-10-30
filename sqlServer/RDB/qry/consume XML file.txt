@@ -1,0 +1,18 @@
+Consume XML file
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-xml-preparedocument-transact-sql?view=sql-server-ver15
+Main Success Scenario:
+  1. declare @xmlFile AS XML --define variable of XML data type
+  2. declare @someOther AS INT --set another variable that will hold an integer
+  3. do not set @someOther
+  4. put a valid XNML doc into the @xmlFile variable
+  5. EXEC sp_xml_preparedocument @someOther OUTPUT, @xmlsFile --run this sproc that comes with SQL server
+  6. -- insert statement that uses the OPENXML function
+    insert into [mySchema][myTable]([table columns here])
+    [XML tags here that act as column names in this query]
+    FROM OPENXML(@hDoc, 'location in your XML Doc')
+    WITH
+    (
+      --define columns here
+    )
+  7.  EXEC sp_xml_removedocument @someOther --releases the XML document from memory
