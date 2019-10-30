@@ -1,0 +1,8 @@
+Compare Files
+Notes:
+  -"Explorer" can be opened on left side bar by clicking the double paper icon on the far left bar
+Main Success Scenario:
+  1. Open "Explorer" on left side bar. 
+  2. Choose two files in "Explorer"
+  3. Right click on one of the selected files and choose "Compare Selected" from context menu
+  4. Both files open in a comparison view
