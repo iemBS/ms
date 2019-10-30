@@ -1,0 +1,8 @@
+Format XML file
+Main Success Scenario:
+  1. shift + alt + f
+  2. XML will format with indents and putting tags on their own lines
+Alternatives:
+  2a. XML file does not format and your are told that an XML formatter is not installed
+    2a1. follow the prompts to install a XML formatter plug-in
+    2a2. Do step 1 again
