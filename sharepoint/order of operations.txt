@@ -1,0 +1,6 @@
+Order of Operations
+Notes:
+  -xxx:fill in more
+Main Success Scenario:
+  1. Workflows executed 
+  2. default values for item fields are set
