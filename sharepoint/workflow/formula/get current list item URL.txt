@@ -1,0 +1,9 @@
+Get Current List Item URL
+Notes:
+  -All variables need to be entered in via the UI and not pasted
+  -Some of the variables are the fields from a list item
+  -A variable for the current item in the list will be surrounded by square brackets and percents, like the ID field in [%Current Item:ID%]
+Main Success Scenario:
+  1. Get the URL for display perspective of a list item
+  2. Find the "ID" variable in the URL
+  3. Swap out the ID variable value with "[%Current Item:ID%]"
