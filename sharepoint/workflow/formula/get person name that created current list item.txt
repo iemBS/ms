@@ -1,0 +1,6 @@
+Get name of person that created current list item
+Main Success Scenario:
+  1. Choose "Created By" from the item fields
+  2. Choose "Display Name" perspective of this field
+  3. See the following appear in the workflow:
+      [%Current Item:Created By%]
