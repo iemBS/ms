@@ -1,5 +1,7 @@
 Consume XML file
 Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/openxml-transact-sql?view=sql-server-ver15
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-xml-removedocument-transact-sql?view=sql-server-ver15
   -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-xml-preparedocument-transact-sql?view=sql-server-ver15
 Main Success Scenario:
   1. declare @xmlFile AS XML --define variable of XML data type
