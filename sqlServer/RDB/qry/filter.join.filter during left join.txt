@@ -1,0 +1,10 @@
+Filter during left join
+Notes:
+  -Assuming left outer join instead of right, for clarity
+  -Filtering the right table within the join will limit only the right table and not the whole query like would occur if you filter in the where clause
+  -Similiar logic holds if you have a right join
+Main Success Scenario:
+  1. Specify filters for the right table within the join
+Alternatives:
+  1a. Specify filters for the right table in where clause
+    1a1. The whole query will be limited to the filters specified for the right able. 
