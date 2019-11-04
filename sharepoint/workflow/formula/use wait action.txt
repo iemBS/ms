@@ -1,0 +1,5 @@
+Use Wait Action
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sharepoint/dev/general-development/understanding-eventing-actions-in-sharepoint-designer
+Main Success Scenario:
+  1.xxx:fill in
