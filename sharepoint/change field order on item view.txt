@@ -1,0 +1,7 @@
+Change field order on item view
+Main Success Scenario:
+  1. Go to Site Settings
+  2. Go to "Content Types" section on Site Setting page
+  3. Click on "Item" link in "Content Type" column
+  4. Click on "Column order" link at bottom left of "Settings > List Content Type" page
+  
