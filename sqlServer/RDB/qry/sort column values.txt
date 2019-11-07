@@ -1,0 +1,10 @@
+Sort Column Values
+Notes:
+  -xxx:fill in more
+Main Success Scenario:
+  1. Specify columns at end of query to sort column values for
+       order by 
+          ColumnA,
+          ColumnB
+Alternatives:
+  1a. Specify column by the column number that exists in the select part of the query
