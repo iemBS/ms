@@ -1,0 +1,5 @@
+Repair Failed Install
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/database-engine/install-windows/repair-a-failed-sql-server-installation?view=sql-server-ver15
+Main Success Scenario:
+  1.xxx:fill in
