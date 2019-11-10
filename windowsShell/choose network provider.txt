@@ -26,6 +26,7 @@ Main Success Scenario:
   6.Find phone number for provider 
   7.Discuss options with provider 
   8."Determine Provider Cost"
+  9. Provider guarantee a min speed
   
  
 
@@ -73,6 +74,16 @@ Understand Connectiom Technology
 Notes:
   -guide @ https://www.lifewire.com/dsl-vs-cable-broadband-internet-speed-comparison-817539
   -guide @ https://www.cnet.com/how-to/best-internet-providers-for-2019-cable-dsl-satellite/
+  -cable shares bandwidth w neighborhood 
+Preconditions:
+  -connections tech 
+    -fiber
+    -dsl 
+    -cable 
+    -cellular 
+    -satellite 
+    -5 G
+
 Main Success Scenario
   1. What is max possible speed (DSL 100 MB/s, cable 2,000 MB/s, Fiber ?)
   2. Impact of # of users in area (cable more so than DSL, Fiber ?)
@@ -81,4 +92,6 @@ Main Success Scenario
 
 Choose Hardware
 Main Success Scenario:
-  1.xxx:fill in
+  1.Choose router 
+  2.xxx:fill in
+  
