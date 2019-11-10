@@ -64,3 +64,4 @@ Notes:
     -ispspeedindex.netflix.com/
 Main Success Scenario:
   1.Get avg download & upload speed
+  2.
