@@ -1,10 +1,13 @@
 Choose Home Network Provider
 Notes
   -Upload speed at least 2 MB for 2 users
+  -find provider in area:
+      -dslreports.com/reviews?nav=1
   -Compare providers on:
       -dslreports.com\gbu
   -speed test providers:
       -speakeasy.net/speedtest/
+      -dslreports.com/speedtest?nav=2
   -network type:dsl, cable, cellular, satellite
   -service:internet, phone, tv
   -discern between max & avg speeds 
