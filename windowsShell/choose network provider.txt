@@ -55,6 +55,7 @@ Main Success Scenario
 Determine Provider Cost
 Notes
   -Intro price often exists 
+  -Some providers allow a certain amount of data transfer each month to combat high bandwidth usage. When a customer goes over that amount, the company slows down the data connection or charges an additional fee.
 Main Success Scenario:
   1.Ask about intro period discount 
   2.Ask about additional cost of hardware, fees, & taxes
