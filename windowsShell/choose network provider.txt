@@ -10,7 +10,8 @@ Notes
   -discern between max & avg speeds 
   -xxx:fill in
 Preconditions:
-  -"Measure Current Provider Performance Attributes" of current connection 
+  -"Measure Current Provider Performance Attributes"
+  -"Collect Potential Provider Performance"
   -understand how you want to use internet 
     -Talk over internet 
     -Share computer screen over internet
@@ -66,3 +67,9 @@ Notes:
 Main Success Scenario:
   1.Get avg download & upload speed
   2.
+
+Understand Connectiom Technology
+Main Success Scenario
+  1. What is max possible speed (DSL 100 MB/s, cable 2,000 MB/s)
+  2. Impact of # of users in area (cable more so than DSL)
+  3.
