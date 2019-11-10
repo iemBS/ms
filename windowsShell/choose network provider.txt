@@ -23,7 +23,7 @@ Main Success Scenario:
   4.Choose hardware 
   X."Collect Potential Provider Performance"
   5.Compare providers using specific sites
-  6.Find phone number for provider 
+  6."Find provider contact info"
   7.Discuss options with provider 
   8."Determine Provider Cost"
   9. Provider guarantee a min speed
@@ -94,4 +94,11 @@ Choose Hardware
 Main Success Scenario:
   1.Choose router 
   2.xxx:fill in
+
+Find Provider Contact Info
+Notes:
+  -provider contact 
+    -
+Main Success Scenario:
+  1.xxx:fill in
   
