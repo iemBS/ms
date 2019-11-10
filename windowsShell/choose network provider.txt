@@ -36,6 +36,8 @@ Preconditions
 Main Success Scenario
   1.Do speed test over WiFi next to router 
   2.Do speed test connected via wire to router 
+  3.Check latency (delayed talk, slow page load)
+  4.Check Jitter (echo w talk)
 
 Determine Provider Cost
 Notes
