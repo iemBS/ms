@@ -42,6 +42,7 @@ Notes
       -megapath.com/speedtestplus/
   -jitter test providers
       -megapath.com/speedtestplus/
+      -dslreports.com/tools/pingtest
 Preconditions
   -
 Main Success Scenario
