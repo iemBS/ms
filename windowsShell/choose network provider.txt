@@ -3,14 +3,19 @@ Notes
   -Upload speed at least 2 MB for 2 users
   -Compare providers on:
       -dslreports.com\gbu
+  -speed test providers:
+      -speakeasy.net/speedtest/
   -network type:dsl, cable, cellular, satellite
   -service:internet, phone, tv
+  -discern between max & avg speeds 
   -xxx:fill in
 Preconditions:
   -understand how you want to use internet 
     -Talk over internet 
     -Share computer screen over internet
   -can explain pros & cons of current provider 
+  -do speed test over WiFi next to router 
+  -do speed test connected via wire to router 
 Main Success Scenario:
   1.Find providers for your location 
   2.Choose network type
@@ -19,6 +24,6 @@ Main Success Scenario:
   5.Compare providers using specific sites
   6.Find phone number for provider 
   7.Discuss options with provider 
-  8.Ask about intro period 
+  8.Ask about intro period discount 
   9.Ask about additional cost of hardware, fees, & taxes
   X.xxx:fill in
