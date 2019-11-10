@@ -1,6 +1,11 @@
-Choose Network Provider
+Choose Home Network Provider
 Notes
   -Upload speed at least 2 MB for 2 users
-  -
+  -xxx:fill in
+Preconditions
+  -Talk over internet 
+  -Share computer screen over internet
+  -xxx:fill in
 Main Success Scenario:
   1.
+  X.xxx:fill in
