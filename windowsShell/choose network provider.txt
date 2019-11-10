@@ -30,9 +30,18 @@ Main Success Scenario:
 
 Measure Current Provider Performance Attributes
 Notes
+  -attributes 
+    -max, avg, min download speed
+    -max, avg, min upload speed
+    -latency:talk delay, slow page load
+    -jitter:change in latency, talk echoes 
   -speed test providers:
       -speakeasy.net/speedtest/
       -dslreports.com/speedtest?nav=2
+  -latency test providers 
+      -megapath.com/speedtestplus/
+  -jitter test providers
+      -megapath.com/speedtestplus/
 Preconditions
   -
 Main Success Scenario
@@ -54,4 +63,4 @@ Notes:
   -Collect performance submitted by users of other providers:
     -ispspeedindex.netflix.com/
 Main Success Scenario:
-  1.
+  1.Get avg download & upload speed
