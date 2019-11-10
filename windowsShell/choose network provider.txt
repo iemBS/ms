@@ -10,7 +10,7 @@ Notes
   -discern between max & avg speeds 
   -xxx:fill in
 Preconditions:
-  -"Measure Internet Performance Attributes"
+  -"Measure Internet Performance Attributes" of current connection 
   -understand how you want to use internet 
     -Talk over internet 
     -Share computer screen over internet
@@ -23,9 +23,8 @@ Main Success Scenario:
   5.Compare providers using specific sites
   6.Find phone number for provider 
   7.Discuss options with provider 
-  8.Ask about intro period discount 
-  9.Ask about additional cost of hardware, fees, & taxes
-  X.xxx:fill in
+  8."Determine Provider Cost"
+ 
 
 Measure Internet Performance Attributes
 Notes
@@ -37,3 +36,11 @@ Preconditions
 Main Success Scenario
   1.Do speed test over WiFi next to router 
   2.Do speed test connected via wire to router 
+
+Determine Provider Cost
+Notes
+  -Intro price often exists 
+Main Success Scenario:
+  1.Ask about intro period discount 
+  2.Ask about additional cost of hardware, fees, & taxes
+  X.xxx:fill in
