@@ -77,6 +77,7 @@ Main Success Scenario
   1. What is max possible speed (DSL 100 MB/s, cable 2,000 MB/s, Fiber ?)
   2. Impact of # of users in area (cable more so than DSL, Fiber ?)
   3. Is Speed reliable 
+  4. Any data caps
 
 Choose Hardware
 Main Success Scenario:
