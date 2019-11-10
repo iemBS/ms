@@ -5,20 +5,16 @@ Notes
       -dslreports.com/reviews?nav=1
   -Compare providers on:
       -dslreports.com\gbu
-  -speed test providers:
-      -speakeasy.net/speedtest/
-      -dslreports.com/speedtest?nav=2
   -network type:dsl, cable, cellular, satellite
   -service:internet, phone, tv
   -discern between max & avg speeds 
   -xxx:fill in
 Preconditions:
+  -"Measure Internet Performance Attributes"
   -understand how you want to use internet 
     -Talk over internet 
     -Share computer screen over internet
   -can explain pros & cons of current provider 
-  -do speed test over WiFi next to router 
-  -do speed test connected via wire to router 
 Main Success Scenario:
   1.Find providers for your location 
   2.Choose network type
@@ -30,3 +26,14 @@ Main Success Scenario:
   8.Ask about intro period discount 
   9.Ask about additional cost of hardware, fees, & taxes
   X.xxx:fill in
+
+Measure Internet Performance Attributes
+Notes
+  -speed test providers:
+      -speakeasy.net/speedtest/
+      -dslreports.com/speedtest?nav=2
+Preconditions
+  -
+Main Success Scenario
+  1.Do speed test over WiFi next to router 
+  2.Do speed test connected via wire to router 
