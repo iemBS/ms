@@ -1,11 +1,24 @@
 Choose Home Network Provider
 Notes
   -Upload speed at least 2 MB for 2 users
+  -Compare providers on:
+      -dslreports.com\gbu
+  -network type:dsl, cable, cellular, satellite
+  -service:internet, phone, tv
   -xxx:fill in
-Preconditions
-  -Talk over internet 
-  -Share computer screen over internet
-  -xxx:fill in
+Preconditions:
+  -understand how you want to use internet 
+    -Talk over internet 
+    -Share computer screen over internet
+  -can explain pros & cons of current provider 
 Main Success Scenario:
-  1.
+  1.Find providers for your location 
+  2.Choose network type
+  3.Choose services 
+  4.Choose hardware 
+  5.Compare providers using specific sites
+  6.Find phone number for provider 
+  7.Discuss options with provider 
+  8.Ask about intro period 
+  9.Ask about additional cost of hardware, fees, & taxes
   X.xxx:fill in
