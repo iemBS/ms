@@ -10,7 +10,7 @@ Notes
   -discern between max & avg speeds 
   -xxx:fill in
 Preconditions:
-  -"Measure Internet Performance Attributes" of current connection 
+  -"Measure Current Provider Performance Attributes" of current connection 
   -understand how you want to use internet 
     -Talk over internet 
     -Share computer screen over internet
@@ -20,13 +20,15 @@ Main Success Scenario:
   2.Choose network type
   3.Choose services 
   4.Choose hardware 
+  X."Collect Potential Provider Performance"
   5.Compare providers using specific sites
   6.Find phone number for provider 
   7.Discuss options with provider 
   8."Determine Provider Cost"
+  
  
 
-Measure Internet Performance Attributes
+Measure Current Provider Performance Attributes
 Notes
   -speed test providers:
       -speakeasy.net/speedtest/
@@ -46,3 +48,10 @@ Main Success Scenario:
   1.Ask about intro period discount 
   2.Ask about additional cost of hardware, fees, & taxes
   X.xxx:fill in
+
+Collect Potential Provider Performance
+Notes:
+  -Collect performance submitted by users of other providers:
+    -ispspeedindex.netflix.com/
+Main Success Scenario:
+  1.
