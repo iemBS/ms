@@ -98,7 +98,8 @@ Main Success Scenario:
 Find Provider Contact Info
 Notes:
   -provider contact 
-    -
+    -CenturyLink:centurylink.com/home/help/contact.html
+    -Comcast:xxx
 Main Success Scenario:
-  1.xxx:fill in
+  1. "contact info site:[provider URL]" google search string 
   
