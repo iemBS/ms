@@ -45,7 +45,7 @@ Notes
       -megapath.com/speedtestplus/
       -dslreports.com/tools/pingtest
 Preconditions
-  -
+  -Plan to take same measurements on next provider to confirm your choice to change 
 Main Success Scenario
   1.Do speed test over WiFi next to router 
   2.Do speed test connected via wire to router 
