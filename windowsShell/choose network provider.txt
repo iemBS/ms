@@ -72,6 +72,7 @@ Main Success Scenario:
   1.Ask about intro period discount 
   2.Ask about additional cost of hardware, fees, & taxes
   3.Do not buy extra speed that you do not need. 
+  4.Ability to buy your own hardware rather than lease
   X.xxx:fill in
 
 Collect Potential Provider Performance
