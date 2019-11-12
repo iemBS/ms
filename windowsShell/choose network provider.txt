@@ -12,9 +12,7 @@ Notes
 Preconditions:
   -"Measure Current Provider Performance Attributes"
   -"Collect Potential Provider Performance"
-  -understand how you want to use internet 
-    -Talk over internet 
-    -Share computer screen over internet
+  -Understand your connection use" 
   -can explain pros & cons of current provider 
 Main Success Scenario:
   1.Find providers for your location 
@@ -27,6 +25,21 @@ Main Success Scenario:
   7.Discuss options with provider 
   8."Determine Provider Cost"
   9. Provider guarantee a min speed
+  
+ Understand the typical bandwidth used by online activity
+ Notes:
+   -activity:screen share,chat,browse,stream video,stream music,games,download large file, upload large file,video call, voice call, email
+ Main Success Scenario:
+   1. xxx:fill in
+  
+Understand your connection use
+Preconditions:
+  -"Understand the typical bandwidth used by online activity"
+Main Success Scenario:
+  1.How much download speed do you need?
+  2.How much upload speed do you need?
+  3. What services do you use on the internet?
+  4. What time of day and what days during the week do you use your internet?
   
 Measure Current Provider Performance Attributes
 Notes
@@ -58,6 +71,7 @@ Notes
 Main Success Scenario:
   1.Ask about intro period discount 
   2.Ask about additional cost of hardware, fees, & taxes
+  3.Do not buy extra speed that you do not need. 
   X.xxx:fill in
 
 Collect Potential Provider Performance
@@ -73,20 +87,22 @@ Notes:
   -guide @ lifewire.com/dsl-vs-cable-broadband-internet-speed-comparison-817539
   -guide @ cnet.com/how-to/best-internet-providers-for-2019-cable-dsl-satellite/
   -cable shares bandwidth w neighborhood 
+  -Fiber connection forces the router to be connected to only one connection in your home and cannot be moved to another jack in your home. A cable connection can. 
 Preconditions:
   -connections tech 
+    -dial up
     -fiber
     -dsl 
     -cable 
     -cellular 
     -satellite 
     -5 G
-
 Main Success Scenario
   1. What is max possible speed (DSL 100 MB/s, cable 2,000 MB/s, Fiber ?)
   2. Impact of # of users in area (cable more so than DSL, Fiber ?)
   3. Is Speed reliable 
   4. Any data caps
+  5. Connect to your home
 
 Choose Hardware
 Main Success Scenario:
@@ -100,4 +116,12 @@ Notes:
     -Comcast:xfinity.com/support/account-billing/
 Main Success Scenario:
   1. "contact info site:[provider URL]" google search string 
+  
+Impact on other technologies
+Notes:
+  -Land line phones work when your power is out an internet phone will not
+Main Success Scenario:
+  1.Choosing fiber may convert a land line phone to an internet phone
+  2.TV and internet share a connection and bandwidth over a cable connection
+  3.xxx:fill in
   
