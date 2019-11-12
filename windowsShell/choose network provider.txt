@@ -28,8 +28,6 @@ Main Success Scenario:
   8."Determine Provider Cost"
   9. Provider guarantee a min speed
   
- 
-
 Measure Current Provider Performance Attributes
 Notes
   -attributes 
@@ -72,8 +70,8 @@ Main Success Scenario:
 
 Understand Connectiom Technology
 Notes:
-  -guide @ https://www.lifewire.com/dsl-vs-cable-broadband-internet-speed-comparison-817539
-  -guide @ https://www.cnet.com/how-to/best-internet-providers-for-2019-cable-dsl-satellite/
+  -guide @ lifewire.com/dsl-vs-cable-broadband-internet-speed-comparison-817539
+  -guide @ cnet.com/how-to/best-internet-providers-for-2019-cable-dsl-satellite/
   -cable shares bandwidth w neighborhood 
 Preconditions:
   -connections tech 
@@ -99,7 +97,7 @@ Find Provider Contact Info
 Notes:
   -provider contact 
     -CenturyLink:centurylink.com/home/help/contact.html
-    -Comcast:xxx
+    -Comcast:xfinity.com/support/account-billing/
 Main Success Scenario:
   1. "contact info site:[provider URL]" google search string 
   
