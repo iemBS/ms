@@ -1,0 +1,7 @@
+Change Left side Bar
+Main Success Scenario:
+  1.Gear icon on top right
+  2."Site Settings" from that context menu
+  3."Look and Feel" section of page
+  4."Navigation" link under "Look and Feel" section
+  5.Edit in "Structural Navigation: Editing and Sorting" section of page
