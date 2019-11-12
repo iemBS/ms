@@ -1,0 +1,11 @@
+Remove SharePoint list field on item
+Notes:
+  -This removes a field from the item view
+Main Success Scenario:
+  1.Go to list settings
+  2.Go to "Content Types" section 
+  3.Under "Content Type" column, click "Item" link
+  4.Go to "Columns" section
+  5.Click column name link
+  6.Click "Remove" button
+ 
