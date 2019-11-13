@@ -1,0 +1,5 @@
+ReCompile Stored Procedure
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/stored-procedures/recompile-a-stored-procedure?view=sql-server-ver15
+Main Success Scenario:
+  1.xxx:fill in
