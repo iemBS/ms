@@ -1,0 +1,19 @@
+Find URL Structure for SharePoint O365
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sharepoint/dev/general-development/urls-and-tokens-in-sharepoint
+  -xxx:add more URLs
+Main Success Scenario:
+  1.Get list on a site
+      http://[domain or server name]/sites/[site name]/Lists/[list page name]/AllItems.aspx
+  2.Get site main page
+      https://[domain or server name]/sites/[site name]/SitePages/Home.aspx
+  3.Get a dashboard
+      https://[domain or server name]/sites/[site name]/[dashboard name]/SitePages/Home.aspx
+      
+      
+Find URL Structure for SharePoint 2007 
+Notes:
+  -xxx:fill in
+Main Success Scenario:
+  1.Get list on a site via a data connection
+      http://[domain or server name]/sites/[site name]/[list page name]/_vti_bin/listdata.svc
