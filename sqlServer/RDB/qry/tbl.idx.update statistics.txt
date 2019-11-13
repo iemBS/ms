@@ -1,0 +1,11 @@
+Update Statistics
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/update-statistics-transact-sql?view=sql-server-ver15
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-updatestats-transact-sql?view=sql-server-ver15
+  -sp_updatestats updates statistics for all tables on the DB
+  -Updating statistics ensures that queries compile with up-to-date statistics.
+Main Success Scenario:
+  1. Update Statistics [table name]
+Alternatives:
+  1a. Use sproc instead
+    1a1. exec sp_updatestats 
