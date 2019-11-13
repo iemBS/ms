@@ -1,0 +1,11 @@
+Rename Table
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=sql-server-ver15
+  -db and schema cannot be noted on the destination table name
+  -sp_rename can also be used on a column, statistic, constraint, alias data type, & index
+Main Success Scenario:
+  1. sp_rename 'tableA','tableB'
+  2. Table renamed and see warning about renaming tables
+Alternatives:
+  1a. Have db and schema or just schema on original table name
+    1a1. sp_rename 'dbNm.schemaNm.tableA','tableB'
