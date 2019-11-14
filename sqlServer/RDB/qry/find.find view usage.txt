@@ -1,0 +1,27 @@
+Find View Usage
+Notes:
+  -Guidance @ https://dba.stackexchange.com/questions/39596/sql-server-how-to-detect-unused-views-and-or-get-usage-stats
+  -Guidance @ https://www.mssqltips.com/sqlservertip/1661/analyzing-the-sql-server-plan-cache/
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/event-classes/audit-database-object-access-event-class?redirectedfrom=MSDN&view=sql-server-ver15
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/event-classes/objecttype-trace-event-column?redirectedfrom=MSDN&view=sql-server-ver15
+  -For doing a server side trace on "Audit Database Object Access" events, filter on  ObjectType = 8278
+Main Success Scenario:
+  1. Look @ plan cache
+  
+      DECLARE     @FindSql nvarchar(max) = 'view name';
+      SELECT 
+          /* cp.*, ct.* */
+          cp.objtype AS [Type],
+          cp.refcounts AS ReferenceCount,
+          cp.usecounts AS UseCount,
+          cp.size_in_bytes / 1024 AS SizeInKB,
+          db_name(ct.dbid) AS [Database],
+          CAST(pt.query_plan as xml) as QueryPlan
+      FROM sys.dm_exec_cached_plans cp
+      OUTER APPLY sys.dm_exec_text_query_plan(plan_handle, 0, -1) pt
+      OUTER APPLY sys.dm_exec_sql_text(plan_handle) AS ct
+      WHERE (ct.text LIKE '%' + @FindSql + '%') OR (pt.query_plan LIKE '%' + @FindSql + '%')
+      ORDER BY cp.usecounts DESC;
+      
+ 2. Look @ server side trace with a "Audit Database Object Access" event and filter on  ObjectType = 8278
+    xxx:fill in
