@@ -6,6 +6,7 @@ Notes:
   -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/event-classes/objecttype-trace-event-column?redirectedfrom=MSDN&view=sql-server-ver15
   -Guidance @ https://www.sqlshack.com/understanding-sql-server-query-plan-cache/
   -For doing a server side trace on "Audit Database Object Access" events, filter on  ObjectType = 8278
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-cached-plans-transact-sql?view=sql-server-ver15
 Main Success Scenario:
   1. Look @ plan cache
   
@@ -13,8 +14,8 @@ Main Success Scenario:
       SELECT 
           /* cp.*, ct.* */
           cp.objtype AS [Type],
-          cp.refcounts AS ReferenceCount,
-          cp.usecounts AS UseCount,
+          cp.refcounts AS ReferenceCount, -- Number of cache objects that are referencing this cache object.
+          cp.usecounts AS UseCount, -- Number of times the cache object has been looked up. Not incremented when parameterized queries find a plan in the cache. Can be incremented multiple times when using showplan.
           cp.size_in_bytes / 1024 AS SizeInKB,
           db_name(ct.dbid) AS [Database],
           CAST(pt.query_plan as xml) as QueryPlan
