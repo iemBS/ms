@@ -1,0 +1,21 @@
+Find Dependent Data Objects
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/tables/view-the-dependencies-of-a-table?view=sql-server-ver15
+Preconditions:
+  -Requires VIEW DEFINITION permission on the database and SELECT permission on sys.sql_expression_dependencies for the database
+Main Success Scenario:
+  1. Right click on data object
+  2. Choose "View Dependencies" from content menu
+  3. defaults to "Objects that depend on [object name]" radio button choice
+  4. See child objects in the "Dependencies" window
+  5. Change to "Objects on which [object] depends" radio button choice
+  6. See child objects in the "Dependencies" window
+Alternatives:
+  1a. Do this using SQL queries instead
+    1a1. use code below
+    
+      USE AdventureWorks2012;  
+      GO  
+      SELECT * FROM sys.sql_expression_dependencies  
+      WHERE referencing_id = OBJECT_ID(N'Production.vProductAndDescription');   
+      GO  
