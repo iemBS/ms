@@ -4,6 +4,7 @@ Notes:
   -Guidance @ https://www.mssqltips.com/sqlservertip/1661/analyzing-the-sql-server-plan-cache/
   -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/event-classes/audit-database-object-access-event-class?redirectedfrom=MSDN&view=sql-server-ver15
   -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/event-classes/objecttype-trace-event-column?redirectedfrom=MSDN&view=sql-server-ver15
+  -Guidance @ https://www.sqlshack.com/understanding-sql-server-query-plan-cache/
   -For doing a server side trace on "Audit Database Object Access" events, filter on  ObjectType = 8278
 Main Success Scenario:
   1. Look @ plan cache
