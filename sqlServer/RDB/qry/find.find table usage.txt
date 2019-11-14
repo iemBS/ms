@@ -1,0 +1,33 @@
+Find Table Usage
+Notes:
+  -Guidance @ https://www.sqlservercentral.com/blogs/tracking-table-usage-and-identifying-unused-objects
+Main Success Scenario:
+  1. Look @ index usage
+      SELECT 
+        DB_NAME(database_id) AS db_name,
+          OBJECT_SCHEMA_NAME(object_id,database_id) AS schema_name,
+          OBJECT_NAME(object_id, database_id) AS object_name,
+          user_seeks + user_scans + user_lookups AS read_count,
+          user_updates AS write_count,
+          last_read = (
+                  SELECT MAX(value)
+                  FROM (
+                      VALUES(last_user_seek),(last_user_scan),(last_user_lookup)
+                  ) AS v(value)
+              ),
+           last_write = last_user_update
+      FROM 
+        sys.dm_db_index_usage_stats
+      WHERE 
+        DB_NAME(database_id) NOT IN ('master','model','tempdb','msdb')
+  
+  2. Look @ extended events
+    SELECT 
+      object_name, description
+    FROM 
+      sys.dm_xe_object_columns
+    WHERE 
+       name = 'object_id'
+       
+  3. Look @ table locks
+      xxx:fill in
