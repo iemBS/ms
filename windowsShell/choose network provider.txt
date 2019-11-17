@@ -33,6 +33,14 @@ Main Success Scenario:
    1. xxx:fill in
   
 Understand your connection use
+Notes:
+  -Activities:
+    -Remote Desktop (RDP)
+    -file transfer 
+    -email
+    -browsing 
+    -music
+  -guidance @ https://superuser.com/questions/655433/what-is-ideal-internet-speed-for-remote-desktop-connection#656023
 Preconditions:
   -"Understand the typical bandwidth used by online activity"
 Main Success Scenario:
@@ -83,7 +91,7 @@ Main Success Scenario:
   1.Get avg download & upload speed
   2.
 
-Understand Connectiom Technology
+Understand Connection Technology
 Notes:
   -guide @ lifewire.com/dsl-vs-cable-broadband-internet-speed-comparison-817539
   -guide @ cnet.com/how-to/best-internet-providers-for-2019-cable-dsl-satellite/
