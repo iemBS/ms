@@ -1,0 +1,19 @@
+Use DecryptByKey Function
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/decryptbykey-transact-sql?redirectedfrom=MSDN&view=sql-server-ver15
+Main Success Scenario:
+  1.
+  
+    OPEN SYMMETRIC KEY SSN_Key_01  
+       DECRYPTION BY CERTIFICATE HumanResources037;  
+    GO  
+
+    -- Now list the original ID, the encrypted ID, and the   
+    -- decrypted ciphertext. If the decryption worked, the original  
+    -- and the decrypted ID will match.  
+    SELECT NationalIDNumber, EncryptedNationalID   
+        AS 'Encrypted ID Number',  
+        CONVERT(nvarchar, DecryptByKey(EncryptedNationalID))   
+        AS 'Decrypted ID Number'  
+        FROM HumanResources.Employee;  
+    GO  
