@@ -1,0 +1,5 @@
+Get Certificates in the DB
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-certificates-transact-sql?view=sql-server-ver15
+Main Success Scenario:
+  1.select * from sys.certificates
