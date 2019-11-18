@@ -25,6 +25,7 @@ Main Success Scenario:
   7.Discuss options with provider 
   8."Determine Provider Cost"
   9. Provider guarantee a min speed
+  10. Determine uninstall cost 
   
  Understand the typical bandwidth used by online activity
  Notes:
