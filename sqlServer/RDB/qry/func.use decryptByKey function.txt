@@ -1,6 +1,7 @@
 Use DecryptByKey Function
 Notes:
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/decryptbykey-transact-sql?redirectedfrom=MSDN&view=sql-server-ver15
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encryption-hierarchy?view=sql-server-ver15
 Main Success Scenario:
   1.
   
