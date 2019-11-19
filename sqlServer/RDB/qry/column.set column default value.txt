@@ -1,0 +1,24 @@
+Set Column Default Value
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/tables/specify-default-values-for-columns?view=sql-server-ver15
+Main Success Scenario:
+  1.
+    CREATE TABLE dbo.doc_exz (
+      column_a INT,
+      column_b INT DEFAULT 50);
+Alternatives:
+  1a.Apply using a table alter
+    1a1.
+      CREATE TABLE dbo.doc_exz (column_a INT, column_b INT); -- Allows nulls.
+      GO
+      INSERT INTO dbo.doc_exz (column_a) VALUES (7);
+      GO
+      ALTER TABLE dbo.doc_exz
+        ADD CONSTRAINT col_b_def
+        DEFAULT 50 FOR column_b;
+      GO
+  1b.Apply using a name constraint
+    1b1.
+      CREATE TABLE dbo.doc_exz (
+        column_a INT,
+        column_b INT CONSTRAINT DF_doc_exz_column_b DEFAULT 50);
