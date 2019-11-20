@@ -1,0 +1,8 @@
+Use ServerProperty function
+Notes:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/serverproperty-transact-sql?view=sql-server-ver15
+Main Success Scenario:
+  1.select SERVERPROPERTY ( 'propertyname' )  
+Alternatives:
+  1a. Get server name using a system variable
+    1a1. select @@serverName
