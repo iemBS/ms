@@ -1,0 +1,9 @@
+Get Server Aliases
+Notes:
+  -Will return all canonic and alias names of the server
+  -Guidance @ https://en.wikipedia.org/wiki/Nslookup
+Preconditions:
+  -Need authorization to do this
+Main Success Scenario:
+  1. nslookup
+     >ls -a YOURDOMAINE
