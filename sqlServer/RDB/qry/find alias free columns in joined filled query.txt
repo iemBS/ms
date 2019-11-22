@@ -1,0 +1,6 @@
+Find Alias free columns in joined filled query
+Preconditions:
+  -Table/view for the column must be involved in a join with another table/view. 
+  -Desire to make sure columns used in queries with multiple tables/views are can be easily associated to their table/view.
+Main Success Scenario:
+  1.xxx:fill in
