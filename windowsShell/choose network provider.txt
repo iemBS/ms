@@ -141,6 +141,7 @@ Main Success Scenario:
 
 Find ISP Hardware exchange location 
 Notes
+  -location to get or drop connection hardware if ISP will not do it
   -For Comcast: https://www.xfinity.com/local/store-offers
 Main Success Scenario:
   1.xxx:fill in 
