@@ -1,0 +1,5 @@
+Get first of year of a date input
+Notes:
+  -"dateField" can be a datetime or date SQL data type
+Main Success Scenario:
+  1. select DATEADD(year, DATEDIFF(year, 0, dateField), 0)
