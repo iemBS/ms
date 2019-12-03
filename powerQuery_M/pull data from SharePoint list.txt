@@ -1,0 +1,8 @@
+Pull Data from SharePoint list
+Notes:
+  -col1 & col2 are assumed to be columns that were not needed after getting columns we wanted in the expansion (drill down)
+Main Success Scenario:
+  1. Source = SharePoint.Tables("http://[server name]/[optional site name]", [ApiVersion = 15])
+  2. Filtered_Rows_on_Title = Table.SelectRows(Source, each ([Title] = "sharePointListName"))
+  3. Expanded_Items = Table.ExpandTableColumn(Filtered_Rows_on_Title, "Items", {"col3", "col4", "col5"}, {"col3_newName", "col4", "col5"})
+  4. Final = Table.RemoveColumns(#"Expanded Items",{"col1", "col2"})
