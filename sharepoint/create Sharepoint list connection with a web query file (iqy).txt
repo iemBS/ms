@@ -1,0 +1,5 @@
+Create Sharepoint list connection with a web query file (iqy)
+Notes:
+  -Web Query file has a .iqy file extension
+Main Success Scenario:
+  1.xxx:fill in
