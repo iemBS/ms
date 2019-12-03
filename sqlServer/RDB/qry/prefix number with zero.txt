@@ -1,0 +1,5 @@
+Prefix Number with Zero
+Main Success Scenario:
+  1.  DECLARE @ID int
+  2.  SET @ID = 1
+  3.  SELECT FORMAT(@ID, '000')
