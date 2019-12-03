@@ -3,6 +3,9 @@ Notes:
   -Guidance @ https://social.technet.microsoft.com/Forums/en-US/71ea826e-97e4-4ca3-ab96-0a6b755eb9f1/sync-between-list-and-excel?forum=sharepointgeneralprevious
   -Saved file can be refreshed like an Excel table that gets its data from a relational DB. 
   -Guidance @ https://support.office.com/en-us/article/export-to-excel-from-sharepoint-bfb2ea48-6118-4fa9-abb6-cced9424e5d9
+  -Exporting a SharePoint list to Excel via the Web Query file (.iqy)
+  -Guidance @ https://docs.microsoft.com/en-us/sql/reporting-services/report-data/sharepoint-list-connection-type-ssrs?view=sql-server-ver15
+  -Guidance @ https://sharepoint.stackexchange.com/questions/213936/how-to-link-excel-to-sharepoint-list
 Main Success Scenario:
   1.Navigate to the SharePoint site that contains the list you want to synchronize with Excel.
   2.Click the name of the SharePoint list on the Quick Launch, or click Settings, click Site Content, and then locate the list.
@@ -12,3 +15,13 @@ Main Success Scenario:
   6.If you are prompted to enable data connections on your computer, click Enable if you believe the connection to the data on the SharePoint site is safe to enable.
   7.In the Import Data dialog box, select the How you want to view this data and Where do you want to put the data options.
   8.Click OK when you're done. The list should appear in Excel.
+Alternatives:
+  1a.Create SharePoint list connection in an Excel file
+    1a1. Get path to list or list view
+      http://[server name]/[optional site name]/
+    1a2. Click "Data" ribbon on Excel
+    1a3. Click "New Query" on the "Data" ribbon
+    1a4. Click "From Other Sources" on the "New Query" drop down
+    1a5. Set "Site URL" to http://[server name]/[optional site name]
+    1a6. Choose SharePoint list name from a list
+    1a7. Use PowerQuery in the Query editor to select rows & columns, to change column names, change column values, & add calculated columns. 
