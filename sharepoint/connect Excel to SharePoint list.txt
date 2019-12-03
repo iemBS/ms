@@ -1,0 +1,12 @@
+Connect Excel to SharePoint list
+Notes:
+  -Guidance @ https://social.technet.microsoft.com/Forums/en-US/71ea826e-97e4-4ca3-ab96-0a6b755eb9f1/sync-between-list-and-excel?forum=sharepointgeneralprevious
+Main Success Scenario:
+  1.Navigate to the SharePoint site that contains the list you want to synchronize with Excel.
+  2.Click the name of the SharePoint list on the Quick Launch, or click Settings, click Site Content, and then locate the list.
+  3.Click the List tab on the ribbon, and then click Export to Excel.
+  4.If you are prompted to confirm the operation, click OK.
+  5.In the File Download dialog box in your browser, click Open.
+  6.If you are prompted to enable data connections on your computer, click Enable if you believe the connection to the data on the SharePoint site is safe to enable.
+  7.In the Import Data dialog box, select the How you want to view this data and Where do you want to put the data options.
+  8.Click OK when you're done. The list should appear in Excel.
