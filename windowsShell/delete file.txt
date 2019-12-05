@@ -1,0 +1,14 @@
+Delete File
+Notes:
+  -Guidance @ https://ss64.com/nt/del.html
+Main Success Scenario:
+  1. del c:\test\myFile.txt
+Alternatives:
+  1a. Delete all files in the "test" folder
+    1a1. del c:\test
+  1b. Delete all files with ".txt" extension in the "test" folder
+    1b1. del c:\test\*.txt
+  1c. Delete in relative directory
+    1c1. del .\test\myFile.txt
+  1d. Need to check if file exists before using "del" command. Does not prompt to confirm deletion.
+1d1. if (Test-Path .\tst\*.txt) {del .\tst\*.txt}
