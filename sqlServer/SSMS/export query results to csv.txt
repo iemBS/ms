@@ -1,0 +1,8 @@
+Export query results to CSV
+Notes:
+  -columns with size greater than varchar(128) or nvarchar(64) may have issues
+  -Guidance @ https://stackoverflow.com/questions/43648057/sql-task-exporting-query-result-to-excel-missing-rows
+  -Guidance @ https://www.sqlshack.com/export-data-sql-server-flat-file/
+Main Success Scenario:
+  1.xxx
+  
