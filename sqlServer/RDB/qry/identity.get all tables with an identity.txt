@@ -1,0 +1,59 @@
+Get All Tables with an Identity
+Main Success Scenario:
+  1.See query below
+  
+SELECT 
+	 SchemaName = s.name,
+     TableName = t.name,
+	 --index attributes
+     IndexName = ind.name,
+	 IndexClustering = ind.type_desc,
+	 IndexIsUnique = ind.is_unique,
+	 IndexIsPrimaryKey = ind.is_primary_key,
+	 IndexIsConstraint = ind.is_unique_constraint,
+	 IndexIsDisabled = ind.is_disabled,
+	 --column attributes
+	 columnNameInIndex = col.[name],
+	 columnIsNullable = col.is_nullable,
+	 columnIsIdentity = col.is_identity,
+	 columnIsComputed = col.is_computed,
+	 columnDataType = dt.name,
+	 columnMaxLength = col.max_length,
+	 columnPrecision = col.precision,
+	 columnScale = col.scale,
+	 columnCollation = col.collation_name,
+	 columnIsHidden = col.is_hidden,
+	 columnIsEncrypted = CASE WHEN col.encryption_type IS NULL THEN 0 ELSE 1 END,
+	 columnEncryptionType = CASE WHEN col.encryption_type IS NULL THEN 'N/A' WHEN col.encryption_type = 1 THEN 'Deterministic' WHEN col.encryption_type = 2 THEN 'Randomized' ELSE 'unknown' END
+INTO
+	#tablesWithIdentity
+FROM 
+     sys.indexes ind 
+INNER JOIN 
+     sys.index_columns ic ON  ind.object_id = ic.object_id and ind.index_id = ic.index_id 
+INNER JOIN 
+     sys.columns col ON ic.object_id = col.object_id and ic.column_id = col.column_id 
+INNER JOIN 
+     sys.tables t ON ind.object_id = t.object_id 
+INNER JOIN sys.schemas s ON 
+	t.schema_id = s.schema_id
+INNER JOIN sys.types dt ON 
+	col.system_type_id = dt.system_type_id
+WHERE 
+	(
+		col.is_identity = 1
+	)
+    AND 
+	t.is_ms_shipped = 0 -- not part of a system table
+ORDER BY 
+	SchemaName,
+    TableName
+
+
+select
+	*
+from
+	#tablesWithIdentity
+ORDER BY 
+	SchemaName,
+    TableName
