@@ -20,7 +20,7 @@ Alternative:
         chicken.dbo.anotherTable
       where
         (
-          attributevalue like '%mySchema.myTable%'
+          attributevalue like '%mySchema.myTable%'  
           OR
           attributevalue like '%[mySchema].[myTable]%' ESCAPE '['
           OR
@@ -36,3 +36,37 @@ Alternative:
         information_schema.tables
       where
         table_name like 'cheese/_%' ESCAPE '/'
+  1c. Use like filter on several values at once
+    1c1. see query below
+    
+      drop table if exists #colNm
+
+      select 
+        colNm
+      into
+        #colNm
+      from (VALUES
+        ('name'),
+        ('nm'),
+        ('type'),
+        ('typ'),
+        ('role'),
+        ('desc')
+      )t(colNm)
+
+      select
+        c.*
+      from
+        information_schema.columns c
+        inner join INFORMATION_SCHEMA.tables t on 
+          c.TABLE_SCHEMA = t.TABLE_SCHEMA
+          and
+          c.TABLE_name = t.TABLE_NAME
+        inner join #colNm cn on 
+          c.COLUMN_NAME like '%' + cn.colNm + '%'
+      where
+        c.table_schema = 'schemaName'
+        and
+        t.TABLE_TYPE = 'BASE TABLE'
+      order by
+        t.TABLE_NAME
