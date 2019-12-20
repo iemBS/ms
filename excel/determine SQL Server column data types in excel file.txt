@@ -1,0 +1,7 @@
+Determine SQL Server Column Data Types in Excel File
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/integration-services/data-flow/integration-services-data-types?view=sql-server-ver15
+Main Success Scenario:
+  1.Use the important wizard
+  2.Go to "SQL Server Import and Export Wizard" screen > "Advaned" on let sidebar > See "DataType" per column
+  3.Compare Integration Services data type values in "DataType" to SQL server data types
