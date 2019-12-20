@@ -1,3 +1,8 @@
 Import CSV file
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/connect-to-a-flat-file-data-source-sql-server-import-and-export-wizard?view=sql-server-ver15
+  -Header Rows to Skip attribute: Specify the number of rows to skip at the top of the file
+  -Columns Name in the First DAta Row attribute: Specify whether the first row (after any skipped rows) contains column names.
+  -Noting a text qualifier for a column does not mean that all values in a column need to be surrounded by that text qualifier. Only the values that are seen as text by SQL server need to be surrounded by the text qualifier. 
 Main Success Scenario:
   1.xxx:need to fill in
