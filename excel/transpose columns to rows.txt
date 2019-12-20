@@ -1,0 +1,9 @@
+Transpose Columns to Rows
+Note:
+  -Guidance @ https://support.office.com/en-us/article/transpose-data-from-rows-to-columns-or-vice-versa-in-excel-for-mac-9c16dd55-ed1a-4aa2-8b74-b1b9211e2ede
+Main Success Scenario:
+  1.Copy your table in Excel
+  2.Go to location in Excel you want to paste the transpose
+  3.Go to "Home" Menu
+  4.Click down arrow on "Paste" icon
+  5.Choose the "Transpose" icon
