@@ -1,0 +1,8 @@
+Create Identity Column
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15
+Main Success Scenario:
+  1.Create Table SomeTable (id_num int IDENTITY(1,1))
+Alternatives
+  1a.Create Identity with Big Int data type instead
+    1a1.Create Table SomeTable (id_num Big Int IDENTITY(1,1))
