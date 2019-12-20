@@ -59,10 +59,14 @@ Main Success Scenario:
   9. "TTL" in the ping results indicates the number of hops the ping took
   
   
-  Test Network speed to folder on remote network
-  Note:
-    -Speed based on your network speed and the network speed of the detination folder
-    -Try this from several locations to get an idea of how your location is contributing
-    -Windows 10 will show the network speed of the upload
-  Main Success Scenario:
-    1.xxx:fill in
+Test Network speed to folder on remote network
+Note:
+  -Speed based on your network speed and the network speed of the detination folder
+  -Try this from several locations to get an idea of how your location is contributing
+  -Windows 10 will show the network speed of the upload
+Main Success Scenario:
+  1.xxx:fill in
+
+Define VPN impact on Network Speed
+Main Success Scenario:
+  1.xxx:fill in
