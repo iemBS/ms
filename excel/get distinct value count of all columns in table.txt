@@ -1,0 +1,5 @@
+get distinct value count of all columns in table
+Note:
+  -Guidance @ https://superuser.com/questions/189762/how-to-count-number-of-distinct-values-in-a-range
+Main Success Scenario:
+  1.xxx:fill in
