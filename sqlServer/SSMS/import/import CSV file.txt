@@ -7,3 +7,4 @@ Note:
   -Having matching column names between the source CSV file and the destination table avoids having to map the columns.
 Main Success Scenario:
   1.xxx:need to fill in
+  2.after import, confirm row & column counts match between table and source file
