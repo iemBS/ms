@@ -1,0 +1,16 @@
+Watch Where SQL Server Throws No Error
+Main Success Scenario:
+  1. Column does not exist in In Statement
+  
+	select  
+		count(ColumnInTableA)
+	from
+		tableA
+	where
+		ColumnInTableA in 
+		(
+			select 
+				ColumnInTableB
+			from
+				tableB
+		)
