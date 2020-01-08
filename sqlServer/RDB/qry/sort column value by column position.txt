@@ -1,0 +1,11 @@
+Sort Column Value by Column Position
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15
+Main Success Scenario:
+  1. Order by values in columns that are in positions 4 & 9 in the select statement
+      select
+        *
+      from
+        information_schema.columns
+      order by 
+        4,9
