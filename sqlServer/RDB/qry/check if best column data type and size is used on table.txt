@@ -1,6 +1,7 @@
 Check if best column data type and size is used on table
 Note:
   -xxx:test this
+  -This is based on the data that is currently in the table
 Main Success Scenario:
   1.See query below
   
