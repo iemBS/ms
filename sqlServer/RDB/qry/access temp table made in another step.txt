@@ -1,0 +1,15 @@
+Access Temp table made in another step
+Note:
+  -Temp tables must be created outsie of an execute statement and then used inside the execute statement 
+  -Temp table cannot be created in one execute statement and then used in another execute statement. These are two different sessions.
+Main Success Scenario:
+  1.See the following code 
+
+    CREATE TABLE #db1
+    (...table definition...)
+
+    CREATE TABLE #db2
+    (...table definition...)
+
+    EXECUTE('INSERT #db1 SELECT * FROM ' + @db1)
+    EXECUTE('INSERT #db2 SELECT * FROM ' + @db2)
