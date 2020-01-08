@@ -1,0 +1,123 @@
+Check if best column data type and size is used on table
+Note:
+  -xxx:test this
+Main Success Scenario:
+  1.See query below
+  
+
+DECLARE @sch = 'mySchema'
+DECLARE @tbl = 'myTable'
+
+DECLARE @qry VARCHAR(500) = 
+'
+select
+	*
+into
+	#|TABLE| --specify temp table with same name
+from
+	|SCHEMA|.|TABLE| --specify table you want to check the data types and/or data size on
+'
+
+SELECT @qry = REPLACE(@qry,'|SCHEMA|',@sch)
+SELECT @qry = REPLACE(@qry,'|TABLE|',@tbl)
+
+select 'Does real table have appropriate data types based on the current data?'
+select
+	t.column_name,
+	t.data_type As dataTypeInTempDB,
+	r.data_type As dataType
+from
+	(
+		select 
+			column_name,
+			data_type
+		from
+			tempdb.INFORMATION_SCHEMA.columns
+		where
+			table_name like '#' + @tbl + '%'
+	) t
+	inner join 
+	(
+		select 
+			column_name,
+			data_type
+		from
+			INFORMATION_SCHEMA.columns	
+		where
+			table_schema = @sch
+			and
+			table_name = @tbl
+	) r on 
+		t.column_name = r.column_name
+where
+	t.data_type != r.data_type 
+
+select 'Does real table have appropriate data sizes based on the current data?'
+select
+	t.column_name,
+	t.data_type As dataTypeInTempDB,
+	r.data_type As dataType
+from
+	(
+		select 
+			column_name,
+			data_type,
+			CHARACTER_MAXIMUM_LENGTH,
+			NUMERIC_PRECISION,
+			NUMERIC_SCALE
+		from
+			tempdb.INFORMATION_SCHEMA.columns
+		where
+			table_name like '#' + @tbl + '%'
+	) t
+	inner join 
+	(
+		select 
+			column_name,
+			data_type,
+			CHARACTER_MAXIMUM_LENGTH,
+			NUMERIC_PRECISION,
+			NUMERIC_SCALE
+		from
+			INFORMATION_SCHEMA.columns	
+		where
+			table_schema = @sch
+			and
+			table_name = @tbl
+	) r on 
+		t.column_name = r.column_name
+		and
+		t.DATA_TYPE = r.DATA_TYPE
+where
+	--for numeric data types
+	(
+		r.data_type in (select distinct data_type from INFORMATION_SCHEMA.columns where CHARACTER_MAXIMUM_LENGTH is null and NUMERIC_PRECISION is not null)
+		and
+		t.NUMERIC_PRECISION != r.NUMERIC_PRECISION
+	)
+	or
+	--for string data types
+	(
+		r.data_type in (select distinct data_type from INFORMATION_SCHEMA.columns where CHARACTER_MAXIMUM_LENGTH is not null and data_type not in ('binary','varbinary','image'))
+		or
+		t.CHARACTER_MAXIMUM_LENGTH != r.CHARACTER_MAXIMUM_LENGTH
+	)
+	or 
+	--for binary data types
+	(
+		r.data_type in ('binary','varbinary','image')
+		and
+		t.CHARACTER_MAXIMUM_LENGTH != r.CHARACTER_MAXIMUM_LENGTH
+	)
+	or
+	--for time data types
+	(
+		r.data_type in (select distinct data_type from INFORMATION_SCHEMA.columns where CHARACTER_MAXIMUM_LENGTH is null and DATETIME_PRECISION is not null)
+		and
+		t.DATETIME_PRECISION != r.DATETIME_PRECISION
+	)
+	--or
+	----for other data types, that cannot have data type size checked
+	--r.data_type in (select distinct data_type from INFORMATION_SCHEMA.columns where CHARACTER_MAXIMUM_LENGTH is null and DATETIME_PRECISION is null and NUMERIC_PRECISION is null)
+
+	
