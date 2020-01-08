@@ -35,6 +35,12 @@ ext:".r"
 
   -- in a folder named "personal"
   in:personal 
+  
+-- Find folder name
+foldername:mydocs
+
+-- Find folder name with wild card
+foldername:mydocs*
 
 -- Find all image and program files, "OR" must be in caps
 kind:pics OR kind:programs
