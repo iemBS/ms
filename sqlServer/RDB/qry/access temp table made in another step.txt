@@ -2,6 +2,7 @@ Access Temp table made in another step
 Note:
   -Temp tables must be created outsie of an execute statement and then used inside the execute statement 
   -Temp table cannot be created in one execute statement and then used in another execute statement. These are two different sessions.
+  -Using a global temp table will allow you to create the temp table in one execute statement and then use in another execute statement.
 Main Success Scenario:
   1.See the following code 
 
