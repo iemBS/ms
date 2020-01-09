@@ -1,32 +1,34 @@
 Check if best column data type and size is used on table
 Note:
-  -xxx:test this
   -This is based on the data that is currently in the table
 Main Success Scenario:
   1.See query below
   
-
-DECLARE @sch = 'mySchema'
-DECLARE @tbl = 'myTable'
+DECLARE @sch VARCHAR(30) = 'mySchema' --schema of real table must be specified
+DECLARE @tbl VARCHAR(30) = 'myTable' --do not specify a table with a #, ##, or @ prefix here
 
 DECLARE @qry VARCHAR(500) = 
 '
+drop table if exists ##|TABLE| 
 select
 	*
 into
-	#|TABLE| --specify temp table with same name
+	##|TABLE| 
 from
-	|SCHEMA|.|TABLE| --specify table you want to check the data types and/or data size on
+	|SCHEMA|.|TABLE| 
 '
 
 SELECT @qry = REPLACE(@qry,'|SCHEMA|',@sch)
 SELECT @qry = REPLACE(@qry,'|TABLE|',@tbl)
 
+exec(@qry)
+
 select 'Does real table have appropriate data types based on the current data?'
+
 select
 	t.column_name,
-	t.data_type As dataTypeInTempDB,
-	r.data_type As dataType
+	t.data_type As temp_data_type,
+	r.data_type As real_data_type
 from
 	(
 		select 
@@ -35,7 +37,7 @@ from
 		from
 			tempdb.INFORMATION_SCHEMA.columns
 		where
-			table_name like '#' + @tbl + '%'
+			table_name like '##' + @tbl + '%'
 	) t
 	inner join 
 	(
@@ -51,13 +53,22 @@ from
 	) r on 
 		t.column_name = r.column_name
 where
-	t.data_type != r.data_type 
+	t.data_type != r.data_type
+
 
 select 'Does real table have appropriate data sizes based on the current data?'
+
 select
 	t.column_name,
-	t.data_type As dataTypeInTempDB,
-	r.data_type As dataType
+	r.data_type As dataType,
+	t.CHARACTER_MAXIMUM_LENGTH As temp_CHARACTER_MAXIMUM_LENGTH,
+	r.CHARACTER_MAXIMUM_LENGTH As real_CHARACTER_MAXIMUM_LENGTH,
+	t.NUMERIC_PRECISION As temp_NUMERIC_PRECISION,
+	r.NUMERIC_PRECISION As real_NUMERIC_PRECISION,
+	t.NUMERIC_SCALE As temp_NUMERIC_SCALE,
+	r.NUMERIC_SCALE As real_NUMERIC_SCALE,
+	t.DATETIME_PRECISION temp_DATETIME_PRECISION,
+	r.DATETIME_PRECISION real_DATETIME_PRECISION
 from
 	(
 		select 
@@ -65,11 +76,12 @@ from
 			data_type,
 			CHARACTER_MAXIMUM_LENGTH,
 			NUMERIC_PRECISION,
-			NUMERIC_SCALE
+			NUMERIC_SCALE,
+			DATETIME_PRECISION
 		from
 			tempdb.INFORMATION_SCHEMA.columns
 		where
-			table_name like '#' + @tbl + '%'
+			table_name like '##' + @tbl + '%'
 	) t
 	inner join 
 	(
@@ -78,7 +90,8 @@ from
 			data_type,
 			CHARACTER_MAXIMUM_LENGTH,
 			NUMERIC_PRECISION,
-			NUMERIC_SCALE
+			NUMERIC_SCALE,
+			DATETIME_PRECISION
 		from
 			INFORMATION_SCHEMA.columns	
 		where
@@ -100,7 +113,7 @@ where
 	--for string data types
 	(
 		r.data_type in (select distinct data_type from INFORMATION_SCHEMA.columns where CHARACTER_MAXIMUM_LENGTH is not null and data_type not in ('binary','varbinary','image'))
-		or
+		and
 		t.CHARACTER_MAXIMUM_LENGTH != r.CHARACTER_MAXIMUM_LENGTH
 	)
 	or 
@@ -121,4 +134,5 @@ where
 	----for other data types, that cannot have data type size checked
 	--r.data_type in (select distinct data_type from INFORMATION_SCHEMA.columns where CHARACTER_MAXIMUM_LENGTH is null and DATETIME_PRECISION is null and NUMERIC_PRECISION is null)
 
+	
 	
