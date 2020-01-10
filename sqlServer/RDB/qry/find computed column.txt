@@ -1,0 +1,25 @@
+Find Computed Column
+Main Success Scenario:
+  1. see query below
+
+    select distinct 
+        s.[name] as tblSchema,
+        t.[name] as tblNm,
+        c.[name] as colNm,
+      cc.definition 
+    from
+      sys.tables t
+        inner join sys.schemas s on 
+        t.schema_id = s.schema_id
+        inner join sys.columns c on   
+        t.object_id = c.object_id 
+      inner join sys.Computed_columns cc on 
+        t.object_id = cc.object_id
+        and
+        c.[name] = cc.[name]
+    where
+      c.is_computed = 1
+    order by
+      s.[name],
+      t.[name],
+      c.[name]
