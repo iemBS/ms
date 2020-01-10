@@ -1,9 +1,9 @@
 declare @textToSearchFor varchar(100)
 declare @objectTypeToSearch char(1)
 declare @query varchar(4000)
-declare @queryPart varchar(1000)
+declare @queryPart varchar(2000)
 
-set @textToSearchFor = 'SG.BMX_OpportunitySnapShots' -- use this as a sproc parameter
+set @textToSearchFor = 'xxx' -- specify, include square brackets if you think the text is in square brackets, include schema if you want
 set @objectTypeToSearch = 'a'  -- use this as a sproc parameter (t=table,p=procedure,v=views,f=functions,a=all)
 
 -- procedures
@@ -18,7 +18,17 @@ begin
 		inner join sys.sql_modules m on p.object_id = m.object_id
 		inner join information_schema.routines r on p.[name] = r.routine_name
 	where
-		m.definition like ''%' + @textToSearchFor + '%'''
+		(
+			charindex(''['',''' + @textToSearchFor + ''') = 0
+			and
+			m.definition like ''%' + @textToSearchFor + '%''
+		)
+		or
+		(
+			charindex(''['',''' + @textToSearchFor + ''') > 0
+			and
+			m.definition like ''%' + @textToSearchFor + '%'' ESCAPE ''[''
+		)'
 end
 
 -- tables
@@ -34,18 +44,39 @@ begin
 		inner join information_schema.tables t on v.[name] = t.table_name
 	where
 		v.[type] = ''t''
-	and
-		v.[name] like ''%' + @textToSearchFor + '%''
+	    and
+		(
+			(
+				charindex(''['',''' + @textToSearchFor + ''') = 0
+				and 
+				v.[name] like ''%' + @textToSearchFor + '%''
+			)
+			or
+			(
+				charindex(''['',''' + @textToSearchFor + ''') > 0
+				and 
+				v.[name] like ''%' + @textToSearchFor + '%'' ESCAPE ''[''
+			)
+		) 
 
 	union all 
-
 	select
 		''table'' as objectType
 		,table_schema + ''.'' + table_name as objectName
 	from
 		information_schema.tables
 	where
-		table_name like ''%' + @textToSearchFor + '%''
+		(
+			charindex(''['',''' + @textToSearchFor + ''') = 0
+			and 
+			table_name like ''%' + @textToSearchFor + '%''
+		)
+		or
+		(
+			charindex(''['',''' + @textToSearchFor + ''') > 0
+			and 
+			table_name like ''%' + @textToSearchFor + '%'' ESCAPE ''[''
+		)
 	
 	union all
 	
@@ -57,9 +88,21 @@ begin
 		inner join information_schema.tables t on
 			c.table_name = t.table_name
 	where
-			t.table_type = ''BASE TABLE''
+		t.table_type = ''BASE TABLE''
 		and
-			c.column_name like ''%' + @textToSearchFor + '%'''
+			(
+				(
+					charindex(''['',''' + @textToSearchFor + ''') = 0
+					and 
+					c.column_name like ''%' + @textToSearchFor + '%''
+				)
+				or
+				(
+					charindex(''['',''' + @textToSearchFor + ''') > 0
+					and 
+					c.column_name like ''%' + @textToSearchFor + '%'' ESCAPE ''[''
+				)
+			)'
 		
 	if(@objectTypeToSearch = 'a')
 	begin
@@ -83,10 +126,18 @@ begin
 		inner join sys.sql_modules m2 on p2.object_id = m2.object_id
 		inner join information_schema.tables t on p2.[name] = t.table_name
 	where
-		m2.definition like ''%' + @textToSearchFor + '%''
-
+		(
+			charindex(''['',''' + @textToSearchFor + ''') = 0
+			and
+			m2.definition like ''%' + @textToSearchFor + '%''
+		)
+		or
+		(
+			charindex(''['',''' + @textToSearchFor + ''') > 0
+			and
+			m2.definition like ''%' + @textToSearchFor + '%'' ESCAPE ''[''
+		)
 	union all 
-
 	select
 		''view'' as objectType
 		,t.table_schema + ''.'' + v2.[name] as objectName
@@ -97,7 +148,19 @@ begin
 	where
 		v2.[type] = ''v''
 	and
-		v2.[name] like ''%' + @textToSearchFor + '%'''
+		(
+			(
+				charindex(''['',''' + @textToSearchFor + ''') = 0
+				and 
+				v2.[name] like ''%' + @textToSearchFor + '%''
+			)
+			or
+			(
+				charindex(''['',''' + @textToSearchFor + ''') > 0
+				and 
+				v2.[name] like ''%' + @textToSearchFor + '%'' ESCAPE ''[''
+			)
+		)'
 		
 	if(@objectTypeToSearch = 'a')
 	begin
@@ -123,7 +186,17 @@ begin
 	where
 		p.[type] = ''FN''
 	and
-		m.definition like ''%' + @textToSearchFor + '%'''
+		(
+			charindex(''['',''' + @textToSearchFor + ''') = 0
+			and
+			m.definition like ''%' + @textToSearchFor + '%''
+		)
+		or
+		(
+			charindex(''['',''' + @textToSearchFor + ''') > 0
+			and
+			m.definition like ''%' + @textToSearchFor + '%'' ESCAPE ''[''
+		)'
 		
 	if(@objectTypeToSearch = 'a')
 	begin
