@@ -1,0 +1,14 @@
+See All SQL Queries in Power BI
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/power-bi/service-dataflows-create-use
+  -Guidance @ https://docs.microsoft.com/en-us/power-bi/whitepapers
+  -Guidance @ https://docs.microsoft.com/en-us/power-bi/service-admin-power-bi-security
+  -Guidance @ https://docs.microsoft.com/en-us/power-bi/desktop-report-lifecycle-datasets
+  -Gateways only let you see SQL database connections
+  -Datasets and Data flows store the SQL queries
+  -Dataset must be shared or created by me for me to see it
+  -There is only one owner of any dataflow, which is the person who creates it. Only the owner can edit the dataflow. All members of the workspace who have read or write permissions to the workspace where the dataflow is created can connect to the dataflow from within Power BI Desktop,
+  -Viewing queries in a Data Flow requires edit access, which means you must be the owner/creator of the data flow. Creating a data flow with a shared system account allows more than one person to see the queries in a data flow.
+  -You can see all the workspaces in a Power BI instance using the Power BI Admin Portal @ https://docs.microsoft.com/en-us/power-bi/service-admin-portal#workspaces
+Main Success Scenario:
+  1. xxx:fill in
