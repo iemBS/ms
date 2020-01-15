@@ -1,4 +1,4 @@
-Create Identity Column
+Create Table Identity Column
 Note:
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15
 Main Success Scenario:
