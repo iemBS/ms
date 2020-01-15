@@ -1,4 +1,6 @@
 Create View Identity Column
+Note:
+  -Peformance concerns with doing this (xxx:fill in) on the fly each time instead of storing it in a table
 Main Success Scenario:
   1.Code below
   
@@ -13,5 +15,6 @@ Main Success Scenario:
       SELECT	ROW_NUMBER() OVER (ORDER BY Column_Name) - 1 AS ID,  
           Column_Name
       FROM	CTE
-
       GO
+Alternatives:
+  1a. Use a sub query instead of a CTE
