@@ -1,3 +1,17 @@
 Create View Identity Column
 Main Success Scenario:
-  1.xxx:fill in
+  1.Code below
+  
+      CREATE VIEW [vwWithIdentityCol]
+      AS
+
+      WITH CTE AS
+      (
+        SELECT	DISTINCT Column_Name
+        FROM	information_schema.columns
+      )
+      SELECT	ROW_NUMBER() OVER (ORDER BY Column_Name) - 1 AS ID,  
+          Column_Name
+      FROM	CTE
+
+      GO
