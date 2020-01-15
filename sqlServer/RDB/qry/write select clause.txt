@@ -1,0 +1,4 @@
+Write Select Clause
+Main Success Scenario:
+  1.Specify columns instead of using an asterisk if you are concerned with the addition of new columns breaking whatever is using the select query.
+  2.xxx:fill in
