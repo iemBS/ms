@@ -1,6 +1,89 @@
 Count of Each Value in a Column
 Main Success Scenario:
-  1.xxx:fill in
+  1.see code below
   
-  
-  ,Dense_Rank() OVER(ORDER BY ' + @col + ' ASC) as valCnt
+declare @col varchar(40) = 'x'
+declare @qry nvarchar(500)
+declare @sch varchar(40)
+declare @tbl varchar(40)
+declare @tblRowCnt INT
+
+set @sch = 'DA_Work'
+set @tbl = 'ACT_DAILY_WORK_3'
+
+drop table if exists #col
+
+select
+	column_name,
+	IS_NULLABLE,
+	DATA_TYPE,
+	NUMERIC_PRECISION,
+	NUMERIC_SCALE,
+	CHARACTER_MAXIMUM_LENGTH
+into
+	#col
+from
+	INFORMATION_SCHEMA.COLUMNS
+where
+	table_schema = @sch
+	and
+	table_name = @tbl
+
+select
+	*
+from
+	#col 
+order by
+	column_name 
+
+set @qry = 'select @tblRowCnt = count(1) from ' + @sch + '.' + @tbl + ' with(nolock)'
+
+exec sp_executeSql @qry, N'@tblRowCnt int out',@tblRowCnt out
+
+drop table if exists #colResult
+
+CREATE TABLE #colResult
+(
+	colName VARCHAR(100),
+	colVal NVARCHAR(400),
+	valCnt int
+)
+
+while exists(select top 1 * from #col)
+begin
+	select top 1
+		@col = column_name
+	from
+		#col
+
+	set @qry = 'select ''' + @col + ''' as colName,' + @col + ' as colVal,count(' + @col + ') as valCnt from ' + @sch + '.' + @tbl + ' with(nolock) group by ' + @col
+
+	if len(@qry) = SQL_VARIANT_PROPERTY(@qry, 'MaxLength') 
+	begin
+		print 'query may be getting truncated'
+	end
+
+	INSERT INTO #colResult
+	execute(@qry)
+
+	delete #col where column_name = @col
+end
+
+select
+	@tblRowCnt As tblRowCnt
+
+select
+	colName,
+	colVal,
+	valCnt,
+	round((cast(valCnt As float) / cast(@tblRowCnt as float))*100,5) As valCntPctOfTblRowCnt
+from
+	#colResult
+order by 
+	colName,
+	colVal,
+	valCnt
+
+
+
+
