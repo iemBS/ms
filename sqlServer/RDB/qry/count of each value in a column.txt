@@ -11,8 +11,8 @@ declare @sch varchar(40)
 declare @tbl varchar(40)
 declare @tblRowCnt INT
 
-set @sch = 'DA_Work'
-set @tbl = 'ACT_DAILY_WORK_3'
+set @sch = 'mySchema'
+set @tbl = 'myTable'
 
 drop table if exists #col
 
