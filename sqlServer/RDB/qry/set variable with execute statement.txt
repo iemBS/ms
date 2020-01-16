@@ -1,0 +1,35 @@
+Set Variable With Execute Statement
+Main Success Scenario:
+  1. See code below
+  
+      declare @col varchar(40)
+      declare @qry nvarchar(200)
+      declare @sch varchar(40)
+      declare @tbl varchar(40)
+      declare @tblRowCnt INT
+
+      set @sch = 'mySchema'
+      set @tbl = 'myTable'
+
+      drop table if exists #col
+
+      select
+        column_name,
+        IS_NULLABLE,
+        DATA_TYPE,
+        NUMERIC_PRECISION,
+        NUMERIC_SCALE,
+        CHARACTER_MAXIMUM_LENGTH
+      into
+        #col
+      from
+        INFORMATION_SCHEMA.COLUMNS
+      where
+        table_schema = @sch
+        and
+        table_name = @tbl
+
+      set @qry = 'select @tblRowCnt = count(1) from ' + @sch + '.' + @tbl + ' with(nolock)'
+
+      exec sp_executeSql @qry, N'@tblRowCnt int out',@tblRowCnt out
+      select @tblRowCnt
