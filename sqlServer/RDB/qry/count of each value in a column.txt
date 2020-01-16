@@ -1,6 +1,7 @@
 Count of Each Value in a Column
 Note:
   -Can be tweeked to work with a global temp table 
+  -When a lower granularity column is added to a table the count of zero values can go down for numeric columns
 Main Success Scenario:
   1.see code below
   
