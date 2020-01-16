@@ -5,7 +5,7 @@ Note:
 Main Success Scenario:
   1.see code below
   
-declare @col varchar(40) = 'x'
+declare @col varchar(40) 
 declare @qry nvarchar(500)
 declare @sch varchar(40)
 declare @tbl varchar(40)
