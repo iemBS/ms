@@ -1,0 +1,6 @@
+Count of Each Value in a Column
+Main Success Scenario:
+  1.xxx:fill in
+  
+  
+  ,Dense_Rank() OVER(ORDER BY ' + @col + ' ASC) as valCnt
