@@ -1,0 +1,7 @@
+Get Defined Length of Variable
+Note:
+  -Variable must have a value before the "SQL_VARIANT_PROPERTY" method will work
+Main Success Scenario:
+  1. See code below
+       DECLARE @Banana varchar(255) = 'This banana'
+       SELECT SQL_VARIANT_PROPERTY(@Banana, 'MaxLength')
