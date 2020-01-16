@@ -5,19 +5,15 @@ Main Success Scenario:
   1.see below
 
 declare @col varchar(40)
-declare @qry varchar(200)
+declare @qry nvarchar(200)
 declare @sch varchar(40)
 declare @tbl varchar(40)
+declare @tblRowCnt INT
 
 set @sch = 'mySchema'
 set @tbl = 'myTable'
 
 drop table if exists #col
-
-select top 10
-	*
-from
-	INFORMATION_SCHEMA.COLUMNS
 
 select
 	column_name,
@@ -35,9 +31,17 @@ where
 	and
 	table_name = @tbl
 
-set @qry = 'select count(1) as tblRowCnt from ' + @sch + '.' + @tbl + ' with(nolock)'
+set @qry = 'select @tblRowCnt = count(1) from ' + @sch + '.' + @tbl + ' with(nolock)'
 
-execute(@qry)
+exec sp_executeSql @qry, N'@tblRowCnt int out',@tblRowCnt out
+
+drop table if exists #colResult
+
+CREATE TABLE #colResult
+(
+	colName VARCHAR(100),
+	distinctValCnt int
+)
 
 while exists(select top 1 * from #col)
 begin
@@ -48,7 +52,24 @@ begin
 
 	set @qry = 'select ''' + @col + ''' as colName,count(distinct ' + @col + ') as distinctValCnt from ' + @sch + '.' + @tbl + ' with(nolock)'
 
+	INSERT INTO #colResult
 	execute(@qry)
 
 	delete #col where column_name = @col
 end
+
+select
+	@tblRowCnt As tblRowCnt
+
+select
+	colName,
+	distinctValCnt,
+	(cast(distinctValCnt As float) / cast(@tblRowCnt as float))*100 As distinctValCntPctOfTblRowCnt
+from
+	#colResult
+order by 
+	distinctValCnt
+
+
+
+
