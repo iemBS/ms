@@ -1,0 +1,5 @@
+Choose Rank Function
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/ranking-functions-transact-sql?view=sql-server-ver15
+Main Success Scenario:
+  1.xxx:fill in
