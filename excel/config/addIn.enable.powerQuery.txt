@@ -1,6 +1,7 @@
 Enable PowerQuery in Excel
 Notes:
   -Guidance @ https://support.office.com/en-us/article/troubleshooting-power-query-2546eaa8-9893-4574-9ef9-afacb9b0b495
+  -Power Query intregrated in Excel 2016 by default. Power Query is being used in "Data" ribbon/tab > "Get & Transform" section. 
 Main Success Scenario:
   1. "File" menu
   2. "Options" menu choice
