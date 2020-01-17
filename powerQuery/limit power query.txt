@@ -1,0 +1,5 @@
+Limit Power Query
+Note:
+  -Guidance @ https://support.office.com/en-us/article/power-query-specifications-and-limits-5fb2807c-1b16-4257-aa5b-6793f051a9f4
+Main Success Scenario:
+  1.xxx:fill in
