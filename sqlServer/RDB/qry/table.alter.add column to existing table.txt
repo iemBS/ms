@@ -7,6 +7,7 @@ Notes:
   -Altering the table instead of droping and creating the table, allows existing data to remain in the table
   -Alter statement cannot be within an IF condition unless it is within dynamic SQL
   -Alter will not change table create time found in "select create_date from sys.tables"
+  -xxx: can the word "COLUMN" be used after the "ADD", because it is with a column drop
 Main Success Scenario:
   1. See code below
 
