@@ -2,6 +2,7 @@ Drop Column in Existing Table
 Notes:
  -Guidance @ https://www.w3schools.com/sql/sql_ref_drop_column.asp
  -See if column exists before trying to remove it
+ -Add more column attributes to if condition if need to be more specific
 Main Success Scenario:
   1. see code below
 
