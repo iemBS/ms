@@ -10,8 +10,8 @@ declare @sch varchar(40)
 declare @tbl varchar(40)
 declare @tblRowCnt INT
 
-set @sch = 'mySchema'
-set @tbl = 'myTable'
+set @sch = 'mySchema' -- do not specify brackets
+set @tbl = 'myTable'  -- do not specify brackets
 
 drop table if exists #col
 
@@ -31,7 +31,7 @@ where
 	and
 	table_name = @tbl
 
-set @qry = 'select @tblRowCnt = count(1) from ' + @sch + '.' + @tbl + ' with(nolock)'
+set @qry = 'select @tblRowCnt = count(1) from [' + @sch + '].[' + @tbl + '] with(nolock)'
 
 exec sp_executeSql @qry, N'@tblRowCnt int out',@tblRowCnt out
 
@@ -50,7 +50,7 @@ begin
 	from
 		#col
 
-	set @qry = 'select ''' + @col + ''' as colName,count(distinct ' + @col + ') as distinctValCnt from ' + @sch + '.' + @tbl + ' with(nolock)'
+	set @qry = 'select ''' + @col + ''' as colName,count(distinct [' + @col + ']) as distinctValCnt from [' + @sch + '].[' + @tbl + '] with(nolock)'
 
 	INSERT INTO #colResult
 	execute(@qry)
