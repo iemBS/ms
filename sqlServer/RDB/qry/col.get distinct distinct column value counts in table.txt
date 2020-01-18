@@ -1,6 +1,7 @@
 Get Distinct Column Value Counts in Table
 Note:
   -xxx: update query so it shows if column is used as an index or key, data type, nullable, precision, scale, length, & default value
+  -query only counts non-null values
 Main Success Scenario:
   1.see below
 
@@ -50,7 +51,7 @@ begin
 	from
 		#col
 
-	set @qry = 'select ''' + @col + ''' as colName,count(distinct [' + @col + ']) as distinctValCnt from [' + @sch + '].[' + @tbl + '] with(nolock)'
+	set @qry = 'select ''' + @col + ''' as colName,count(distinct [' + @col + ']) as distinctValCnt from [' + @sch + '].[' + @tbl + '] with(nolock) where [' + @col + '] is not null'
 
 	INSERT INTO #colResult
 	execute(@qry)
