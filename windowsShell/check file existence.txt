@@ -1,0 +1,8 @@
+Check File Existence
+Note:
+  -Specify code to run inside of the curly braces
+  -Code in curly braces only executed if file exists
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path?view=powershell-7
+  -Guidance @ https://stackoverflow.com/questions/8095638/how-do-i-negate-a-condition-in-powershell
+Main Success Scenario:
+  1. if (Test-Path "\\myPath\myFile.csv") {}
