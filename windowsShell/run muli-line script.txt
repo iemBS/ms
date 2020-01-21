@@ -1,0 +1,8 @@
+Run Multi-Line Script
+Note
+  -Guidance @ https://stackoverflow.com/questions/605686/windows-how-to-specify-multiline-command-on-command-prompt
+Main Success Scenario:
+  1. Add "^" character to the end of each line of the script that has a line that follows
+Alternatives:
+  1a. Run Multi-Line PowerShell script from Windows Shell
+    1a1. Add "`" character to the end of each line of the PowerShell script that has a line taht follows
