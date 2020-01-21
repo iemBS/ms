@@ -1,0 +1,5 @@
+Negate IF condition
+Note:
+  -Guidance @ https://ss64.com/ps/syntax-compare.html
+Main Success Scenario:
+  1.xxx:fill in
