@@ -7,3 +7,5 @@ Alternatives:
   1a. Open file to run it
     1a1. Use the "File" menu's "Open" option to navigate to the script and open it
     1a2. click "File" and "Run" to run the script
+  1b. Run script in command window instead of from a PS1 file
+    1b1. powershell.exe Get-Date
