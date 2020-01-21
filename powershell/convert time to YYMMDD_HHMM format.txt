@@ -1,0 +1,3 @@
+Convert Time to YYMMDD_HHMM format
+Main Success Scenario:
+  1. Get-Date -Format "yyMMdd_HHmm"
