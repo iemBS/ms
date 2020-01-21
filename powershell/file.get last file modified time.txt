@@ -1,0 +1,3 @@
+Get Last File Modified Time
+Main Success Scenario:
+  1.Get-Item "\\shared_folder_path\two.csv" | Foreach {$_.LastWriteTime}
