@@ -18,3 +18,13 @@ Alternatives:
     1c1. powershell.exe -command "Get-Date"
   1d. Run Powershell script that has multiple lines
     1d1. powershell.exe -command "if (-Not (Test-Path '\\myPath\myFile.csv')){RETURN} ` Write-Output ([datetime](Get-Item '\\myPath\myFile.csv' | Foreach {$_.LastWriteTime})).ToString('yyMMdd_HHmm')"
+  1e. Run PowerShell script from a Windows Shell variable
+    1e1. See code below
+      SET PS_CMD= ^
+      if (-Not (Test-Path '\\myPath\myFile.csv')) {RETURN};` ^
+      $fileObj = Get-Item '\\myPath\myFile.csv';` ^
+      $tmStr = ([datetime]$fileObj.LastWriteTime).ToString('yyMMdd_HHmm');` ^
+      $newFileName = 'two.archive.' + $tmStr + '.csv';` ^
+      Rename-Item -Path '\\myPath\myFile.csv' -NewName $newFileName; 
+
+      START PowerShell -noexit -command %PS_CMD%
