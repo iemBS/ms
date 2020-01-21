@@ -1,0 +1,9 @@
+Run PowerShell Script
+Note:
+  -Guidance @ https://www.techwalla.com/articles/how-to-run-powershell-scripts-from-the-command-line
+Main Success Scenario:
+  1. C:\Example\example_script.ps1
+Alternatives:
+  1a. Open file to run it
+    1a1. Use the "File" menu's "Open" option to navigate to the script and open it
+    1a2. click "File" and "Run" to run the script
