@@ -1,0 +1,5 @@
+Exit Script
+Note:
+  -Guidance @ https://stackoverflow.com/questions/2022326/terminating-a-script-in-powershell
+Main Success Scenario:
+  1. Exit
