@@ -2,6 +2,8 @@ Run PowerShell Script
 Note:
   -Guidance @ https://www.techwalla.com/articles/how-to-run-powershell-scripts-from-the-command-line
   -When "-command" attribute is used with powershell.exe, code must be in double quotes
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7#carriage-return-r
+  -Use accent character ("`") to indicate new lines in a multi-line powershells script
 Main Success Scenario:
   1. C:\Example\example_script.ps1
 Alternatives:
@@ -12,3 +14,5 @@ Alternatives:
     1b1. powershell.exe Get-Date
   1c. Run complex script in command window instead of from a PS1 file
     1c1. powershell.exe -command "Get-Date"
+  1d. Run Powershell script that has multiple lines
+    1d1. powershell.exe -command "if (-Not (Test-Path '\\myPath\myFile.csv')){RETURN} ` Write-Output ([datetime](Get-Item '\\myPath\myFile.csv' | Foreach {$_.LastWriteTime})).ToString('yyMMdd_HHmm')"
