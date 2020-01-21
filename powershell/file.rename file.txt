@@ -1,0 +1,6 @@
+Rename File
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/rename-item?view=powershell-7
+  -Works with lettered path or shared path
+Main Success Scenario:
+  1.Rename-Item -Path "\\shared_folder_path\one.csv" -NewName "two.csv"
