@@ -4,6 +4,7 @@ Note:
   -When "-command" attribute is used with powershell.exe, code must be in double quotes
   -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7#carriage-return-r
   -Use accent character ("`") to indicate new lines in a multi-line powershells script
+  -Use carrot character ("^") to indicate new lines in a multi-line windows shell script
 Main Success Scenario:
   -Access character will convert to a new line when used within double quotes, but not when used within single quotes
   -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7
