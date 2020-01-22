@@ -1,0 +1,5 @@
+Preserve Leading Zeros in CSV file
+Note:
+  -CSVs opened in Excel may remove the leading zeroes
+Main Success Scenario:
+  1. View CSV file in text application instead of Excel
