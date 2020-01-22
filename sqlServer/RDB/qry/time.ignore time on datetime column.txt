@@ -1,0 +1,8 @@
+Ignore Time on DateTime Column
+Main Success Scenario:
+  1.See code below
+  
+    select 
+      CONVERT(varchar,GETDATE(),101),
+      CONVERT(datetime, CONVERT(varchar,GETDATE(),101)),
+      CONVERT(date, CONVERT(varchar,GETDATE(),101))
