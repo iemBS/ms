@@ -3,6 +3,7 @@ Notes:
   -Guidance from https://docs.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql?view=sql-server-2017
   -When searchig for square brackets as characters instead of using as wild card tools, you only need to escape the opening square bracket and not the closing bracket. 
   -You can use the CharIndex function instead of like: SELECT * FROM Table1 WHERE CHARINDEX(@SearchParam , Col1) > 0
+  -Escape: it lets you define a character such that when you put it in front of another character, that other character is interpreted literally, not as a meta-character. You need only one such escape character: you can use it to escape any meta-character.
 Main Success Scenario:
   1. See code below
       select 
