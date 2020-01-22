@@ -1,6 +1,7 @@
 Get Defined Length of Column
 Note:
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/col-length-transact-sql?view=sql-server-ver15
+  -Does not work on views
 Main Success Scenario:
   1. See code below
   
