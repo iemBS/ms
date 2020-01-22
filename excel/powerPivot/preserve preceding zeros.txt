@@ -1,3 +1,7 @@
 Preserver Preceding Zeros
+Note:
+  -The preceding zeros will be kept in a pivot table that is generated from the PowerPivot tab. 
 Main Success Scenario:
-  1.Power Pivot, by default, holds onto preceding zeros for numeric values in string type columns
+  1.PowerPivot, by default, holds onto preceding zeros for numeric values in string type columns
+  
+  
