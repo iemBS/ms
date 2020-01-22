@@ -1,0 +1,3 @@
+Preserver Preceding Zeros
+Main Success Scenario:
+  1.Power Pivot, by default, holds onto preceding zeros for numeric values in string type columns
