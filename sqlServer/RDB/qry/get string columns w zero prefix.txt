@@ -3,5 +3,22 @@ Note:
   -Guidance @ https://www.w3schools.com/sql/func_sqlserver_isnumeric.asp
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/col-length-transact-sql?view=sql-server-ver15
   -xxx:note if defined length of column aligns with value lengths
+  -xxx:change logic to loop through all columns in a table 
 Main Success Scenario:
-  1. xxx:fill in
+  1. See code below
+
+      drop table if exists #testTable
+
+      select
+        '002' as ID
+      into
+        #testTable
+      union all
+      select '102'
+
+      select 
+        ID
+      from 
+        #testTable 
+      where
+        left(ID,1) = '0'
