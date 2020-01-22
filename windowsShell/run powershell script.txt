@@ -8,6 +8,8 @@ Note:
 Main Success Scenario:
   -Access character will convert to a new line when used within double quotes, but not when used within single quotes
   -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7
+  -Use double quotes containing powershell variables that need to be evaluated. 
+  -Use single quotes containing literal strings
   1. C:\Example\example_script.ps1
 Alternatives:
   1a. Open file to run it
