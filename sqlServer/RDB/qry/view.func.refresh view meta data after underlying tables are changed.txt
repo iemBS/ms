@@ -5,5 +5,5 @@ Notes:
 Preconditions:
   -Assume column in underlying table and exposed in the view is changed to cause a change in its presentation or removed. 
 Main Success Scenario:
-  1. exec sys.sp_refreshview '[mySchema].[myTable]'
+  1. exec sys.sp_refreshview '[mySchema].[myView]'
 
