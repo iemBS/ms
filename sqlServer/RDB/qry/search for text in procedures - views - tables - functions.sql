@@ -13,11 +13,10 @@ begin
 	'select 
 		''stored procedure'' as objectType
 		,''stored procedure definition'' as objectPart
-		,r.routine_schema + ''.'' + p.[name] as objectName
+		,schema_name(p.schema_id) + ''.'' + p.[name] as objectName
 	from
 		sys.procedures p
 		inner join sys.sql_modules m on p.object_id = m.object_id
-		inner join information_schema.routines r on p.[name] = r.routine_name
 	where
 		m.definition like ''%' + replace(replace(@textToSearchFor,'_','/_'),'[','/[') + '%'' ESCAPE ''/'''
 end
@@ -109,16 +108,15 @@ begin
 	'select 
 		''function'' as objectType
 		,''function definition'' as objectPart
-		,r.routine_schema + ''.'' + p.[name] as objectName
+		,schema_name(p.schema_id) + ''.'' + p.[name] as objectName
 	from
 		sys.objects p
 		inner join sys.sql_modules m on p.object_id = m.object_id
-		inner join information_schema.routines r on p.[name] = r.routine_name
 	where
 		p.[type] = ''FN''
 	and
 		m.definition like ''%' + replace(replace(@textToSearchFor,'_','/_'),'[','/[') + '%'' ESCAPE ''/'''
-		
+
 	if(@objectTypeToSearch = 'a')
 	begin
 		set @query = @query + CHAR(13)+CHAR(10) + ' union all ' + CHAR(13)+CHAR(10) + @queryPart
