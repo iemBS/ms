@@ -2,6 +2,7 @@ Refresh View Meta Data after underlying tables are changed
 Notes:
   -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-refreshview-transact-sql?view=sql-server-2017
   -If a column is added to the underlying table and that same column is exposed in the view via an alter statement, there is no reason to run the sp_refreshview.
+  -Can use this broader function as well: https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-refreshsqlmodule-transact-sql?view=sql-server-2017
 Preconditions:
   -Assume column in underlying table and exposed in the view is changed to cause a change in its presentation or removed. 
 Main Success Scenario:
