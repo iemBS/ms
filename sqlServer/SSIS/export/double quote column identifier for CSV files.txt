@@ -1,0 +1,5 @@
+double quote column identifier for CSV files
+Note:
+  -When specifying that values in text columns need to have double quote around them, double quotes will not be placed around dates or dollars.
+Main Success Scenario:
+  1.xxx:fill in
