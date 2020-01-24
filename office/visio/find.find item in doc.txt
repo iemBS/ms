@@ -1,0 +1,11 @@
+Find Item in Visio Doc
+Note:
+  -Guidance to add shape data @ https://support.office.com/en-us/article/add-data-to-shapes-09272394-5243-4e1b-bcfa-425a8b4d1ce2
+  -Guidance to add shape name @ https://docs.microsoft.com/en-us/office/client-developer/visio/change-the-name-and-view-the-id-of-a-shape
+  -Shape Text is the text you can see on the shapes
+  -Shape Data are properties that you add to the shape. 
+  -Cannot search on screentips in Visio
+Main Success Scenario:
+  1.Search on Shape Text
+  2.Search on Shape Data
+  3.Search on Shape Name
