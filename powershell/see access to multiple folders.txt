@@ -1,0 +1,24 @@
+See Access to Multiple Folders
+Note:
+  -Guidance @ https://mcpmag.com/articles/2018/01/16/filtering-command-output-in-powershell.aspx
+  -Guidance @ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_objects?view=powershell-7
+  -Guidance @ https://community.spiceworks.com/topic/2039617-how-to-continue-a-get-childitem-script-despite-access-errors?page=1#entry-7178193
+Main Success Scenario:
+  1.See code below
+  
+        $dirs = Get-ChildItem "\\myPath\*","\\myPath\*\*","\\myPath\*\*\" | 
+                where-object {($_.PsIsContainer)}
+        $acls = foreach($dir in $dirs) 
+        {
+            try 
+            {
+                "$dir"
+                Get-Acl $dir -ErrorAction Stop | Select-Object -ExpandProperty Access | Where-Object {($_.IdentityReference -like 'clar*Kent')}
+            }
+            catch 
+            {
+                "Failed to process $dir"
+            }
+
+        }
+        $acls
