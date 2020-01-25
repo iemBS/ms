@@ -1,0 +1,9 @@
+Get Specific Info for Multiple Folders
+Note:
+  -Guidance @ https://stackoverflow.com/questions/24682939/multiple-and-or-in-powershell-where-object-statement
+Main Success Scenario:
+  1.See code below
+  
+      $dirs = Get-ChildItem "\\myPath\*" | 
+              where-object {($_.PsIsContainer -eq $true) -and ($_.Name -eq "ckentFldr")}
+      $dirs
