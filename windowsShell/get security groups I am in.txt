@@ -5,3 +5,6 @@ Preconditions:
   -You need to be an admin on the computer you run this on
 Main Success Scenario:
   1. gpresult /V
+Alternatives:
+  1a. Use the "whoami" command
+    1a1. whoami /groups
