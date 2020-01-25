@@ -1,6 +1,7 @@
 Get Security Groups I am in
 Notes:
   -Guidance @ https://serverfault.com/questions/111650/how-can-i-find-out-what-ad-groups-im-a-member-of
+  -Guidance @ https://www.howtogeek.com/tips/how-to-see-which-group-your-windows-user-belongs-to/
   -running lusrmgr.msc with admin access should return the same info
 Preconditions:
   -You need to be an admin on the computer you run this on
