@@ -1,0 +1,5 @@
+Filter Command Output
+Note:
+  -Guidance @ https://mcpmag.com/articles/2018/01/16/filtering-command-output-in-powershell.aspx
+Main Success Scenario:
+  1.xxx:fill in
