@@ -1,0 +1,8 @@
+Get who and type of access for a specific folder
+Main Success Scenario:
+  1.See code below:
+
+    $acl = Get-Acl c:\Windows
+    $access = $acl.access
+    Foreach ($ar in $access) {
+    "{0}  {1}  {2}" -f $ar.identityReference, $ar.FileSystemRights, $ar.AccessControlType}
