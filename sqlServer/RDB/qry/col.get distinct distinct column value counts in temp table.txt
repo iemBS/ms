@@ -1,0 +1,6 @@
+Get distinct column value counts in temp table
+Note:
+  -Handy when you want to get a distinct column value from a query and not just a table or view
+Main Success Scenario:
+  1. see code below
+  
