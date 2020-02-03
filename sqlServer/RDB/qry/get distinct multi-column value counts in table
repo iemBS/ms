@@ -1,0 +1,13 @@
+Get distinct multi-column value counts in table
+Main Success Scenario:
+  1. See code below
+
+      select 
+        count(distinct rnk) as distinctValueCnt
+      from
+        (
+          select
+            DENSE_RANK() OVER (ORDER BY table_name,column_name) as rnk --create a unique ID for each value combination
+          from
+            information_schema.columns 
+        ) t
