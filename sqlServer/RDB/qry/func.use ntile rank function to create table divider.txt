@@ -1,0 +1,21 @@
+Use NTILE Rank Function to Create Table Divider
+Note: 
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/ntile-transact-sql?view=sql-server-ver15
+  -The ORDER BY is key to defining the how the table is cut up
+  -Finding the columns to use in the ORDER BY may be a pre-task to using the NTILE function
+  -To find the columns to contribute to the ORDER BY get the distinct value count of all the columns in the table to see what columns have the highest percent of distinct values
+Main Success Scenario:
+  1.See code below
+  
+      USE AdventureWorks2012;  
+      GO  
+      SELECT p.FirstName, p.LastName  
+          ,NTILE(4) OVER (ORDER BY a.PostalCode) AS Quartile  
+          ,s.SalesYTD  
+          ,a.PostalCode  
+      FROM Sales.SalesPerson AS s   
+          INNER JOIN Person.Person AS p   
+              ON s.BusinessEntityID = p.BusinessEntityID  
+          INNER JOIN Person.Address AS a   
+              ON a.AddressID = p.BusinessEntityID  
+      WHERE TerritoryID IS NOT NULL AND SalesYTD <> 0;  
