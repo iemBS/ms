@@ -4,3 +4,85 @@ Note:
 Main Success Scenario:
   1. see code below
   
+      declare @tmpTbl nvarchar(4000)
+
+      SET @tmpTbl = 
+      'your select query here'     
+
+      declare @qry nvarchar(4000)
+      set @qry = 'select top 0 * into ##tempTable_3806 from (' + @tmpTbl + ') t'
+      drop table if exists ##tempTable_3806
+      EXECUTE(@qry)
+
+      declare @col varchar(40)
+      declare @tblRowCnt INT
+
+      drop table if exists #col
+
+      SELECT
+        c.[name] As column_name,
+        c.IS_NULLABLE,
+        --DATA_TYPE,
+        c.[precision] As NUMERIC_PRECISION,
+        c.[scale] As NUMERIC_SCALE,
+        c.[max_length] As CHARACTER_MAXIMUM_LENGTH
+      into
+        #col
+      FROM 
+        tempdb.sys.tables t
+        inner join tempdb.sys.columns c on 
+          t.object_id = c.object_id
+      WHERE 
+        t.[name] = '##tempTable_3806'
+        /*
+        and
+        c.[name] not in 
+        (
+
+        ) --leave out columns that do not need to be checked
+        */
+      set @qry = 'select @tblRowCnt = count(1) from (' + @tmpTbl + ') t'
+
+      exec sp_executeSql @qry, N'@tblRowCnt int out',@tblRowCnt out
+
+      drop table if exists #colResult
+
+      CREATE TABLE #colResult
+      (
+        colName VARCHAR(100),
+        distinctValCnt int
+      )
+
+      while exists(select top 1 * from #col)
+      begin
+        select top 1
+          @col = column_name
+        from
+          #col
+
+        set @qry = 'select ''' + @col + ''' as colName,count(distinct [' + @col + ']) as distinctValCnt from (' + @tmpTbl + ') t where [' + @col + '] is not null'
+
+        print @qry --check query formatting and how far I am through the columns 
+
+        INSERT INTO #colResult
+        execute(@qry)
+
+        delete #col where column_name = @col
+      end
+
+      select
+        @tblRowCnt As tblRowCnt
+
+      select
+        colName,
+        distinctValCnt,
+        (cast(distinctValCnt As float) / cast(@tblRowCnt as float))*100 As distinctValCntPctOfTblRowCnt
+      from
+        #colResult
+      order by 
+        distinctValCnt
+
+      drop table if exists ##tempTable_3806
+
+
+
