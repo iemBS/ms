@@ -1,5 +1,7 @@
 Send Email with sp_send_dbmail function
 Note:
   -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql?view=sql-server-ver15
+  -Ways to make the function fail
+    -Include newline charactesr in the "subject" parameter
 Main Success Scenario:
   1.xxx:fill in
