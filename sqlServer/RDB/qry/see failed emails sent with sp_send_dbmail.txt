@@ -1,0 +1,17 @@
+See failed emails sent with sp_send_dbmail
+Main Success Scenario:
+  1. See code below
+  
+      SELECT 
+        items.subject ,
+        items.recipients ,
+        items.copy_recipients ,
+        items.blind_copy_recipients ,
+        items.last_mod_date ,
+        l.description
+      FROM   
+        msdb.dbo.sysmail_faileditems AS items
+          LEFT OUTER JOIN msdb.dbo.sysmail_event_log AS l ON 
+          items.mailitem_id = l.mailitem_id
+      WHERE  
+        items.last_mod_date > DATEADD(DAY, -1,GETDATE())
