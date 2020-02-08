@@ -1,0 +1,20 @@
+Get Average Time in Day
+Note:
+  -Gets the average time in a day down to the minute
+  -This can be added to to add smaller time units if needed 
+Main Success Scenario:
+  1. See code below
+  
+    declare @AvgEndTimeInMinutesPerDay int, @AvgEndTimeInHrsPerDay int
+
+    Select 
+      @AvgEndTimeInMinutesPerDay = Avg((DATEPART(hour,EndTime) * 60) + DATEPART(minute,EndTime))
+    From
+      myTable
+
+    select
+      @AvgEndTimeInHrsPerDay = @AvgEndTimeInMinutesPerDay / 60.0
+
+    select
+      @AvgEndTimeInHrsPerDay As hr,
+      @AvgEndTimeInMinutesPerDay - (@AvgEndTimeInHrsPerDay * 60) as [minutes]
