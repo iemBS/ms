@@ -1,0 +1,6 @@
+Split Text Based on Specific Character
+Note:
+  -Use Text to Column feature in Excel
+  -Guidance @ https://support.office.com/en-us/article/split-text-into-different-columns-with-the-convert-text-to-columns-wizard-30b14928-5550-41f5-97ca-7a3e9c363ed7
+Main Success Scenario:
+  1.xxx:fill in
