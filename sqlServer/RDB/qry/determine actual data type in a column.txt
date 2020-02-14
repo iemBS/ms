@@ -4,38 +4,58 @@ Notes:
 Main Success Scenario:
   1.see code below
   
-declare @tblSchema VARCHAR(10) = '[schema name]'
-declare @tblNm varchar(30) = '[table name]'
-declare @colNm varchar(30) = '[columm name]'
-declare @dataType varchar(20)
+	declare @tblSchema VARCHAR(10) = '[schema name]'
+	declare @tblNm varchar(30) = '[table name]'
+	declare @colNm varchar(30) = '[columm name]'
+	declare @dataType varchar(20)
 
-select
-	@dataType = DATA_TYPE
-from
-	INFORMATION_SCHEMA.COLUMNS
-where
-	TABLE_SCHEMA = @tblSchema
-	and
-	TABLE_NAME = @tblNm
-	and
-	COLUMN_NAME = @colNm
+	select
+		@dataType = DATA_TYPE
+	from
+		INFORMATION_SCHEMA.COLUMNS
+	where
+		TABLE_SCHEMA = @tblSchema
+		and
+		TABLE_NAME = @tblNm
+		and
+		COLUMN_NAME = @colNm
 
-if @dataType in ('nvarchar','ntext')
-begin
-	--see if actually non-unicode
+	if @dataType in ('nvarchar','ntext')
+	begin
+		--see if actually non-unicode
+		xxx
 
-	--see if actually a char
-end
+		--see if actually a char
+		xxx
+	end
 
-if @dataType in ('numeric','decimal','float')
-begin
-	--see if actually an int
+	if @dataType in ('numeric','decimal','float')
+	begin
+		--see if actually an int
+		xxx
 
-	--see if actually a bit
-end
+		--see if actually a bit
+		xxx
+	end
 
-if @dataType in ('int','bigint','smallint')
-begin
-	--see if actually a bit
-end
-	
+	if @dataType in ('int','bigint','smallint')
+	begin
+		--see if actually a bit
+		xxx
+	end
+
+  Alternatives:
+    1a. Simpler query to do something simpler
+    
+	select 
+		myColumn,
+		case
+			when ISDATE(myColumn) = 1 then 'date'
+			when ltrim(isnull(myColumn,'')) = '' then 'missing value'
+			when ISNUMERIC(myColumn) = 1 then 'number'
+			when PATINDEX('%[0-9]%',myColumn) = 0 then 'text' 
+			when PATINDEX('%[0-9]%',myColumn) >= 1 AND PATINDEX('%[a-z]%',NPN) >= 1 then 'alphanumeric' 
+			else 'other'
+		end valueType
+	from
+		myTable with(nolock)
