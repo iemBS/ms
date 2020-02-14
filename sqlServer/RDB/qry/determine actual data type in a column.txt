@@ -1,4 +1,4 @@
-Determine Real Data Type in a column
+Determine Actual Data Type in a column
 Notes:
   -xxx:fill in
 Main Success Scenario:
