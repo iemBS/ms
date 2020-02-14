@@ -47,15 +47,33 @@ Main Success Scenario:
   Alternatives:
     1a. Simpler query to do something simpler
     
-	select 
-		myColumn,
-		case
-			when ISDATE(myColumn) = 1 then 'date'
-			when ltrim(isnull(myColumn,'')) = '' then 'missing value'
-			when ISNUMERIC(myColumn) = 1 then 'number'
-			when PATINDEX('%[0-9]%',myColumn) = 0 then 'text' 
-			when PATINDEX('%[0-9]%',myColumn) >= 1 AND PATINDEX('%[a-z]%',myColumn) >= 1 then 'alphanumeric' 
-			else 'other'
-		end valueType
+	select
+		valueType,
+		valueLength,
+		count(ISNULL(myColumn,1)) as rowCnt,
+		count(distinct ISNULL(myColumn,1)) as distinctRowCnt,
+		max(myColumn) as myColumn_sampleValue
 	from
-		myTable with(nolock)
+		(
+			select 
+				myColumn,
+				case
+					when myColumn is NULL then 'NULL value'
+					when myColumn = '' then 'empty text'
+					when ltrim(myColumn) = '' then 'white space'--needs to be after empty text check otherwise it will be counted as empty text
+					when ISNUMERIC(myColumn) = 1 then 'number'
+					when ISDATE(myColumn) = 1 then 'date' --needs to be after number check because it can see dates within numbers
+					when PATINDEX('%[0-9]%',myColumn) = 0 then 'text' 
+					when PATINDEX('%[0-9]%',myColumn) >= 1 AND PATINDEX('%[a-z]%',myColumn) >= 1 then 'alphanumeric' 
+					else 'other'
+				end valueType,
+				len(isnull(myColumn,'')) as valueLength
+			from
+				myTable with(nolock)
+		) t
+	group by
+		valueType,
+		valueLength
+	order by
+		valueType,
+		valueLength
