@@ -54,7 +54,7 @@ Main Success Scenario:
 			when ltrim(isnull(myColumn,'')) = '' then 'missing value'
 			when ISNUMERIC(myColumn) = 1 then 'number'
 			when PATINDEX('%[0-9]%',myColumn) = 0 then 'text' 
-			when PATINDEX('%[0-9]%',myColumn) >= 1 AND PATINDEX('%[a-z]%',NPN) >= 1 then 'alphanumeric' 
+			when PATINDEX('%[0-9]%',myColumn) >= 1 AND PATINDEX('%[a-z]%',myColumn) >= 1 then 'alphanumeric' 
 			else 'other'
 		end valueType
 	from
