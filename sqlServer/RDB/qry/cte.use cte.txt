@@ -2,6 +2,17 @@ Use CTE
 Notes:
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-2017
 Main Success Scenario:
-  1. xxx: fill in
+  1. See code below
+  
+      WITH Sales_CTE (SalesPersonID, NumberOfOrders)  
+      AS  
+      (  
+          SELECT SalesPersonID, COUNT(*)  
+          FROM Sales.SalesOrderHeader  
+          WHERE SalesPersonID IS NOT NULL  
+          GROUP BY SalesPersonID  
+      )  
+      SELECT AVG(NumberOfOrders) AS "Average Sales Per Person"  
+      FROM Sales_CTE;  
   
   
