@@ -1,0 +1,10 @@
+Get Columns in Temp Table
+Main Success Scenario:
+  1. See code below
+  
+      select 
+        [name]
+      from
+        tempdb.sys.tables
+      where
+        object_id = OBJECT_ID('tempdb..#test')
