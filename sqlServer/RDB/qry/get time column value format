@@ -1,0 +1,23 @@
+Get Time Column Value Format
+Main Success Scenario:
+  1.See Code below
+  
+    select 
+      'YYYY-MM-DD',
+      myDateColumn
+    from
+      myTable
+    where
+      len(IsNull(myDateColumn,'')) > 0
+      and
+      len(myDateColumn) = 10
+      and
+      DATEPART(year,myDateColumn) = left(myDateColumn,4)
+      and
+      DATEPART(month,myDateColumn) = SUBSTRING(cast(myDateColumn as varchar),6,2)
+      and
+      DATEPART(day,myDateColumn) = SUBSTRING(cast(myDateColumn as varchar),9,2)
+    
+    Union All 
+    
+    xxx:fill in with other format checks
