@@ -1,10 +1,13 @@
 Get Columns in Temp Table
 Main Success Scenario:
   1. See code below
-  
-      select 
-        [name]
-      from
-        tempdb.sys.tables
-      where
-        object_id = OBJECT_ID('tempdb..#test')
+
+    select 
+      c.[name] + ',',
+      t.[name] as tblNm
+    from
+      tempdb.sys.tables t
+      inner join tempdb.sys.columns c on 
+        t.object_id = c.object_ID
+    where
+      t.object_id = OBJECT_ID('tempdb..#test')
