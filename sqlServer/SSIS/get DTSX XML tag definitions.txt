@@ -24,9 +24,10 @@ Main Success Scenario:
   
    
 Find Process Task in XML for DTSX file
+Note:
+  -This type of tasks can execute another executable 
 Main Success Scenario:
   1. Seach for "DTS:Executable" tags where "DTS:CreationName" attribute has value of "Microsoft.ExecuteProcess"
-  2. 
   
 Find For Loop Container in XML for DTSX file
 Main Success Scenario:
