@@ -29,10 +29,24 @@ Note:
 Main Success Scenario:
   1. Seach for "DTS:Executable" tags where "DTS:CreationName" attribute has value of "Microsoft.ExecuteProcess"
   
-Find For Loop Container in XML for DTSX file
+Find For Each Loop Container in XML for DTSX file
 Main Success Scenario:
   1. Search for "DTS:Executable" tags where "DTS:CreationName" attribute has a value of "STOCK:FOREACHLOOP"
+  
+Find For Each Loop Variable
+Main Success Scenario:
+  1. Find "DTS:Variables" tag within the For Each Loop Container XML
+  2. Find "DTS:Variables" tag inside "DTS:Variable" tag 
+  3. See value of "DTS:ObjectName" attribute inside the "DTS:Variable" tag 
+  
+See if For Each Loop Variable gets value from Express
+Main Success Scenario:
+  1. See if "DTS:EvaluateAsExpression" attribute in "DTS:Variable" tag is "True"
+  2. See value in "DTS:Expression" attrbute in the same tag
   
 Find Object Level in Package in XML for DTSX file
 Main Success Scenario:
   1. See the value of the "DTS:refId" attribute in the "DTS:Executable" tag
+  
+  
+
