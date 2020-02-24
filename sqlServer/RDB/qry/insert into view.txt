@@ -1,0 +1,5 @@
+Insert Into View
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15
+Main Success Scenario:
+  1.xxx:fill in
