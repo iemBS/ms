@@ -1,0 +1,37 @@
+Get DTSX XML Tag Definitions
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/openspecs/sql_data_portability/ms-dtsx/235600e9-0c13-4b5b-a388-aa3c65aec1dd?redirectedfrom=MSDN
+  -Values for "DTS:Description" attributes will be the same as the object names you see in the SSIS GUI in Visual Studio if dev did not change them. 
+Main Success Scenario:
+  1. Open the .DTSX file in any text editor
+  2. Use the noted guidance and the use case below to understand the XML tags
+  
+Find Execute SQL Task in XML for DTSX file
+Note:
+  -The "xmlns:SQLTask" tag with a value of "www.microsoft.com/sqlserver/dts/tasks/sqltask" also finds a SQL task
+  -The "DTS:CreationName" attribute with a value of 'Microsoft.ExecuteSQLTask' also finds a SQL task
+Main Success Scenario:
+  1. Search for tags starting with "SQLTask" (will be in "DTS:Executable" tag)
+  
+Find Source Query in SQL Task
+Main Success Scenario:
+  1. Find "SQLTask:SqlStatementSource" attribute in the "SQLTask:SqlTaskData" tag
+  
+Find Input Parameter in SQL Task
+Main Success Scenario:
+  1. Find 'SQLTask:ParameterDirection="Input"' attribute and value in a "SQLTask:ParameterBinding" tag
+  2. Find value of "SQLTask:ParameterName" parameter in that same tag
+  
+   
+Find Process Task in XML for DTSX file
+Main Success Scenario:
+  1. Seach for "DTS:Executable" tags where "DTS:CreationName" attribute has value of "Microsoft.ExecuteProcess"
+  2. 
+  
+Find For Loop Container in XML for DTSX file
+Main Success Scenario:
+  1. Search for "DTS:Executable" tags where "DTS:CreationName" attribute has a value of "STOCK:FOREACHLOOP"
+  
+Find Object Level in Package in XML for DTSX file
+Main Success Scenario:
+  1. See the value of the "DTS:refId" attribute in the "DTS:Executable" tag
