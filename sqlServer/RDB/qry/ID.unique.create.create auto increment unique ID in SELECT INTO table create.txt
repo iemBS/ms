@@ -1,0 +1,21 @@
+Create auto increment unique ID in SELECT INTO
+Note:
+  -Using an identity assumes teh ID needs to be unique across all the columns
+  -DENSE_RANKE guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/dense-rank-transact-sql?view=sql-server-ver15
+Main Success Scenario:
+  1. See Code Below
+    select
+      IDENTITY (int, 1,1) AS ID
+    into
+      #myTable
+Alternatives:
+  1a. ID needs to be based on one or more string columns in the table, but not all columns in table, and act like the unique ID of those string values. 
+    1a1. See Code Below
+    
+      select distinct 
+        myStrCol As myNiceStrColName,
+        DENSE_RANK() OVER (ORDER BY myStrCol ASC) AS myNiceIDColName 
+      from
+        myTbl 
+      order by
+        myStrCol
