@@ -1,0 +1,3 @@
+get actual data type detail
+Main Success Scenario:
+  1. xxx:fill in
