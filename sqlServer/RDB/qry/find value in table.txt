@@ -1,0 +1,99 @@
+Find Value in Table
+Main Success Scenario:
+  1. See code below
+ 
+declare @sch varchar(20) = 'mySchema'
+declare @tbl varchar(40) = 'myTable'
+declare @val varchar(20) = 'myValue'
+declare @valType varchar(20) = 'myData type'
+declare @valCnt int
+declare @tblType char(1) 
+declare @qryTmplt nvarchar(1000) = 'select @valCnt = count([column_name]) from [' + @sch + '].[' + @tbl + '] with(nolock) where [column_name] = '
+declare @qry nvarchar(1000)
+declare @column_ID Int
+declare @column_ID_max Int
+declare @col varchar(40)
+
+select
+	@tblType = case t.TABLE_TYPE
+			     when 'BASE TABLE' then 't' 
+				 else 'v'
+	           end
+from	
+	INFORMATION_SCHEMA.TABLES t
+where
+	t.TABLE_SCHEMA = @sch
+	AND
+	t.TABLE_NAME = @tbl
+
+select
+	@qryTmplt = case @tblType
+					when 'v' then replace(@qryTmplt,' with(nolock)','')
+					else @qryTmplt
+				end
+
+select
+	@qryTmplt = case 
+					when @valType in ('varchar','char','nvarchar','nchar') then @qryTmplt + '''' + @val + ''''
+					when @valType in ('int','bit','float','numeric') then @qryTmplt + @val 
+					else @qryTmplt + @val 
+				end 
+
+drop table if exists #col
+					
+Select
+	identity(int,1,1) as column_ID,
+	c.column_name
+into
+	#col
+From
+	INFORMATION_SCHEMA.TABLES t 
+	INNER JOIN INFORMATION_SCHEMA.COLUMNS c on 
+		t.TABLE_SCHEMA = c.TABLE_SCHEMA
+		and
+		t.TABLE_NAME = c.TABLE_NAME
+Where
+	t.TABLE_SCHEMA = @sch
+	AND
+	t.TABLE_NAME = @tbl
+	and
+	(
+		(
+			@valType in ('varchar','char','nvarchar','nchar','text','ntext')
+			and
+			c.DATA_TYPE in ('varchar','char','nvarchar','nchar','text','ntext')
+		)
+		or
+		(
+			@valType in ('int','bit','float','numeric','tinyint','smallint','bigint','decimal','smallmoney','money','real')
+			and
+			c.DATA_TYPE in ('int','bit','float','numeric','tinyint','smallint','bigint','decimal','smallmoney','money','real')
+		)
+	)
+
+select
+	@column_ID_max = max(column_ID)
+from
+	#col 
+
+Set @column_ID = 1
+While(@column_ID <= @column_ID_max)
+Begin
+	select 
+		@qry = replace(@qryTmplt,'column_name',column_name),
+		@col = column_name 
+	from
+		#col	
+	where
+		column_ID = @column_ID
+		
+	--print @qry --test
+    exec sp_executeSql @qry, N'@valCnt int out',@valCnt out
+
+    if @valCnt > 0 
+	begin
+		print @col
+	end 
+
+	set @column_ID = @column_ID + 1
+End
