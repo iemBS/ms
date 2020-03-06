@@ -1,0 +1,5 @@
+Convert YYYYMMDD Int to Date
+Note:
+  -Also works if the Int value is stored in a varchar column
+Main Success Scenario:
+  1. select CONVERT(DATE, CAST(myDate AS varchar(8)), 112)  from myTable
