@@ -10,6 +10,9 @@ hasattachments:yes from:"Clark Kent"
 -- all emails with a specific attachment name
 attachment:presentation.ppt
 
+-- all emails with a specific file type attached
+attachment:*.ppt
+
 -- all emails received yesterday
 received:yesterday
 
