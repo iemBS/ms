@@ -1,6 +1,7 @@
 Get Distinct Column Value Counts in Table
 Note:
   -xxx: update query so it shows if column is used as an index or key, data type, nullable, precision, scale, length, & default value
+  -xxx: update query to skip the distinct count for columns that are an identity, unique index, or clustered index
   -query only counts non-null values
 Main Success Scenario:
   1.see below
