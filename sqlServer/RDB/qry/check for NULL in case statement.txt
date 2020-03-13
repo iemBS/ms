@@ -1,0 +1,14 @@
+Check for NULL in Case Statement
+Note:
+  -"When NULL" will not work and the query will not say it is incorrect when the query is run
+  -"When Is NULL" will return an error when run
+Main Success Scenario:
+  1. see code below
+  
+select
+  case 
+    when myColumn is NULL then 'someValue'
+    else NULL
+  end
+from
+  myTable
