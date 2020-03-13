@@ -6,7 +6,7 @@ Main Success Scenario:
   1.see below
 
 declare @col varchar(40)
-declare @qry nvarchar(200)
+declare @qry nvarchar(400)
 declare @sch varchar(40)
 declare @tbl varchar(40)
 declare @tblRowCnt INT
