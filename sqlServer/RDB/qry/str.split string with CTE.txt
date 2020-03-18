@@ -1,0 +1,117 @@
+Split String with CTE
+Note:
+  -Strings can come from a view or table in "cte_defineSplitter"
+Main Success Scenario:
+  1. See code below
+  
+
+with cte_defineSplitter As --define the source of your string to split here
+(
+	select
+		str
+	from
+		(
+			SELECT 
+				ltrim(rtrim(replace('my string','  ',' '))) as 'str' --replace duplicate splitter characters with just 1, remove spaces on either side
+		) t
+),
+cte_strSplitterCnt As
+(
+	select distinct 
+		str as str2Split,
+		(len(str) - len(replace(str,' ',''))) As strSplitterCnt --split on a single space character
+	from
+		cte_defineSplitter
+),
+--select * from cte_strSplitterCnt --test all code above this
+cte_splitterPos (str2Split,strPos,strSplitterPos) AS
+(
+	select
+		str2Split,
+		CHARINDEX(' ',str2Split,1),
+		1
+	from
+		cte_strSplitterCnt
+	where
+		strSplitterCnt < 4 --limit to strings that have a max amount of splitters
+
+	union all
+
+	select
+		str2Split,
+		CHARINDEX(' ',str2Split,strPos + 1),
+		strSplitterPos + 1
+	from
+		cte_splitterPos
+	where
+		strPos != 0 --a position of zero means the character is not found in the string
+),
+--select * from cte_splitterPos where strPos != 0 order by str2Split,strPos --test all code above this
+cte_addStartEnd (str2Split,strPos2,strBoundaryPos) As
+(
+	select distinct 
+		str2Split,
+		1,
+		1
+	from
+		cte_splitterPos
+	where
+		strPos != 0
+		and
+		strSplitterPos = 1
+
+	union all 
+
+	--contributes splitter positions
+	select
+		str2Split,
+		strPos, 
+		strSplitterPos + 1
+	from
+		cte_splitterPos
+	where
+		strPos != 0
+
+	union all 
+
+    select
+		str2Split,
+		len(str2Split) + 1,
+		strSplitterPos + 2
+	from
+		(
+			select
+				str2Split,
+				max(strSplitterPos) as strSplitterPos
+			from
+				cte_splitterPos
+			where
+				strPos != 0
+			group by
+				str2Split
+		) t
+),
+--select * from cte_addStartEnd order by str2Split,strBoundaryPos --test all code above this
+cte_strBoundaryPos As
+(
+	select
+		a.str2Split,
+		a.strBoundaryPos,
+		a.strPos2 as posStart,
+		b.strPos2 as posEnd
+	from 
+		cte_addStartEnd a
+		inner join cte_addStartEnd b on 
+			a.str2Split = b.str2Split 
+			and
+			a.strBoundaryPos + 1 = b.strBoundaryPos 
+)
+select 
+	str2Split,
+	strBoundaryPos As strSplinterPos,
+	ltrim(rtrim(substring(str2Split,posStart,posEnd-posStart))) As strSplinter -- remove splitter character
+from 
+	cte_strBoundaryPos 
+order by 
+	str2Split,
+	strBoundaryPos
