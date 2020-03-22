@@ -70,7 +70,7 @@ select
 from
 	#colResult
 order by 
-	distinctValCnt
+	distinctValCnt desc
 
 
 
