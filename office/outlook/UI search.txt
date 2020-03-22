@@ -33,6 +33,15 @@ cc:ckent@outlook.com
 ccaddress:ckent
 cc:ckent
 
+-- all emails with a word in the subject
+subject:"myWord"
+
+-- all emails with a phrase in the subject
+subject:"my word"
+
+-- all emaisl with a word or another word in the subject
+subject:word1 subject:word2
+
 -- all calendar items or communications containing links to calendar items
 kind:calendar
 
