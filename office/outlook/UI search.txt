@@ -39,8 +39,11 @@ subject:"myWord"
 -- all emails with a phrase in the subject
 subject:"my word"
 
--- all emaisl with a word or another word in the subject
+-- all emails with a word or another word in the subject
 subject:word1 subject:word2
+
+-- all emails with a word or phrase in the body
+contents:"my Word"
 
 -- all calendar items or communications containing links to calendar items
 kind:calendar
