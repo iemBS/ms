@@ -1,6 +1,9 @@
 -- all emails from a specific person
 from:"ckent@hotmail.com"
 
+-- all emails to only one specific person
+to:"clark kent" AND NOT to:"Lois Lane"
+
 -- all emails w attachments
 hasattachments:yes
 
