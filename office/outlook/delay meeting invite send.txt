@@ -1,0 +1,5 @@
+Delay Meeting Invite Send
+Note:
+  -Guidance @ https://www.datanumen.com/blogs/2-methods-delay-sending-meeting-invitation-outlook/
+Main Success Scenario:
+  1. xxx:fill in
