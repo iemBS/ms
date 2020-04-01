@@ -1,5 +1,6 @@
 Delay Meeting Invite Send
 Note:
   -Guidance @ https://www.datanumen.com/blogs/2-methods-delay-sending-meeting-invitation-outlook/
+  -Converting the invite to an iCalendar attachment of an email causes the meeting to disappear from your calendar and the content of the meeting to not show when you look at the iCalendar item within the email you sent
 Main Success Scenario:
   1. xxx:fill in
