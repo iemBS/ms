@@ -1,7 +1,9 @@
 Navigate Git in Visual Studio
 Main Success Scenario:
  1. "Discard Change"
- 2. xxx:fill in
+ 2. "Add File"
+ 3. "Change File"
+ 4. "Get Latest File from Server"
  
  
 Discard Change
@@ -12,3 +14,46 @@ Main Success Scenario:
   4. Right click change
   5. Choose "View Commit Details" from the context menu
   6. Choose "Reset and Delete Changes" from "Reset" drop down
+  
+Add File
+Main Success Scenario:
+  1. Open "Solution Explorer" sidebar
+  2. Right click on a folder
+  3. Choose "Add" then "New File" from context menu
+  4. Specify file name with extension
+  5. green plus sign appears to left of file in Solution Explorer
+  6. Go to Team Explorer on left sidebar
+  7. Change top drop down to "Changes"
+  8. See your new file under "Changes"
+  9. Enter comment in text box
+  10. Choose "Commit All and Push" from the "Commit All" drop down
+  11. 
+
+Change File
+Main Success Scenario:
+  1. Open "Solution Explorer" sidebar
+  2. Right click on file and choose "Open" from context menu
+  3. Change file and save change
+  4. Red check mark appears to the left of the file name
+  5. Go to Team Explorer on the sidebar
+  6. Choose "Changes" from the drop down at the top. 
+  7. See your changed file under "Changes" section
+  8. Write comment in text box and note a work item ID in "Relation Work Items" section
+  9. Choose "Commit All and Push" from the "Commit All" drop down
+Alternatives: 
+  9a. Push of changes to the server was not successful
+    9a1. The changes that did not push are listed under the "Outgoing Commits" section. 
+  
+Get Latest File from Server
+Note:
+  -Local History shows changes done on your local or pulled down from the server to your local
+  -Remote History shows changes done on the server that have not yet been pulled down to your local
+  -Using "Fetch" under "Incoming Commits" will only bring meta data for those files to your local
+Main Successs Scenario:
+  1. Open "Team Explorer" side bar
+  2. Choose "Synchronization" from the drop down at the top
+  3. Under "Incoming Commits" choose "Pull" to get new/updated files that you do not yet have on your local
+  4. xxx.fill in
+  x. Right click on file and choose "View History..." from context menu
+  x. History window will show Local History and Remote History
+  x. 
