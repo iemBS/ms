@@ -5,7 +5,6 @@ Main Success Scenario:
  3. "Change File"
  4. "Get Latest File from Server"
  
- 
 Discard Change
 Main Success Scenario:
   1. Open "Team Explorer" sidebar
@@ -40,6 +39,8 @@ Main Success Scenario:
   7. See your changed file under "Changes" section
   8. Write comment in text box and note a work item ID in "Relation Work Items" section
   9. Choose "Commit All and Push" from the "Commit All" drop down
+  10. Shows "Successfully pushed to origin/master" at top of Team Explorer sidebar
+  11. Check the ADO repo web page to see your file and your comment noted in the hitory 
 Alternatives: 
   9a. Push of changes to the server was not successful
     9a1. The changes that did not push are listed under the "Outgoing Commits" section. 
