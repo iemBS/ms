@@ -1,0 +1,14 @@
+Navigate Git in Visual Studio
+Main Success Scenario:
+ 1. "Discard Change"
+ 2. xxx:fill in
+ 
+ 
+Discard Change
+Main Success Scenario:
+  1. Open "Team Explorer" sidebar
+  2. Choose "Synchronization" from top of sidebar
+  3. Go to "Outgoing Commits" section 
+  4. Right click change
+  5. Choose "View Commit Details" from the context menu
+  6. Choose "Reset and Delete Changes" from "Reset" drop down
