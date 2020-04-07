@@ -48,6 +48,10 @@ subject:word1 subject:word2
 -- all emails with a word or phrase in the body
 contents:"my Word"
 
+-- all emails with a link in the body
+This is not possible, but you can create a rule to find those emails
+  https://answers.microsoft.com/en-us/msoffice/forum/all/detect-hyperlinks-in-the-e-mail-body/475baf06-6b69-4b4d-8fbf-ab8f631b0e76
+
 -- all calendar items or communications containing links to calendar items
 kind:calendar
 
@@ -59,5 +63,6 @@ kind:calendar organizer:ckent
 
 -- all calendar itmes organized by a specific name
 kind:calendar organizer:"Clark Kent"
+
 
 
