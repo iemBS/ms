@@ -69,9 +69,10 @@ Main Success Scenario:
   2. Confirm the undo of the pending change when asked
   3. Continue with Step 8 of "Change File"
   
-Delete latest change before it is pushed to the server
+Remove latest change before it is pushed to the server
 Note: 
   -May take some time for History window to reflect the delete
+  -Change could also be viewed from Team Explorer sidebar with top drop down set to "Commit Details". 
 Pre-existing Conditions:
   -Change exists in history window that you want to remoe 
   -Change has not been pushed to the server yet
@@ -115,7 +116,7 @@ Main Success Scenario:
 Get Latest File from Server
 Note:
   -Local History shows changes done on your local or pulled down from the server to your local
-  -Remote History shows changes done on the server that have not yet been pulled down to your local
+  -Incoming (History) shows changes done on the server that have not yet been pulled down to your local
   -Using "Fetch" under "Incoming Commits" will only bring meta data for those files to your local
   -Does using "Pull" link above "Incoming Commits" and below "Branch" name pull all files in the repo? xxx:fill in
 Main Successs Scenario:
