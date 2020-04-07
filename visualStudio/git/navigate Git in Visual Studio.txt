@@ -157,8 +157,13 @@ Main Success Scenario:
 Avoid Branching
 Note:
   -Each repository can have one or more branches. The main branch — the one where all changes eventually get merged back into, and is called master. This is the official working version of your project, and the one you see when you visit the project repository at github.com/yourname/projectname.
+  -The icons next to the two "master" branches (on the Team Explorer sidebar when the top drop down is "Branches") are the same as those found at the top of the Hitory window. 
 Main Success Scenario:
-  1.xxx:fill in
+  1.On Team Explorer sidebar choose "Synchronization" from top down drown
+  2.After Sync is done, "master" in "Branch: master" at the top should be a link
+  3.Click on the "master" link
+  4.The top drop down changed to "Branches". 
+  5.xxx:fill in
   
 What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
 Why is full change history for a file being overwritten on the server? xxx:fill in
