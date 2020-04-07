@@ -155,3 +155,4 @@ Main Success Scenario:
   1. xxx:fill in
   
 What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
+Why is full change history for a file being overwritten on the server? xxx:fill in
