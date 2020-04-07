@@ -156,3 +156,4 @@ Main Success Scenario:
   
 What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
 Why is full change history for a file being overwritten on the server? xxx:fill in
+Why is the slnx.sqllite file being checked out for changes I make to SQL files? xxx:fill in
