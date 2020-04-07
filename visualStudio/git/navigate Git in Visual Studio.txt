@@ -66,6 +66,21 @@ Main Success Scenario:
   2. Confirm the undo of the pending change when asked
   3. Continue with Step 8 of "Change File"
   
+Delete latest change before it is pushed to the server
+Note: 
+  -May take some time for History window to reflect the delete
+Pre-existing Conditions:
+  -Change exists in history window that you want to remoe 
+  -Change has not been pushed to the server yet
+Main Success Scenario:
+  1. Right click on the version in the History window and choose 
+  2. Choose from the context menu "Reset" then "Delete Changes (--hard)"
+  3. xxx:fill in
+  
+Delete latest change after it has been pushed to the server
+Main Success Scenario:
+  1.xxx:fill in
+
 Revert Changes after Commit but before Push to Server
 Main Success Scenario:
   1. xxx:fill in
