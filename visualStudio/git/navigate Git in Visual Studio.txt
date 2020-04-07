@@ -10,6 +10,8 @@ Main Success Scenario:
  4. "Get Latest File from Server"
  5. "Revert Changes after Commit but before Push to Server"
  6. "Revert Changes after Commit and after Push to Server"
+ 7. "Time of Last Pull from Server"
+ 8. "Time of Last Push to Server"
  
 Discard Change
 Main Success Scenario:
@@ -129,4 +131,25 @@ Main Success Scenario:
   2. Confirm the permanent deletion of the file on the pop-up
   3. On Team Explorer window choose "Changes" on top drop down. 
   4. Treat the delete like a change you are checking in with the "Change File" use case
+  
+Time of Last Pull from Server
+Main Success Scenario:
+  1. "Time of My Last Pull from Server"
+  2. "Time of Anyones Last Pull from Server"  
+
+Time of My Last Pull from Server
+Main Success Scenario:
+  1. Right click on top folder in Solution Explorer window
+  2. Choose "View History..." from context menu
+  3. History window appears
+  4. "Local History" section of the History window shows top change that is saved to your local
+  5. If that change was made by another person, you know it was pulled from the server
+
+Time of Last Push to Server
+Main Success Scenario:
+  1. "Time of my Last Push to Server"
+  2. "Time of Anyones Last Push to Server"
  
+Time of my Last Push to Server
+Main Success Scenario:
+  1. xxx:fill in
