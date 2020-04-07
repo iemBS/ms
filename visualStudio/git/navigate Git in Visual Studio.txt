@@ -153,3 +153,5 @@ Main Success Scenario:
 Time of my Last Push to Server
 Main Success Scenario:
   1. xxx:fill in
+  
+What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
