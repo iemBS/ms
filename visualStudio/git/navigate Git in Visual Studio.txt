@@ -165,6 +165,16 @@ Main Success Scenario:
   4.The top drop down changed to "Branches". 
   5.xxx:fill in
   
+Resolve Conflict
+Pre-existing Conditions:
+  -On Team Explorer sidebar with "Resolve Conflicts" on top drop down
+  -"Abort" link xxx:fill in
+  -
+Main Success Scenario:
+  1.See conflicts in "Conflicts" section
+  2.Selecting conficting file shows options
+  3.xxx:fill in
+  
 What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
 Why is full change history for a file being overwritten on the server? xxx:fill in
 Why is the slnx.sqllite file being checked out for changes I make to SQL files? xxx:fill in
