@@ -1,9 +1,13 @@
 Navigate Git in Visual Studio
+Note:
+  -Clear "Output" window before each Git action so you can see the technical details of that git action. It may help you trouble shoot
 Main Success Scenario:
  1. "Discard Change"
  2. "Add File"
  3. "Change File"
  4. "Get Latest File from Server"
+ 5. "Revert Changes after Commit but before Push to Server"
+ 6. "Revert Changes after Commit and after Push to Server"
  
 Discard Change
 Main Success Scenario:
@@ -29,6 +33,9 @@ Main Success Scenario:
   11. 
 
 Change File
+Note:
+  -"Changes" section shows changes that are on your local
+  -You will be committing all changes you see below in the "Changes" section
 Main Success Scenario:
   1. Open "Solution Explorer" sidebar
   2. Right click on file and choose "Open" from context menu
@@ -37,6 +44,7 @@ Main Success Scenario:
   5. Go to Team Explorer on the sidebar
   6. Choose "Changes" from the drop down at the top. 
   7. See your changed file under "Changes" section
+  7.5. "Remove Changes You Don't Want to Commit"
   8. Write comment in text box and note a work item ID in "Relation Work Items" section
   9. Choose "Commit All and Push" from the "Commit All" drop down
   10. Shows "Successfully pushed to origin/master" at top of Team Explorer sidebar
@@ -44,17 +52,36 @@ Main Success Scenario:
 Alternatives: 
   9a. Push of changes to the server was not successful
     9a1. The changes that did not push are listed under the "Outgoing Commits" section. 
+    9a2. See the "Output" window to see what went wrong
+    
+Remove Changes You Don't Want to Commit
+xxx:
+  -On the Team Explorer Side bar with "Changes" on drop down at top
+  -Some files in the changes may have had changes becasue they were triggered by related changes you made in files that you were actually changing. 
+Main Success Scenario:
+  1. Right click on the file and choose "Undo Changes..." on the context menu
+  2. Confirm the undo of the pending change when asked
+  3. Continue with Step 8 of "Change File"
+  
+  
+Revert Changes after Commit but before Push to Server
+Main Success Scenario:
+  1. xxx:fill in
+  
+Revert Changes after Commit and after Push to Server
+Main Success Scenario:
+  1. xxx:fill in
   
 Get Latest File from Server
 Note:
   -Local History shows changes done on your local or pulled down from the server to your local
   -Remote History shows changes done on the server that have not yet been pulled down to your local
   -Using "Fetch" under "Incoming Commits" will only bring meta data for those files to your local
+  -Does using "Pull" link above "Incoming Commits" and below "Branch" name pull all files in the repo? xxx:fill in
 Main Successs Scenario:
   1. Open "Team Explorer" side bar
   2. Choose "Synchronization" from the drop down at the top
   3. Under "Incoming Commits" choose "Pull" to get new/updated files that you do not yet have on your local
-  4. xxx.fill in
-  x. Right click on file and choose "View History..." from context menu
-  x. History window will show Local History and Remote History
-  x. 
+  4. Right click on file and choose "View History..." from context menu
+  5. History window will show Local History and Remote History
+ 
