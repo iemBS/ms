@@ -1,6 +1,7 @@
 Navigate Git in Visual Studio
 Note:
   -Clear "Output" window before each Git action so you can see the technical details of that git action. It may help you trouble shoot
+  -Refresh History window to see version changes
   -xxx:fill, need to clarify what stash and staging is for
 Main Success Scenario:
  1. "Discard Change"
@@ -121,4 +122,11 @@ Main Successs Scenario:
   3. Under "Incoming Commits" choose "Pull" to get new/updated files that you do not yet have on your local
   4. Right click on file and choose "View History..." from context menu
   5. History window will show Local History and Remote History
+  
+Delete all Versios of the File
+Main Success Scenario:
+  1. Right click on file in Solution Explorer and choose "Delete" from context menu
+  2. Confirm the permanent deletion of the file on the pop-up
+  3. On Team Explorer window choose "Changes" on top drop down. 
+  4. Treat the delete like a change you are checking in with the "Change File" use case
  
