@@ -36,6 +36,7 @@ Change File
 Note:
   -"Changes" section shows changes that are on your local
   -You will be committing all changes you see below in the "Changes" section
+  -"Outgoing Commits" section can be slow to reflect the changes that are pushed
 Main Success Scenario:
   1. Open "Solution Explorer" sidebar
   2. Right click on file and choose "Open" from context menu
