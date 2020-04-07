@@ -1,6 +1,7 @@
 Navigate Git in Visual Studio
 Note:
   -Clear "Output" window before each Git action so you can see the technical details of that git action. It may help you trouble shoot
+  -xxx:fill, need to clarify what stash and staging is for
 Main Success Scenario:
  1. "Discard Change"
  2. "Add File"
@@ -57,7 +58,7 @@ Alternatives:
     9a2. See the "Output" window to see what went wrong
     
 Remove Changes You Don't Want to Commit
-xxx:
+Pre-existing Conditions: 
   -On the Team Explorer Side bar with "Changes" on drop down at top
   -Some files in the changes may have had changes becasue they were triggered by related changes you made in files that you were actually changing. 
 Main Success Scenario:
@@ -65,14 +66,33 @@ Main Success Scenario:
   2. Confirm the undo of the pending change when asked
   3. Continue with Step 8 of "Change File"
   
-  
 Revert Changes after Commit but before Push to Server
 Main Success Scenario:
   1. xxx:fill in
   
 Revert Changes after Commit and after Push to Server
+Note:
+  -As of Step 5, the revert will not show as a change on the Team Explorer sidebar with the top drop down set to "Changes"
 Main Success Scenario:
-  1. xxx:fill in
+  1. View history for the file
+  2. Right click on the latest version of the file in the history and choose "Revert" from the context menu. 
+  3. Choose "Yes" on the pop-up to confirm the revert on the commit
+  4. Open the file from the Solution Explorer side bar to confirm it is the previous version of the file
+  5. The red "origin/master" flag on the right side of the History window points to the previous version instead of the most recent version. 
+  6. Refresh the History window to see the new Revert entry in the history
+  7. xxx: fill in, need to explain how to get the revert reflected on the server
+  
+Revert a Revert before the original revert was pushed to the server
+Pre-existing Conditions: 
+  -A revert exists as the latest version in the file history
+  -original revert has not been pushed to the server
+Main Success Scenario:
+  1. Right click on that new version and choose "View Commit Details"
+  2. Team Exploer opens on the side bar with the top drop down set to "Commit Details". 
+  3. Your file shows in the "Changes" section. 
+  4. Click "Revert" link above the "Changes" section
+  5. Refersh History window and see a revert of a revert
+  6. xxx:fill in, need to explain how to get the revert of a revert reflected on the server
   
 Get Latest File from Server
 Note:
