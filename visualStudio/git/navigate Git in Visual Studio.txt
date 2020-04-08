@@ -178,6 +178,8 @@ Main Success Scenario:
   3.xxx:fill in
   
 Make Git Ignore the "slnx.sqlite" file
+Note:
+  -Guidance @ https://github.com/paolosalvatori/ServiceBusExplorer/issues/237
 Pre-existing Conditions: 
   -Be on Team Explorer sidebar with top drop down set to "Synchronization"
 Main Success Scenario:
