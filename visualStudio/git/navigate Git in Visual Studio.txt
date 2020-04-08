@@ -2,6 +2,7 @@ Navigate Git in Visual Studio
 Note:
   -Clear "Output" window before each Git action so you can see the technical details of that git action. It may help you trouble shoot
   -Refresh History window to see version changes
+  -The git revert command is a forward-moving undo operation that offers a safe method of undoing changes. Instead of deleting or orphaning commits in the commit history, a revert will create a new commit that inverses the changes specified. Git revert is a safer alternative to git reset in regards to losing work.
   -xxx:fill, need to clarify what stash and staging is for
 Main Success Scenario:
  1. "Discard Change"
@@ -175,6 +176,18 @@ Main Success Scenario:
   1.See conflicts in "Conflicts" section
   2.Selecting conficting file shows options
   3.xxx:fill in
+  
+Make Git Ignore the "slnx.sqlite" file
+Pre-existing Conditions: 
+  -Be on Team Explorer sidebar with top drop down set to "Synchronization"
+Main Success Scenario:
+  1. Click "Actions" link at top of sidebar
+  2. Choose "Open Command Prompt" from context menu
+  3. Enter ".vs" folder
+  4. Run the below command in the commannd prompt
+      git update-index --assume-unchanged slnx.sqlite
+  5. No response message is shown. You only get a new line in the prompt
+  
   
 What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
 Why is full change history for a file being overwritten on the server? xxx:fill in
