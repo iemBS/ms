@@ -3,6 +3,7 @@ Note:
   -Clear "Output" window before each Git action so you can see the technical details of that git action. It may help you trouble shoot
   -Refresh History window to see version changes
   -The git revert command is a forward-moving undo operation that offers a safe method of undoing changes. Instead of deleting or orphaning commits in the commit history, a revert will create a new commit that inverses the changes specified. Git revert is a safer alternative to git reset in regards to losing work.
+  -When using reset on the history of a single file on a change event that involved more than one file, it will only delete the change for the file you are looking at the history for. After doing the reset (hard delete), the history of the file you wanted to delete the change for will NOT show that the change was deleted. 
   -xxx:fill, need to clarify what stash and staging is for
 Main Success Scenario:
  1. "Discard Change"
