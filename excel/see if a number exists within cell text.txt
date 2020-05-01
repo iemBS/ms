@@ -1,0 +1,4 @@
+See if a Number exists within Cell Text
+Main Success Scenario:
+  1. Use the below formula within another cell
+      =COUNT(FIND({0,1,2,3,4,5,6,7,8,9},A1))>0
