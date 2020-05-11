@@ -1,0 +1,5 @@
+Increase Output Performance
+Note:
+  -Output to grid in SSMS can add a lot of time if you just need the count or rows in the result
+Main Success Scenario:
+  1. xxx:fill in
