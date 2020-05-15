@@ -1,0 +1,11 @@
+Unpivot
+Note:
+  -Changes column names to row values
+  -Changes values for those same columns to row values as well
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?view=sql-server-ver15
+Main Success Scenario:
+  1. 
+Alternatives:
+  1. Unpivot a column that is totally blank
+    1a. See this error message: The type of column "[column name]" conflicts with the type of other columns specified in the UNPIVOT list.
+    1b. Remove totally blank columns from the query
