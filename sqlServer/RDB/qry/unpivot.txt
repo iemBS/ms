@@ -4,7 +4,43 @@ Note:
   -Changes values for those same columns to row values as well
   -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?view=sql-server-ver15
 Main Success Scenario:
-  1. 
+  1. See query below
+  
+drop table if exists tableNew
+
+Select
+	nonPivotColumn1,
+	nonPivotColumn2,
+	nonPivotColumn3,
+	columnNewColumnNameToHoldOldColumnNames,
+	columnMultipleColVals2singleColVals
+into
+	tableNew
+From
+	(
+		select
+			nonPivotColumn1,
+			nonPivotColumn2,
+			nonPivotColumn3,
+			--comment out columns that are blank for all rows
+			columnName2rowValue1,
+			columnName2rowValue2
+		from
+			tableOld
+	) p
+Unpivot
+(
+	columnMultipleColVals2singleColVals For
+	columnNewColumnNameToHoldOldColumnNames In 
+	(
+		--comment out columns that are blank for all rows
+		columnName2rowValue1,
+		columnName2rowValue2
+	)
+) As unpvt
+where
+	columnMultipleColVals2singleColVals != ''  
+  
 Alternatives:
   1. Unpivot a column that is totally blank
     1a. See this error message: The type of column "[column name]" conflicts with the type of other columns specified in the UNPIVOT list.
