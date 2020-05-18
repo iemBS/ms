@@ -1,0 +1,19 @@
+Get Alphabet in Rows
+Main Success Scenario:
+  1.See query below
+  
+drop table if exists #alphabet
+
+declare @l int = 97
+declare @ml int = @l + 25
+
+create table #alphabet (letter char(1))
+
+while @l <= @ml
+begin
+	insert
+		#alphabet 
+	select char(@l) as letter
+
+	set @l = @l + 1
+end
