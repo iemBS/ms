@@ -1,0 +1,14 @@
+Get Phone Number Format
+Notes:
+  -Guidance @ https://www.registerone.com/how-to-setup-phone-input-field-masks-for-your-region-country/
+  -
+Main Success Scenario:
+  1.Use the query below
+  
+select distinct 
+	replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(phoneNum,'0','#'),'1','#'),'2','#'),'3','#'),'4','#'),'5','#'),'6','#'),'7','#'),'8','#'),'9','#') as phoneFormat,
+	len(phoneNum) As phoneLength
+from
+	phoneListTable
+where
+	isnull(phoneNum,'') <> ''
