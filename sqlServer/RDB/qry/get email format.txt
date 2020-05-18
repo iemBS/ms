@@ -1,0 +1,38 @@
+Get Email Format
+Main Success Scenario:
+  1. See query below
+  
+drop table if exists #email 
+
+select distinct 
+	emailCol
+into
+	#email
+from
+	emailTbl
+where
+	isnull(emailCol,'') <> ''
+
+declare @l int = 97
+declare @ml int = @l + 25
+
+while @l <= @ml
+begin
+	update
+		e
+	set
+		emailCol = replace(e.emailCol,char(@l),'A')
+	from
+		#email e
+
+	set @l = @l + 1
+end
+
+update
+	e
+set
+	emailCol = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(emailCol,'0','#'),'1','#'),'2','#'),'3','#'),'4','#'),'5','#'),'6','#'),'7','#'),'8','#'),'9','#')
+from
+	#email e
+
+select distinct * from #email
