@@ -1,0 +1,4 @@
+Find PO Box in Address
+Main Success Scenario:
+  1. See formula below
+      =NOT(ISERR(FIND("PO BOX",SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(UPPER(A2),".",""),"P O BOX","PO BOX"),"POST OFFICE BOX","PO BOX"))))
