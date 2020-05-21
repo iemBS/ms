@@ -1,0 +1,6 @@
+Get Postal Code Format
+Pre-Conditions:
+  -Assume format has only numbers and a hyphen
+Main Success Scenario:
+  1. Use below formula in Excel cell
+      =IF(ISNUMBER(1-F2),LEFT("################",LEN(F2)),IF(ISNUMBER(1-SUBSTITUTE(F2,"-","")),REPLACE(LEFT("################",LEN(F2)),FIND("-",F2),1,"-"),0))
