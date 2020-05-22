@@ -1,0 +1,3 @@
+Get Has Attachment
+Main Success Scenario:
+  1.xxx:fill in
