@@ -1,0 +1,18 @@
+Get Assigned to Me - State is Active
+Main Success Scenario:
+  1. See below
+
+      Type of query: Work items nad direct links
+
+      Filters for top level work items
+      Line 1 - Field: State, Operator: =, Value: Active
+      Line 2 - Field: Work item Type, Operator: =, Value: User Story
+
+      Filters for linked work items
+      Line 1 - Field: State, Operator: =, Value: Active
+      Line 2 - Field: Work Item type, Operator: =, Value: Task
+      Line 3 - Field: Assigned To, Operator: =, Value: @Me
+
+      Filter options: Open return items that have matching links
+      Type of links: Child
+  
