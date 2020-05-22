@@ -1,4 +1,6 @@
 Get Assigned to Me - State is Active
+Note:
+  -Using your name instead of @Me for the "Assigned To" gets only tasks assigned to you. "@Me" does not do that. 
 Main Success Scenario:
   1. See below
 
@@ -11,8 +13,7 @@ Main Success Scenario:
       Filters for linked work items
       Line 1 - Field: State, Operator: =, Value: Active
       Line 2 - Field: Work Item type, Operator: =, Value: Task
-      Line 3 - Field: Assigned To, Operator: =, Value: @Me
+      Line 3 - Field: Assigned To, Operator: =, Value: [my name]
 
-      Filter options: Open return items that have matching links
+      Filter options: Only return items that have matching links
       Type of links: Child
-  
