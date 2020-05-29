@@ -1,4 +1,6 @@
 Create GUID
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/sql/t-sql/functions/newid-transact-sql?view=sql-server-ver15
 Main Succes Scenario:
   1. Run below query
       select newID()
