@@ -1,0 +1,4 @@
+Create GUID
+Main Succes Scenario:
+  1. Run below query
+      select newID()
