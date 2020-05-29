@@ -1,0 +1,7 @@
+Count Distinct Values in a Range
+Note:
+  -Guidance @ https://superuser.com/questions/189762/how-to-count-number-of-distinct-values-in-a-range
+Main Success Scenario:
+  1. See formula below
+  
+      =SUMPRODUCT((V3:V100 <> "")/COUNTIF(V3:V100,V3:V100 & ""))
