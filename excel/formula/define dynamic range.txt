@@ -1,3 +1,5 @@
 Define Dynamic Range
+Note:
+  -Guidance @ https://docs.microsoft.com/en-us/office/troubleshoot/excel/indirect-function-to-create-reference
 Main Success Scenario:
   1.xxx:fill in
