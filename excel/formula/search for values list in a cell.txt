@@ -1,0 +1,4 @@
+Search for Values list in a Cell
+Main Success Scenario:
+  1. Use this formula
+      =NOT(AND(ISERROR(SEARCH({"-","|","__","/",":"},A2))))
