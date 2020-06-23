@@ -1,0 +1,4 @@
+Count Instances of Char in String
+Main Success Scenario:
+  1. See formula below
+      =LEN(F38)-LEN(SUBSTITUTE(F38,".",""))
