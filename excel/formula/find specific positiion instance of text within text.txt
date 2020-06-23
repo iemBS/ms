@@ -1,0 +1,6 @@
+Find Specific Position Instance of Text within Text
+Note:
+  -Guidance @ https://exceljet.net/formula/position-of-2nd-3rd-etc-instance-of-character
+Main Success Scenario:
+  1. See formula below
+      https://exceljet.net/formula/position-of-2nd-3rd-etc-instance-of-character
