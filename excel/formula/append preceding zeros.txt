@@ -1,0 +1,4 @@
+Addpend Preceding Zeros
+Main Success Scenario:
+ 1. See formula below
+      =LEFT("000000000",9-LEN(H2)) & H2
