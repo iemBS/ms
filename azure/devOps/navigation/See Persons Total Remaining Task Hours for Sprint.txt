@@ -1,0 +1,11 @@
+See Persons Total Remaining Task Hours for Sprint
+Main Success Scenario:
+  1. Go to "Boards" on left side bar
+  2. Choose "Backlogs" from pop-up menu
+  3. Go to "Boards" on left side bar
+  4. Choose "Sprints" from pop-up menu
+  5. Select "Taskboard" tab
+  6. On "Features" menu on top right, choose "Stories"
+  7. On "View Options" menu on top right, choose "Mapping" under "Side Pane"
+  8. See "Work Details" on right side bar
+  9. Find person in the "Work Details"
