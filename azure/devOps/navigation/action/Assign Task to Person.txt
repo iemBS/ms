@@ -1,3 +1,10 @@
 Assign Task to Person
+Pre-conditions:
+  -Assume "Work Details" is showing on right side pane when viewing "Taskboard" tab
 Main Success Scenario:
-  1.
+  1. Go to "Boards" on left side bar
+  2. Choose "Backlogs" from pop-up menu
+  3. Go to "Boards" on left side bar
+  4. Choose "Sprints" from pop-up menu
+  5. Select "Taskboard" tab
+  6. Select task and drag and drop on person in the "Work Details" 
