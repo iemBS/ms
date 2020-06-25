@@ -1,0 +1,14 @@
+Convert Date to YYYYMMDD String
+Main Success Scenario:
+  1. Select format(getdate(),'yyyyMMdd')
+Alternatives:
+  1a. Convert date in a non-date type to YYYYMMDD String
+    1a1. Select format(cast('12/24/2016' as date),'yyyyMMdd')
+  
+Convert DateTime to YYYYMMDD String
+Main Success Scenario:
+  1. Select format(getdate(),'yyyyMMdd')
+Alternatives:
+  1a. Convert date in a non-date type to YYYYMMDD String
+    1a1. Select format(cast('2020-06-24 22:19:25.990' as date),'yyyyMMdd')
+  
