@@ -1,3 +1,8 @@
 Assign User Story to Feature
+Pre-conditions:
+ -Assume "Work Details" is showing in right side bar
 Main Success Scenario:
-  1.
+  1. Go to "Boards" on left side bar
+  2. Choose "Backlogs" from pop-up menu
+  3. Select "Backlogs" tab
+  4. Select user story and drag and drop on feature in the "Work Details"
