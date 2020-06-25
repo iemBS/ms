@@ -1,0 +1,8 @@
+Assign User Story to Sprint
+Pre-conditions:
+ -Assume "Planning" is showing in right side bar
+Main Success Scenario:
+  1. Go to "Boards" on left side bar
+  2. Choose "Sprints" from pop-up menu
+  3. Select "Backlogs" tab
+  4. Select user story and drag and drop on sprint in the "Planning"
