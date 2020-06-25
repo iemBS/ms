@@ -1,0 +1,6 @@
+See Sprint Burn Down
+Main Success Scenario:
+  1. Go to "Boards" on left side bar
+  2. Choose "Sprints" from pop-up menu
+  3. See burn down chart on top right
+  4. Click on burn down chart to see bigger view with more detail
