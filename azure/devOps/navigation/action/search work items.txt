@@ -1,0 +1,15 @@
+Search Work Items
+Main Success Scenario:
+  1. "Find Specific Word in a Work Item Title"
+  2. "Find Specific Word in a Specific Work Item Type"
+  x. xxx:fill in
+  
+Find Specific Word in a Work Item Title
+Main Success Scenario:
+  1. If "chicken" is the word, then do the following:
+        title:*chicken*
+
+Find Specific Word in a Specific Work Item Type
+Main Success Scenario:
+ 1. If "chicken" is the word and "User Story" is the type, then do the following:
+        title:*chicken* AND t:"user story"
