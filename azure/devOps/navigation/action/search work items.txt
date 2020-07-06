@@ -1,4 +1,6 @@
 Search Work Items
+Note: 
+  -Guidance @ https://docs.microsoft.com/en-us/azure/devops/project/search/work-item-search?view=azure-devops
 Main Success Scenario:
   1. "Find Specific Word in a Work Item Title"
   2. "Find Specific Word in a Specific Work Item Type"
@@ -13,3 +15,18 @@ Find Specific Word in a Specific Work Item Type
 Main Success Scenario:
  1. If "chicken" is the word and "User Story" is the type, then do the following:
         title:*chicken* AND t:"user story"
+
+Find Work Items Assigned to someone
+Main Success Scenario:
+  1. If "clark kent" is the person they are assigned to:
+      a:clark kent
+
+Find Work Items Created by Someone
+Main Success Scenario:
+  1. If "clark kent" is the person that created the items:
+      c:clark kent
+
+Find Active Work Items
+Main Success Scenario:
+  1. If "Active" then:
+      s:Active
