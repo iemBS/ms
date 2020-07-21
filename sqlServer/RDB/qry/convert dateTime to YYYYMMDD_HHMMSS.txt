@@ -1,0 +1,6 @@
+Convert DateTime to YYYYMMDD_HHMMSS
+Preconditions:
+  -Hours are in 24 hr format
+  -Time is in timezone of the DB this is run on
+Main Success Scenario:
+  1. select format(GetDate(),'yyyyMMdd_HHmmss')
