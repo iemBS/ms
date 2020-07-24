@@ -1,0 +1,47 @@
+Include in .gitignore file
+Note:
+  -These are from https://gist.github.com/octocat/9257657
+    -which was referenced @ https://docs.github.com/en/github/using-git/ignoring-files
+  -Establish this before using your Git instance because the .gitignore file will not work after tracking of a file has started. 
+  -If you want to ignore a file after tracking has started you have to remove the tracking on the file. 
+    -Do that using a command like "git rm --cached FILENAME"
+Main Success Scenario:
+  1. See below
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
