@@ -194,6 +194,16 @@ Main Success Scenario:
 Alternatives:
   1a. Have "slnx.sqlite" file always ignored for specific ADO instance
     1a1. Put file path into ".gitignore" file
+    
+See Folders and Files in remote repo within the "Solution Explorer" tab
+Pre-conditions:
+  -Successfully connected to repo
+Main Success Scenario:
+  1. Go to "Team Explorer" tab in VS
+  2. Click home icon at the top of "Team Explorer" tab
+  3. Under "Solutions" section, click "Show Folder View"
+  4. You will auto jump to the "Solution Explorer" tab after clicking that link
+  5. The folders and files appear on the "Solution Explorer" tab. 
   
 What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
 Why is full change history for a file being overwritten on the server? xxx:fill in
