@@ -222,6 +222,8 @@ Main Success Scenario:
 Ignore files across all repos on your system
 Note: 
   -Guidance @ https://docs.microsoft.com/en-us/azure/devops/repos/git/ignore-files?view=azure-devops&tabs=visual-studio
+  -A file that is already being tracked in Git cannot be ignored. So, be sure to untrack the file before using .gitignore. 
+    -Guidance @ https://docs.github.com/en/github/using-git/ignoring-files
 Main Success Scenario:
   1. xxx:fill in
     
@@ -235,6 +237,5 @@ Main Success Scenario:
   4. You will auto jump to the "Solution Explorer" tab after clicking that link
   5. The folders and files appear on the "Solution Explorer" tab. 
   
-What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
 Why is full change history for a file being overwritten on the server? xxx:fill in
 Why is the slnx.sqllite file being checked out for changes I make to SQL files? xxx:fill in
