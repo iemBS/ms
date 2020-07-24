@@ -120,6 +120,8 @@ Note:
   -Local History shows changes done on your local or pulled down from the server to your local
   -Incoming (History) shows changes done on the server that have not yet been pulled down to your local
   -Using "Fetch" under "Incoming Commits" will only bring meta data for those files to your local
+  -Fetch wil NOT merge branches from the server with your local branch. Pull will fetch all branches from the server and then merge with your local branch. 
+    -Guidance @ https://docs.microsoft.com/en-us/azure/devops/repos/git/pulling?view=azure-devops&tabs=visual-studio
   -Does using "Pull" link above "Incoming Commits" and below "Branch" name pull all files in the repo? xxx:fill in
 Main Successs Scenario:
   1. Open "Team Explorer" side bar
@@ -127,6 +129,11 @@ Main Successs Scenario:
   3. Under "Incoming Commits" choose "Pull" to get new/updated files that you do not yet have on your local
   4. Right click on file and choose "View History..." from context menu
   5. History window will show Local History and Remote History
+Alternatives:
+  1a. Only pull files from a specific branch from the server
+    1a1. Choose "Branches" from the drop down at the top of the "Team Explorer" tab. 
+    1a2. See all the branches for the repo
+    1a3. Right click on the branch you want and choose "Fetch" from the context menu
   
 Delete all Versios of the File
 Main Success Scenario:
