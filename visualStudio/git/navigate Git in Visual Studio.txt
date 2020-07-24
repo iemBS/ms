@@ -244,8 +244,17 @@ Note:
   -The exam;ple below is removing tracking on the "slnx.sqlite" file that is in the ".vs" folder. 
   -The ".vs" folder just has local Git settings that you do not want to push to the server. 
   -The parent folder of the ".vs" folder is the folder for the repo. 
+  -Guidance for removing tracking for a whole folder @ https://stackoverflow.com/questions/1274057/how-to-make-git-forget-about-a-file-that-was-tracked-but-is-now-in-gitignore
 Main Success Scenario:
   1. git rm --cached .vs\slnx.sqlite
-  
+  2. Go to "Team Explorer" tab in VS
+  3. Choose "Changes" from drop down at top of "Team Explorer" tab
+  4. See "slnx.sqlite" file crossed out under "Staged Changes
+  5. See "slnx.sqlite" file added under "Changes" if not already tracked by Git
+  6. Add comment
+  7. Choose "Commit Staged and Push" from the check-in drop down
+Alternatives:
+  1a. Remove Git Tracking on a folder
+    1a1. git rm -r --cached .vs
 Why is full change history for a file being overwritten on the server? xxx:fill in
 Why is the slnx.sqllite file being checked out for changes I make to SQL files? xxx:fill in
