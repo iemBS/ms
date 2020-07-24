@@ -237,5 +237,15 @@ Main Success Scenario:
   4. You will auto jump to the "Solution Explorer" tab after clicking that link
   5. The folders and files appear on the "Solution Explorer" tab. 
   
+Remove Git Tracking on a file
+Note:
+  -Important if you want to have the file in the .gitignore file to prevent changes to your system that you do not want to check into the Git server
+  -Guidance @ https://docs.github.com/en/github/using-git/ignoring-files
+  -The exam;ple below is removing tracking on the "slnx.sqlite" file that is in the ".vs" folder. 
+  -The ".vs" folder just has local Git settings that you do not want to push to the server. 
+  -The parent folder of the ".vs" folder is the folder for the repo. 
+Main Success Scenario:
+  1. git rm --cached .vs\slnx.sqlite
+  
 Why is full change history for a file being overwritten on the server? xxx:fill in
 Why is the slnx.sqllite file being checked out for changes I make to SQL files? xxx:fill in
