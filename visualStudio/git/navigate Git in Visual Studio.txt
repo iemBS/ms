@@ -181,6 +181,7 @@ Main Success Scenario:
 Make Git Ignore the "slnx.sqlite" file
 Note:
   -Guidance @ https://github.com/paolosalvatori/ServiceBusExplorer/issues/237
+  -Guidance @ https://git-scm.com/docs/gitignore
 Pre-existing Conditions: 
   -Be on Team Explorer sidebar with top drop down set to "Synchronization"
 Main Success Scenario:
@@ -190,7 +191,9 @@ Main Success Scenario:
   4. Run the below command in the commannd prompt
       git update-index --assume-unchanged slnx.sqlite
   5. No response message is shown. You only get a new line in the prompt
-  
+Alternatives:
+  1a. Have "slnx.sqlite" file always ignored for specific ADO instance
+    1a1. Put file path into ".gitignore" file
   
 What is "Show All Files" button at top of Solution Explorer window doing? xxx:fill in
 Why is full change history for a file being overwritten on the server? xxx:fill in
