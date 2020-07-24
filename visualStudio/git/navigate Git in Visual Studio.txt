@@ -191,6 +191,7 @@ Note:
   -Guidance @ https://github.com/paolosalvatori/ServiceBusExplorer/issues/237
   -Guidance @ https://git-scm.com/docs/gitignore
   -If a file is in ".gitignore" you have to click the "Show All Files" icon at the top of the "Solution Explorer" tab to see the file. 
+  -Guidance @ https://stackoverflow.com/questions/343646/ignoring-directories-in-git-repositories-on-windows
 Pre-existing Conditions: 
   -Be on Team Explorer sidebar with top drop down set to "Synchronization"
 Main Success Scenario:
@@ -203,6 +204,26 @@ Main Success Scenario:
 Alternatives:
   1a. Have "slnx.sqlite" file always ignored for specific ADO instance
     1a1. Put file path into ".gitignore" file
+  1b. Ignore whole folder
+    1b1. Add folder to .git/info/exclude file
+    
+Ignore Files only on your system
+Note:
+  -Your .gitignore is shared across team members as a file committed and pushed to the Git repo. 
+  -To exclude files only on your system, edit the .git/info/exclude file in your local repo. Changes to this file aren't shared with others. They apply only to the files in that repo. The syntax for this file is the same as the one used in .gitignore.
+  -".git" folder is hidden
+Pre-conditions:
+  -Assuming done on a windows machine
+Main Success Scenario: 
+  1. Unhide ".git" folder in Windows
+  2. Go to .git/info/exclude file
+  3. Edit exclude file
+    
+Ignore files across all repos on your system
+Note: 
+  -Guidance @ https://docs.microsoft.com/en-us/azure/devops/repos/git/ignore-files?view=azure-devops&tabs=visual-studio
+Main Success Scenario:
+  1. xxx:fill in
     
 See Folders and Files in remote repo within the "Solution Explorer" tab
 Pre-conditions:
