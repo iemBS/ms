@@ -66,6 +66,7 @@ Remove Changes You Don't Want to Commit
 Pre-existing Conditions: 
   -On the Team Explorer Side bar with "Changes" on drop down at top
   -Some files in the changes may have had changes becasue they were triggered by related changes you made in files that you were actually changing. 
+  -This is different from choosing to not check-in changes that you want to keep local. This will undo the change on your local branch as well. 
 Main Success Scenario:
   1. Right click on the file and choose "Undo Changes..." on the context menu
   2. Confirm the undo of the pending change when asked
@@ -189,6 +190,7 @@ Make Git Ignore the "slnx.sqlite" file
 Note:
   -Guidance @ https://github.com/paolosalvatori/ServiceBusExplorer/issues/237
   -Guidance @ https://git-scm.com/docs/gitignore
+  -If a file is in ".gitignore" you have to click the "Show All Files" icon at the top of the "Solution Explorer" tab to see the file. 
 Pre-existing Conditions: 
   -Be on Team Explorer sidebar with top drop down set to "Synchronization"
 Main Success Scenario:
