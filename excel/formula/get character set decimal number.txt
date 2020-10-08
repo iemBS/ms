@@ -1,0 +1,6 @@
+Get Character Set Decimal Number
+Note:
+  -CODE() function returns a value of 63, when it is looking at a character outside its character set. 63 is the decimal number of the "?" characxter
+  -In the US, the character set in Excel is cp1252 
+Main Success Scenario:
+  1. CODE(MyCharacter)
