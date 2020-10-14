@@ -1,0 +1,5 @@
+Count Cells that have a Value
+Note:
+  -Guidance @ https://support.microsoft.com/en-us/office/counta-function-7dc98875-d5c1-46f1-9a82-53f3219e2509
+Main Success Scenario:
+  1. =COUNTA(K3:N3)
