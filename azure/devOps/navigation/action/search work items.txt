@@ -30,3 +30,7 @@ Find Active Work Items
 Main Success Scenario:
   1. If "Active" then:
       s:Active
+Find Specific Word in Discussion section of a Work Item
+Main Success Scenario:
+ 1. If searchig for "save" in the Discussion section:
+       Discussion:*save*
