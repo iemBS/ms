@@ -2,6 +2,7 @@ Enable PowerQuery in Excel
 Notes:
   -Guidance @ https://support.office.com/en-us/article/troubleshooting-power-query-2546eaa8-9893-4574-9ef9-afacb9b0b495
   -Power Query intregrated in Excel 2016 by default. Power Query is being used in "Data" ribbon/tab > "Get & Transform" section. 
+  -Guidance @ https://support.microsoft.com/en-us/office/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a?redirectSourcePath=%252farticle%252f8760c647-88b9-409d-b312-6ea8f84a269b&ui=en-US&rs=en-US&ad=US
 Main Success Scenario:
   1. "File" menu
   2. "Options" menu choice
@@ -9,3 +10,6 @@ Main Success Scenario:
   4. Choose "COM Add-ins" on "Manage" drop down and press "Go..." button
   5. Choose "Microsoft Power Query for Excel" in the "COM Add-ins" pop-up window and press "OK" button
   6. May need to restart Excel.
+Alternatives:
+  5a. "Microsoft Power Query for Excel" is not in the list
+    5a1. xxx:fill in
