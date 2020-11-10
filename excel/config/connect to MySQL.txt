@@ -72,6 +72,7 @@ Note:
   -Each table created creates a query object in the "Queries & Connections" right sidebar that can be used to fill other tables ower power queries
   -Whether usign drag and drop or a query, Power Query is being used. So, the source connection at the start will always be (swap out DSN_NAME with real name): 
     Odbc.DataSource("dsn=DSN_NAME", [HierarchicalNavigation=true])
+  -SQL in "SQL statement" can have only one semi-colon in it. 
 Main Success Scenario:
   1. Open Excel file
   2. "Data" menu
