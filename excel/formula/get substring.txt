@@ -1,0 +1,10 @@
+Get SubString
+Main Success Scenario:
+  1. xxx:fill in
+Alternatives:
+  1a. Get left part of string up to the 2nd instance of a specific character (assume A1 is where the text is)
+    1a1. =LEFT(A1,FIND(".",A1,FIND(".",A1)+1)-1)
+  1b. Get right part of string up to the last instance of a specific character 
+    1b1. xxx:fill in
+    
+    
