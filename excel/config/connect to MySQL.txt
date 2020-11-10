@@ -1,0 +1,92 @@
+Connect to MySQL
+Main Success Scenario:
+  1. "Install MySQL ODBC Connector"
+  2. "Create System DSN"
+  3. "Connect with System or User DSN"
+
+
+Install MySQL ODBC Connector
+Main Success Scenario:
+  1. "Install MySQL ODBC Connector on Windows"
+Alternatives:
+  1a. "Install MySQL ODBC Connector on Linux"
+
+Install MySQL ODBC Connector on Windows
+Main Success Scenario:
+  1. Download @ https://dev.mysql.com/downloads/connector/odbc/
+  2. Choose "No thanks, just start my download" to skip Oracle login
+  3. "MySQL Connection/ODBC" setup window appears
+  4. Click "Next" button
+  5. Accept license agreement
+  6. Click "Next" button
+  7. Choose "Typical" radio button
+  8. Click "Install" button
+  9. See "Wizard Completed" message
+  10. Click "Finish" button
+  
+Create System DSN
+Main Success Scenario:
+  1. "Create System DSN in Windows"
+Alternatives:
+  1a. "Create System DSN in Linux"
+  
+Create System DSN in Windows
+Note: 
+  -Guidance for using installed MySQL ODBC driver @ https://dev.mysql.com/doc/connector-odbc/en/connector-odbc-configuration-dsn-windows-5-2.html
+  -A User DSN can only be seen by you and is only accessible on this computer
+  -A System DSN can be use by all users of the computer and is only accessible on the computer
+  -Map of MySQL Workbench connection attributes to DSN attributes
+    -"Connection Name" to "Data Source Name"
+    -"Hostname" to "TCP/IP Server"
+    -"Port" to "Port"
+    -"Username" to "User"
+    -"Password" to "Password"
+    -"Default Schema" to "Database"
+  -why use Ansi or unicode driver?
+Main Success Scenario:
+  1. Open "ODBC Data Source Administrator (64-bit)"
+  2. Go to "Drivers" tab
+  3. Confirm MySQL ODBC Ansi and Unicode drivers are there
+  4. Go to "System DNS" tab 
+  5. Click "Add" button
+  6. Choose the unicode driver
+  7. Click "Finish" button
+  8. "MySQL Connector/ODBC Data Source Configuration" window opens
+  9. Enter "Data Source Name", "TCP/IP Server", "Port", "User", "Password", "Database"
+  10. Click "Test" button
+  11. Get "Connection Successful" message
+  12. On "Test Result" window, click "OK" button
+  13. On "MySQL Connector/ODBC Data Source Configuration" window, click "OK" button
+  14. See new entry "User Data Sources" list
+  15. On "ODBC Data Source Administrator (64-bit)" window, click "OK" button to close window
+Alternatives:
+  16a. Test not successful 
+    16a1. Go to step 4 and choose "User DSN" tab instead
+    
+    
+Connect with System or User DSN
+Note: 
+  -A User DSN can only be seen by you and is only accessible on this computer
+  -A System DSN can be use by all users of the computer and is only accessible on the computer
+  -Each table created is refreshable using right click
+  -Each table created creates a query object in the "Queries & Connections" right sidebar that can be used to fill other tables ower power queries
+  -Whether usign drag and drop or a query, Power Query is being used. So, the source connection at the start will always be (swap out DSN_NAME with real name): 
+    Odbc.DataSource("dsn=DSN_NAME", [HierarchicalNavigation=true])
+Main Success Scenario:
+  1. Open Excel file
+  2. "Data" menu
+  3. In the "Get & Transform Data" section, from the "Get Data" drop down choose "From Other Sources" > "From ODBC"
+  4. "From ODBC" window opens
+  5. Choose your MySQL DSN from the "Data source name (DSN)" drop down
+  6. Click "OK" button
+  7. "Navigator" window opens
+  8. Choose data and click "Load" button
+  9. Data appears in table in new Excel sheet
+Alternatives:
+  6a. Write SQL queries instead of using drag & drop
+    6a1. Expand "Advanced options" section, and specify "SQL statement"
+    6a2. Click "OK" button
+    6a3. "ODBC" window opens
+    6a4. Confirm data is as expected in the "ODBC" window
+    6a5. Click "Load" button. 
+    6a6. Go to step 9. 
