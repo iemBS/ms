@@ -1,0 +1,5 @@
+Split Text into Columns
+Note:
+  -Guidance @ https://support.microsoft.com/en-us/office/split-text-into-different-columns-with-functions-49ec57f9-3d5a-44b2-82da-50dded6e4a68
+Main Success Scenario:
+  1. xxx:fill in
