@@ -1,0 +1,8 @@
+Not Equal Filter
+Note:
+  -A NULL value will not be seen as not equal to a text value. So, you need to use the IFNULL function to make an empty string or text that is not equal to 'myText'
+Main Success Scenario:
+  1. Select Col1 From MyTbl Where Col2 <> 'myText'
+Alternatives:
+  1a. Col2 has a NULL value
+    1a1. Select Col1 From MyTbl Where IFNULL(Col2,'') <> 'myText'
