@@ -1,0 +1,3 @@
+Get Time Zone
+Main Success Scenario:
+  1. Select 'UTC ' + Right(SYSDATETIMEOFFSET(),6)
