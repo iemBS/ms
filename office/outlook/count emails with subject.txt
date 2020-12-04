@@ -1,0 +1,4 @@
+Count Emails with with Subject
+Main Success Scenario:
+  1.Filter emails using "subject:"
+  2. Bottom left of Outlook client shows "items:" count
