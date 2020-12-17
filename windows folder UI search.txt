@@ -1,6 +1,8 @@
 Notes:
-  -Guidance @ https://docs.microsoft.com/en-us/windows/win32/search/-search-3x-advancedquerysyntax?redirectedfrom=MSDN
-  -Guidance @ https://www.howtogeek.com/school/learning-windows-search/lesson4/
+  -Guidance @ 
+    -https://docs.microsoft.com/en-us/windows/win32/search/-search-3x-advancedquerysyntax?redirectedfrom=MSDN
+    -https://www.howtogeek.com/school/learning-windows-search/lesson4/
+    -https://docs.microsoft.com/en-us/windows/win32/lwef/-search-2x-wds-aqsreference
   -Order of operations impacts filter speed.
   -To learn other query filters, add attribute columns to window before applying the search filters. Attribute values will show for each file. 
 Main Success Scenario:
@@ -70,11 +72,17 @@ size:>2 GB
 author:"Clark Kent"
 
 -- all files modified in a date window or a specific date
-modified:last week
+modified:Today
+datemodified:Today
+modified:yesterday 
 datemodified:yesterday 
+modified:This week
+datemodified:This week
+modified:last week
 datemodified:this month 
 datemodified:last month 
 datemodified:this year 
+modified:Last Year
 datemodified:5/2/2019 
 datemodified:<5/2/2019 
 datemodified:>5/2/2019 
@@ -109,3 +117,7 @@ datemodified:>5/2/2019
   
   -- files with a .SQL extension and has "cheese" in the name
   ext:".sql"  filename:*cheese*
+  
+  -- Get only files in the parent or child folders that changed today
+  modified:today -kind:=folder
+  
