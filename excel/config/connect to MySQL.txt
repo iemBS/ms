@@ -44,7 +44,7 @@ Note:
     -"Default Schema" to "Database"
   -why use Ansi or unicode driver?
 Main Success Scenario:
-  1. Open "ODBC Data Source Administrator (64-bit)"
+  1. Open "ODBC Data Source Administrator (64-bit)" (search for "ODBC Data Source" to find it)
   2. Go to "Drivers" tab
   3. Confirm MySQL ODBC Ansi and Unicode drivers are there
   4. Go to "System DNS" tab 
