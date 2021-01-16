@@ -1,0 +1,10 @@
+Import Data from Excel Cell in Same Excel File
+Note:
+  -Guidance @ 
+    -https://support.microsoft.com/en-gb/office/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a
+Main Success Scenario:
+  1. Create a table in your Excel file that has a single header row and single content row
+  2. Format it as a table 
+  3. Name table "MyTbl" and name column "MyCol"
+  4. Code a pull into an existing Power Query of the single value in that table
+    Table.TransformColumnTypes(Excel.CurrentWorkbook(){[Name="MyTbl"]}[Content],{{"MyCol", type text}}){0}[MyCol]
