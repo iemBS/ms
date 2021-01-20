@@ -1,1 +1,6 @@
-dir /b
+List Only File Names in a Folder
+Note:
+  -Guidance @ 
+    -https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/dir
+Main Success Scenario:
+  1. dir /b
