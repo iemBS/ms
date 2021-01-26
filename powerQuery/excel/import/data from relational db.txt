@@ -1,0 +1,19 @@
+Import Data From Relational DB
+Note:
+  -"let" allows you to manipulate data and prep before allowing the data to leave via the "Source" variable.
+  -The exit variable does not need not need to be "Source". It could be anything. Like "data", "output", or "result"
+  -Excel table name used by PowerQuery can handle letters, numbers, and underscores. 
+Main Success Scenario:
+  1. Specify User or System DSN in "My Conn" column of "MyConn" table in Excel
+  2. Specify SQL query for relational DB in "My Qry" column of "My_Qry" table in Excel
+  3. Specify a filter value for the SQL query in the "filter 1" column of the "My_Qry" table in Excel
+  4. See code below 
+  
+    =let
+      srcConn = Table.TransformColumnTypes(Excel.CurrentWorkbook(){[Name="MyConn"]}[Content],{{"My Conn", type text}}){0}[My Conn],
+      qry = Table.TransformColumnTypes(Excel.CurrentWorkbook(){[Name="My_Qry"]}[Content],{{"My Qry", type text}}){0}[My Qry],
+      filter1 = Table.TransformColumnTypes(Excel.CurrentWorkbook(){[Name="My_Qry"]}[Content],{{"filter 1", type text}}){0}[filter 1],
+      qry2 = Text.Replace(qry,"@filter1",filter1),
+      Source = Odbc.Query(srcConn,qry2)
+    in
+      Source
