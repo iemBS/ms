@@ -1,0 +1,32 @@
+Move Email With Auto Rule
+Main Success Scenario:
+  1. "Move Email by Sender"
+  2. "Move Email by Sender Domain"
+  3. "Move Email by Cancelled Invite"
+  4. "Move Email by Subject"
+  5. "Move Email by Old Invite"
+  
+  
+Move Email by Sender
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Move Email by Sender Domain
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Move Email by Cancelled Invite
+Main Success Scenario:
+  1. xxx:fill in
+  
+
+Move Email by Subject
+Main Success Scenario:
+  1. xxx:fill in
+  
+
+Move Email by Old Invite
+Main Success Scenario:
+  1. xxx:fill in
