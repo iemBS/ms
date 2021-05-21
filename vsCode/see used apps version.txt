@@ -1,0 +1,16 @@
+See Version of Used Apps
+Main Success Scenario:
+  1. "See Chrome Version"
+  2. "See Node.js Version"
+  3. "See OS Version"
+  4. "See Electron Version"
+  5. "See GIT Version"
+  
+
+See Electron Version
+Note:
+  -Guidance @ 
+    -xxx:fill in
+  -Electron is an app runtime for writing native apps that uses Chromium (which Google Chrome is built on) for rendering the interface and node. js for local APIs (example: file system access), it was built primarily as the shell for Github's Atom code editor. (Note: Electron is very similar to NW. js).
+Main Success Scenario:
+  1. xxx:fill in
