@@ -1,0 +1,5 @@
+See New Version Details
+Note:
+  -Important before updating VS Code with the new version
+Main Success Scenario:
+  1. xxx:fill in
