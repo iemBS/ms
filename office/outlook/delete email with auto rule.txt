@@ -1,0 +1,36 @@
+Detail Email With Auto Rule
+Main Success Scenario:
+  1. "Delete Email by Sender"
+  2. "Delete Email by Sender Domain"
+  3. "Delete Email by Cancelled Invite"
+  4. "Delete Email by Subject"
+  5. "Delete Email by Old Invite"
+  
+  
+Delete Email by Sender
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Delete Email by Sender Domain
+Main Success Scenario:
+  1. xxx:fill in
+
+
+Delete Email by Cancelled Invite
+Main Success Scenario:
+  1. xxx:fill in
+  
+
+Delete Email by Subject
+Main Success Scenario:
+  1. xxx:fill in
+  
+
+Delete Email by Old Invite
+Main Success Scenario:
+  1. xxx:fill in
+  
+  
+  
+  
