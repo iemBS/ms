@@ -1,3 +1,17 @@
 Create Branch
+Note:
+  -Do not include spaces in your new branch name. Underscores ccan be used to show spacing.
+    -"tst_branch_create_in_vsCode" is an example
 Main Success Scenario:
-  1. xxx:fill in
+  1. Click "Source Control" icon on left side bar
+  2. Click the branch name to the right of the repo name 
+  3. Click "Create New Branch From..." option from drop down
+  4. Type new branch name in text box at the top
+  5. Click "enter" button on your keyboard
+  6. Choose branch to base your new branch on
+  7. See new branch name to the right of the repo name (only lives on your pc right now)
+  8. Click publish button (cloud w up arrow icon) to right of branch name (pushes new branch to server)
+  9. cloud w up arrow icon shows as spinning circle icon
+  10. When only circle icon shows, new branch is pushed to the server
+  11. Go to Azure Dev Ops in browser to confirm new branch is seen on server
+  
