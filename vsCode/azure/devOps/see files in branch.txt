@@ -1,0 +1,3 @@
+See Files in Branch
+Main Success Scenario:
+  1. Click "Explorer" icon on left side bar
