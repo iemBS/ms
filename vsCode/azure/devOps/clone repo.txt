@@ -1,3 +1,13 @@
 Clone Repo
 Main Success Scenario:
-  1. xxx:fill in
+  1. Open your Azure Dev Ops instance in a browser
+  2. Click on the "Repose" icon on the left side bar to show the menu
+  3. Choose "File" option on the menu
+  4. Click gray "Clone" button on top right
+  5. Click "Open Visual Studio Code" option on IDE menu
+  6. See Visual Studio Code IDE opens
+  7. See "Allow an extension to open this URI?" window open
+  8. Click "Open" button on that window
+  9. Choose a folder on your local pc to copy the repo to
+  10. Click "Open" button on the "Would you like to open the cloned repository?" message in VS Code
+  11. See repo appear in "Explorer" window on left side of VS Code
