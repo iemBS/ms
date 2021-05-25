@@ -1,0 +1,8 @@
+Sync Local Copy with Server
+Main Success Scenario:
+  1. Open VS Code 
+  2. Open connection to repo in VS Code
+  3. Click spinning circle icon below "Explorer" window
+  4. Click "OK" button on "This action will push and pull commits to and from 'origin/develop'" window. 
+  5. See that circle icon spin during the sync
+  
