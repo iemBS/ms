@@ -1,6 +1,8 @@
 Delete Branch
 Note:
   -This will not delete the copy of the branch on the server. So, delete that via the browser. 
+Question:
+  -How to remote copy of branch from the list of remote branches I see in VS Code?
 Main Success Scenario:
   1. Click "Source Control" button on left side bar
   2. Checkout the branch to be deleted
