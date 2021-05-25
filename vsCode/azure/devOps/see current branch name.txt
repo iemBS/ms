@@ -8,4 +8,6 @@ Alternatives:
   1a. See in "Output" tab in "Panel" area
     1a1. Click "Output" tab 
     1a2. Look for branches referenced 
+  1b. Fastest way
+    1b1. Click "Source Control" icon on left side bar
     
