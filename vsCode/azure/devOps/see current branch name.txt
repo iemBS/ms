@@ -1,0 +1,11 @@
+See Current Branch Name
+Main Success Scenario:
+  1. Click "View" menu at top left
+  2. Choose "Open View..." from menu to open a new menu
+  3. Choose "Source Control Repositories" 
+  4. See branch name to the right of the repo name
+Alternatives:
+  1a. See in "Output" tab in "Panel" area
+    1a1. Click "Output" tab 
+    1a2. Look for branches referenced 
+    
