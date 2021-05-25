@@ -1,3 +1,6 @@
 Enable Jupyter Notebook Use
+Note:
+  -Guidance @ 
+    -https://code.visualstudio.com/docs/python/jupyter-support
 Main Success Scenario:
   1. xxx:fill in
