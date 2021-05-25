@@ -1,6 +1,7 @@
 Checkout Branch
 Note:
   -The branches on the server are prefixed with "origin/". Those without are on your local pc.
+  -Choosing a branch on the server will cause a copy to be created on your local pc and you will check out that local copy instead. 
 Main Success Scenario:
   1. Go to "Source Control" view
   2. Click on branch name to the right of the repo name
