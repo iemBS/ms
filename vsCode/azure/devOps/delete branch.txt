@@ -1,3 +1,11 @@
 Delete Branch
+Note:
+  -This will not delete the copy of the branch on the server. So, delete that via the browser. 
 Main Success Scenario:
-  1. xxx:fill in
+  1. Click "Source Control" button on left side bar
+  2. Checkout the branch to be deleted
+  3. See branch name to right of repo name
+  4. Click ellipses button, choose "Branch", choose "Delete Branch..."
+  5. The non-checked out branches on your local pc are shown in a drop down menu
+  6. Choose the branch to delete and click "enter" button on your keyboard
+  7. Copy will be deleted only on your local pc
