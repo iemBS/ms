@@ -1,4 +1,7 @@
 Sync Local Copy with Server
+Note:
+  -Guidance @ 
+    -https://www.youtube.com/watch?v=ouNetY-9wJ0
 Main Success Scenario:
   1. Open VS Code 
   2. Open connection to repo in VS Code
