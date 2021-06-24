@@ -20,6 +20,18 @@ Main Success Scenario:
   3. Get IP from "Wireless LAN adapter Wi-Fi" > "Default Gateway"
   4. Do tests like found in "Test Network Speed to a favorite site" use case
   
+  
+Test Network Speed between steps to your destination
+Note:
+  -guidance @ 
+    -https://www.redhat.com/sysadmin/traceroute-finding-meaning
+  -RTT is the round trip time it takes for a packet to be sent to the server and back
+  -Each step sends three packets. So, you have three RTT to compare per step.
+Main Success Scenario:
+  1. Run bellow command in a command window
+    tracert google.com
+  2. Shows each server that is gone through on the way to the site along with the three RTT per step
+
 
 Test Network Speed to a favorite site
 Note: 
