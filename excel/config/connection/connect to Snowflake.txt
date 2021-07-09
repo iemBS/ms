@@ -1,0 +1,6 @@
+Connect to Snowflake
+Note:
+  -Guidance @ 
+    -https://www.cdata.com/kb/tech/snowflake-odbc-excel-query.rst
+Main Success Scenario:
+  1. xxx:fill in
