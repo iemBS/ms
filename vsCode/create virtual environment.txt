@@ -1,0 +1,13 @@
+Create Virtual Environment
+Note:
+  -Guidance @ 
+    -https://www.youtube.com/watch?v=ThU13tikHQw
+  -If folders do not exist, they are created by the command
+Main Success Scenario:
+1. Go to TERMINAL tab in VS Code (choose powershell on right)
+2. Type at the prompt
+   py -m venv
+3. Paste path of project folder into the command 
+   py -m venv C:\Users\ckent\Desktop\vsCodeVirtualEnv
+4. click enter
+5. End
