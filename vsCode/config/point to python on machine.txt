@@ -1,0 +1,6 @@
+Point to Python on Machine
+Note:
+  -guidance @
+    -https://stackoverflow.com/questions/43313903/in-windows-10-how-to-configure-visual-studio-code-to-find-the-python-3-interpre
+Main Success Scenario:
+  1. xxx:fill in
