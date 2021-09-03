@@ -1,4 +1,7 @@
 Install Package on Virtutal Envirnoment
+Note:
+  -Guidance @ 
+    -https://www.youtube.com/watch?v=ThU13tikHQw
 Main Success Scenario:
   1. cd C:\Users\ckent\Desktop\vsCodeVirtualEnv
   2. Paste comamnd into prompt
