@@ -1,0 +1,6 @@
+Install Package on Virtutal Envirnoment
+Main Success Scenario:
+  1. cd C:\Users\ckent\Desktop\vsCodeVirtualEnv
+  2. Paste comamnd into prompt
+     pip install PACKAGE_TO_INSTALL
+  3. Shows collecting messages
