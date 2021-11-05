@@ -1,0 +1,7 @@
+Delete Email with AutoArchive
+Note:
+  -guidance @ 
+    -https://superuser.com/questions/1105603/how-to-set-time-based-rules-in-outlook
+  -This will allow you to delete based on email age instead of email date. The auto rules only allow you to delete based on email date. 
+Main Success Scenario:
+  1. xxx:fill in 
