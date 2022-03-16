@@ -3,4 +3,7 @@ Note:
   -guidance @
     -https://stackoverflow.com/questions/43313903/in-windows-10-how-to-configure-visual-studio-code-to-find-the-python-3-interpre
 Main Success Scenario:
-  1. xxx:fill in
+  1. Click CTRL + SHIFT + P
+  2. Menu appears at top of Visual Studio Code client
+  3. Search for "Python: Select Interpreter" in the menu
+  4. Click on python install to use
