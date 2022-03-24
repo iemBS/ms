@@ -1,5 +1,0 @@
-Find Invalid Characters
-Notes:
-  -Jumping between different file encoding can introduce invalid characters. 
-Main Success Scenario:
-  1. xxx:need to fill in

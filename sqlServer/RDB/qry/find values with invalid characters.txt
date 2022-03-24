@@ -1,0 +1,24 @@
+Find Invalid Characters
+Notes:
+  -Jumping between different file encoding can introduce invalid characters. 
+Main Success Scenario:
+  1. Number of valid characters is much smaller than the number of possible invalid characters
+  2. Possible invalid characters is NOT known or cannot be limited to a list
+  3. Find values with characters other than the valid characters
+  
+    Select
+      Col1
+    From
+      TblA
+    Where
+      replace(replace(replace(replace(replace(Col1,'''',''),'-',''),',',''),' ',''),'.','') Like '%[^A-Z]%';
+      
+  4. End
+Alternatives:
+  1a. Number of valid characters is much larger than the number of possible invalid characters
+    1a1. xxx:fill in 
+    1a2. Go to step 4
+  2a. Possible invalid characters IS known and limited to a list
+    2a1. xxx:fill in 
+    2a2. Go to step 4
+  
