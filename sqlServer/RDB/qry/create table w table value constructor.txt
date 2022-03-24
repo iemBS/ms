@@ -1,0 +1,6 @@
+Create Table w Table Value Constructor
+Note:
+  -guidance @
+    -https://docs.microsoft.com/en-us/sql/t-sql/queries/table-value-constructor-transact-sql?view=sql-server-ver15
+Main Success Scenario:
+  1. xxx:fill in 
