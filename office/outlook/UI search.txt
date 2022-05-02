@@ -1,6 +1,12 @@
 -- all emails from a specific person
 from:"ckent@hotmail.com"
 
+-- all emails not from a domain
+  -Assume email domain checked is kent.com
+  -ref @ https://www.extendoffice.com/documents/outlook/3663-outlook-search-external-emails-not-from-domain.html
+  -returns non-human emails for the kent.com domain 
+from: NOT "@kent.com"
+
 -- all emails to only one specific person
 to:"clark kent" AND NOT to:"Lois Lane"
 
