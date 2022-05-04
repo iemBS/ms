@@ -1,0 +1,6 @@
+Install Python Code Syntax Check Package
+Note:
+  -Package uses PEP 8 standard
+    -ref @ https://peps.python.org/pep-0008/
+Main Success Scenario:
+  1. See https://code.visualstudio.com/docs/python/linting#_pycodestyle-pep8
