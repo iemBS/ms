@@ -15,6 +15,7 @@ Install MySQL ODBC Connector on Windows
 Main Success Scenario:
   1. Download @ https://dev.mysql.com/downloads/connector/odbc/
   2. Choose "No thanks, just start my download" to skip Oracle login
+  2.5. Open file
   3. "MySQL Connection/ODBC" setup window appears
   4. Click "Next" button
   5. Accept license agreement
@@ -43,16 +44,18 @@ Note:
     -"Password" to "Password"
     -"Default Schema" to "Database"
   -why use Ansi or unicode driver?
+  -Specifying the server name, database name, and user name in the DSN name clarifies what the DSN is for when you have several DSNs on your system or in a file. 
+    -Including the a project or platform name may also help 
 Main Success Scenario:
   1. Open "ODBC Data Source Administrator (64-bit)" (search for "ODBC Data Source" to find it)
   2. Go to "Drivers" tab
   3. Confirm MySQL ODBC Ansi and Unicode drivers are there
-  4. Go to "System DNS" tab 
+  4. Go to "System DSN" tab 
   5. Click "Add" button
   6. Choose the unicode driver
   7. Click "Finish" button
   8. "MySQL Connector/ODBC Data Source Configuration" window opens
-  9. Enter "Data Source Name", "TCP/IP Server", "Port", "User", "Password", "Database"
+  9. Enter "Data Source Name" (aka DSN), "TCP/IP Server", "Port", "User", "Password", "Database"
   10. Click "Test" button
   11. Get "Connection Successful" message
   12. On "Test Result" window, click "OK" button
