@@ -5,6 +5,7 @@ Main Success Scenario:
   3. "Delete Email by Cancelled Invite"
   4. "Delete Email by Subject"
   5. "Delete Email by Old Invite"
+  6. "Prevent Email Auto Deletion"
   
   
 Define Retention Policy
@@ -76,6 +77,13 @@ Main Success Scenario:
 Delete Email by Old Invite
 Main Success Scenario:
   1. xxx:fill in
+  
+  
+Prevent Email Auto Deletion
+Main Success Scenario:
+  1. xxx:fill in
+  
+
   
   
   
