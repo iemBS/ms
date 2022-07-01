@@ -7,6 +7,52 @@ Main Success Scenario:
   5. "Delete Email by Old Invite"
   
   
+Define Retention Policy
+Note:
+  -If not sure of retention policy duration, choose a larger duration and then re-define if emails do not leave soon enough. 
+Main Success Scenario:
+  1. Have no reason to keep email around
+  2. Delete Now
+  3. End 
+Alternatives:
+  2a. Delete Later
+    2a1. "Define Why Keep Email"
+    2a2. "Define Retained Email Groups"
+    2a3. "Define Email Retention Duration"
+    2a4. "Define Retained Email Format"
+    2a5. "Define Retained Email Location"
+    2a6. go to step 3
+    
+  
+Define Why Keep Email
+Note:
+  -guidance @
+    -https://blogs.loc.gov/thesignal/2011/09/why-should-we-save-our-email
+    -https://hbr.org/2012/02/stop-email-overload-1
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Define Retained Email Groups
+Main Success Scenario:
+  1. xxx:fill in 
+  
+
+Define Email Retention Duration
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Define Retained Email Format
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
+Define Retained Email Location
+Main Success Scenario:
+  1. xxx:fill in 
+  
+  
 Delete Email by Sender
 Main Success Scenario:
   1. xxx:fill in
