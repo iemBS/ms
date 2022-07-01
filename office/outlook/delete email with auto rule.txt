@@ -1,4 +1,6 @@
 Detail Email With Auto Rule
+Note:
+  -Manually delete emails now that you do not want, have no need for retention policy, and do not get frequent enough to group into an existing or new rule.
 Main Success Scenario:
   1. "Delete Email by Sender"
   2. "Delete Email by Sender Domain"
