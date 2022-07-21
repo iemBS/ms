@@ -70,6 +70,13 @@ Delete Email by Cancelled Invite
 Main Success Scenario:
   1. xxx:fill in
   
+Delete Email bt Meeting Acceptance
+Note:
+  -guidance @
+    -https://www.extendoffice.com/documents/outlook/1894-outlook-remove-meeting-responses.html
+Main Success Scenario:
+  1. xxx:fill in 
+  
 
 Delete Email by Subject
 Main Success Scenario:
