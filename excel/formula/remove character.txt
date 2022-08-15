@@ -1,0 +1,6 @@
+Remove Character
+Note:
+  -guidance @
+    -https://www.exceltip.com/excel-text-formulas/remove-unwanted-characters-in-excel.html
+Main Success Scenario:
+  1. xxx:fill in 
