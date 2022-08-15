@@ -1,0 +1,6 @@
+Get First Non-Blank Value in Row
+Note:
+  -guidance @
+    -https://www.mrexcel.com/excel-tips/find-the-first-non-blank-value-in-a-row/
+Main Success Scenario:
+  1. xxx:fill in 
