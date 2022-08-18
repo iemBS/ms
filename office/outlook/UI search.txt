@@ -1,3 +1,6 @@
+-- general outlook search guidance
+  -https://www.howto-outlook.com/howto/searchcommands.htm
+
 -- all emails from a specific person
 from:"ckent@hotmail.com"
 
@@ -53,6 +56,41 @@ subject:word1 subject:word2
 
 -- all emails with a word or phrase in the body
 contents:"my Word"
+
+-- all emails with a flag
+followupflag:followup flag
+flagstatus:followup flag
+hasflag:true
+
+-- alll emails without a flag
+flagstatus:Unflagged
+hasflag:false
+
+-- all emails with a follow up flag set by the sender
+xxx:fill in 
+
+-- all emails flagged by me
+xxx:fill in 
+
+-- all emails with a flag due today
+xxx:fill in 
+
+-- all emails with a flag due tomorrow
+followupflag:followup flag due:tomorrow
+
+-- all emails with a completed flag
+followupflag:completed
+flagstatus:completed
+
+-- all emails with a retention policy
+This is not possible, but you can flag or move emails while still applying a rention policy (before or after)
+  https://answers.microsoft.com/en-us/outlook_com/forum/all/search-for-email-messages-without-retention-policy/cc83118d-8774-4f8f-9271-65e624918499
+
+-- all emails with 1 week retention policy
+retentionpolicy:="1 Week Delete"
+
+-- all emails WITHOUT a retention policy
+retentionpolicy:=NOT "1 Week Delete" retentionpolicy:=NOT "1 Month Delete" retentionpolicy:=NOT "6 Month Delete" retentionpolicy:=NOT "1 Year Delete"
 
 -- all emails with a link in the body
 This is not possible, but you can create a rule to find those emails
