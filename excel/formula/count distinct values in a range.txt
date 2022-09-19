@@ -7,10 +7,16 @@ Main Success Scenario:
       =SUMPRODUCT((V3:V100 <> "")/COUNTIF(V3:V100,V3:V100 & ""))
   2. End
 Alternatives:
-  1a. Distinct values in column
+  1a. Distinct values in column (not ignore zeroes)
     1a1. see formula below
       =COUNTA(UNIQUE(A2:A67,FALSE))
     1a2. go to step 2
-  1b. Distinct values in row
+  1b. Distinct values in row (not ignore zeroes)
     1b1. =COUNTA(UNIQUE(A2:A67,TRUE))
     1b2. go to step 2
+  1c. Distinct values in column or row (ignore empty values, works for numbers and non-numbers)
+    1c1. =COUNT(IF(FREQUENCY(MATCH(A2:A67,A2:A67,0),MATCH(A2:A67,A2:A67,0))>0,1,""))
+    1c2. go to step 2
+  1d. Distinct values in column or row (ignore empty values, works only for numbers)
+    1d1. =COUNT(IF(FREQUENCY(A2:A67,A2:A67)>0,1,""))
+    1d2. go to step 2
