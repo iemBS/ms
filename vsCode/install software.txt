@@ -1,0 +1,11 @@
+Install Software
+Main Success Scenario:
+  1. download from https://code.visualstudio.com/
+  2. open file
+  3. accept agreement 
+  4. "Choose Install Options"
+  
+  
+Choose Install Options
+Main Success Scenario:
+  1. xxx:fill in 
