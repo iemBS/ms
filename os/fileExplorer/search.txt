@@ -118,6 +118,12 @@ datemodified:>5/2/2019
   -- files with a .SQL extension and has "cheese" in the name
   ext:".sql"  filename:*cheese*
   
+  -- files with a .txt extension, has "cheese" in the file name, and was modified this month
+  ext:".txt"  filename:*cheese* datemodified:this month
+  
+  -- files with a .txt extension, has "cheese" in the file name, and was modified after May 2nd 2019
+  ext:".txt"  filename:*cheese* datemodified:>5/2/2019 
+  
   -- Get only files in the parent or child folders that changed today
   modified:today -kind:=folder
   
