@@ -1,0 +1,11 @@
+Filter Date
+Main Success Scenario:
+  1. Filter on specific specific date
+      2022-12-31T00:00:00
+  2. End
+Alternatives:
+  1a. Specific date has incorrect format
+    1a1. specify incorrect format
+    1a2. see error messsage
+    1a3. go to step 1
+  
