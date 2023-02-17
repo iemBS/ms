@@ -1,0 +1,7 @@
+Create Empty Folder
+Note:
+  -guidance @
+    -https://www.wikihow.com/Create-and-Delete-Files-and-Directories-from-Windows-Command-Prompt
+Main Success Scenario:
+  1. mkdir ckent
+  2. Created a folder named "ckent"
