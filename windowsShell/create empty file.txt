@@ -1,6 +1,7 @@
-Create Empty Text File
+Create Empty File
 Note:
    -guidance @
      -https://superuser.com/questions/1134515/how-to-create-empty-txt-files-with-the-name-from-other-txt-file
 Main Success Scenario:
-  1. xxx:fill in 
+  1. echo.>ckent.txt
+  2. Created a file named ckent.txt
