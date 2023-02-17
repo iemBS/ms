@@ -1,0 +1,6 @@
+Create Empty Text File
+Note:
+   -guidance @
+     -https://superuser.com/questions/1134515/how-to-create-empty-txt-files-with-the-name-from-other-txt-file
+Main Success Scenario:
+  1. xxx:fill in 
