@@ -10,6 +10,9 @@ from:"ckent@hotmail.com"
   -returns non-human emails for the kent.com domain 
 from: NOT "@kent.com"
 
+-- all emails associated to the same conversation
+[Conversation]:="subject where RE and FWD prefixes are ignored"
+
 -- all emails to only one specific person
 to:"clark kent" AND NOT to:"Lois Lane"
 
