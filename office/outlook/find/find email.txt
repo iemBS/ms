@@ -34,6 +34,9 @@ received:yesterday
 -- all emails received today
 received:today
 
+-- all emails received within a date range
+received:>=02/23/2018 AND received:<=02/25/2018
+
 -- all emails sent yesterday
 sent:yesterday
 
