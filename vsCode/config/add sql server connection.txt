@@ -1,3 +1,22 @@
 Add SQL Server Connection
 Main Success Scenario:
   1. xxx:fill in 
+Altnernatives:
+  1a. Need to set uncommon connection variables
+    1a1. "Add Connection via Settings.JSON"
+  1b. Need to add several connections
+    1b1. go to step 1a1
+  1c. Need to overwrite Settings.JSON file
+    1c1. go to step 1a1
+
+
+Add Connection via Settings.JSON
+Note:
+  -ref @
+    -https://code.visualstudio.com/docs/getstarted/settings
+Main Success Scenario:
+  1. Open Visual Studio Code client
+  2. Navigate to File > Preferences (Code > Preferences or Code > Settings on macOS) > Settings.
+  3. Navigate to "User" tab
+  4. Navigate to "Extensions" > "MSSQL configuration"
+  5. See "Connections" section
