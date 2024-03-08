@@ -1,3 +1,6 @@
+-- find unread emails 
+isread:no
+
 -- general outlook search guidance
   -https://www.howto-outlook.com/howto/searchcommands.htm
 
