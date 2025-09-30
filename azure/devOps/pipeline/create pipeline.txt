@@ -1,4 +1,5 @@
-
+Create Pipeline
+Note
 - Set piprline name
 - Set Agent Pool
 - Set Agent Specification
@@ -22,3 +23,12 @@
   - TODO
 - publish artifact 
   - TODO
+Main Success Scenario:
+1. TODO
+
+Create Release Pipeline
+Note
+- Release is an instance of a release pipeline.
+Main Success Scenario:
+1. TODO
+
