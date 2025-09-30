@@ -1,1 +1,14 @@
-placeholder
+Create Task
+Note
+- Task is ...
+  - An action
+  - A building block
+  - prepackaged script
+- common task uses are ...
+  - build app
+  - run test
+  - interacting w resources
+  - install tool
+  - deploy app
+Main Success Scenario:
+1. TODO
