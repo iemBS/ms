@@ -12,3 +12,28 @@ Note
   - deploy app
 Main Success Scenario:
 1. TODO
+
+
+Create Get Sources Task
+Main Success Scenario:
+1. TODO
+
+
+Create Build Artifacts Task
+Note
+- Is a job (logical group of tasks).
+Main Success Scenario:
+1. TODO
+
+
+Copy Files Task
+Main Success Scenario:
+1. TODO
+
+
+Publish Build Artifacts Task
+Note
+- 
+Main Success Scenario:
+1. TODO
+
