@@ -1,1 +1,24 @@
-placeholder
+
+- Set piprline name
+- Set Agent Pool
+- Set Agent Specification
+- Get sources
+  - select source
+  - set team project
+  - set repo
+  - set default branch for manual & scheduled builds
+  - set clean
+  - set source tagging 
+  - set report build status
+  - set checkout submodules
+  - set checkout files from LFS
+  - set don't sync sources
+  - set sync tags
+  - set shallow fetch
+  - set depth
+- create build artifacts
+  - TODO
+- copy files
+  - TODO
+- publish artifact 
+  - TODO
